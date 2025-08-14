@@ -24,8 +24,8 @@ url = '/model/'
 weight = 20
 
 [[menu.main]]
-name = 'Resources'
-url = '/resources/'
+name = 'Assets'
+url = '/assets/'
 weight = 30
 
 [[menu.main]]

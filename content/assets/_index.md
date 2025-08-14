@@ -181,13 +181,13 @@ Each resource type requires:
 
 Browse detailed information for each resource type:
 
-- [Cloud Environment](/resources/cloud-environment/)
-- [Compute](/resources/compute/)
-- [Network](/resources/network/)
-- [Databases](/resources/databases/)
-- [Users](/resources/users/)
-- [Secrets and Certificates](/resources/secrets-certificates/)
-- [And more...](/resources/all/)
+- [Cloud Environment](/assets/cloud-environment/)
+- [Compute](/assets/compute/)
+- [Network](/assets/network/)
+- [Databases](/assets/databases/)
+- [Users](/assets/users/)
+- [Secrets and Certificates](/assets/secrets-certificates/)
+- [And more...](/assets/all/)
 
 ---
 

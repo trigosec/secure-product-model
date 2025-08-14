@@ -8,7 +8,7 @@ Unlike traditional control frameworks that are often abstract or high-level, the
 
 The model is built around **three core elements**:
 
-- **Resources**: Foundational elements subject to control and oversight (29 distinct types)
+- **Assets**: Foundational elements subject to control and oversight (29 distinct types)
 - **Governance**: Policies, reviews, scoping, and standards that define management processes
 - **Controls**: Specific actions, checks, and validations that must be performed
 
@@ -16,14 +16,14 @@ The model is built around **three core elements**:
 
 Traditional control frameworks often fall short in engineering environments because they lack specificity and practical relevance. This model addresses that gap by:
 
-- **Identifying what needs to be managed** (Resources)
+- **Identifying what needs to be managed** (Assets)
 - **Establishing how it should be managed** (Governance)
 - **Applying and testing the required practices** (Controls)
 
 ## Current Status
 
 - **PCI DSS v4.0.1**: ~90% complete mapping
-- **Core Model**: Resources, Governance, and Controls fully defined
+- **Core Model**: Assets, Governance, and Controls fully defined
 - **Documentation**: Comprehensive website with detailed guidance
 
 ### Planned Regulatory Mappings
@@ -40,7 +40,7 @@ This Hugo static site includes:
 
 - **Homepage**: Model introduction and overview
 - **Model**: Detailed concept explanation and methodology
-- **Resources**: 29 resource types with management guidance
+- **Assets**: 29 asset types with management guidance
 - **Governance**: Policies, reviews, scope, and standards
 - **Controls**: Security controls organized by category
 - **About**: Project roadmap and contribution information
@@ -102,7 +102,7 @@ secure-product-framework/
 │   ├── controls/     # Security controls
 │   ├── model/        # Model overview
 │   ├── governance/   # Governance documentation
-│   └── resources/    # Resource types
+│   └── assets/       # Asset types
 ├── layouts/          # Hugo templates
 │   ├── _default/     # Default templates
 │   └── index.html    # Homepage template
@@ -118,9 +118,9 @@ secure-product-framework/
 
 ## Content Organization
 
-### Resources (29 Types)
+### Assets (29 Types)
 
-Infrastructure, application, data, identity & access, physical, and process resources including:
+Infrastructure, application, data, identity & access, physical, and process assets including:
 - Cloud environments (AWS, GCP, Azure)
 - Compute resources (VMs, containers, serverless)
 - Storage systems (databases, file storage, object storage)

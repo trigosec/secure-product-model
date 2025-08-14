@@ -129,7 +129,7 @@ Planned mappings include:
 
 ## Next Steps
 
-1. **Explore the [Resources](/resources/)** section to understand what needs to be managed
+1. **Explore the [Assets](/assets/)** section to understand what needs to be managed
 2. **Review [Governance](/governance/)** requirements for your organization
 3. **Implement [Controls](/controls/)** based on your regulatory requirements
 4. **Use the mappings** to trace compliance across multiple standards
