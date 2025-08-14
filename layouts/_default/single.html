@@ -1,0 +1,107 @@
+{{ define "main" }}
+<div class="container">
+    <article class="single-content">
+        <header class="content-header">
+            <div class="breadcrumb">
+                <a href="{{ "/" | relURL }}">Home</a>
+                {{ if .Parent }}
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+                {{ end }}
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">{{ .Title }}</span>
+            </div>
+
+            <h1 class="content-title">{{ .Title }}</h1>
+
+            {{ if .Description }}
+            <p class="content-description">{{ .Description }}</p>
+            {{ end }}
+
+            <div class="content-meta">
+                {{ if .Date }}
+                <span class="meta-date">
+                    <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Last updated: {{ .Date.Format "January 2, 2006" }}
+                </span>
+                {{ end }}
+
+                {{ if .ReadingTime }}
+                <span class="meta-reading-time">
+                    <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                    {{ .ReadingTime }} min read
+                </span>
+                {{ end }}
+            </div>
+        </header>
+
+        <div class="content-body">
+            {{ .Content }}
+        </div>
+
+        <footer class="content-footer">
+            {{ if or .PrevInSection .NextInSection }}
+            <nav class="page-navigation">
+                {{ if .PrevInSection }}
+                <div class="nav-prev">
+                    <a href="{{ .PrevInSection.RelPermalink }}" class="nav-link">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"></polyline>
+                        </svg>
+                        <div class="nav-content">
+                            <span class="nav-label">Previous</span>
+                            <span class="nav-title">{{ .PrevInSection.Title }}</span>
+                        </div>
+                    </a>
+                </div>
+                {{ end }}
+
+                {{ if .NextInSection }}
+                <div class="nav-next">
+                    <a href="{{ .NextInSection.RelPermalink }}" class="nav-link">
+                        <div class="nav-content">
+                            <span class="nav-label">Next</span>
+                            <span class="nav-title">{{ .NextInSection.Title }}</span>
+                        </div>
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,18 15,12 9,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                {{ end }}
+            </nav>
+            {{ end }}
+
+            <div class="content-contribute">
+                <p>
+                    <svg class="contribute-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    Help improve this page -
+                    <a href="#" class="contribute-link">Edit on GitHub</a>
+                </p>
+            </div>
+        </footer>
+    </article>
+
+    {{ if .TableOfContents }}
+    <aside class="table-of-contents">
+        <div class="toc-container">
+            <h3 class="toc-title">Table of Contents</h3>
+            <div class="toc-content">
+                {{ .TableOfContents }}
+            </div>
+        </div>
+    </aside>
+    {{ end }}
+</div>
+{{ end }}

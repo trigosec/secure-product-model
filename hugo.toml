@@ -1,0 +1,74 @@
+baseURL = 'https://secure-product-model.org/'
+languageCode = 'en-us'
+title = 'Secure Product Model'
+theme = ''
+
+[params]
+description = 'A practical security model designed specifically for engineering and technology teams'
+author = 'Secure Product Model'
+version = '1.0'
+logo = '/images/logo.png'
+license = 'CC BY-SA 4.0'
+license_url = 'https://creativecommons.org/licenses/by-sa/4.0/'
+github_url = 'https://github.com/trigosec/secure-product-model'
+
+[menu]
+[[menu.main]]
+name = 'Home'
+url = '/'
+weight = 10
+
+[[menu.main]]
+name = 'Model'
+url = '/model/'
+weight = 20
+
+[[menu.main]]
+name = 'Resources'
+url = '/resources/'
+weight = 30
+
+[[menu.main]]
+name = 'Governance'
+url = '/governance/'
+weight = 40
+
+[[menu.main]]
+name = 'Controls'
+url = '/controls/'
+weight = 50
+
+[[menu.main]]
+name = 'About'
+url = '/about/'
+weight = 60
+
+[[menu.main]]
+name = 'License'
+url = '/license/'
+weight = 70
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+style = 'github'
+lineNos = true
+
+[outputs]
+home = ['HTML', 'RSS', 'JSON']
+page = ['HTML']
+section = ['HTML', 'RSS']
+
+[imaging]
+resampleFilter = 'lanczos'
+quality = 85
+
+[minify]
+disableHTML = false
+disableCSS = false
+disableJS = false
+disableJSON = false
+disableSVG = false
+disableXML = false

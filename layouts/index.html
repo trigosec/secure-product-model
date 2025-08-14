@@ -1,0 +1,312 @@
+{{ define "main" }}
+<div class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                {{ if .Site.Params.logo }}
+                <img src="{{ "/images/logo.png" | relURL }}" alt="{{ .Site.Title }} Logo" class="hero-logo">
+                {{ else }}
+                <span class="hero-icon">🔒</span>
+                {{ end }}
+                Secure Product Model
+            </h1>
+            <p class="hero-subtitle">
+                A practical security model designed specifically for engineering and technology teams
+            </p>
+            <p class="hero-description">
+                Unlike traditional control frameworks that remain abstract, this model provides concrete,
+                actionable guidance that aligns with how technology organizations actually operate.
+            </p>
+            <div class="hero-actions">
+                <a href="{{ "/model/" | relURL }}" class="btn btn-primary">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    Get Started
+                </a>
+                <a href="{{ "/about/" | relURL }}" class="btn btn-secondary">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m9,12 2,2 4,-4"></path>
+                    </svg>
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-section">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">
+            Three simple areas that cover everything you need to secure your product
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 7v10c0 2.21 0 3.21.59 3.8.59.59 1.59.59 3.8.59h8.22c2.21 0 3.21 0 3.8-.59.59-.59.59-1.59.59-3.8V7M4 7l8-4 8 4M4 7l8 4 8-4"></path>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Resources</h3>
+                <p class="feature-description">
+                    Your actual stuff - databases, APIs, cloud accounts, user systems.
+                    We've mapped out 29 types so you know exactly what needs securing.
+                </p>
+                <a href="{{ "/resources/" | relURL }}" class="feature-link">
+                    Explore Resources
+                    <svg class="link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Governance</h3>
+                <p class="feature-description">
+                    The policies and processes that keep everything running smoothly.
+                    Think access reviews, security policies, and the boring-but-important stuff.
+                </p>
+                <a href="{{ "/governance/" | relURL }}" class="feature-link">
+                    View Governance
+                    <svg class="link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Controls</h3>
+                <p class="feature-description">
+                    The actual security measures you implement. Specific, testable things like
+                    "enable MFA" or "rotate database passwords every 90 days."
+                </p>
+                <a href="{{ "/controls/" | relURL }}" class="feature-link">
+                    Browse Controls
+                    <svg class="link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="benefits-section">
+    <div class="container">
+        <div class="benefits-content">
+            <div class="benefits-text">
+                <h2 class="section-title">The Problem We're Solving</h2>
+                <p class="section-description">
+                    Most security compliance feels like it was written by lawyers for lawyers. You get vague requirements
+                    like "implement appropriate access controls" - but what does that actually mean for your API or database?
+                    We built this because we were tired of translating compliance-speak into actionable engineering work.
+                </p>
+
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"></path>
+                                <path d="m19 9-5 5-4-4-3 3"></path>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Know what you're securing</h3>
+                            <p>Complete inventory of your systems, databases, and infrastructure</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Set up the processes that work</h3>
+                            <p>Policies and reviews that actually fit your team's workflow</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Implement specific controls</h3>
+                            <p>Clear steps you can actually follow and test in your environment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="benefits-visual">
+                <div class="framework-diagram">
+                    <div class="diagram-layer">
+                        <div class="layer-box governance">
+                            <span class="layer-label">Governance</span>
+                            <span class="layer-sublabel">Policies & Reviews</span>
+                        </div>
+                    </div>
+                    <div class="diagram-layer">
+                        <div class="layer-box controls">
+                            <span class="layer-label">Controls</span>
+                            <span class="layer-sublabel">Actions & Validations</span>
+                        </div>
+                    </div>
+                    <div class="diagram-layer">
+                        <div class="layer-box resources">
+                            <span class="layer-label">Resources</span>
+                            <span class="layer-sublabel">Systems & Assets</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="coverage-section">
+    <div class="container">
+        <h2 class="section-title">Regulatory Coverage</h2>
+        <p class="section-subtitle">
+            Currently mapped to PCI DSS v4.0.1 with expanding coverage
+        </p>
+
+        <div class="coverage-grid">
+            <div class="coverage-item completed">
+                <div class="coverage-status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                </div>
+                <div class="coverage-content">
+                    <h3>PCI DSS v4.0.1</h3>
+                    <p>~90% complete mapping</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coverage-item planned">
+                <div class="coverage-status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                </div>
+                <div class="coverage-content">
+                    <h3>ISO 27001</h3>
+                    <p>International information security standard</p>
+                    <span class="status-badge">Planned</span>
+                </div>
+            </div>
+
+            <div class="coverage-item planned">
+                <div class="coverage-status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                </div>
+                <div class="coverage-content">
+                    <h3>DORA</h3>
+                    <p>EU Digital Operational Resilience Act</p>
+                    <span class="status-badge">Planned</span>
+                </div>
+            </div>
+
+            <div class="coverage-item planned">
+                <div class="coverage-status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                </div>
+                <div class="coverage-content">
+                    <h3>SOC 2</h3>
+                    <p>Service Organization Control 2</p>
+                    <span class="status-badge">Planned</span>
+                </div>
+            </div>
+
+            <div class="coverage-item planned">
+                <div class="coverage-status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                </div>
+                <div class="coverage-content">
+                    <h3>NIS2</h3>
+                    <p>EU Network and Information Systems Directive</p>
+                    <span class="status-badge">Planned</span>
+                </div>
+            </div>
+
+            <div class="coverage-item planned">
+                <div class="coverage-status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                </div>
+                <div class="coverage-content">
+                    <h3>MiCA</h3>
+                    <p>EU Markets in Crypto-Assets Regulation</p>
+                    <span class="status-badge">Planned</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Stop Fighting Compliance?</h2>
+            <p class="cta-description">
+                Jump in and see how security requirements map to your actual infrastructure.
+                No more guessing what auditors want.
+            </p>
+            <div class="cta-actions">
+                <a href="{{ "/model/" | relURL }}" class="btn btn-primary">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                    </svg>
+                    Model Overview
+                </a>
+                <a href="{{ "/resources/" | relURL }}" class="btn btn-outline">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 7v10c0 2.21 0 3.21.59 3.8.59.59 1.59.59 3.8.59h8.22c2.21 0 3.21 0 3.8-.59.59-.59.59-1.59.59-3.8V7M4 7l8-4 8 4M4 7l8 4 8-4"></path>
+                    </svg>
+                    Browse Resources
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{ end }}

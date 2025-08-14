@@ -1,0 +1,74 @@
+ID,Expectation,Details,
+[[ G.Policy ]],Policies,,Parameters
+G.Policy.AcceptableUse,Acceptable Use Policy,"technology, hardware, software
+",
+G.Policy.Auth,"Authentication (+ password) policy
+",,
+G.Policy.DataRetentionAndDisposal,"Data retention and disposal
+",,
+G.Policy.EncryptionAndKeyManagement,Encryption and key management policy,,
+G.Policy.MediaDestruction,Media destruction policy,,
+G.Policy.Security,Security Policy,"- CISO or other exec, explicitely accountable for security
+- updates within year if risk environment changes
+- Roles and responsibilities (PCI)
+- Locations
+- System components
+- Segmentation controls
+- Connection to 3rd parties
+- Security strategy, including:
+  - how technology support compliance with PCI DSS
+  - remediations to outdate tech
+- RACI matrix included in policy",
+[[ G.Review ]],"Reviews of policies, ...",,Parameters
+G.Review.Access,"Access, permissions reviews",with right approvals,frequency [PCI 6 months for user access]
+G.Review.Awareness,Update cycle for awareness program,,frequency [PCI yearly]
+G.Review.Encryption,Regular review of cryptographic cipher suites and protocols,,frequency [PCI yearly]
+G.Review.Endpoint,"Regular review of endpoint devices, including those not at risk of malware",,frequency [PCI <= yearly]
+G.Review.Facility,"Security review of the facilities, processes",,frequency [PCI yearly]
+G.Review.IncidentResponsePlan,regularly + based on lesson learned,,frequency [PCI yearly]
+G.Review.NetworkSecurityControls,As part of the IaC reviews,,frequency [PCI 6 months]
+G.Review.PhysicalMedia,Review inventory of physical media,,frequency [PCI yearly]
+G.Review.Policies,Policy reviews,,frequency [PCI yearly]
+G.Review.ThirdParties,,,frequency [PCI yearly]
+G.Review.TRA,Targeted Risk Analysis,- Approved by senior leadership,frequency [PCI yearly]
+[[ G.Scope ]],Items that define the scope of the security programme,,Parameters
+G.Scope.Awareness,Awareness training scope,"- Covering:
+  - Security DOs and DON'Ts
+    - Using strong authentication factors
+    - Protecting authentication factors
+    - Not to reuse previously used factors
+    - Change factors if there is suspicion there maybe be a compromise
+    - Report incident if compromise is suspected
+  - Phishing
+  - Social engineering
+  - Acceptable use
+  - POS device management [if in-scope]",
+G.Scope.CryptographicArchitecture,,,
+G.Scope.DataFlows,Data flows for the systems in scope,,
+G.Scope.Locations,"where data is stored, processed, transmitted",,
+G.Scope.Network,Network diagram for the systems in scope,,
+G.Scope.Organisation,,,
+G.Scope.RACI,"RACI matrix, clarifying roles and responsibilities",,
+G.Scope.SelfDeveloped,"services, products",,
+G.Scope.ThirdParties,,,
+G.Scope.TRA,Targeted Risk Analysis,"- Approved by senior leadership
+- Including:
+  - frequency of reviews for endpoints not under anti-malware protection
+  - frequency malware scans in endpoints
+  - access and role reviews for system accounts
+  - password/passphrase change frequency
+  - POS device inspections
+  - frequency log reviews (if not mandated by PCI)
+  - SLAs to fix non-high and non-critical vulnerabilities
+  - Change and tamper detection mechanism frequency [<= weekly]
+  - frequency of periodic training for incident response",
+[[ G.Standard ]],Policies,,Parameters
+G.Standard.IncidentResponsePlan,Incident Response Plan,"- actions are taken for disruptions in security controls
+- Roles and responsibilities
+- Contacts and communication strategies
+- Notification to payment brands and acquirers, if needed
+- Business recovery and continuity process, including backups
+- Legal requirements for reporting compromises or breaches  
+- PCI: PAN or SAD found where it shouldn't be",
+G.Standard.PENTestingMethodology,PEN testing methodology,,
+G.Standard.SecureDevelopment,,,

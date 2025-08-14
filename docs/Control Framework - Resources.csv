@@ -1,0 +1,39 @@
+Resources,Description,Notes
+Backups,"read-only, frequency, retention, integrity checks, scheduled testing  <= 1 year, dispersion across several AZs, Regions, Clouds",
+Changes,"including infrastructure changes, 4-6 eyes principle, ...","- Inventory extraction through Jira, or equivalent"
+Cloud environment,"AWS accounts, GCP Projects, ...","- Inventory can be generated from the cost explorer at the root account
+- Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html"
+Compute,"VM, K8S clusters, lambdas",
+Customer,"user accounts, including systems they can connect to and with which roles",
+Databases,"SQL, NoSQL","- Inventory extraction through the cloud provider API
+- Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html"
+Endpoint devices,"laptops, PCs, ... including security scoring
+List of devices not at risk of malware, with reasoning why",
+Facilities,,
+File storage,"AWS EFS/EBS, GCP Elastifile Cloud File, physical media","- Inventory extraction through the cloud provider API
+- Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html"
+Logs,,
+Network,"Inventory of the VPCs and networks in the accouts, including ingres/egres routing information, VPN routes, DNS","- Inventory extraction through the cloud provider API
+- Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html"
+Object storage,"AWS S3, GCP Cloud Storage, ...","- Inventory extraction through the cloud provider API
+- Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html"
+Outsourced controls,"These are controls that are implemented by a third party, and used by the entity",
+Payment pages,,
+"PCI Sensitive (SAD, PAN)",,
+Physical media,,
+Policies,,
+POS Devices,"Device inventory, including: Make and model, Location, Serial number",
+Process,with details on how to test them,
+RBAC,which roles have which permissions for which system,
+Roles and permissions,"Standardising what users can do, depending on their responsibilities",
+Secrets and certificates,"credentials, keys including standards, certificates including issuing CA, expiration date",
+Self-developed services,Exposed to the internet and internal,
+SOC,"Security Operations Center events, tickets, incidents",
+Software repositories,"Github, Gitlab, ...","- Identify infrastructure repositories, OWNERS files, permissions"
+Third-Parties,"Supplier register, including:
+- which PCI DSS requirement is outsourced to this supplier",
+Third-Party reports,"network scans, secret scans in source code, ...",
+Users,"user accounts, including:
+- systems they can connect to and with which roles
+- key events, like Joiner-Mover-Leaver, with approvals
+- FTE vs external",
