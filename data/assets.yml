@@ -1,0 +1,118 @@
+assets:
+- name: Backups
+  description: read-only, frequency, retention, integrity checks, scheduled testing
+    <= 1 year, dispersion across several AZs, Regions, Clouds
+  slug: backups
+- name: Changes
+  description: including infrastructure changes, 4-6 eyes principle, ...
+  notes:
+  - Inventory extraction through Jira, or equivalent
+  slug: changes
+- name: Cloud environment
+  description: AWS accounts, GCP Projects, ...
+  notes:
+  - Inventory can be generated from the cost explorer at the root account
+  - 'Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html'
+  slug: cloud-environment
+- name: Compute
+  description: VM, K8S clusters, lambdas
+  slug: compute
+- name: Customer
+  description: user accounts, including systems they can connect to and with which
+    roles
+  slug: customer
+- name: Databases
+  description: SQL, NoSQL
+  notes:
+  - Inventory extraction through the cloud provider API
+  - 'Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html'
+  slug: databases
+- name: Endpoint devices
+  description: laptops, PCs, ... including security scoring List of devices not at
+    risk of malware, with reasoning why
+  slug: endpoint-devices
+- name: Facilities
+  description: ''
+  slug: facilities
+- name: File storage
+  description: AWS EFS/EBS, GCP Elastifile Cloud File, physical media
+  notes:
+  - Inventory extraction through the cloud provider API
+  - 'Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html'
+  slug: file-storage
+- name: Logs
+  description: ''
+  slug: logs
+- name: Network
+  description: Inventory of the VPCs and networks in the accouts, including ingres/egres
+    routing information, VPN routes, DNS
+  notes:
+  - Inventory extraction through the cloud provider API
+  - 'Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html'
+  slug: network
+- name: Object storage
+  description: AWS S3, GCP Cloud Storage, ...
+  notes:
+  - Inventory extraction through the cloud provider API
+  - 'Alternatively: https://docs.aws.amazon.com/solutions/latest/workload-discovery-on-aws/solution-overview.html'
+  slug: object-storage
+- name: Outsourced controls
+  description: These are controls that are implemented by a third party, and used
+    by the entity
+  slug: outsourced-controls
+- name: Payment pages
+  description: ''
+  slug: payment-pages
+- name: PCI Sensitive (SAD, PAN)
+  description: ''
+  slug: pci-sensitive-sad-pan
+- name: Physical media
+  description: ''
+  slug: physical-media
+- name: Policies
+  description: ''
+  slug: policies
+- name: POS Devices
+  description: 'Device inventory, including: Make and model, Location, Serial number'
+  slug: pos-devices
+- name: Process
+  description: with details on how to test them
+  slug: process
+- name: RBAC
+  description: which roles have which permissions for which system
+  slug: rbac
+- name: Roles and permissions
+  description: Standardising what users can do, depending on their responsibilities
+  slug: roles-and-permissions
+- name: Secrets and certificates
+  description: credentials, keys including standards, certificates including issuing
+    CA, expiration date
+  slug: secrets-and-certificates
+- name: Self-developed services
+  description: Exposed to the internet and internal
+  slug: self-developed-services
+- name: SOC
+  description: Security Operations Center events, tickets, incidents
+  slug: soc
+- name: Software repositories
+  description: Github, Gitlab, ...
+  notes:
+  - Identify infrastructure repositories, OWNERS files, permissions
+  slug: software-repositories
+- name: Third-Parties
+  description: 'Supplier register, including: - which PCI DSS requirement is outsourced
+    to this supplier'
+  slug: third-parties
+- name: Third-Party reports
+  description: network scans, secret scans in source code, ...
+  slug: third-party-reports
+- name: Users
+  description: 'user accounts, including: - systems they can connect to and with which
+    roles - key events, like Joiner-Mover-Leaver, with approvals - FTE vs external'
+  slug: users
+meta:
+  title: Secure Product Model Assets
+  description: Foundational elements subject to control and oversight
+  count: 28
+  source: Control Framework - Assets.csv
+  generated_by: csv2yaml.py
