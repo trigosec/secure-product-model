@@ -1,0 +1,135 @@
+governance:
+- id: '[[ G.Policy ]]'
+  expectation: Policies
+  slug: policies
+- id: G.Policy.AcceptableUse
+  expectation: Acceptable Use Policy
+  slug: acceptable-use-policy
+  details: technology, hardware, software
+- id: G.Policy.Auth
+  expectation: Authentication (+ password) policy
+  slug: authentication-+-password-policy
+- id: G.Policy.DataRetentionAndDisposal
+  expectation: Data retention and disposal
+  slug: data-retention-and-disposal
+- id: G.Policy.EncryptionAndKeyManagement
+  expectation: Encryption and key management policy
+  slug: encryption-and-key-management-policy
+- id: G.Policy.MediaDestruction
+  expectation: Media destruction policy
+  slug: media-destruction-policy
+- id: G.Policy.Security
+  expectation: Security Policy
+  slug: security-policy
+  details: '- CISO or other exec, explicitely accountable for security - updates within
+    year if risk environment changes - Roles and responsibilities (PCI) - Locations
+    - System components - Segmentation controls - Connection to 3rd parties - Security
+    strategy, including: - how technology support compliance with PCI DSS - remediations
+    to outdate tech - RACI matrix included in policy'
+- id: '[[ G.Review ]]'
+  expectation: Reviews of policies, ...
+  slug: reviews-of-policies-...
+- id: G.Review.Access
+  expectation: Access, permissions reviews
+  slug: access-permissions-reviews
+  details: with right approvals
+- id: G.Review.Awareness
+  expectation: Update cycle for awareness program
+  slug: update-cycle-for-awareness-program
+- id: G.Review.Encryption
+  expectation: Regular review of cryptographic cipher suites and protocols
+  slug: regular-review-of-cryptographic-cipher-suites-and-protocols
+- id: G.Review.Endpoint
+  expectation: Regular review of endpoint devices, including those not at risk of
+    malware
+  slug: regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware
+- id: G.Review.Facility
+  expectation: Security review of the facilities, processes
+  slug: security-review-of-the-facilities-processes
+- id: G.Review.IncidentResponsePlan
+  expectation: regularly + based on lesson learned
+  slug: regularly-+-based-on-lesson-learned
+- id: G.Review.NetworkSecurityControls
+  expectation: As part of the IaC reviews
+  slug: as-part-of-the-iac-reviews
+- id: G.Review.PhysicalMedia
+  expectation: Review inventory of physical media
+  slug: review-inventory-of-physical-media
+- id: G.Review.Policies
+  expectation: Policy reviews
+  slug: policy-reviews
+- id: G.Review.ThirdParties
+  expectation: ''
+  slug: g.review.thirdparties
+- id: G.Review.TRA
+  expectation: Targeted Risk Analysis
+  slug: targeted-risk-analysis
+  details: '- Approved by senior leadership'
+- id: '[[ G.Scope ]]'
+  expectation: Items that define the scope of the security programme
+  slug: items-that-define-the-scope-of-the-security-programme
+- id: G.Scope.Awareness
+  expectation: Awareness training scope
+  slug: awareness-training-scope
+  details: '- Covering: - Security DOs and DON''Ts - Using strong authentication factors
+    - Protecting authentication factors - Not to reuse previously used factors - Change
+    factors if there is suspicion there maybe be a compromise - Report incident if
+    compromise is suspected - Phishing - Social engineering - Acceptable use - POS
+    device management [if in-scope]'
+- id: G.Scope.CryptographicArchitecture
+  expectation: ''
+  slug: g.scope.cryptographicarchitecture
+- id: G.Scope.DataFlows
+  expectation: Data flows for the systems in scope
+  slug: data-flows-for-the-systems-in-scope
+- id: G.Scope.Locations
+  expectation: where data is stored, processed, transmitted
+  slug: where-data-is-stored-processed-transmitted
+- id: G.Scope.Network
+  expectation: Network diagram for the systems in scope
+  slug: network-diagram-for-the-systems-in-scope
+- id: G.Scope.Organisation
+  expectation: ''
+  slug: g.scope.organisation
+- id: G.Scope.RACI
+  expectation: RACI matrix, clarifying roles and responsibilities
+  slug: raci-matrix-clarifying-roles-and-responsibilities
+- id: G.Scope.SelfDeveloped
+  expectation: services, products
+  slug: services-products
+- id: G.Scope.ThirdParties
+  expectation: ''
+  slug: g.scope.thirdparties
+- id: G.Scope.TRA
+  expectation: Targeted Risk Analysis
+  slug: targeted-risk-analysis
+  details: '- Approved by senior leadership - Including: - frequency of reviews for
+    endpoints not under anti-malware protection - frequency malware scans in endpoints
+    - access and role reviews for system accounts - password/passphrase change frequency
+    - POS device inspections - frequency log reviews (if not mandated by PCI) - SLAs
+    to fix non-high and non-critical vulnerabilities - Change and tamper detection
+    mechanism frequency [<= weekly] - frequency of periodic training for incident
+    response'
+- id: '[[ G.Standard ]]'
+  expectation: Policies
+  slug: policies
+- id: G.Standard.IncidentResponsePlan
+  expectation: Incident Response Plan
+  slug: incident-response-plan
+  details: '- actions are taken for disruptions in security controls - Roles and responsibilities
+    - Contacts and communication strategies - Notification to payment brands and acquirers,
+    if needed - Business recovery and continuity process, including backups - Legal
+    requirements for reporting compromises or breaches - PCI: PAN or SAD found where
+    it shouldn''t be'
+- id: G.Standard.PENTestingMethodology
+  expectation: PEN testing methodology
+  slug: pen-testing-methodology
+- id: G.Standard.SecureDevelopment
+  expectation: ''
+  slug: g.standard.securedevelopment
+meta:
+  title: Secure Product Model Governance
+  description: Governance policies and expectations for the product framework
+  count: 34
+  source: Control Framework - Governance.csv
+  generated_by: csv2yaml.py

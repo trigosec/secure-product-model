@@ -1,0 +1,744 @@
+controls:
+- id: '[[ C.Account ]]'
+  name: Accounts [user, service]
+  slug: accounts-[user-service]
+- id: C.Account.InactiveDisableDelete
+  name: Inactive accounts disabled/removed
+  slug: inactive-accounts-disabled-removed
+  parameters: period [PCI 90 days]
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Customer
+- id: C.Account.Individual
+  name: Group or Shared accounts are either deleted or disabled System/service accounts
+    can't be used by users
+  slug: group-or-shared-accounts-are-either-deleted-or-disabled-system-service-accounts-can't-be-used-by-users
+  details: Only use personal accounts Normally relevant for third parties as IdP is
+    used for anything else
+  control_type: Preventive
+  tested_on_asset_inventory: Self-developed services, Third-Parties
+- id: C.Account.ElevatedAccess
+  name: Elevated access
+  slug: elevated-access
+  details: 'Ideally: elevated access is temporal Independently, monitoring for: -
+    access - Actions performed All captured in logs, triggering security events'
+  inventory: Elevated Access - who accessed - reason - when and for how long - actions
+    performed - showing alerts, security tickets & actions taken by security
+  control_type: Detective
+  tested_on_asset_inventory: Network, Cloud environment, Compute, Databases, Endpoint
+    devices, File storage, Object storage, Secrets and certificates, Self-developed
+    services, Software repositories, Logs, Users
+- id: C.Account.LeastPriviledge
+  name: Least priviledge access
+  slug: least-priviledge-access
+  details: based on role and job needs
+  inventory: '- Check: default is to deny all - confirm yearly RBAC review, with manager
+    approvals - Access to view full PAN - Access to CHD'
+  control_type: Preventive
+  tested_on_asset_inventory: RBAC
+- id: C.Account.Lockout
+  name: Account lockout
+  slug: account-lockout
+  details: Account lockout if threshold failed login attempts is reached. Lock the
+    account for period of time, or until the identity is confirmed
+  parameters: '- max failed attemps [PCI <= 10] - min duration [PCI >= 30min]'
+  inventory: 'Users: Field: account status Lockout History: IT tickets Trend analysis
+    Causes'
+  control_type: Corrective
+  tested_on_asset_inventory: Users, Customer
+- id: C.Account.NoDefaults
+  name: Default accounts are deleted or disabled No default permissions (deny all)
+  slug: default-accounts-are-deleted-or-disabled-no-default-permissions-deny-all
+  details: typically for third party software
+  control_type: Preventive
+  tested_on_asset_inventory: Self-developed services, Third-Parties
+- id: C.Account.Revoke
+  name: Revoke accounts on termination
+  slug: revoke-accounts-on-termination
+  details: Access for terminated users immediately revoked
+  control_type: Preventive
+  tested_on_asset_inventory: Users
+- id: C.Account.SeparationOfDuties
+  name: Separation of duties
+  slug: separation-of-duties
+  control_type: Preventive
+  tested_on_asset_inventory: Changes, RBAC
+- id: C.Account.SessionTimeout
+  name: Session timeout
+  slug: session-timeout
+  parameters: timeout [PCI <= 15min]
+  control_type: Preventive
+  tested_on_asset_inventory: Endpoint devices, Self-developed services
+- id: '[[ C.Auth ]]'
+  name: Multi-Factor Authentication
+  slug: multi-factor-authentication
+- id: C.Auth.Enforced
+  name: authentication can't be bypassed and with at least 2 factors being enforced
+    for users
+  slug: authentication-can't-be-bypassed-and-with-at-least-2-factors-being-enforced-for-users
+  control_type: Preventive
+  tested_on_asset_inventory: Self-developed services, Third-Parties
+- id: C.Auth.NoReplay
+  name: protection against replay attacks
+  slug: protection-against-replay-attacks
+  details: Okta link
+  control_type: Preventive
+  tested_on_asset_inventory: Self-developed services, Third-Parties
+- id: C.Auth.IdentifyOnChange
+  name: User identity is verified before modifying authentication factors
+  slug: user-identity-is-verified-before-modifying-authentication-factors
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Customer
+- id: C.Auth.KeyChange
+  name: Change of encryption keys
+  slug: change-of-encryption-keys
+  control_type: Preventive
+  tested_on_asset_inventory: Secrets and certificates
+- id: C.Auth.PasswordComplexity
+  name: 'Password complexity: >= 12 characters, numbers symbols'
+  slug: password-complexity:->=-12-characters-numbers-symbols
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Customer
+- id: C.Auth.PasswordInit
+  name: First account password is generated automatically, and changed on first login
+  slug: first-account-password-is-generated-automatically-and-changed-on-first-login
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Customer, Process
+- id: C.Auth.PasswordChange
+  name: Password is regularly changed and using old ones is avoided
+  slug: password-is-regularly-changed-and-using-old-ones-is-avoided
+  parameters: '- Period [PCI 90 days] - Uniqueness constraints [PCI 4]'
+  inventory: 'User: Field: password age'
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Customer
+- id: C.Auth.NoShare
+  name: Passwords, security tokens, smart cards, certificates, ... are not shared
+    among users
+  slug: passwords-security-tokens-smart-cards-certificates-...-are-not-shared-among-users
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Customer
+- id: '[[ C.Availability ]]'
+  name: Availability
+  slug: availability
+- id: C.Availability.MultiAZ
+  name: Multi-AZ
+  slug: multi-az
+  details: 'Resilience control through the use of multiple availability zones - Must-have:
+    Active-Active - Traffic analysis at the ingress points should show traffic on
+    all availability zones'
+  control_type: Preventive
+  tested_on_asset_inventory: Databases, Network, File storage, Self-developed services
+- id: C.Availability.MultiRegion
+  name: Multi-region
+  slug: multi-region
+  details: 'Resilience control through the use of a multi-region setup - IF Active-Active:
+    Traffic analysis at the ingress points should show traffic on both regions - ELSE:
+    Traffic failover is automated and tested on a schedule (quarterly, every 6 months,
+    yearly)'
+  control_type: Preventive
+  tested_on_asset_inventory: Databases, Network, File storage, Self-developed services
+- id: '[[ C.Awareness ]]'
+  name: Awareness
+  slug: awareness
+- id: C.Awareness.EmployeeTraining
+  name: Upon hire and refresher
+  slug: upon-hire-and-refresher
+  parameters: frequency [PCI yearly]
+  control_type: Preventive
+  tested_on_asset_inventory: Users
+- id: C.Awareness.CustomerGuidance
+  name: ''
+  slug: c.awareness.customerguidance
+  control_type: Preventive
+  tested_on_asset_inventory: Customer
+- id: '[[ C.Backup ]]'
+  name: Backups
+  slug: backups
+- id: C.Backup.Encryption
+  name: Backup encryption
+  slug: backup-encryption
+  control_type: Preventive
+  tested_on_asset_inventory: Backups
+- id: C.Backup.Frequency
+  name: Backup frequency
+  slug: backup-frequency
+  details: Depending on data classification or resource type, environment
+  control_type: Preventive
+  tested_on_asset_inventory: Backups
+- id: C.Backup.Integrity
+  name: Backup integrity checks
+  slug: backup-integrity-checks
+  details: To confirm the data stored is correct
+  control_type: Preventive
+  tested_on_asset_inventory: Backups
+- id: C.Backup.ReadOnly
+  name: Backup readonly
+  slug: backup-readonly
+  details: To avoid changes after making the backups
+  control_type: Preventive
+  tested_on_asset_inventory: Backups
+- id: C.Backup.Storage
+  name: Backup storage
+  slug: backup-storage
+  details: Distributed in several AZs, Regions, Clouds
+  control_type: Preventive
+  tested_on_asset_inventory: Backups
+- id: C.Backup.Testing
+  name: Backup testing
+  slug: backup-testing
+  details: at least yearly
+  control_type: Preventive
+  tested_on_asset_inventory: Backups
+- id: C.Backup.Classification
+  name: Data classification for backups
+  slug: data-classification-for-backups
+  details: Backup data classification based on data stored
+  control_type: Preventive
+  tested_on_asset_inventory: Backups
+- id: '[[ C.Code ]]'
+  name: Code
+  slug: code
+- id: C.Code.IaC
+  name: Infrastructure as Code
+  slug: infrastructure-as-code
+  details: Infrastructure change management part of standard software change management
+  control_type: Detective
+  tested_on_asset_inventory: Changes, Software repositories
+- id: C.Code.NoHardcodedSecrets
+  name: No hardcoded secrets in code, CI/CD pipelines
+  slug: no-hardcoded-secrets-in-code-ci-cd-pipelines
+  details: Monitor source code, specially deployment scripts to avoid the usage of
+    hardcoded credentials
+  inventory: 'Third-party reports: Metrics for secrets in code'
+  control_type: Preventive
+  tested_on_asset_inventory: Third-Party reports, Software repositories
+- id: C.Code.SBOM
+  name: Software Bill of Materials
+  slug: software-bill-of-materials
+  control_type: Detective
+  tested_on_asset_inventory: Third-Party reports, Self-developed services, Software
+    repositories
+- id: C.Code.Reviews
+  name: Code reviews, aka 4-eyes principle
+  slug: code-reviews-aka-4-eyes-principle
+  details: Validating every change is reviewed by another developer
+  control_type: Preventive
+  tested_on_asset_inventory: Software repositories, Changes
+- id: '[[ C.Data ]]'
+  name: Data
+  slug: data
+- id: C.Data.Disposal
+  name: Monitored disposal
+  slug: monitored-disposal
+  details: '- Monitor disposal activities (ie: does it happen at the appropriate frequency?)
+    - Maintain logs'
+  control_type: Preventive
+  tested_on_asset_inventory: Object storage, Databases, File storage, Backups
+- id: C.Data.Isolation
+  name: 'ie: per customer'
+  slug: ie:-per-customer
+  control_type: Preventive
+  tested_on_asset_inventory: Object storage, Databases, File storage, Backups, Customer
+- id: C.Data.Minimisation
+  name: Store only the required data, no more
+  slug: store-only-the-required-data-no-more
+  control_type: Preventive
+  tested_on_asset_inventory: Object storage, Databases, File storage, Backups
+- id: C.Data.NoProdInTest
+  name: No prod data in test
+  slug: no-prod-data-in-test
+  details: 'Alternative: Anonymised prod data in test'
+  control_type: Preventive
+  tested_on_asset_inventory: Policies
+- id: C.Data.NoTestInProd
+  name: No test data in prod
+  slug: no-test-data-in-prod
+  control_type: Preventive
+  tested_on_asset_inventory: Policies
+- id: C.Data.Retention
+  name: Monitored rentention
+  slug: monitored-rentention
+  inventory: '- Monitor retention through the inventories, ie: oldest backup, oldest
+    database record, ...'
+  control_type: Preventive
+  tested_on_asset_inventory: Object storage, Databases, File storage, Backups
+- id: '[[ C.Encryption ]]'
+  name: Encryption
+  slug: encryption
+- id: C.Encryption.Certificates
+  name: Certificate management
+  slug: certificate-management
+  details: '- Document approach to accessing credentials - Enable auto-updates, at
+    least on a yearly basis'
+  inventory: 'Certs Field: issuing CA Field: expiration'
+  control_type: Preventive
+  tested_on_asset_inventory: Secrets and certificates
+- id: C.Encryption.DataInTransit
+  name: Transfer of data
+  slug: transfer-of-data
+  control_type: Preventive
+  tested_on_asset_inventory: Network, Self-developed services, Third-Parties
+- id: C.Encryption.DataStorage
+  name: Data Storage
+  slug: data-storage
+  details: Monitor if encryption rules are applied
+  control_type: Preventive
+  tested_on_asset_inventory: Databases, File storage, Object storage
+- id: C.Encryption.SecretStorage
+  name: Secret storage
+  slug: secret-storage
+  details: '- No keys or credentials file lying in any environment (prod, non-prod)
+    - Document approach to accessing credentials - Enable auto-updates, at least on
+    a yearly basis - If keys/credentials can''t be updated automatically, identify
+    them in the inventory'
+  control_type: Preventive
+  tested_on_asset_inventory: Secrets and certificates
+- id: C.Encryption.StrongCryptography
+  name: ''
+  slug: c.encryption.strongcryptography
+  control_type: Preventive
+  tested_on_asset_inventory: Secrets and certificates, Users, Customer, File storage,
+    Network, PCI Sensitive
+- id: '[[ C.Endpoint ]]'
+  name: Endpoint
+  slug: endpoint
+- id: C.Endpoint.AntiMalware
+  name: Anti-malware
+  slug: anti-malware
+  details: Including removable media
+  parameters: frequency scans [PCI based on targeted risk analysis]
+  control_type: Preventive
+  tested_on_asset_inventory: Endpoint devices, Third-Party reports
+- id: C.Endpoint.AntiPhishing
+  name: Anti-phishing
+  slug: anti-phishing
+  control_type: Preventive
+  tested_on_asset_inventory: Third-Party reports
+- id: C.Endpoint.Antivirus
+  name: Antivirus
+  slug: antivirus
+  control_type: Preventive
+  tested_on_asset_inventory: Endpoint devices, Third-Party reports
+- id: C.Endpoint.Disposal
+  name: Adequate disposal
+  slug: adequate-disposal
+  control_type: Preventive
+  tested_on_asset_inventory: Endpoint devices, Third-Party reports
+- id: C.Endpoint.EnforcedSecurity
+  name: Security measures can't be disabled by end users
+  slug: security-measures-can't-be-disabled-by-end-users
+- id: C.Endpoint.SecurityThreshold
+  name: Block devices with low score
+  slug: block-devices-with-low-score
+  details: Access blocked as long as the device is considered insecure Alert in case
+    a connected device has a low score
+  control_type: Corrective
+  tested_on_asset_inventory: Endpoint devices
+- id: C.Endpoint.NoDataExports
+  name: Forbid exports to physical media
+  slug: forbid-exports-to-physical-media
+  control_type: Preventive
+  tested_on_asset_inventory: Process, Policies
+- id: '[[ C.Facility ]]'
+  name: Facilities
+  slug: facilities
+- id: C.Facility.AccessForUsers
+  name: Access is controlled and authorised
+  slug: access-is-controlled-and-authorised
+  control_type: Preventive
+  tested_on_asset_inventory: Facilities, Users
+- id: C.Facility.AccessToResources
+  name: Connecting to the network, console access, ...
+  slug: connecting-to-the-network-console-access-...
+  control_type: Preventive
+  tested_on_asset_inventory: Facilities, Network, Compute
+- id: C.Facility.Surveillance
+  name: through video cameras, ...
+  slug: through-video-cameras-...
+  control_type: Preventive
+  tested_on_asset_inventory: Facilities, Users
+- id: C.Facility.Transfer
+  name: Transfer data, equipement from facilities
+  slug: transfer-data-equipement-from-facilities
+  details: including authorised approvals
+  control_type: Preventive
+  tested_on_asset_inventory: Facilities, Physical media
+- id: '[[ C.Host ]]'
+  name: Host
+  slug: host
+- id: C.Host.Disposal
+  name: Monitored disposal
+  slug: monitored-disposal
+  details: '- Monitor disposal activities (ie: does it happen at the appropriate frequency?)
+    - Maintain logs'
+  control_type: Preventive
+  tested_on_asset_inventory: Compute
+- id: C.Host.FileTampering
+  name: Detect non-approved file changes
+  slug: detect-non-approved-file-changes
+  details: Only for stateful setups, including time configuration
+  control_type: Detective
+  tested_on_asset_inventory: Compute
+- id: C.Host.TimeSync
+  name: Time-Synchronization for System clocks
+  slug: time-synchronization-for-system-clocks
+  details: '- Based on UTC - External trusted source - Internal single source'
+  control_type: Preventive
+  tested_on_asset_inventory: Compute
+- id: '[[ C.Ident ]]'
+  name: Identity
+  slug: identity
+- id: C.Ident.OnboardingChecks
+  name: Onboarding checks
+  slug: onboarding-checks
+  details: Previous employment history, public information/social media, criminal
+    records, credit history, reference checks
+  control_type: Preventive
+  tested_on_asset_inventory: Users
+- id: C.Ident.RecurringChecks
+  name: Recurring employee checks
+  slug: recurring-employee-checks
+  details: Criminal records
+  parameters: frequency [PCI bi-yearly]
+  control_type: Preventive
+  tested_on_asset_inventory: Users
+- id: C.Ident.Unique
+  name: User accounts uniquely identified based on UUID, email, ...
+  slug: user-accounts-uniquely-identified-based-on-uuid-email-...
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Customer
+- id: '[[ C.Incident ]]'
+  name: Incident management
+  slug: incident-management
+- id: C.Incident.Response
+  name: 24x7
+  slug: 24x7
+  control_type: Detective
+  tested_on_asset_inventory: SOC, Cloud environment, Compute, Customer, Databases,
+    Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment
+    pages, PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services,
+    Software repositories, Third-Parties, Users
+- id: C.Incident.Testing
+  name: Incident response testing
+  slug: incident-response-testing
+  parameters: frequency [PCI yearly]
+  control_type: Preventive
+  tested_on_asset_inventory: Users, Policies, Process
+- id: C.Incident.Training
+  name: ''
+  slug: c.incident.training
+  parameters: frequency [PCI based on TRA]
+- id: '[[ C.Logs ]]'
+  name: Logs
+  slug: logs
+- id: C.Logs.Alert
+  name: Log alerting
+  slug: log-alerting
+  inventory: alerts, incidents, actions
+  control_type: Detective
+  tested_on_asset_inventory: Logs, SOC
+- id: C.Logs.Availability
+  name: Log availability
+  slug: log-availability
+  details: 'For each system, validate that logs are being monitored. Including: -
+    Access to cardholder data - Access to the audit logs (read-only) - Failed login
+    attempts - Actions related to the user life cycle (creation, updates, deletion)
+    - Actions that change user credentials - Changes to audit log acquisition (starting,
+    stopping/pausing) - Changes to OS configuration - Network logs'
+  control_type: Detective
+  tested_on_asset_inventory: Network, Backups, Cloud environment, Compute, Databases,
+    Endpoint devices, File storage, Object storage, Secrets and certificates, Self-developed
+    services, Software repositories, Logs, Users
+- id: C.Logs.Integrity
+  name: Against modifications
+  slug: against-modifications
+  control_type: Preventive
+  tested_on_asset_inventory: Logs
+- id: C.Logs.Monitor
+  name: Log Monitoring
+  slug: log-monitoring
+  details: 'Recording for each event: - User identification. - Type of event. - Date
+    and time. - Success and failure indication. - Origination of event. - Identity
+    or name of affected data, system component, resource, or service'
+  inventory: '- Identify sources of logs and evaluate they are being gathered - Including
+    audit logs'
+  control_type: Detective
+  tested_on_asset_inventory: Network, Cloud environment, Compute, Databases, Endpoint
+    devices, File storage, Object storage, Secrets and certificates, Self-developed
+    services, Software repositories, Logs, Users
+- id: C.Logs.ReadOnly
+  name: Read only permissions for the log files
+  slug: read-only-permissions-for-the-log-files
+  control_type: Preventive
+  tested_on_asset_inventory: Logs
+- id: C.Logs.Retention
+  name: How long the logs are easily accessible (excluding backups)
+  slug: how-long-the-logs-are-easily-accessible-excluding-backups
+  parameters: period [PCI >= 12 months]
+  control_type: Preventive
+  tested_on_asset_inventory: Logs
+- id: '[[ C.Mail ]]'
+  name: E-Mail
+  slug: e-mail
+- id: C.Mail.DKIM
+  name: E-Mail DKIM
+  slug: e-mail-dkim
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Mail.DMARC
+  name: E-Mail DMARC
+  slug: e-mail-dmarc
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Mail.SPF
+  name: E-Mail SPF
+  slug: e-mail-spf
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: '[[ C.Network ]]'
+  name: Network
+  slug: network
+- id: C.Network.AntiSpoofing
+  name: ''
+  slug: c.network.antispoofing
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.DenyByDefault
+  name: 'Network: Deny by default'
+  slug: network:-deny-by-default
+  details: Based on network inventory, identify the egress points and confirm that
+    the default rule in the firewalls is to deny all traffic
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.ExternalPENTesting
+  name: PEN Testing
+  slug: pen-testing
+  details: '- External reports covering CDE perimeter'
+  parameters: frequency [PCI <= 3 months]
+  control_type: Detective
+  tested_on_asset_inventory: Third-Party reports, Self-developed services, Cloud environment,
+    Network
+- id: C.Network.InternalPENTesting
+  name: PEN Testing
+  slug: pen-testing
+  details: '- External reports covering internal and to verify segmentation'
+  parameters: frequency [PCI <= 3 months]
+  control_type: Detective
+  tested_on_asset_inventory: Third-Party reports, Self-developed services, Cloud environment,
+    Network
+- id: C.Network.IntrusionDetectionPrevention
+  name: IDS/IPS
+  slug: ids-ips
+  details: 'Ideally: - Network, including IDS/IPS outsourced to cloud provider Alternative:
+    - check logs are monitored for the relevant networks - tickets are actioned'
+  control_type: Preventive
+  tested_on_asset_inventory: Outsourced controls, Logs, Network
+- id: C.Network.ProtectPrivateAddresses
+  name: Only disclose public IPs in Public DNS records
+  slug: only-disclose-public-ips-in-public-dns-records
+  details: DNS setup pointing to public services only
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.SecureServices
+  name: Allow only secure services
+  slug: allow-only-secure-services
+  details: '- Allow 443 only - Exceptions require confirmation it is a secure service'
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.SegmentationPCI
+  name: Non-PCI resources shouldn't access directly PCI resources, but use the internet
+  slug: non-pci-resources-shouldn't-access-directly-pci-resources-but-use-the-internet
+  details: 'Segmentation testing: PCI vs non-PCI Network scans on a schedule, testiing
+    for access from non-pci resources to pci resources Alternatively: use the Cloud
+    Network Inventory to analyse network routes'
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.SegmentationPrivate
+  name: Private resources aren't exposed publicly
+  slug: private-resources-aren't-exposed-publicly
+  details: 'Segmentation testing: public vs private Network scans on a schedule, testiing
+    for private resources publicly exposed Alternatively: use the service inventory,
+    to identify private resources publicly exposed'
+  control_type: Preventive
+  tested_on_asset_inventory: Network, Self-developed services
+- id: C.Network.SegmentationSecurityLevel
+  name: Services with different security levels/controls are separate
+  slug: services-with-different-security-levels-controls-are-separate
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.StatefulFirewall
+  name: ''
+  slug: c.network.statefulfirewall
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.UntrustedOffice
+  name: Untrusted office network
+  slug: untrusted-office-network
+  details: No special connections or ports, no configuration on the network hardward
+    apart from the minimal required to give internet access
+  inventory: '- Inventory of physical network equipment - TEST: No office routes in
+    the cloud setup'
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.VPN
+  name: VPN access for non-public services
+  slug: vpn-access-for-non-public-services
+  details: Don't expose to the internet services that are supposed to be internal
+    only
+  inventory: 'TEST: use the service inventory, to identify private resources publicly
+    exposed'
+  control_type: Detective
+  tested_on_asset_inventory: Network, Self-developed services
+- id: C.Network.WAF
+  name: Web Application Firewall
+  slug: web-application-firewall
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: C.Network.WirelessMonitoring
+  name: Regular monitoring of the wireless access points
+  slug: regular-monitoring-of-the-wireless-access-points
+  details: Presence of APs
+  parameters: frequency [PCI quarterly]
+  control_type: Preventive
+  tested_on_asset_inventory: Network
+- id: '[[ C.PCI ]]'
+  name: PCI
+  slug: pci
+- id: C.PCI.6Eyes
+  name: 'PCI: 6 eyes principle'
+  slug: pci:-6-eyes-principle
+  details: Changes are either approved by management or approved by another developer,
+    distinct from implementer and reviewer
+  inventory: 'Change: Field: Approvals'
+  control_type: Preventive
+  tested_on_asset_inventory: Changes
+- id: C.PCI.ChangeAndTamperMonitoring
+  name: 'PCI: Payment page: change-and-tamper monitoring'
+  slug: pci:-payment-page:-change-and-tamper-monitoring
+  details: '- check logs are monitored for the payment pages - tickets are actioned'
+  control_type: Detective
+  tested_on_asset_inventory: Logs, Payment pages
+- id: C.PCI.CopyAndPasteRestrictions
+  name: ''
+  slug: c.pci.copyandpasterestrictions
+  control_type: Preventive
+  tested_on_asset_inventory: PCI Sensitive
+- id: C.PCI.DataEncryption
+  name: 'PCI: SAD and PAN encryption'
+  slug: pci:-sad-and-pan-encryption
+  details: '- Store it using strong cryptography and keyed cryptographic hashes -
+    Different encryption keys for SAD and PAN - Check schema, to validate encryption
+    - sample records to verify implementation - stored separately from key-encryption
+    keys - Transmited with strong cryptography - Certificates are validated before
+    encrypting/decrypting'
+  control_type: Preventive
+  tested_on_asset_inventory: PCI Sensitive, Databases, File storage, Object storage
+- id: C.PCI.KeyEncryption
+  name: 'PCI: Encryption of keys used to encrypt data'
+  slug: pci:-encryption-of-keys-used-to-encrypt-data
+  details: '- At least as strong encryption as the data encryption keys - Stored separately
+    from data-encryption keys, in Hardware Security Module (HSM) or PIN Transaction
+    Security (PTS) device'
+  control_type: Preventive
+  tested_on_asset_inventory: PCI Sensitive
+- id: C.PCI.Masking
+  name: 'PCI: PAN Masked when displayed'
+  slug: pci:-pan-masked-when-displayed
+  details: 'default: last 4 digits, max: BIN + last 4 digits Check web portal, logs'
+  control_type: Preventive
+  tested_on_asset_inventory: PCI Sensitive, Logs
+- id: C.PCI.Minimisation
+  name: Keys, SAD & PAN stored in minimal number of places
+  slug: keys-sad-&-pan-stored-in-minimal-number-of-places
+  control_type: Preventive
+  tested_on_asset_inventory: PCI Sensitive, Secrets and certificates
+- id: C.PCI.POSInspection
+  name: POS inspection
+  slug: pos-inspection
+  details: Regularly inspecting them, looking for signals of tampering. Frequency
+    based on TRA
+  control_type: Detective
+  tested_on_asset_inventory: POS Devices
+- id: C.PCI.RestrictedAccess
+  name: Minimal access required for users to do their jobs
+  slug: minimal-access-required-for-users-to-do-their-jobs
+  control_type: Preventive
+  tested_on_asset_inventory: PCI Sensitive
+- id: C.PCI.TemporalStorageDeletion
+  name: 'PCI: SAD deletion after authorisation'
+  slug: pci:-sad-deletion-after-authorisation
+  inventory: 'Temporal SAD store: Field: age of SAD data'
+  control_type: Preventive
+  tested_on_asset_inventory: PCI Sensitive
+- id: '[[ C.SecureCoding ]]'
+  name: Secure Coding Training
+  slug: secure-coding-training
+- id: C.SecureCoding.ChangeAcceptanceCriteria
+  name: The acceptance criteria is well defined
+  slug: the-acceptance-criteria-is-well-defined
+  control_type: Detective
+  tested_on_asset_inventory: Software repositories, Changes
+- id: C.SecureCoding.ChangeApprovals
+  name: Approvals are registered
+  slug: approvals-are-registered
+  control_type: Preventive
+  tested_on_asset_inventory: Software repositories, Changes
+- id: C.SecureCoding.ChangeDescription
+  name: Changes have an appropriate description
+  slug: changes-have-an-appropriate-description
+  control_type: Detective
+  tested_on_asset_inventory: Software repositories, Changes
+- id: C.SecureCoding.ChangeTesting
+  name: ''
+  slug: c.securecoding.changetesting
+  control_type: Preventive
+  tested_on_asset_inventory: Software repositories, Changes
+- id: C.SecureCoding.Training
+  name: upon hire and regularly
+  slug: upon-hire-and-regularly
+  parameters: frequency [PCI yearly]
+  control_type: Preventive
+  tested_on_asset_inventory: Users
+- id: C.SecureCoding.RiskAssessment
+  name: ''
+  slug: c.securecoding.riskassessment
+  control_type: Preventive
+  tested_on_asset_inventory: Self-developed services
+- id: C.SecureCoding.Rollback
+  name: Rollback of changes
+  slug: rollback-of-changes
+  control_type: Corrective
+  tested_on_asset_inventory: Self-developed services
+- id: C.SecureCoding.VulnerabilityFixes
+  name: Vulnerability fixing per policy
+  slug: vulnerability-fixing-per-policy
+  details: metrics for SLA breach
+  control_type: Preventive
+  tested_on_asset_inventory: Third-Party reports, Self-developed services, Software
+    repositories
+- id: C.SecureCoding.VulnerabilityIdentification
+  name: Scanning plus categorisation, including authenticated scans
+  slug: scanning-plus-categorisation-including-authenticated-scans
+  control_type: Detective
+  tested_on_asset_inventory: Third-Party reports, Self-developed services, Software
+    repositories
+- id: '[[ C.ThirdParty ]]'
+  name: Third Party
+  slug: third-party
+- id: C.ThirdParty.DDPriorToEngagement
+  name: Due diligence prior to engagement
+  slug: due-diligence-prior-to-engagement
+  details: Prior to start a business relationship
+  control_type: Preventive
+  tested_on_asset_inventory: Third-Parties
+- id: C.ThirdParty.Monitoring
+  name: Third Party Monitoring
+  slug: third-party-monitoring
+  details: 'On a regular basis (yearly, bi-yearly, ...) Including: contract + updates'
+  control_type: Preventive
+  tested_on_asset_inventory: Third-Parties
+meta:
+  title: Secure Product Model Controls
+  description: Security controls and measures for the product framework
+  count: 127
+  source: Control Framework - Controls.csv
+  generated_by: csv2yaml.py
