@@ -1,4 +1,4 @@
-ID,Name,Details,Parameters,Inventory,Control type,Tested on resource inventory
+ID,Name,Details,Parameters,Inventory,Control type,Tested on asset inventory
 [[ C.Account ]],"Accounts [user, service]",,,,,
 C.Account.InactiveDisableDelete,Inactive accounts disabled/removed,,period [PCI 90 days],,Preventive,"Users, Customer"
 C.Account.Individual,"Group or Shared accounts are either deleted or disabled
@@ -85,7 +85,7 @@ C.Encryption.SecretStorage,Secret storage,"- No keys or credentials file lying i
 - Document approach to accessing credentials
 - Enable auto-updates, at least on a yearly basis
 - If keys/credentials can't be updated automatically, identify them in the inventory",,,Preventive,Secrets and certificates
-C.Encryption.StrongCryptography,,,,,Preventive,"""PCI Sensitive (SAD, PAN)"", Secrets and certificates, Users, Customer, File storage, Network"
+C.Encryption.StrongCryptography,,,,,Preventive,"Secrets and certificates, Users, Customer, File storage, Network, PCI Sensitive"
 [[ C.Endpoint ]],Endpoint,,,,,
 C.Endpoint.AntiMalware,Anti-malware,Including removable media,frequency scans [PCI based on targeted risk analysis],,Preventive,"Endpoint devices, Third-Party reports"
 C.Endpoint.AntiPhishing,Anti-phishing,,,,Preventive,Third-Party reports
@@ -112,7 +112,7 @@ C.Ident.OnboardingChecks,Onboarding checks,"Previous employment history, public 
 C.Ident.RecurringChecks,Recurring employee checks,Criminal records,frequency [PCI bi-yearly],,Preventive,Users
 C.Ident.Unique,"User accounts uniquely identified based on UUID, email, ...",,,,Preventive,"Users, Customer"
 [[ C.Incident ]],Incident management,,,,,
-C.Incident.Response,24x7,,,,Detective,"SOC, Cloud environment, Compute, Customer, Databases, Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment pages, ""PCI Sensitive (SAD, PAN)"", POS Devices, Secrets and certificates, Self-developed services, Software repositories, Third-Parties, Users"
+C.Incident.Response,24x7,,,,Detective,"SOC, Cloud environment, Compute, Customer, Databases, Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment pages, PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services, Software repositories, Third-Parties, Users"
 C.Incident.Testing,Incident response testing,,frequency [PCI yearly],,Preventive,"Users, Policies, Process"
 C.Incident.Training,,,frequency [PCI based on TRA],,,
 [[ C.Logs ]],Logs,,,,,
@@ -172,23 +172,23 @@ C.PCI.6Eyes,PCI: 6 eyes principle,"Changes are either approved by management or 
   Field: Approvals",Preventive,Changes
 C.PCI.ChangeAndTamperMonitoring,PCI: Payment page: change-and-tamper monitoring,"- check logs are monitored for the payment pages
 - tickets are actioned",,,Detective,"Logs, Payment pages"
-C.PCI.CopyAndPasteRestrictions,,,,,Preventive,"""PCI Sensitive (SAD, PAN)"""
+C.PCI.CopyAndPasteRestrictions,,,,,Preventive,PCI Sensitive
 C.PCI.DataEncryption,PCI: SAD and PAN encryption,"- Store it using strong cryptography and keyed cryptographic hashes
 - Different encryption keys for SAD and PAN
 - Check schema, to validate encryption
 - sample records to verify implementation
 - stored separately from key-encryption keys
 - Transmited with strong cryptography
-- Certificates are validated before encrypting/decrypting",,,Preventive,"""PCI Sensitive (SAD, PAN)"", Databases, File storage, Object storage"
+- Certificates are validated before encrypting/decrypting",,,Preventive,"PCI Sensitive, Databases, File storage, Object storage"
 C.PCI.KeyEncryption,PCI: Encryption of keys used to encrypt data,"- At least as strong encryption as the data encryption keys
-- Stored separately from data-encryption keys, in Hardware Security Module (HSM) or PIN Transaction Security (PTS) device",,,Preventive,"""PCI Sensitive (SAD, PAN)"""
+- Stored separately from data-encryption keys, in Hardware Security Module (HSM) or PIN Transaction Security (PTS) device",,,Preventive,PCI Sensitive
 C.PCI.Masking,PCI: PAN Masked when displayed,"default: last 4 digits, max: BIN + last 4 digits
-Check web portal, logs",,,Preventive,"""PCI Sensitive (SAD, PAN)"", Logs"
-C.PCI.Minimisation,"Keys, SAD & PAN stored in minimal number of places",,,,Preventive,"""PCI Sensitive (SAD, PAN)"", Secrets and certificates"
+Check web portal, logs",,,Preventive,"PCI Sensitive, Logs"
+C.PCI.Minimisation,"Keys, SAD & PAN stored in minimal number of places",,,,Preventive,"PCI Sensitive, Secrets and certificates"
 C.PCI.POSInspection,POS inspection,"Regularly inspecting them, looking for signals of tampering. Frequency based on TRA",,,Detective,POS Devices
-C.PCI.RestrictedAccess,Minimal access required for users to do their jobs,,,,Preventive,"""PCI Sensitive (SAD, PAN)"""
+C.PCI.RestrictedAccess,Minimal access required for users to do their jobs,,,,Preventive,PCI Sensitive
 C.PCI.TemporalStorageDeletion,PCI: SAD deletion after authorisation,,,"Temporal SAD store:
-  Field: age of SAD data",Preventive,"""PCI Sensitive (SAD, PAN)"""
+  Field: age of SAD data",Preventive,PCI Sensitive
 [[ C.SecureCoding ]],Secure Coding Training,,,,,
 C.SecureCoding.ChangeAcceptanceCriteria,The acceptance criteria is well defined,,,,Detective,"Software repositories, Changes"
 C.SecureCoding.ChangeApprovals,Approvals are registered,,,,Preventive,"Software repositories, Changes"
