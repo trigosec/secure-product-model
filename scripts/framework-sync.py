@@ -114,7 +114,7 @@ SHEETS_CONFIG: Dict[str, SheetConfig] = {
         name='Assets',
         gid='1448922229',  # Known GID for Assets sheet
         filename='Control Framework - Assets.csv',
-        expected_headers=['Resources', 'Description', 'Notes']
+        expected_headers=['Asset', 'Description', 'Notes', 'Category', 'Tags']
     ),
     'controls': SheetConfig(
         name='Controls',

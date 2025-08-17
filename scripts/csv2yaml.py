@@ -200,18 +200,30 @@ def convert_assets_csv(csv_file_path: Path) -> Dict[str, Any]:
 
         for row in reader:
             # Extract and clean data
-            name = clean_text(row.get('Resources', ''))
+            name = clean_text(row.get('Asset', ''))
             if not name:  # Skip empty rows
                 continue
 
             description = clean_text(row.get('Description', ''))
             notes_raw = clean_text(row.get('Notes', ''))
+            category = clean_text(row.get('Category', ''))
+            tags_raw = clean_text(row.get('Tags', ''))
 
             # Create asset object
             asset: Dict[str, Any] = {
                 'name': name,
                 'description': description
             }
+
+            # Add category if present
+            if category:
+                asset['category'] = category
+
+            # Parse tags into list if present
+            if tags_raw:
+                tags = [tag.strip() for tag in tags_raw.split(',') if tag.strip()]
+                if tags:
+                    asset['tags'] = tags
 
             # Parse notes into list if present
             notes = parse_notes(notes_raw)
