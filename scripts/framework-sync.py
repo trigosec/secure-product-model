@@ -27,7 +27,7 @@ The script will:
 1. Parse the Google Sheets URL to extract spreadsheet ID
 2. Build the CSV export URL for each requested sheet
 3. Download the specified sheet(s) from the Google Spreadsheet
-4. Save them as CSV files in the docs/ directory
+4. Save them as CSV files in the data/ directory
 5. Verify the downloads were successful and contain expected content
 
 Requirements:
@@ -497,7 +497,7 @@ def main() -> None:
     # Get script directory and project root
     script_dir = Path(__file__).parent
     project_root = script_dir.parent
-    output_dir = project_root / 'docs'
+    output_dir = project_root / 'data'
 
     if test_mode:
         print("🧪 Testing Google Sheets Access...")

@@ -38,7 +38,7 @@ Examples:
         Run all doctests to verify functionality
 
 The script will:
-1. Read the specified CSV file(s) from docs/ directory
+1. Read the specified CSV file(s) from data/ directory
 2. Convert to structured YAML format
 3. Save as YAML file(s) in data/ directory
 4. Validate the conversion and provide feedback
@@ -431,7 +431,7 @@ Examples:
     ./scripts/csv2yaml.py --doctests
         Run all doctests to verify functionality
 
-Note: CSV files must exist in the docs/ directory and will be converted to the data/ directory.
+Note: CSV files must exist in the data/ directory and will be converted to YAML files in the data/ directory.
 """)
 
 
@@ -491,7 +491,7 @@ def main() -> None:
         converter = SHEET_CONVERTERS[sheet_name]
 
         # Define file paths
-        csv_file = project_root / 'docs' / converter.csv_filename
+        csv_file = project_root / 'data' / converter.csv_filename
         yaml_file = project_root / 'data' / converter.yaml_filename
 
         print(f"\n📊 Converting {sheet_name}...")
