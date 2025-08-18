@@ -514,6 +514,7 @@ def main() -> None:
             try:
                 with open(yaml_file, 'r') as f:
                     data = yaml.safe_load(f)
+                    assert isinstance(data, dict)
                     items_key = list(data.keys())[0]  # First key (assets, controls, governance)
                     item_count = len(data.get(items_key, []))
                     print(f"📈 Converted {item_count} {items_key}")

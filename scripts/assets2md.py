@@ -368,7 +368,7 @@ def generate_markdown_content(assets: list[Asset], meta: Meta, assets_icon: str,
     )
 
 
-def validate_yaml_structure(data: dict[str, Any]) -> AssetsData | None:
+def validate_yaml_structure(data: Any) -> AssetsData | None:
     """
     Validate and extract the YAML data structure using Pydantic.
 
