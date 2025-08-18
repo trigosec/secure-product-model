@@ -266,9 +266,14 @@ body {
     <div class="container">
         <div class="hero-content">
             <div class="hero-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M4 7v10c0 2.21 0 3.21.59 3.8.59.59 1.59.59 3.8.59h8.22c2.21 0 3.21 0 3.8-.59.59-.59.59-1.59.59-3.8V7M4 7l8-4 8 4M4 7l8 4 8-4"></path>
-                </svg>
+                <svg viewBox="0 0 24 24" width="120" height="120" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="5" r="2"/>
+  <circle cx="12" cy="19" r="2"/>
+  <circle cx="5" cy="12" r="2"/>
+  <circle cx="19" cy="12" r="2"/>
+  <path d="m12 7-5 5m5-5 5 5m-5 5-5-5m5 5 5-5"/>
+</svg>
+
             </div>
             <h1 class="hero-title">Secure Product Model Assets</h1>
             <p class="hero-subtitle">Foundational elements subject to control and oversight</p>

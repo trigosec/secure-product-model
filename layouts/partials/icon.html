@@ -1,0 +1,23 @@
+{{- $name := .name -}}
+{{- $class := .class | default "" -}}
+{{- $size := .size | default "24" -}}
+{{- $stroke := .stroke | default "currentColor" -}}
+{{- $strokeWidth := .strokeWidth | default "1.5" -}}
+
+{{- $iconPath := printf "icons/%s.svg" $name -}}
+{{- $icon := resources.Get $iconPath -}}
+
+{{- if $icon -}}
+  {{- $iconContent := $icon.Content -}}
+  {{- $iconContent = replace $iconContent "stroke=\"currentColor\"" (printf "stroke=\"%s\"" $stroke) -}}
+  {{- $iconContent = replace $iconContent "stroke-width=\"1.5\"" (printf "stroke-width=\"%s\"" $strokeWidth) -}}
+  {{- if $class -}}
+    {{- $iconContent = replace $iconContent "<svg" (printf "<svg class=\"%s\"" $class) -}}
+  {{- end -}}
+  {{- if ne $size "24" -}}
+    {{- $iconContent = replace $iconContent "viewBox=\"0 0 24 24\"" (printf "viewBox=\"0 0 24 24\" width=\"%s\" height=\"%s\"" $size $size) -}}
+  {{- end -}}
+  {{- $iconContent | safeHTML -}}
+{{- else -}}
+  <!-- Icon not found: {{ $name }} -->
+{{- end -}}

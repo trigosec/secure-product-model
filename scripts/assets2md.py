@@ -513,6 +513,34 @@ body {
 '''
 
 
+def get_assets_icon_svg() -> str:
+    """Read and return the assets icon SVG with proper sizing."""
+    import os
+
+    # Get the directory of this script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Go up one level to the project root, then to assets/icons
+    icon_path = os.path.join(script_dir, '..', 'assets', 'icons', 'assets.svg')
+
+    try:
+        with open(icon_path, 'r', encoding='utf-8') as f:
+            svg_content = f.read()
+
+        # Customize the SVG for the hero section (120px size)
+        svg_content = svg_content.replace('viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="120" height="120"')
+        return svg_content
+
+    except FileNotFoundError:
+        # Fallback SVG if file not found
+        return '''<svg viewBox="0 0 24 24" width="120" height="120" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="5" r="2"/>
+                    <circle cx="12" cy="19" r="2"/>
+                    <circle cx="5" cy="12" r="2"/>
+                    <circle cx="19" cy="12" r="2"/>
+                    <path d="m12 7-5 5m5-5 5 5m-5 5-5-5m5 5 5-5"/>
+                </svg>'''
+
+
 def get_embedded_js() -> str:
     """Return embedded JavaScript."""
     return '''
@@ -648,9 +676,7 @@ weight: 10
     <div class="container">
         <div class="hero-content">
             <div class="hero-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M4 7v10c0 2.21 0 3.21.59 3.8.59.59 1.59.59 3.8.59h8.22c2.21 0 3.21 0 3.8-.59.59-.59.59-1.59.59-3.8V7M4 7l8-4 8 4M4 7l8 4 8-4"></path>
-                </svg>
+                {get_assets_icon_svg()}
             </div>
             <h1 class="hero-title">Secure Product Model Assets</h1>
             <p class="hero-subtitle">Foundational elements subject to control and oversight</p>
