@@ -152,7 +152,7 @@ def format_asset_section(asset: Dict[str, Any]) -> str:
 
 
 def categorize_asset(asset: Dict[str, Any]) -> str:
-    """Get category from asset data, with fallback mapping."""
+    """Get category from asset data, with CSS class mapping."""
     # Use explicit category if available
     if 'category' in asset and asset['category']:
         category = asset['category'].lower()
@@ -161,12 +161,15 @@ def categorize_asset(asset: Dict[str, Any]) -> str:
             'infrastructure': 'infrastructure',
             'data & storage': 'data',
             'process & governance': 'process',
-            'physical': 'infrastructure',  # Map physical to infrastructure for CSS
-            'access & identity': 'access'
+            'physical': 'physical',
+            'pci': 'pci',
+            'access & identity': 'access',
+            'development': 'development',
+            'suppliers': 'suppliers'
         }
         return category_mapping.get(category, 'process')
 
-    # Fallback to old logic if no category field
+    # Fallback to old logic if no category field (for backward compatibility)
     name = asset.get('name', '')
     infrastructure_assets = ["Cloud environment", "Compute", "Network", "Facilities"]
     data_assets = ["Databases", "File storage", "Object storage", "Backups", "Logs"]
@@ -218,7 +221,11 @@ def get_icon_path(asset_name: str, category: str) -> str:
         "infrastructure": "M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16",
         "data": "M12 5c4.97 0 9 1.34 9 3v7c0 1.66-4.03 3-9 3s-9-1.34-9-3V8c0-1.66 4.03-3 9-3z M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3",
         "access": "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 7a4 4 0 1 1 0 8a4 4 0 0 1 0-8z",
-        "process": "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+        "process": "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z",
+        "physical": "M9 17H7l-4-4 4-4h2 M15 17h2l4-4-4-4h-2",
+        "pci": "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z M8 15h8",
+        "development": "M13 10V3L4 14h7v7l9-11h-7z",
+        "suppliers": "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"
     }
 
     # Return specific asset icon if available, otherwise fallback to category icon
@@ -325,51 +332,8 @@ body {
     margin: 0 auto 2rem auto;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-}
 
-.stats-section {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
-}
 
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    display: block;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-top: 0.25rem;
-}
-
-.assets-intro {
-    padding: 3rem 0;
-    background: var(--bg-secondary);
-    text-align: center;
-}
-
-.intro-content {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
 
 .assets-grid-section {
     padding: 4rem 0;
@@ -465,6 +429,26 @@ body {
     color: white;
 }
 
+.asset-icon.physical {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+}
+
+.asset-icon.pci {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    color: white;
+}
+
+.asset-icon.development {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    color: white;
+}
+
+.asset-icon.suppliers {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+}
+
 .asset-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -519,51 +503,12 @@ body {
     margin-bottom: 0.25rem;
 }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    border: 1px solid transparent;
-}
 
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-icon {
-    width: 20px;
-    height: 20px;
-}
 
 @media (max-width: 768px) {
     .hero-title { font-size: 2rem; }
-    .stats-section { gap: 1.5rem; }
-    .hero-actions { flex-direction: column; align-items: center; }
     .assets-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .asset-card { padding: 1.5rem; }
-    .detailed-content { padding: 2rem; }
 }
 '''
 
@@ -714,46 +659,13 @@ weight: 10
                 represent everything from cloud accounts and databases to user access and policies -
                 the real stuff that auditors care about and attackers target.
             </p>
-            <div class="hero-actions">
-                <a href="#assetsGrid" class="btn btn-primary">
-                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 7v10c0 2.21 0 3.21.59 3.8.59.59 1.59.59 3.8.59h8.22c2.21 0 3.21 0 3.8-.59.59-.59.59-1.59.59-3.8V7M4 7l8-4 8 4M4 7l8 4 8-4"></path>
-                    </svg>
-                    Browse Assets
-                </a>
-                <a href="/controls/" class="btn btn-secondary">
-                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="m9,12 2,2 4,-4"></path>
-                    </svg>
-                    View Controls
-                </a>
-            </div>
-            <div class="stats-section">
-                <div class="stat-item">
-                    <div class="stat-number">{asset_count}</div>
-                    <div class="stat-label">Asset Types</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Coverage</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">PCI DSS</div>
-                    <div class="stat-label">Compliant</div>
-                </div>
-            </div>
+
+
         </div>
     </div>
 </div>
 
-<div class="assets-intro">
-    <div class="container">
-        <div class="intro-content">
-            <p>This page documents the foundational elements of our secure product framework that are subject to control and oversight. These assets represent the core components that require protection, monitoring, and governance.</p>
-        </div>
-    </div>
-</div>
+
 
 <div class="assets-grid-section">
     <div class="container">
@@ -766,6 +678,10 @@ weight: 10
             <button class="filter-btn" data-category="data">Data &amp; Storage</button>
             <button class="filter-btn" data-category="access">Access &amp; Identity</button>
             <button class="filter-btn" data-category="process">Process &amp; Governance</button>
+            <button class="filter-btn" data-category="physical">Physical</button>
+            <button class="filter-btn" data-category="pci">PCI</button>
+            <button class="filter-btn" data-category="development">Development</button>
+            <button class="filter-btn" data-category="suppliers">Suppliers</button>
         </div>
 
         <div class="assets-grid" id="assetsGrid">

@@ -82,51 +82,8 @@ body {
     margin: 0 auto 2rem auto;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-}
 
-.stats-section {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
-}
 
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    display: block;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-top: 0.25rem;
-}
-
-.assets-intro {
-    padding: 3rem 0;
-    background: var(--bg-secondary);
-    text-align: center;
-}
-
-.intro-content {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
 
 .assets-grid-section {
     padding: 4rem 0;
@@ -222,6 +179,26 @@ body {
     color: white;
 }
 
+.asset-icon.physical {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+}
+
+.asset-icon.pci {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    color: white;
+}
+
+.asset-icon.development {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    color: white;
+}
+
+.asset-icon.suppliers {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+}
+
 .asset-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -276,51 +253,12 @@ body {
     margin-bottom: 0.25rem;
 }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    border: 1px solid transparent;
-}
 
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-icon {
-    width: 20px;
-    height: 20px;
-}
 
 @media (max-width: 768px) {
     .hero-title { font-size: 2rem; }
-    .stats-section { gap: 1.5rem; }
-    .hero-actions { flex-direction: column; align-items: center; }
     .assets-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .asset-card { padding: 1.5rem; }
-    .detailed-content { padding: 2rem; }
 }
 </style>
 
@@ -339,46 +277,13 @@ body {
                 represent everything from cloud accounts and databases to user access and policies -
                 the real stuff that auditors care about and attackers target.
             </p>
-            <div class="hero-actions">
-                <a href="#assetsGrid" class="btn btn-primary">
-                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 7v10c0 2.21 0 3.21.59 3.8.59.59 1.59.59 3.8.59h8.22c2.21 0 3.21 0 3.8-.59.59-.59.59-1.59.59-3.8V7M4 7l8-4 8 4M4 7l8 4 8-4"></path>
-                    </svg>
-                    Browse Assets
-                </a>
-                <a href="/controls/" class="btn btn-secondary">
-                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="m9,12 2,2 4,-4"></path>
-                    </svg>
-                    View Controls
-                </a>
-            </div>
-            <div class="stats-section">
-                <div class="stat-item">
-                    <div class="stat-number">25</div>
-                    <div class="stat-label">Asset Types</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Coverage</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">PCI DSS</div>
-                    <div class="stat-label">Compliant</div>
-                </div>
-            </div>
+
+
         </div>
     </div>
 </div>
 
-<div class="assets-intro">
-    <div class="container">
-        <div class="intro-content">
-            <p>This page documents the foundational elements of our secure product framework that are subject to control and oversight. These assets represent the core components that require protection, monitoring, and governance.</p>
-        </div>
-    </div>
-</div>
+
 
 <div class="assets-grid-section">
     <div class="container">
@@ -391,6 +296,10 @@ body {
             <button class="filter-btn" data-category="data">Data &amp; Storage</button>
             <button class="filter-btn" data-category="access">Access &amp; Identity</button>
             <button class="filter-btn" data-category="process">Process &amp; Governance</button>
+            <button class="filter-btn" data-category="physical">Physical</button>
+            <button class="filter-btn" data-category="pci">PCI</button>
+            <button class="filter-btn" data-category="development">Development</button>
+            <button class="filter-btn" data-category="suppliers">Suppliers</button>
         </div>
 
         <div class="assets-grid" id="assetsGrid">
@@ -493,8 +402,8 @@ body {
                     <ul><li>SQL, NoSQL</li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="infrastructure">
-                <div class="asset-icon infrastructure">
+            <div class="asset-card" data-category="physical">
+                <div class="asset-icon physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 17H7l-4-4 4-4h2 M15 17h2l4-4-4-4h-2 M12 3l-2 18"></path>
                     </svg>
@@ -510,8 +419,8 @@ body {
                     <ul><li>laptops, PCs,  including security scoring List of devices not at risk of malware, with reasoning why</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="infrastructure">
-                <div class="asset-icon infrastructure">
+            <div class="asset-card" data-category="physical">
+                <div class="asset-icon physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 21h18 M5 21V7l8-4v18 M19 21V11l-6-4"></path>
                     </svg>
@@ -604,8 +513,8 @@ body {
                     <ul><li>These are controls that are implemented by a third party, and used by the entity network scans, secret scans in source code, </li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="pci">
+                <div class="asset-icon pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4 M3 5v14a2 2 0 0 0 2 2h16v-5 M7 15h.01 M11 15h4"></path>
                     </svg>
@@ -617,10 +526,10 @@ body {
                 </div>
                 
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="pci">
+                <div class="asset-icon pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z M8 15h8"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">PCI Sensitive</h3>
@@ -630,8 +539,8 @@ body {
                 </div>
                 
             </div>
-            <div class="asset-card" data-category="infrastructure">
-                <div class="asset-icon infrastructure">
+            <div class="asset-card" data-category="physical">
+                <div class="asset-icon physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
@@ -656,10 +565,10 @@ body {
                 </div>
                 
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="pci">
+                <div class="asset-icon pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z M8 15h8"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">POS Devices</h3>
@@ -724,10 +633,10 @@ body {
                     <ul><li>credentials, keys including standards, certificates including issuing CA, expiration date</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="development">
+                <div class="asset-icon development">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Self-developed services</h3>
@@ -741,10 +650,10 @@ body {
                     <ul><li>Exposed to the internet and internal</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="development">
+                <div class="asset-icon development">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Software repositories</h3>
@@ -758,10 +667,10 @@ body {
                     <ul><li>Github, Gitlab, </li><li>Identify infrastructure repositories, OWNERS files, permissions</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="suppliers">
+                <div class="asset-icon suppliers">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Third-Parties</h3>
