@@ -1,0 +1,44 @@
+{
+  "languages": {
+    "Python": {
+      "language_servers": ["pyright", "ruff"],
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "./.venv/bin/python",
+          "arguments": ["-m", "black", "-"]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": "./.venv/bin/python",
+          "venvPath": ".",
+          "venv": ".venv"
+        },
+        "python.analysis": {
+          "extraPaths": ["./.venv/lib/python3.12/site-packages"]
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "interpreter": ["./.venv/bin/python"]
+        }
+      }
+    }
+  },
+  "python": {
+    "interpreter": "./.venv/bin/python"
+  },
+  "terminal": {
+    "env": {
+      "VIRTUAL_ENV": "./.venv",
+      "PATH": "./.venv/bin:$PATH"
+    }
+  }
+}

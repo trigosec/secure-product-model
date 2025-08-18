@@ -1,10 +1,4 @@
-#!/usr/bin/env -S uv run --script
-# /// script
-# requires-python = ">=3.8"
-# dependencies = [
-#     "pyyaml>=6.0",
-# ]
-# ///
+#!/usr/bin/env python3
 """
 CSV to YAML Converter for Secure Product Framework
 

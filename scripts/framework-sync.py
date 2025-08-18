@@ -1,10 +1,4 @@
-#!/usr/bin/env -S uv run --script
-# /// script
-# requires-python = ">=3.8"
-# dependencies = [
-#     "requests>=2.25.0",
-# ]
-# ///
+#!/usr/bin/env python3
 """
 Google Sheets Downloader for Secure Product Framework
 

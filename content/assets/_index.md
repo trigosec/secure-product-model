@@ -82,9 +82,6 @@ body {
     margin: 0 auto 2rem auto;
 }
 
-
-
-
 .assets-grid-section {
     padding: 4rem 0;
 }
@@ -259,8 +256,6 @@ body {
     margin-bottom: 0.25rem;
 }
 
-
-
 @media (max-width: 768px) {
     .hero-title { font-size: 2rem; }
     .hero-icon svg { width: 60px; height: 60px; }
@@ -273,6 +268,7 @@ body {
     .hero-icon svg { width: 48px; height: 48px; }
     .assets-hero { padding: 2rem 0; }
 }
+
 </style>
 
 <div class="assets-hero">
@@ -295,13 +291,9 @@ body {
                 represent everything from cloud accounts and databases to user access and policies -
                 the real stuff that auditors care about and attackers target.
             </p>
-
-
         </div>
     </div>
 </div>
-
-
 
 <div class="assets-grid-section">
     <div class="container">
@@ -336,9 +328,15 @@ body {
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>read-only, frequency, retention, integrity checks, scheduled testing <= 1 year, dispersion across several AZs, Regions, Clouds</li></ul>
+                    <ul>
+                        
+                        <li>read-only, frequency, retention, integrity checks, scheduled testing &lt;= 1 year, dispersion across several AZs, Regions, Clouds</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="process-governance">
                 <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -348,14 +346,26 @@ body {
                 <h3 class="asset-title">Changes</h3>
                 <p class="asset-description">Modifications to systems, applications, and infrastructure with proper oversight and approval</p>
                 <div class="asset-tags">
-                    <span class="tag">Approval</span><span class="tag">Acceptance</span>
+                    
+                    <span class="tag">Approval</span>
+                    
+                    <span class="tag">Acceptance</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>including infrastructure changes, 4-6 eyes principle, </li><li>Inventory extraction through Jira, or equivalent</li></ul>
+                    <ul>
+                        
+                        <li>including infrastructure changes, 4-6 eyes principle, </li>
+                        
+                        <li>Inventory extraction through Jira, or equivalent</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="infrastructure">
                 <div class="asset-icon category-infrastructure">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -365,14 +375,30 @@ body {
                 <h3 class="asset-title">Cloud environment</h3>
                 <p class="asset-description">AWS accounts, GCP projects, and hybrid cloud infrastructure that powers your applications</p>
                 <div class="asset-tags">
-                    <span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Azure</span>
+                    
+                    <span class="tag">AWS</span>
+                    
+                    <span class="tag">GCP</span>
+                    
+                    <span class="tag">Azure</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>AWS accounts, GCP Projects, </li><li>Inventory can be generated from the cost explorer at the root account</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
+                    <ul>
+                        
+                        <li>AWS accounts, GCP Projects, </li>
+                        
+                        <li>Inventory can be generated from the cost explorer at the root account</li>
+                        
+                        <li>Alternatively: AWS Workload Discovery solution</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="infrastructure">
                 <div class="asset-icon category-infrastructure">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -382,14 +408,26 @@ body {
                 <h3 class="asset-title">Compute</h3>
                 <p class="asset-description">Processing resources that execute applications and workloads, including virtual machines, containers, serverless functions, and physical servers</p>
                 <div class="asset-tags">
-                    <span class="tag">VMs</span><span class="tag">K8s</span><span class="tag">Lambda</span>
+                    
+                    <span class="tag">VMs</span>
+                    
+                    <span class="tag">K8s</span>
+                    
+                    <span class="tag">Lambda</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>VM, K8S clusters, lambdas</li></ul>
+                    <ul>
+                        
+                        <li>VM, K8S clusters, lambdas</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="data-storage">
                 <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -397,12 +435,13 @@ body {
                     </svg>
                 </div>
                 <h3 class="asset-title">Customer</h3>
-                <p class="asset-description">External entities that use the organization's products or services, including their accounts, profiles, and associated access patterns</p>
+                <p class="asset-description">External entities that use the organization&#39;s products or services, including their accounts, profiles, and associated access patterns</p>
                 <div class="asset-tags">
                     
                 </div>
                 
             </div>
+            
             <div class="asset-card" data-category="data-storage">
                 <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -412,14 +451,30 @@ body {
                 <h3 class="asset-title">Databases</h3>
                 <p class="asset-description">SQL and NoSQL databases storing your business and customer data.</p>
                 <div class="asset-tags">
-                    <span class="tag">SQL</span><span class="tag">NoSQL</span><span class="tag">Cache</span>
+                    
+                    <span class="tag">SQL</span>
+                    
+                    <span class="tag">NoSQL</span>
+                    
+                    <span class="tag">Cache</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>SQL, NoSQL</li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
+                    <ul>
+                        
+                        <li>SQL, NoSQL</li>
+                        
+                        <li>Inventory extraction through the cloud provider API</li>
+                        
+                        <li>Alternatively: AWS Workload Discovery solution</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="physical">
                 <div class="asset-icon category-physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -427,16 +482,22 @@ body {
                     </svg>
                 </div>
                 <h3 class="asset-title">Endpoint devices</h3>
-                <p class="asset-description">Computing devices that connect to the organization's network and systems, including employee workstations, mobile devices, and IoT devices</p>
+                <p class="asset-description">Computing devices that connect to the organization&#39;s network and systems, including employee workstations, mobile devices, and IoT devices</p>
                 <div class="asset-tags">
                     
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>laptops, PCs,  including security scoring List of devices not at risk of malware, with reasoning why</li></ul>
+                    <ul>
+                        
+                        <li>laptops, PCs,  including security scoring List of devices not at risk of malware, with reasoning why</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="physical">
                 <div class="asset-icon category-physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -450,6 +511,7 @@ body {
                 </div>
                 
             </div>
+            
             <div class="asset-card" data-category="data-storage">
                 <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -459,14 +521,30 @@ body {
                 <h3 class="asset-title">File storage</h3>
                 <p class="asset-description">Network-attached storage, file shares, and cloud file services for unstructured data</p>
                 <div class="asset-tags">
-                    <span class="tag">NFS</span><span class="tag">EFS</span><span class="tag">NAS</span>
+                    
+                    <span class="tag">NFS</span>
+                    
+                    <span class="tag">EFS</span>
+                    
+                    <span class="tag">NAS</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>AWS EFS/EBS, GCP Elastifile Cloud File, physical media</li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
+                    <ul>
+                        
+                        <li>AWS EFS/EBS, GCP Elastifile Cloud File, physical media</li>
+                        
+                        <li>Inventory extraction through the cloud provider API</li>
+                        
+                        <li>Alternatively: AWS Workload Discovery solution</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="data-storage">
                 <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -480,6 +558,7 @@ body {
                 </div>
                 
             </div>
+            
             <div class="asset-card" data-category="infrastructure">
                 <div class="asset-icon category-infrastructure">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -489,14 +568,30 @@ body {
                 <h3 class="asset-title">Network</h3>
                 <p class="asset-description">VPCs, subnets, load balancers, and connectivity infrastructure securing your data flows</p>
                 <div class="asset-tags">
-                    <span class="tag">VPC</span><span class="tag">CDN</span><span class="tag">DNS</span>
+                    
+                    <span class="tag">VPC</span>
+                    
+                    <span class="tag">CDN</span>
+                    
+                    <span class="tag">DNS</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>Inventory of the VPCs and networks in the accounts, including ingress/egress routing information, VPN routes, DNS</li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
+                    <ul>
+                        
+                        <li>Inventory of the VPCs and networks in the accouts, including ingres/egres routing information, VPN routes, DNS</li>
+                        
+                        <li>Inventory extraction through the cloud provider API</li>
+                        
+                        <li>Alternatively: AWS Workload Discovery solution</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="data-storage">
                 <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -506,14 +601,28 @@ body {
                 <h3 class="asset-title">Object storage</h3>
                 <p class="asset-description">Storage services that manage data as objects with metadata, typically accessed via APIs and used for scalable, distributed data storage</p>
                 <div class="asset-tags">
-                    <span class="tag">S3</span><span class="tag">GCS</span>
+                    
+                    <span class="tag">S3</span>
+                    
+                    <span class="tag">GCS</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>AWS S3, GCP Cloud Storage, </li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
+                    <ul>
+                        
+                        <li>AWS S3, GCP Cloud Storage, </li>
+                        
+                        <li>Inventory extraction through the cloud provider API</li>
+                        
+                        <li>Alternatively: AWS Workload Discovery solution</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="process-governance">
                 <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -528,9 +637,15 @@ body {
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>These are controls that are implemented by a third party, and used by the entity network scans, secret scans in source code, </li></ul>
+                    <ul>
+                        
+                        <li>These are controls that are implemented by a third party, and used by the entity network scans, secret scans in source code, </li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="pci">
                 <div class="asset-icon category-pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -544,6 +659,7 @@ body {
                 </div>
                 
             </div>
+            
             <div class="asset-card" data-category="pci">
                 <div class="asset-icon category-pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -557,6 +673,7 @@ body {
                 </div>
                 
             </div>
+            
             <div class="asset-card" data-category="physical">
                 <div class="asset-icon category-physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -570,6 +687,7 @@ body {
                 </div>
                 
             </div>
+            
             <div class="asset-card" data-category="process-governance">
                 <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -577,12 +695,19 @@ body {
                     </svg>
                 </div>
                 <h3 class="asset-title">Policies</h3>
-                <p class="asset-description">Formal, high-level document that defines an organization's principles, intentions, and rules for managing technology operations and security. Policies establish direction and expectations, and are supported by standards, procedures, and guidelines.</p>
+                <p class="asset-description">Formal, high-level document that defines an organizationâs principles, intentions, and rules for managing technology operations and security. Policies establish direction and expectations, and are supported by standards, procedures, and guidelines.</p>
                 <div class="asset-tags">
-                    <span class="tag">Security</span><span class="tag">Privacy</span><span class="tag">Access</span>
+                    
+                    <span class="tag">Security</span>
+                    
+                    <span class="tag">Privacy</span>
+                    
+                    <span class="tag">Access</span>
+                    
                 </div>
                 
             </div>
+            
             <div class="asset-card" data-category="pci">
                 <div class="asset-icon category-pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -597,9 +722,15 @@ body {
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>Device inventory, including: Make and model, Location, Serial number</li></ul>
+                    <ul>
+                        
+                        <li>Device inventory, including: Make and model, Location, Serial number</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="process-governance">
                 <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -609,14 +740,26 @@ body {
                 <h3 class="asset-title">Process</h3>
                 <p class="asset-description">Defined workflows and procedures that govern how technology operations, security activities, and business functions are executed</p>
                 <div class="asset-tags">
-                    <span class="tag">Workflows</span><span class="tag">Testing</span><span class="tag">Reviews</span>
+                    
+                    <span class="tag">Workflows</span>
+                    
+                    <span class="tag">Testing</span>
+                    
+                    <span class="tag">Reviews</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>with details on how to test them</li></ul>
+                    <ul>
+                        
+                        <li>with details on how to test them</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="access-identity">
                 <div class="asset-icon category-access-identity">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -626,14 +769,26 @@ body {
                 <h3 class="asset-title">RBAC</h3>
                 <p class="asset-description">Role-Based Access Control defining and managing user permissions and system access based on organizational roles and responsibilities</p>
                 <div class="asset-tags">
-                    <span class="tag">Roles</span><span class="tag">Permissions</span><span class="tag">ACL</span>
+                    
+                    <span class="tag">Roles</span>
+                    
+                    <span class="tag">Permissions</span>
+                    
+                    <span class="tag">ACL</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>which roles have which permissions for which system</li></ul>
+                    <ul>
+                        
+                        <li>which roles have which permissions for which system</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="access-identity">
                 <div class="asset-icon category-access-identity">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -643,14 +798,26 @@ body {
                 <h3 class="asset-title">Secrets and certificates</h3>
                 <p class="asset-description">API keys, passwords, encryption keys, and digital certificates protecting your systems</p>
                 <div class="asset-tags">
-                    <span class="tag">Keys</span><span class="tag">Certs</span><span class="tag">Vault</span>
+                    
+                    <span class="tag">Keys</span>
+                    
+                    <span class="tag">Certs</span>
+                    
+                    <span class="tag">Vault</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>credentials, keys including standards, certificates including issuing CA, expiration date</li></ul>
+                    <ul>
+                        
+                        <li>credentials, keys including standards, certificates including issuing CA, expiration date</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="development">
                 <div class="asset-icon category-development">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -665,9 +832,15 @@ body {
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>Exposed to the internet and internal</li></ul>
+                    <ul>
+                        
+                        <li>Exposed to the internet and internal</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="development">
                 <div class="asset-icon category-development">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -682,9 +855,17 @@ body {
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>Github, Gitlab, </li><li>Identify infrastructure repositories, OWNERS files, permissions</li></ul>
+                    <ul>
+                        
+                        <li>Github, Gitlab, </li>
+                        
+                        <li>Identify infrastructure repositories, OWNERS files, permissions</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="suppliers">
                 <div class="asset-icon category-suppliers">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -699,9 +880,17 @@ body {
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>Supplier register, including:</li><li>which PCI DSS requirement is outsourced to this supplier</li></ul>
+                    <ul>
+                        
+                        <li>Supplier register, including:</li>
+                        
+                        <li>which PCI DSS requirement is outsourced to this supplier</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
             <div class="asset-card" data-category="access-identity">
                 <div class="asset-icon category-access-identity">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -711,14 +900,30 @@ body {
                 <h3 class="asset-title">Users</h3>
                 <p class="asset-description">Individuals who have access to organizational systems and data, including employees, contractors, and authorized external parties</p>
                 <div class="asset-tags">
-                    <span class="tag">SSO</span><span class="tag">MFA</span>
+                    
+                    <span class="tag">SSO</span>
+                    
+                    <span class="tag">MFA</span>
+                    
                 </div>
                 
                 <div class="asset-notes">
                     <strong>Key Components:</strong>
-                    <ul><li>user accounts, including:</li><li>systems they can connect to and with which roles</li><li>key events, like Joiner-Mover-Leaver, with approvals</li><li>FTE vs external</li></ul>
+                    <ul>
+                        
+                        <li>user accounts, including:</li>
+                        
+                        <li>systems they can connect to and with which roles</li>
+                        
+                        <li>key events, like Joiner-Mover-Leaver, with approvals</li>
+                        
+                        <li>FTE vs external</li>
+                        
+                    </ul>
                 </div>
+                
             </div>
+            
         </div>
     </div>
 </div>
@@ -758,5 +963,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 </script>
 {{< /rawhtml >}}

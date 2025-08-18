@@ -1,0 +1,82 @@
+---
+title: "Assets"
+description: "Foundational elements subject to control and oversight"
+date: 2024-01-01
+draft: false
+weight: 10
+---
+
+{% raw %}{{< rawhtml >}}{% endraw %}
+<style>
+{{ css_content }}
+</style>
+
+<div class="assets-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">
+                {{ assets_icon }}
+            </div>
+            <h1 class="hero-title">Secure Product Model Assets</h1>
+            <p class="hero-subtitle">Foundational elements subject to control and oversight</p>
+            <p class="hero-description">
+                Your actual infrastructure, data, and systems that need protection. These {{ asset_count }} asset types
+                represent everything from cloud accounts and databases to user access and policies -
+                the real stuff that auditors care about and attackers target.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="assets-grid-section">
+    <div class="container">
+        <h2 class="section-title">Asset Categories</h2>
+        <p class="section-subtitle">Browse all {{ asset_count }} asset types with their security requirements and implementation guidance</p>
+
+        <div class="assets-filter">
+            <button class="filter-btn active" data-category="all">All Assets</button>
+            <button class="filter-btn" data-category="infrastructure">Infrastructure</button>
+            <button class="filter-btn" data-category="data-storage">Data &amp; Storage</button>
+            <button class="filter-btn" data-category="access-identity">Access &amp; Identity</button>
+            <button class="filter-btn" data-category="process-governance">Process &amp; Governance</button>
+            <button class="filter-btn" data-category="physical">Physical</button>
+            <button class="filter-btn" data-category="pci">PCI</button>
+            <button class="filter-btn" data-category="development">Development</button>
+            <button class="filter-btn" data-category="suppliers">Suppliers</button>
+        </div>
+
+        <div class="assets-grid" id="assetsGrid">
+            {% for asset in assets %}
+            <div class="asset-card" data-category="{{ asset.category_slug }}">
+                <div class="asset-icon {{ asset.css_class }}">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="{{ asset.icon_path }}"></path>
+                    </svg>
+                </div>
+                <h3 class="asset-title">{{ asset.name | escape }}</h3>
+                <p class="asset-description">{{ asset.description | escape }}</p>
+                <div class="asset-tags">
+                    {% for tag in asset.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% if asset.notes %}
+                <div class="asset-notes">
+                    <strong>Key Components:</strong>
+                    <ul>
+                        {% for note in asset.notes %}
+                        <li>{{ note | escape }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+{{ js_content }}
+</script>
+{% raw %}{{< /rawhtml >}}{% endraw %}

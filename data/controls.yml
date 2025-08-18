@@ -210,13 +210,13 @@ controls:
     hardcoded credentials
   inventory: 'Third-party reports: Metrics for secrets in code'
   control_type: Preventive
-  tested_on_asset_inventory: Third-Party reports, Software repositories
+  tested_on_asset_inventory: Software repositories, Outsourced controls
 - id: C.Code.SBOM
   name: Software Bill of Materials
   slug: software-bill-of-materials
   control_type: Detective
-  tested_on_asset_inventory: Third-Party reports, Self-developed services, Software
-    repositories
+  tested_on_asset_inventory: Self-developed services, Software repositories, Outsourced
+    controls
 - id: C.Code.Reviews
   name: Code reviews, aka 4-eyes principle
   slug: code-reviews-aka-4-eyes-principle
@@ -307,22 +307,22 @@ controls:
   details: Including removable media
   parameters: frequency scans [PCI based on targeted risk analysis]
   control_type: Preventive
-  tested_on_asset_inventory: Endpoint devices, Third-Party reports
+  tested_on_asset_inventory: Endpoint devices, Outsourced controls
 - id: C.Endpoint.AntiPhishing
   name: Anti-phishing
   slug: anti-phishing
   control_type: Preventive
-  tested_on_asset_inventory: Third-Party reports
+  tested_on_asset_inventory: Outsourced controls
 - id: C.Endpoint.Antivirus
   name: Antivirus
   slug: antivirus
   control_type: Preventive
-  tested_on_asset_inventory: Endpoint devices, Third-Party reports
+  tested_on_asset_inventory: Endpoint devices, Outsourced controls
 - id: C.Endpoint.Disposal
   name: Adequate disposal
   slug: adequate-disposal
   control_type: Preventive
-  tested_on_asset_inventory: Endpoint devices, Third-Party reports
+  tested_on_asset_inventory: Endpoint devices, Outsourced controls
 - id: C.Endpoint.EnforcedSecurity
   name: Security measures can't be disabled by end users
   slug: security-measures-can't-be-disabled-by-end-users
@@ -413,9 +413,9 @@ controls:
   name: 24x7
   slug: 24x7
   control_type: Detective
-  tested_on_asset_inventory: SOC, Cloud environment, Compute, Customer, Databases,
-    Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment
-    pages, PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services,
+  tested_on_asset_inventory: Cloud environment, Compute, Customer, Databases, Endpoint
+    devices, Facilities, File storage, Logs, Network, Object storage, Payment pages,
+    PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services,
     Software repositories, Third-Parties, Users
 - id: C.Incident.Testing
   name: Incident response testing
@@ -435,7 +435,7 @@ controls:
   slug: log-alerting
   inventory: alerts, incidents, actions
   control_type: Detective
-  tested_on_asset_inventory: Logs, SOC
+  tested_on_asset_inventory: Logs
 - id: C.Logs.Availability
   name: Log availability
   slug: log-availability
@@ -515,16 +515,16 @@ controls:
   details: '- External reports covering CDE perimeter'
   parameters: frequency [PCI <= 3 months]
   control_type: Detective
-  tested_on_asset_inventory: Third-Party reports, Self-developed services, Cloud environment,
-    Network
+  tested_on_asset_inventory: Self-developed services, Cloud environment, Network,
+    Outsourced controls
 - id: C.Network.InternalPENTesting
   name: PEN Testing
   slug: pen-testing
   details: '- External reports covering internal and to verify segmentation'
   parameters: frequency [PCI <= 3 months]
   control_type: Detective
-  tested_on_asset_inventory: Third-Party reports, Self-developed services, Cloud environment,
-    Network
+  tested_on_asset_inventory: Self-developed services, Cloud environment, Network,
+    Outsourced controls
 - id: C.Network.IntrusionDetectionPrevention
   name: IDS/IPS
   slug: ids-ips
@@ -713,14 +713,14 @@ controls:
   slug: vulnerability-fixing-per-policy
   details: metrics for SLA breach
   control_type: Preventive
-  tested_on_asset_inventory: Third-Party reports, Self-developed services, Software
-    repositories
+  tested_on_asset_inventory: Self-developed services, Software repositories, Outsourced
+    controls
 - id: C.SecureCoding.VulnerabilityIdentification
   name: Scanning plus categorisation, including authenticated scans
   slug: scanning-plus-categorisation-including-authenticated-scans
   control_type: Detective
-  tested_on_asset_inventory: Third-Party reports, Self-developed services, Software
-    repositories
+  tested_on_asset_inventory: Self-developed services, Software repositories, Outsourced
+    controls
 - id: '[[ C.ThirdParty ]]'
   name: Third Party
   slug: third-party

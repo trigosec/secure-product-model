@@ -62,8 +62,8 @@ C.Backup.Classification,Data classification for backups,Backup data classificati
 [[ C.Code ]],Code,,,,,
 C.Code.IaC,Infrastructure as Code,Infrastructure change management part of standard software change management,,,Detective,"Changes, Software repositories"
 C.Code.NoHardcodedSecrets,"No hardcoded secrets in code, CI/CD pipelines","Monitor source code, specially deployment scripts to avoid the usage of hardcoded credentials",,"Third-party reports:
-  Metrics for secrets in code",Preventive,"Third-Party reports, Software repositories"
-C.Code.SBOM,Software Bill of Materials,,,,Detective,"Third-Party reports, Self-developed services, Software repositories"
+  Metrics for secrets in code",Preventive,"Software repositories, Outsourced controls"
+C.Code.SBOM,Software Bill of Materials,,,,Detective,"Self-developed services, Software repositories, Outsourced controls"
 C.Code.Reviews,"Code reviews, aka 4-eyes principle",Validating every change is reviewed by another developer,,,Preventive,"Software repositories, Changes"
 [[ C.Data ]],Data,,,,,
 C.Data.Disposal,Monitored disposal,"- Monitor disposal activities (ie: does it happen at the appropriate frequency?)
@@ -87,10 +87,10 @@ C.Encryption.SecretStorage,Secret storage,"- No keys or credentials file lying i
 - If keys/credentials can't be updated automatically, identify them in the inventory",,,Preventive,Secrets and certificates
 C.Encryption.StrongCryptography,,,,,Preventive,"Secrets and certificates, Users, Customer, File storage, Network, PCI Sensitive"
 [[ C.Endpoint ]],Endpoint,,,,,
-C.Endpoint.AntiMalware,Anti-malware,Including removable media,frequency scans [PCI based on targeted risk analysis],,Preventive,"Endpoint devices, Third-Party reports"
-C.Endpoint.AntiPhishing,Anti-phishing,,,,Preventive,Third-Party reports
-C.Endpoint.Antivirus,Antivirus,,,,Preventive,"Endpoint devices, Third-Party reports"
-C.Endpoint.Disposal,Adequate disposal,,,,Preventive,"Endpoint devices, Third-Party reports"
+C.Endpoint.AntiMalware,Anti-malware,Including removable media,frequency scans [PCI based on targeted risk analysis],,Preventive,"Endpoint devices, Outsourced controls"
+C.Endpoint.AntiPhishing,Anti-phishing,,,,Preventive,Outsourced controls
+C.Endpoint.Antivirus,Antivirus,,,,Preventive,"Endpoint devices, Outsourced controls"
+C.Endpoint.Disposal,Adequate disposal,,,,Preventive,"Endpoint devices, Outsourced controls"
 C.Endpoint.EnforcedSecurity,Security measures can't be disabled by end users,,,,,
 C.Endpoint.SecurityThreshold,Block devices with low score,"Access blocked as long as the device is considered insecure
 Alert in case a connected device has a low score",,,Corrective,Endpoint devices
@@ -112,11 +112,11 @@ C.Ident.OnboardingChecks,Onboarding checks,"Previous employment history, public 
 C.Ident.RecurringChecks,Recurring employee checks,Criminal records,frequency [PCI bi-yearly],,Preventive,Users
 C.Ident.Unique,"User accounts uniquely identified based on UUID, email, ...",,,,Preventive,"Users, Customer"
 [[ C.Incident ]],Incident management,,,,,
-C.Incident.Response,24x7,,,,Detective,"SOC, Cloud environment, Compute, Customer, Databases, Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment pages, PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services, Software repositories, Third-Parties, Users"
+C.Incident.Response,24x7,,,,Detective,"Cloud environment, Compute, Customer, Databases, Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment pages, PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services, Software repositories, Third-Parties, Users"
 C.Incident.Testing,Incident response testing,,frequency [PCI yearly],,Preventive,"Users, Policies, Process"
 C.Incident.Training,,,frequency [PCI based on TRA],,,
 [[ C.Logs ]],Logs,,,,,
-C.Logs.Alert,Log alerting,,,"alerts, incidents, actions",Detective,"Logs, SOC"
+C.Logs.Alert,Log alerting,,,"alerts, incidents, actions",Detective,Logs
 C.Logs.Availability,Log availability,"For each system, validate that logs are being monitored. Including:
 - Access to cardholder data
 - Access to the audit logs (read-only)
@@ -144,8 +144,8 @@ C.Mail.SPF,E-Mail SPF,,,,Preventive,Network
 [[ C.Network ]],Network,,,,,
 C.Network.AntiSpoofing,,,,,Preventive,Network
 C.Network.DenyByDefault,Network: Deny by default,"Based on network inventory, identify the egress points and confirm that the default rule in the firewalls is to deny all traffic",,,Preventive,Network
-C.Network.ExternalPENTesting,PEN Testing,- External reports covering CDE perimeter,frequency [PCI <= 3 months],,Detective,"Third-Party reports, Self-developed services, Cloud environment, Network"
-C.Network.InternalPENTesting,PEN Testing,- External reports covering internal and to verify segmentation,frequency [PCI <= 3 months],,Detective,"Third-Party reports, Self-developed services, Cloud environment, Network"
+C.Network.ExternalPENTesting,PEN Testing,- External reports covering CDE perimeter,frequency [PCI <= 3 months],,Detective,"Self-developed services, Cloud environment, Network, Outsourced controls"
+C.Network.InternalPENTesting,PEN Testing,- External reports covering internal and to verify segmentation,frequency [PCI <= 3 months],,Detective,"Self-developed services, Cloud environment, Network, Outsourced controls"
 C.Network.IntrusionDetectionPrevention,IDS/IPS,"Ideally:
 - Network, including IDS/IPS outsourced to cloud provider
 Alternative:
@@ -197,8 +197,8 @@ C.SecureCoding.ChangeTesting,,,,,Preventive,"Software repositories, Changes"
 C.SecureCoding.Training,upon hire and regularly,,frequency [PCI yearly],,Preventive,Users
 C.SecureCoding.RiskAssessment,,,,,Preventive,Self-developed services
 C.SecureCoding.Rollback,Rollback of changes,,,,Corrective,Self-developed services
-C.SecureCoding.VulnerabilityFixes,Vulnerability fixing per policy,metrics for SLA breach,,,Preventive,"Third-Party reports, Self-developed services, Software repositories"
-C.SecureCoding.VulnerabilityIdentification,"Scanning plus categorisation, including authenticated scans",,,,Detective,"Third-Party reports, Self-developed services, Software repositories"
+C.SecureCoding.VulnerabilityFixes,Vulnerability fixing per policy,metrics for SLA breach,,,Preventive,"Self-developed services, Software repositories, Outsourced controls"
+C.SecureCoding.VulnerabilityIdentification,"Scanning plus categorisation, including authenticated scans",,,,Detective,"Self-developed services, Software repositories, Outsourced controls"
 [[ C.ThirdParty ]],Third Party,,,,,
 C.ThirdParty.DDPriorToEngagement,Due diligence prior to engagement,Prior to start a business relationship,,,Preventive,Third-Parties
 C.ThirdParty.Monitoring,Third Party Monitoring,"On a regular basis (yearly, bi-yearly, ...)

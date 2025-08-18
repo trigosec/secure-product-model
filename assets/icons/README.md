@@ -115,6 +115,27 @@ The system can auto-detect appropriate icon types based on asset names:
 - **Paths**: Keep paths simple and recognizable at small sizes
 - **Style**: Line-based icons work best (avoid filled shapes)
 
+## Broken Icon Fallback
+
+### `broken.svg`
+A special fallback icon (`broken.svg`) is used when an asset-specific icon is missing. This icon displays:
+- A circle with an "X" mark inside
+- Universal symbol for "broken" or "missing"
+- Automatically used by the `assets2md.py` script when asset icons are not found
+
+### How It Works
+The `load_svg_content()` function handles fallback logic in a simple, clear way:
+1. **Primary**: Try to load `asset-{slug}.svg` for the specific asset
+2. **Fallback**: If not found, load `broken.svg` with warning
+3. **Ultimate**: If `broken.svg` also missing, use hardcoded fallback with warning
+4. **Parsing**: Supports mixed SVG elements (circles, paths, etc.) via `extract_svg_paths()`
+
+### Creating Missing Icons
+When you see the broken icon:
+1. Check script warnings for missing asset names
+2. Create the missing SVG file with proper naming: `asset-{slug}.svg`
+3. Regenerate with `./scripts/assets2md.py`
+
 ## Current Asset Icons
 
 ### Complete Asset Library
@@ -165,6 +186,12 @@ The system can auto-detect appropriate icon types based on asset names:
 2. Check that the category in `assets.yml` is correct
 3. Ensure CSS category classes are properly applied
 
+### Broken icon appearing
+1. Check if the asset-specific SVG file exists in `assets/icons/`
+2. Verify the filename follows the pattern: `asset-{slug}.svg`
+3. Look at script warnings to identify missing files
+4. Create missing icons or check for typos in asset names
+
 ## Integration with assets.yml
 
 When adding new assets to your `assets.yml` file:
@@ -190,5 +217,6 @@ The system will:
 - **Better UX**: Users can quickly identify asset categories at a glance
 - **Scalability**: Easy to add new assets while maintaining color consistency
 - **Accessibility**: Colors chosen for good contrast and color-blind accessibility
+- **Graceful Degradation**: Missing icons automatically fall back to broken.svg with warnings
 
-This approach provides clear visual categorization while allowing each asset to have its own unique icon design.
+This approach provides clear visual categorization while allowing each asset to have its own unique icon design, with a robust fallback system for missing assets.
