@@ -84,7 +84,8 @@ To use an icon in any Hugo template, use the `icon.html` partial:
 The `assets2md.py` script also reads icons from this directory:
 
 - Uses `get_assets_icon_svg()` function to read `assets.svg`
-- Automatically applies proper sizing (120px for hero section)
+- Automatically applies proper sizing (80px desktop, 60px tablet, 48px mobile for hero section)
+- Includes responsive hero section padding (4rem desktop, 3rem tablet, 2rem mobile)
 - Falls back to embedded SVG if file not found
 - Maintains consistency with Hugo templates
 

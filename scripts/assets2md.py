@@ -295,7 +295,7 @@ body {
 
 .assets-hero {
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-muted) 100%);
-    padding: 6rem 0;
+    padding: 4rem 0;
     text-align: center;
 }
 
@@ -305,8 +305,8 @@ body {
 
 .hero-icon svg {
     stroke: var(--primary-color);
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
@@ -507,8 +507,15 @@ body {
 
 @media (max-width: 768px) {
     .hero-title { font-size: 2rem; }
+    .hero-icon svg { width: 60px; height: 60px; }
+    .assets-hero { padding: 3rem 0; }
     .assets-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .asset-card { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-icon svg { width: 48px; height: 48px; }
+    .assets-hero { padding: 2rem 0; }
 }
 '''
 
@@ -526,13 +533,13 @@ def get_assets_icon_svg() -> str:
         with open(icon_path, 'r', encoding='utf-8') as f:
             svg_content = f.read()
 
-        # Customize the SVG for the hero section (120px size)
-        svg_content = svg_content.replace('viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="120" height="120"')
+        # Customize the SVG for the hero section (80px size)
+        svg_content = svg_content.replace('viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="80" height="80"')
         return svg_content
 
     except FileNotFoundError:
         # Fallback SVG if file not found
-        return '''<svg viewBox="0 0 24 24" width="120" height="120" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        return '''<svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="5" r="2"/>
                     <circle cx="12" cy="19" r="2"/>
                     <circle cx="5" cy="12" r="2"/>

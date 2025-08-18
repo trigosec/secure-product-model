@@ -45,7 +45,7 @@ body {
 
 .assets-hero {
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-muted) 100%);
-    padding: 6rem 0;
+    padding: 4rem 0;
     text-align: center;
 }
 
@@ -55,8 +55,8 @@ body {
 
 .hero-icon svg {
     stroke: var(--primary-color);
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
@@ -257,8 +257,15 @@ body {
 
 @media (max-width: 768px) {
     .hero-title { font-size: 2rem; }
+    .hero-icon svg { width: 60px; height: 60px; }
+    .assets-hero { padding: 3rem 0; }
     .assets-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .asset-card { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-icon svg { width: 48px; height: 48px; }
+    .assets-hero { padding: 2rem 0; }
 }
 </style>
 
@@ -266,7 +273,7 @@ body {
     <div class="container">
         <div class="hero-content">
             <div class="hero-icon">
-                <svg viewBox="0 0 24 24" width="120" height="120" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="5" r="2"/>
   <circle cx="12" cy="19" r="2"/>
   <circle cx="5" cy="12" r="2"/>
