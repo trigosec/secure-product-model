@@ -159,44 +159,50 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.asset-icon.infrastructure {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+/* Default style for unknown categories */
+.asset-icon[class*="category-"] {
+    background: #64748b;
     color: white;
 }
 
-.asset-icon.data {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: white;
+.asset-icon.category-infrastructure {
+    background: #06b6d4 !important;
+    color: white !important;
 }
 
-.asset-icon.access {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
+.asset-icon.category-data-storage {
+    background: #2563eb !important;
+    color: white !important;
 }
 
-.asset-icon.process {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-    color: white;
+.asset-icon.category-access-identity {
+    background: #059669 !important;
+    color: white !important;
 }
 
-.asset-icon.physical {
-    background: linear-gradient(135deg, #6b7280, #4b5563);
-    color: white;
+.asset-icon.category-process-governance {
+    background: #7c3aed !important;
+    color: white !important;
 }
 
-.asset-icon.pci {
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
-    color: white;
+.asset-icon.category-physical {
+    background: #6b7280 !important;
+    color: white !important;
 }
 
-.asset-icon.development {
-    background: linear-gradient(135deg, #06b6d4, #0891b2);
-    color: white;
+.asset-icon.category-pci {
+    background: #ef4444 !important;
+    color: white !important;
 }
 
-.asset-icon.suppliers {
-    background: linear-gradient(135deg, #ec4899, #db2777);
-    color: white;
+.asset-icon.category-development {
+    background: #0891b2 !important;
+    color: white !important;
+}
+
+.asset-icon.category-suppliers {
+    background: #f97316 !important;
+    color: white !important;
 }
 
 .asset-title {
@@ -305,9 +311,9 @@ body {
         <div class="assets-filter">
             <button class="filter-btn active" data-category="all">All Assets</button>
             <button class="filter-btn" data-category="infrastructure">Infrastructure</button>
-            <button class="filter-btn" data-category="data">Data &amp; Storage</button>
-            <button class="filter-btn" data-category="access">Access &amp; Identity</button>
-            <button class="filter-btn" data-category="process">Process &amp; Governance</button>
+            <button class="filter-btn" data-category="data-storage">Data &amp; Storage</button>
+            <button class="filter-btn" data-category="access-identity">Access &amp; Identity</button>
+            <button class="filter-btn" data-category="process-governance">Process &amp; Governance</button>
             <button class="filter-btn" data-category="physical">Physical</button>
             <button class="filter-btn" data-category="pci">PCI</button>
             <button class="filter-btn" data-category="development">Development</button>
@@ -316,8 +322,8 @@ body {
 
         <div class="assets-grid" id="assetsGrid">
             
-            <div class="asset-card" data-category="data">
-                <div class="asset-icon data">
+            <div class="asset-card" data-category="data-storage">
+                <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20 6L9 17l-5-5"></path>
                     </svg>
@@ -333,8 +339,8 @@ body {
                     <ul><li>read-only, frequency, retention, integrity checks, scheduled testing <= 1 year, dispersion across several AZs, Regions, Clouds</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="process-governance">
+                <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 m0 0l-7-7 m0 0l-3 3.5M11 4l3.5 3"></path>
                     </svg>
@@ -351,7 +357,7 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="infrastructure">
-                <div class="asset-icon infrastructure">
+                <div class="asset-icon category-infrastructure">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
                     </svg>
@@ -368,7 +374,7 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="infrastructure">
-                <div class="asset-icon infrastructure">
+                <div class="asset-icon category-infrastructure">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"></path>
                     </svg>
@@ -384,10 +390,10 @@ body {
                     <ul><li>VM, K8S clusters, lambdas</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="data">
-                <div class="asset-icon data">
+            <div class="asset-card" data-category="data-storage">
+                <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75 M12 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 m8-10a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Customer</h3>
@@ -397,8 +403,8 @@ body {
                 </div>
                 
             </div>
-            <div class="asset-card" data-category="data">
-                <div class="asset-icon data">
+            <div class="asset-card" data-category="data-storage">
+                <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 2c4.97 0 9 1.34 9 3v14c0 1.66-4.03 3-9 3s-9-1.34-9-3V5c0-1.66 4.03-3 9-3z M12 8c4.97 0 9-1.34 9-3 M12 14c4.97 0 9-1.34 9-3"></path>
                     </svg>
@@ -415,7 +421,7 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="physical">
-                <div class="asset-icon physical">
+                <div class="asset-icon category-physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 17H7l-4-4 4-4h2 M15 17h2l4-4-4-4h-2 M12 3l-2 18"></path>
                     </svg>
@@ -432,7 +438,7 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="physical">
-                <div class="asset-icon physical">
+                <div class="asset-icon category-physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 21h18 M5 21V7l8-4v18 M19 21V11l-6-4"></path>
                     </svg>
@@ -444,8 +450,8 @@ body {
                 </div>
                 
             </div>
-            <div class="asset-card" data-category="data">
-                <div class="asset-icon data">
+            <div class="asset-card" data-category="data-storage">
+                <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                     </svg>
@@ -461,8 +467,8 @@ body {
                     <ul><li>AWS EFS/EBS, GCP Elastifile Cloud File, physical media</li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="data">
-                <div class="asset-icon data">
+            <div class="asset-card" data-category="data-storage">
+                <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8"></path>
                     </svg>
@@ -475,7 +481,7 @@ body {
                 
             </div>
             <div class="asset-card" data-category="infrastructure">
-                <div class="asset-icon infrastructure">
+                <div class="asset-icon category-infrastructure">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M16 3a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2 M8 3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2 M12 11v10 M12 3v8"></path>
                     </svg>
@@ -491,10 +497,10 @@ body {
                     <ul><li>Inventory of the VPCs and networks in the accounts, including ingress/egress routing information, VPN routes, DNS</li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="data">
-                <div class="asset-icon data">
+            <div class="asset-card" data-category="data-storage">
+                <div class="asset-icon category-data-storage">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Object storage</h3>
@@ -508,10 +514,10 @@ body {
                     <ul><li>AWS S3, GCP Cloud Storage, </li><li>Inventory extraction through the cloud provider API</li><li>Alternatively: AWS Workload Discovery solution</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="process-governance">
+                <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M12.5 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0 M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Outsourced controls</h3>
@@ -526,9 +532,9 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="pci">
-                <div class="asset-icon pci">
+                <div class="asset-icon category-pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4 M3 5v14a2 2 0 0 0 2 2h16v-5 M7 15h.01 M11 15h4"></path>
+                        <path d="M21 4H3v16h18V4z M7 8h10 M7 12h4"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Payment pages</h3>
@@ -539,7 +545,7 @@ body {
                 
             </div>
             <div class="asset-card" data-category="pci">
-                <div class="asset-icon pci">
+                <div class="asset-icon category-pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z M8 15h8"></path>
                     </svg>
@@ -552,7 +558,7 @@ body {
                 
             </div>
             <div class="asset-card" data-category="physical">
-                <div class="asset-icon physical">
+                <div class="asset-icon category-physical">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
@@ -564,10 +570,10 @@ body {
                 </div>
                 
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="process-governance">
+                <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8"></path>
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M9 15l2 2 4-4"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Policies</h3>
@@ -578,9 +584,9 @@ body {
                 
             </div>
             <div class="asset-card" data-category="pci">
-                <div class="asset-icon pci">
+                <div class="asset-icon category-pci">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z M8 15h8"></path>
+                        <path d="M9 17H7l-4-4 4-4h2 M15 17h2l4-4-4-4h-2 M12 3l-2 18"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">POS Devices</h3>
@@ -594,10 +600,10 @@ body {
                     <ul><li>Device inventory, including: Make and model, Location, Serial number</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="process">
-                <div class="asset-icon process">
+            <div class="asset-card" data-category="process-governance">
+                <div class="asset-icon category-process-governance">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z M7.5 4.21l4.5 2.6 4.5-2.6 M12 6.81V17.5"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Process</h3>
@@ -611,8 +617,8 @@ body {
                     <ul><li>with details on how to test them</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="access">
-                <div class="asset-icon access">
+            <div class="asset-card" data-category="access-identity">
+                <div class="asset-icon category-access-identity">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 12l2 2 4-4 M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M12.5 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
                     </svg>
@@ -628,8 +634,8 @@ body {
                     <ul><li>which roles have which permissions for which system</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="access">
-                <div class="asset-icon access">
+            <div class="asset-card" data-category="access-identity">
+                <div class="asset-icon category-access-identity">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
                     </svg>
@@ -646,9 +652,9 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="development">
-                <div class="asset-icon development">
+                <div class="asset-icon category-development">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        <path d="M16 18l6-6-6-6 M8 6l-6 6 6 6"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Self-developed services</h3>
@@ -663,9 +669,9 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="development">
-                <div class="asset-icon development">
+                <div class="asset-icon category-development">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Software repositories</h3>
@@ -680,7 +686,7 @@ body {
                 </div>
             </div>
             <div class="asset-card" data-category="suppliers">
-                <div class="asset-icon suppliers">
+                <div class="asset-icon category-suppliers">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
                     </svg>
@@ -696,10 +702,10 @@ body {
                     <ul><li>Supplier register, including:</li><li>which PCI DSS requirement is outsourced to this supplier</li></ul>
                 </div>
             </div>
-            <div class="asset-card" data-category="access">
-                <div class="asset-icon access">
+            <div class="asset-card" data-category="access-identity">
+                <div class="asset-icon category-access-identity">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75 M12 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 m8-10a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
                     </svg>
                 </div>
                 <h3 class="asset-title">Users</h3>

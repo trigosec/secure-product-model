@@ -35,8 +35,47 @@ Examples:
 import yaml
 import os
 import sys
+import re
 from pathlib import Path
 from typing import Dict, Any, List, Optional
+
+# Global list to collect warnings
+_warnings = []
+
+def add_warning(message: str) -> None:
+    """Add a warning message to the global warnings list."""
+    _warnings.append(message)
+    print(f"WARNING: {message}", file=sys.stderr)
+
+def get_warnings() -> List[str]:
+    """Get all collected warnings."""
+    return _warnings.copy()
+
+def clear_warnings() -> None:
+    """Clear all collected warnings."""
+    _warnings.clear()
+
+def slugify(text: str) -> str:
+    """Convert text to a URL-friendly slug.
+
+    Args:
+        text: The text to convert to a slug
+
+    Returns:
+        A lowercase, hyphenated slug
+
+    Examples:
+        >>> slugify("Data & Storage")
+        'data-storage'
+        >>> slugify("Process & Governance")
+        'process-governance'
+        >>> slugify("Access & Identity")
+        'access-identity'
+    """
+    # Convert to lowercase and replace spaces and special chars with hyphens
+    slug = re.sub(r'[^\w\s-]', '-', text.lower())
+    slug = re.sub(r'[-\s]+', '-', slug)
+    return slug.strip('-')
 
 
 def is_dict_with_key(obj: Any, key: str) -> bool:
@@ -152,22 +191,22 @@ def format_asset_section(asset: Dict[str, Any]) -> str:
 
 
 def categorize_asset(asset: Dict[str, Any]) -> str:
-    """Get category from asset data, with CSS class mapping."""
+    """Get category slug from asset data."""
     # Use explicit category if available
     if 'category' in asset and asset['category']:
         category = asset['category'].lower()
-        # Map category names to CSS classes
+        # Map category names to slugs for backward compatibility
         category_mapping = {
             'infrastructure': 'infrastructure',
-            'data & storage': 'data',
-            'process & governance': 'process',
+            'data & storage': 'data-storage',
+            'process & governance': 'process-governance',
             'physical': 'physical',
             'pci': 'pci',
-            'access & identity': 'access',
+            'access & identity': 'access-identity',
             'development': 'development',
             'suppliers': 'suppliers'
         }
-        return category_mapping.get(category, 'process')
+        return category_mapping.get(category, slugify(category))
 
     # Fallback to old logic if no category field (for backward compatibility)
     name = asset.get('name', '')
@@ -178,16 +217,51 @@ def categorize_asset(asset: Dict[str, Any]) -> str:
     if name in infrastructure_assets:
         return "infrastructure"
     elif name in data_assets:
-        return "data"
+        return "data-storage"
     elif name in access_assets:
-        return "access"
+        return "access-identity"
     else:
-        return "process"
+        return "process-governance"
+
+def get_category_css_class(category_slug: str) -> str:
+    """Get CSS class name for a category slug."""
+    return f"category-{category_slug}"
+
+def get_asset_svg_path(asset_name: str) -> Optional[str]:
+    """Get SVG file path for an asset, checking if file exists."""
+    asset_slug = slugify(asset_name)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    icon_path = os.path.join(script_dir, '..', 'assets', 'icons', f'asset-{asset_slug}.svg')
+
+    if os.path.exists(icon_path):
+        return icon_path
+    else:
+        add_warning(f"SVG file not found for asset '{asset_name}': {icon_path}")
+        return None
+
+def load_svg_content(svg_path: str) -> str:
+    """Load SVG content from file."""
+    try:
+        with open(svg_path, 'r', encoding='utf-8') as f:
+            return f.read()
+    except Exception as e:
+        add_warning(f"Failed to load SVG file {svg_path}: {e}")
+        return ""
 
 
-def get_icon_path(asset_name: str, category: str) -> str:
+def get_icon_path(asset_name: str, category_slug: str) -> str:
     """Get SVG path for specific asset icon."""
-    # Specific asset icons
+    # First try to load from external SVG file for the specific asset
+    svg_path = get_asset_svg_path(asset_name)
+    if svg_path:
+        svg_content = load_svg_content(svg_path)
+        if svg_content:
+            # Extract the path data from the SVG content
+            path_match = re.search(r'<path[^>]*d="([^"]*)"', svg_content)
+            if path_match:
+                return path_match.group(1)
+
+    # Fallback to hardcoded asset icons for backward compatibility
     asset_icons = {
         "Backups": "M20 6L9 17l-5-5",  # Check mark (backup verification)
         "Changes": "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 m0 0l-7-7 m0 0l-3 3.5M11 4l3.5 3",  # Edit/change icon
@@ -216,12 +290,12 @@ def get_icon_path(asset_name: str, category: str) -> str:
         "Version control": "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"  # Git/version control
     }
 
-    # Fallback category icons
-    category_icons = {
+    # Fallback category icons (using new slug-based category names)
+    category_fallback_icons = {
         "infrastructure": "M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16",
-        "data": "M12 5c4.97 0 9 1.34 9 3v7c0 1.66-4.03 3-9 3s-9-1.34-9-3V8c0-1.66 4.03-3 9-3z M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3",
-        "access": "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 7a4 4 0 1 1 0 8a4 4 0 0 1 0-8z",
-        "process": "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z",
+        "data-storage": "M12 5c4.97 0 9 1.34 9 3v7c0 1.66-4.03 3-9 3s-9-1.34-9-3V8c0-1.66 4.03-3 9-3z M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3",
+        "access-identity": "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 7a4 4 0 1 1 0 8a4 4 0 0 1 0-8z",
+        "process-governance": "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z",
         "physical": "M9 17H7l-4-4 4-4h2 M15 17h2l4-4-4-4h-2",
         "pci": "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z M8 15h8",
         "development": "M13 10V3L4 14h7v7l9-11h-7z",
@@ -229,7 +303,7 @@ def get_icon_path(asset_name: str, category: str) -> str:
     }
 
     # Return specific asset icon if available, otherwise fallback to category icon
-    return asset_icons.get(asset_name, category_icons.get(category, category_icons["process"]))
+    return asset_icons.get(asset_name, category_fallback_icons.get(category_slug, category_fallback_icons["process-governance"]))
 
 
 def extract_tags(asset: Dict[str, Any]) -> List[str]:
@@ -255,9 +329,49 @@ def extract_tags(asset: Dict[str, Any]) -> List[str]:
     return tags
 
 
-def get_embedded_css() -> str:
+def get_dynamic_category_css(categories: set) -> str:
+    """Generate CSS for dynamic categories that don't have predefined styles."""
+    css_parts = []
+
+    # Define some color schemes for dynamic categories
+    color_schemes = [
+        ("#10b981", "#059669"),  # Green
+        ("#f59e0b", "#d97706"),  # Orange
+        ("#8b5cf6", "#7c3aed"),  # Purple
+        ("#ef4444", "#dc2626"),  # Red
+        ("#06b6d4", "#0891b2"),  # Cyan
+        ("#ec4899", "#db2777"),  # Pink
+        ("#84cc16", "#65a30d"),  # Lime
+        ("#6366f1", "#4f46e5"),  # Indigo
+    ]
+
+    predefined_categories = {
+        'category-infrastructure', 'category-data-storage', 'category-access-identity',
+        'category-process-governance', 'category-physical', 'category-pci',
+        'category-development', 'category-suppliers'
+    }
+
+    dynamic_categories = categories - predefined_categories
+
+    for i, category in enumerate(sorted(dynamic_categories)):
+        if not category.startswith('category-'):
+            continue
+
+        color_pair = color_schemes[i % len(color_schemes)]
+        css_parts.append(f"""
+.asset-icon.{category} {{
+    background: linear-gradient(135deg, {color_pair[0]}, {color_pair[1]});
+    color: white;
+}}""")
+
+    return '\n'.join(css_parts)
+
+def get_embedded_css(categories: set = None) -> str:
     """Return embedded CSS styles."""
-    return '''
+    if categories is None:
+        categories = set()
+
+    base_css = '''
 :root {
     --primary-color: #002ebf;
     --primary-dark: #001a80;
@@ -409,43 +523,49 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.asset-icon.infrastructure {
+.asset-icon.category-infrastructure {
     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
     color: white;
 }
 
-.asset-icon.data {
+.asset-icon.category-data-storage {
     background: linear-gradient(135deg, #10b981, #059669);
     color: white;
 }
 
-.asset-icon.access {
+.asset-icon.category-access-identity {
     background: linear-gradient(135deg, #f59e0b, #d97706);
     color: white;
 }
 
-.asset-icon.process {
+.asset-icon.category-process-governance {
     background: linear-gradient(135deg, #8b5cf6, #7c3aed);
     color: white;
 }
 
-.asset-icon.physical {
+.asset-icon.category-physical {
     background: linear-gradient(135deg, #6b7280, #4b5563);
     color: white;
 }
 
-.asset-icon.pci {
+.asset-icon.category-pci {
     background: linear-gradient(135deg, #dc2626, #b91c1c);
     color: white;
 }
 
-.asset-icon.development {
+.asset-icon.category-development {
     background: linear-gradient(135deg, #06b6d4, #0891b2);
     color: white;
 }
 
-.asset-icon.suppliers {
+.asset-icon.category-suppliers {
     background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+}
+
+/* Default style for unknown categories */
+.asset-icon[class*="category-"] {
+    background: linear-gradient(135deg, #64748b, #475569);
     color: white;
 }
 
@@ -518,6 +638,11 @@ body {
     .assets-hero { padding: 2rem 0; }
 }
 '''
+
+    # Add dynamic CSS for any additional categories
+    dynamic_css = get_dynamic_category_css(categories)
+
+    return base_css + dynamic_css
 
 
 def get_assets_icon_svg() -> str:
@@ -627,15 +752,16 @@ def generate_frontmatter(meta: Dict[str, Any], asset_count: int) -> str:
     return "\n".join(frontmatter_lines)
 
 
-def generate_markdown_content(assets: List[Dict[str, Any]], meta: Dict[str, Any]) -> str:
+def generate_markdown_content(assets: List[Dict[str, Any]], meta: Dict[str, Any], assets_icon: str, categories: set = None) -> str:
     """Generate markdown content for Hugo with embedded HTML sections."""
     asset_count = len(assets)
 
     # Generate asset cards HTML
     cards_html = []
     for asset in assets:
-        category = categorize_asset(asset)
-        icon_path = get_icon_path(asset['name'], category)
+        category_slug = categorize_asset(asset)
+        css_class = get_category_css_class(category_slug)
+        icon_path = get_icon_path(asset['name'], category_slug)
         tags = extract_tags(asset)
 
         # Generate notes HTML if available
@@ -653,8 +779,8 @@ def generate_markdown_content(assets: List[Dict[str, Any]], meta: Dict[str, Any]
                 </div>'''
 
         card_html = f'''
-            <div class="asset-card" data-category="{category}">
-                <div class="asset-icon {category}">
+            <div class="asset-card" data-category="{category_slug}">
+                <div class="asset-icon {css_class}">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="{icon_path}"></path>
                     </svg>
@@ -677,13 +803,13 @@ weight: 10
 ---
 
 {{{{< rawhtml >}}}}
-<style>{get_embedded_css()}</style>
+<style>{get_embedded_css(categories)}</style>
 
 <div class="assets-hero">
     <div class="container">
         <div class="hero-content">
             <div class="hero-icon">
-                {get_assets_icon_svg()}
+                {assets_icon}
             </div>
             <h1 class="hero-title">Secure Product Model Assets</h1>
             <p class="hero-subtitle">Foundational elements subject to control and oversight</p>
@@ -772,8 +898,18 @@ def convert_assets_to_markdown(yaml_file_path: Path, md_file_path: Path) -> bool
         assets = validated_data['assets']
         meta = validated_data['meta']
 
+        # Collect all categories used in assets for dynamic CSS generation
+        categories = set()
+        for asset in assets:
+            category_slug = categorize_asset(asset)
+            css_class = get_category_css_class(category_slug)
+            categories.add(css_class)
+
+        # Get assets icon
+        assets_icon = get_assets_icon_svg()
+
         # Generate markdown content
-        markdown_content = generate_markdown_content(assets, meta)
+        markdown_content = generate_markdown_content(assets, meta, assets_icon, categories)
 
         # Ensure output directory exists
         os.makedirs(md_file_path.parent, exist_ok=True)
@@ -903,6 +1039,17 @@ def main() -> None:
                     print(f"📈 Converted {asset_count} assets to Markdown")
         except Exception:
             pass
+
+        # Display warnings if any
+        warnings = get_warnings()
+        if warnings:
+            print(f"\n⚠️  {len(warnings)} warning(s) encountered:")
+            for warning in warnings:
+                print(f"   • {warning}")
+            print("\n💡 To resolve these warnings:")
+            print("   1. Create missing SVG files in assets/icons/ directory")
+            print("   2. Use the naming convention: asset-{slug}.svg")
+            print("   3. Use the helper script: ./scripts/create_asset_icon.py 'Asset Name'")
 
         # Provide next steps
         print("\n🚀 Next steps:")
