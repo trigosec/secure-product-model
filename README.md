@@ -63,18 +63,22 @@ cd secure-product-framework
 2. Build the static site:
 ```bash
 # Using the deployment script (recommended)
+cd website
 ./deploy.sh
 
 # Or using Hugo directly
+cd website
 hugo --minify
 ```
 
 3. Serve locally for development:
 ```bash
 # Using the deployment script
+cd website
 ./deploy.sh --serve
 
 # Or using Hugo directly
+cd website
 hugo server -D
 ```
 
@@ -82,9 +86,10 @@ The site will be available at `http://localhost:1313`
 
 ### Deployment Script
 
-The included `deploy.sh` script provides convenient build and deployment options:
+The included `deploy.sh` script (in the `website/` directory) provides convenient build and deployment options:
 
 ```bash
+cd website
 ./deploy.sh           # Build production site
 ./deploy.sh --serve   # Start development server
 ./deploy.sh --clean   # Clean build
@@ -96,24 +101,62 @@ The included `deploy.sh` script provides convenient build and deployment options
 
 ```
 secure-product-framework/
-├── content/           # Markdown content files
-│   ├── _index.md     # Homepage
-│   ├── about/        # About section
-│   ├── controls/     # Security controls
-│   ├── model/        # Model overview
-│   ├── governance/   # Governance documentation
-│   └── assets/       # Asset types
-├── layouts/          # Hugo templates
-│   ├── _default/     # Default templates
-│   └── index.html    # Homepage template
-├── static/           # Static assets
-│   ├── css/          # Stylesheets
-│   └── images/       # Logo files and graphics
-├── assets/           # Source assets
-│   └── logo.jpeg     # Original logo file
-├── docs/             # Source CSV files
-├── deploy.sh         # Build and deployment script
-└── hugo.toml         # Hugo configuration
+├── website/          # Hugo website files
+│   ├── content/      # Markdown content files
+│   │   ├── _index.md # Homepage
+│   │   ├── about/    # About section
+│   │   ├── controls/ # Security controls
+│   │   ├── model/    # Model overview
+│   │   ├── governance/ # Governance documentation
+│   │   └── assets/   # Asset types
+│   ├── layouts/      # Hugo templates
+│   ├── static/       # Static assets
+│   ├── assets/       # Source assets (SCSS, JS, images)
+│   ├── themes/       # Hugo themes
+│   ├── deploy.sh     # Build and deployment script
+│   └── hugo.toml     # Hugo configuration
+├── scripts/          # Python utilities
+│   ├── csv2yaml.py   # Convert CSV to YAML
+│   ├── assets2md.py  # Generate asset pages
+│   └── framework-sync.py # Download from Google Sheets
+├── data/             # Source CSV and YAML files
+├── docs/             # Project documentation
+└── pyproject.toml    # Python project configuration
+```
+
+## Python Scripts Workflow
+
+The project includes Python utilities to manage and generate website content:
+
+### Data Pipeline
+
+1. **Download from Google Sheets:**
+   ```bash
+   ./scripts/framework-sync.py
+   ```
+   Downloads CSV files to `data/` directory
+
+2. **Convert CSV to YAML:**
+   ```bash
+   ./scripts/csv2yaml.py
+   ```
+   Converts CSV files in `data/` to structured YAML
+
+3. **Generate Website Content:**
+   ```bash
+   ./scripts/assets2md.py
+   ```
+   Creates Hugo pages in `website/content/assets/`
+
+### Development Environment
+
+Set up Python environment:
+```bash
+# Install dependencies
+pip install -e .
+
+# Or with uv
+uv pip install -e .
 ```
 
 ## Content Organization

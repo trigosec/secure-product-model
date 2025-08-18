@@ -15,7 +15,7 @@ Options:
 The script will:
 1. Read data/assets.yml
 2. Convert to complete HTML format
-3. Save as content/assets/_index.html
+3. Save as website/content/assets/_index.html
 4. Include embedded CSS and JavaScript
 
 Examples:
@@ -185,7 +185,7 @@ def load_svg_content(asset_name: str) -> str:
 
     # First try asset-specific SVG
     asset_slug = slugify(asset_name)
-    svg_path = script_dir.parent / "assets" / "icons" / f"asset-{asset_slug}.svg"
+    svg_path = script_dir.parent / "website" / "assets" / "icons" / f"asset-{asset_slug}.svg"
 
     if svg_path.exists():
         try:
@@ -197,7 +197,7 @@ def load_svg_content(asset_name: str) -> str:
         add_warning(f"SVG file not found for asset '{asset_name}': {svg_path}")
 
     # Fallback to broken.svg
-    broken_svg_path = script_dir.parent / "assets" / "icons" / "broken.svg"
+    broken_svg_path = script_dir.parent / "website" / "assets" / "icons" / "broken.svg"
     if broken_svg_path.exists():
         try:
             with open(broken_svg_path, 'r', encoding='utf-8') as f:
@@ -285,8 +285,8 @@ def get_assets_icon_svg() -> str:
 
     # Get the directory of this script
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    # Go up one level to the project root, then to assets/icons
-    icon_path = os.path.join(script_dir, '..', 'assets', 'icons', 'assets.svg')
+    # Go up one level to the project root, then to website/assets/icons
+    icon_path = os.path.join(script_dir, '..', 'website', 'assets', 'icons', 'assets.svg')
 
     try:
         with open(icon_path, 'r', encoding='utf-8') as f:
@@ -485,7 +485,7 @@ Examples:
 The script will:
 1. Read data/assets.yml
 2. Convert to Markdown format with embedded HTML
-3. Save as content/assets/_index.md
+3. Save as website/content/assets/_index.md
 4. Include embedded CSS and JavaScript
 
 Note: The assets.yml file must exist in the data/ directory.
@@ -505,7 +505,7 @@ def main() -> None:
 
     # Define file paths
     yaml_file: Path = project_root / 'data' / 'assets.yml'
-    md_file: Path = project_root / 'content' / 'assets' / '_index.md'
+    md_file: Path = project_root / 'website' / 'content' / 'assets' / '_index.md'
 
     print("🔄 Converting Assets YAML to Markdown...")
     print(f"📂 Source: {yaml_file}")
@@ -518,13 +518,13 @@ def main() -> None:
         sys.exit(1)
 
     # Remove existing content/assets.md if it exists (for migration)
-    old_assets_file: Path = project_root / 'content' / 'assets.md'
+    old_assets_file: Path = project_root / 'website' / 'content' / 'assets.md'
     if old_assets_file.exists():
         print(f"🔄 Removing old assets.md file: {old_assets_file}")
         old_assets_file.unlink()
 
     # Remove existing content/assets/ directory if it exists and contains other files
-    assets_dir: Path = project_root / 'content' / 'assets'
+    assets_dir: Path = project_root / 'website' / 'content' / 'assets'
     if assets_dir.exists() and assets_dir.is_dir():
         # Check if directory has files other than _index.md
         existing_files: list[Path] = [f for f in assets_dir.iterdir() if f.name != '_index.md']
@@ -559,15 +559,15 @@ def main() -> None:
             for warning in warnings:
                 print(f"   • {warning}")
             print("\n💡 To resolve these warnings:")
-            print("   1. Create missing SVG files in assets/icons/ directory")
+            print("   1. Create missing SVG files in website/assets/icons/ directory")
             print("   2. Use the naming convention: asset-{slug}.svg")
             print("   3. Use the helper script: ./scripts/create_asset_icon.py 'Asset Name'")
 
         # Provide next steps
         print("\n🚀 Next steps:")
         print("   1. Review the generated HTML file")
-        print("   2. Run 'hugo server' to preview the site")
-        print("   3. Customize the layout in themes/ if needed")
+        print("   2. Run 'hugo server' from the website/ directory to preview the site")
+        print("   3. Customize the layout in website/themes/ if needed")
 
     else:
         print("❌ Conversion failed!")
