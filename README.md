@@ -62,9 +62,8 @@ cd secure-product-framework
 
 2. Build the static site:
 ```bash
-# Using the deployment script (recommended)
-cd website
-./deploy.sh
+# Using the Makefile (recommended)
+make build
 
 # Or using Hugo directly
 cd website
@@ -73,9 +72,11 @@ hugo --minify
 
 3. Serve locally for development:
 ```bash
-# Using the deployment script
-cd website
-./deploy.sh --serve
+# Using the Makefile
+make serve
+
+# With draft content
+make serve-drafts
 
 # Or using Hugo directly
 cd website
@@ -84,17 +85,16 @@ hugo server -D
 
 The site will be available at `http://localhost:1313`
 
-### Deployment Script
+### Makefile
 
-The included `deploy.sh` script (in the `website/` directory) provides convenient build and deployment options:
+The included `Makefile` at the project root provides convenient build and deployment options:
 
 ```bash
-cd website
-./deploy.sh           # Build production site
-./deploy.sh --serve   # Start development server
-./deploy.sh --clean   # Clean build
-./deploy.sh --deploy  # Deploy to production
-./deploy.sh --help    # Show all options
+make build           # Build production site
+make serve           # Start development server
+make clean-build     # Clean build
+make deploy          # Deploy to production
+make help            # Show all options
 ```
 
 ### Project Structure
@@ -113,7 +113,6 @@ secure-product-framework/
 │   ├── static/       # Static assets
 │   ├── assets/       # Source assets (SCSS, JS, images)
 │   ├── themes/       # Hugo themes
-│   ├── deploy.sh     # Build and deployment script
 │   └── hugo.toml     # Hugo configuration
 ├── scripts/          # Python utilities
 │   ├── csv2yaml.py   # Convert CSV to YAML
@@ -121,6 +120,7 @@ secure-product-framework/
 │   └── framework-sync.py # Download from Google Sheets
 ├── data/             # Source CSV and YAML files
 ├── docs/             # Project documentation
+├── Makefile          # Build and deployment commands
 └── pyproject.toml    # Python project configuration
 ```
 
@@ -132,31 +132,37 @@ The project includes Python utilities to manage and generate website content:
 
 1. **Download from Google Sheets:**
    ```bash
-   ./scripts/framework-sync.py
+   make data-sync
    ```
    Downloads CSV files to `data/` directory
 
 2. **Convert CSV to YAML:**
    ```bash
-   ./scripts/csv2yaml.py
+   make data-convert
    ```
    Converts CSV files in `data/` to structured YAML
 
 3. **Generate Website Content:**
    ```bash
-   ./scripts/assets2md.py
+   make data-generate
    ```
    Creates Hugo pages in `website/content/assets/`
 
+4. **Run complete pipeline:**
+   ```bash
+   make data-pipeline
+   ```
+   Runs all three steps in sequence
+
 ### Development Environment
 
-Set up Python environment:
+Set up development environment:
 ```bash
-# Install dependencies
-pip install -e .
+# Set up complete development environment
+make dev-setup
 
-# Or with uv
-uv pip install -e .
+# Or install Python dependencies manually
+pip install -e .    # or: uv pip install -e .
 ```
 
 ## Content Organization

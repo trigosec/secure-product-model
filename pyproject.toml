@@ -1,7 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "secure-product-framework-scripts"
+name = "secure-product-model-scripts"
 version = "0.1.0"
-description = "Python utilities for Secure Product Framework Hugo site"
+description = "Python utilities for Secure Product Model Hugo site"
 requires-python = ">=3.10"
 
 dependencies = [
@@ -10,6 +14,11 @@ dependencies = [
     "jinja2>=3.0",
     "requests>=2.25.0",
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["scripts*"]
+exclude = ["data*", "website*", "docs*", "tests*"]
 
 [project.optional-dependencies]
 dev = [

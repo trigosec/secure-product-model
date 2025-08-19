@@ -33,10 +33,9 @@ website/
    cd website
    hugo server
    ```
-   Or use the deployment script:
+   Or use the Makefile from the project root:
    ```bash
-   cd website
-   ./deploy.sh --serve
+   make serve
    ```
 
 2. **Access the site:**
@@ -44,7 +43,7 @@ website/
 
 3. **Enable draft content:**
    ```bash
-   ./deploy.sh --serve --drafts
+   make serve-drafts
    ```
 
 ### Building
@@ -54,27 +53,26 @@ website/
    cd website
    hugo
    ```
-   Or use the deployment script:
+   Or use the Makefile from the project root:
    ```bash
-   cd website
-   ./deploy.sh
+   make build
    ```
 
 2. **Clean build:**
    ```bash
-   ./deploy.sh --clean
+   make clean-build
    ```
 
 ### Deployment
 
-The deployment script supports various deployment targets:
+The Makefile supports various deployment targets:
 
 ```bash
 # Build and deploy (auto-detects GitHub Actions/Netlify)
-./deploy.sh --deploy
+make deploy
 
 # Just build for manual deployment
-./deploy.sh
+make build
 ```
 
 ## Content Management
@@ -93,8 +91,9 @@ The deployment script supports various deployment targets:
 
 The Python scripts in the parent `scripts/` directory can generate content for this Hugo site:
 
-- `../scripts/csv2yaml.py` - Converts CSV data to YAML in `../data/`
-- `../scripts/assets2md.py` - Generates asset pages in `content/assets/`
+- `make data-convert` - Converts CSV data to YAML in `../data/`
+- `make data-generate` - Generates asset pages in `content/assets/`
+- `make data-pipeline` - Runs complete data workflow
 
 ## Configuration
 
@@ -140,7 +139,7 @@ Shared with parent directory `../data/` - contains YAML/JSON data files accessib
 
 1. **Port already in use:**
    ```bash
-   ./deploy.sh --serve --port 1314
+   make serve PORT=1314
    ```
 
 2. **Missing images:**
