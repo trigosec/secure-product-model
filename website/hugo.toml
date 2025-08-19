@@ -62,7 +62,7 @@ page = ['HTML']
 section = ['HTML', 'RSS']
 
 [imaging]
-resampleFilter = 'lanczos'
+resampleFilter = 'Lanczos'
 quality = 85
 
 [minify]
