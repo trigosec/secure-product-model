@@ -25,7 +25,7 @@ HAS_IMAGEMAGICK := $(shell command -v convert 2> /dev/null)
 
 .PHONY: help build serve clean deploy check-hugo check-imagemagick optimize-images
 .PHONY: build-drafts serve-drafts clean-build deploy-auto stats
-.PHONY: data-sync data-convert data-generate data-pipeline
+.PHONY: data-sync data-convert data-generate-assets data-generate-governance data-pipeline
 
 # Default target
 .DEFAULT_GOAL := build
@@ -165,12 +165,17 @@ data-convert:  ## Convert CSV data to YAML format
 	@$(PYTHON) scripts/csv2yaml.py
 	@echo -e "$(GREEN)[SUCCESS]$(NC) CSV data converted to YAML"
 
-data-generate:  ## Generate Hugo content from YAML data
+data-generate-assets:  ## Generate Hugo content from YAML data
 	@echo -e "$(BLUE)[INFO]$(NC) Generating Hugo content from YAML data..."
 	@$(PYTHON) scripts/assets2md.py
 	@echo -e "$(GREEN)[SUCCESS]$(NC) Hugo content generated"
 
-data-pipeline: data-sync data-convert data-generate  ## Run complete data pipeline (sync -> convert -> generate)
+data-generate-governance:  ## Generate Hugo governance content from governance.yml
+	@echo -e "$(BLUE)[INFO]$(NC) Generating governance content from YAML data..."
+	@$(PYTHON) scripts/governance2md.py
+	@echo -e "$(GREEN)[SUCCESS]$(NC) Governance content generated"
+
+data-pipeline: data-sync data-convert data-generate-assets data-generate-governance  ## Run complete data pipeline (sync -> convert -> generate)
 
 ## Python Testing Commands
 

@@ -31,8 +31,8 @@ G.Review.PhysicalMedia,Review inventory of physical media,,frequency [PCI yearly
 G.Review.Policies,Policy reviews,,frequency [PCI yearly]
 G.Review.ThirdParties,,,frequency [PCI yearly]
 G.Review.TRA,Targeted Risk Analysis,- Approved by senior leadership,frequency [PCI yearly]
-[[ G.Scope ]],Items that define the scope of the security programme,,Parameters
-G.Scope.Awareness,Awareness training scope,"- Covering:
+[[ G.ScopeDefinition ]],Items that define the scope of the security programme,,Parameters
+G.ScopeDefinition.Awareness,Awareness training scope,"- Covering:
   - Security DOs and DON'Ts
     - Using strong authentication factors
     - Protecting authentication factors
@@ -43,15 +43,15 @@ G.Scope.Awareness,Awareness training scope,"- Covering:
   - Social engineering
   - Acceptable use
   - POS device management [if in-scope]",
-G.Scope.CryptographicArchitecture,,,
-G.Scope.DataFlows,Data flows for the systems in scope,,
-G.Scope.Locations,"where data is stored, processed, transmitted",,
-G.Scope.Network,Network diagram for the systems in scope,,
-G.Scope.Organisation,,,
-G.Scope.RACI,"RACI matrix, clarifying roles and responsibilities",,
-G.Scope.SelfDeveloped,"services, products",,
-G.Scope.ThirdParties,,,
-G.Scope.TRA,Targeted Risk Analysis,"- Approved by senior leadership
+G.ScopeDefinition.CryptographicArchitecture,,,
+G.ScopeDefinition.DataFlows,Data flows for the systems in scope,,
+G.ScopeDefinition.Locations,"where data is stored, processed, transmitted",,
+G.ScopeDefinition.Network,Network diagram for the systems in scope,,
+G.ScopeDefinition.Organisation,,,
+G.ScopeDefinition.RACI,"RACI matrix, clarifying roles and responsibilities",,
+G.ScopeDefinition.SelfDeveloped,"services, products",,
+G.ScopeDefinition.ThirdParties,,,
+G.ScopeDefinition.TRA,Targeted Risk Analysis,"- Approved by senior leadership
 - Including:
   - frequency of reviews for endpoints not under anti-malware protection
   - frequency malware scans in endpoints

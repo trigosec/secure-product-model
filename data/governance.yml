@@ -59,7 +59,7 @@ governance:
   expectation: Targeted Risk Analysis
   slug: targeted-risk-analysis
   details: '- Approved by senior leadership'
-- id: G.Scope.Awareness
+- id: G.ScopeDefinition.Awareness
   expectation: Awareness training scope
   slug: awareness-training-scope
   details: '- Covering: - Security DOs and DON''Ts - Using strong authentication factors
@@ -67,31 +67,31 @@ governance:
     factors if there is suspicion there maybe be a compromise - Report incident if
     compromise is suspected - Phishing - Social engineering - Acceptable use - POS
     device management [if in-scope]'
-- id: G.Scope.CryptographicArchitecture
+- id: G.ScopeDefinition.CryptographicArchitecture
   expectation: ''
-  slug: g.scope.cryptographicarchitecture
-- id: G.Scope.DataFlows
+  slug: g.scopedefinition.cryptographicarchitecture
+- id: G.ScopeDefinition.DataFlows
   expectation: Data flows for the systems in scope
   slug: data-flows-for-the-systems-in-scope
-- id: G.Scope.Locations
+- id: G.ScopeDefinition.Locations
   expectation: where data is stored, processed, transmitted
   slug: where-data-is-stored-processed-transmitted
-- id: G.Scope.Network
+- id: G.ScopeDefinition.Network
   expectation: Network diagram for the systems in scope
   slug: network-diagram-for-the-systems-in-scope
-- id: G.Scope.Organisation
+- id: G.ScopeDefinition.Organisation
   expectation: ''
-  slug: g.scope.organisation
-- id: G.Scope.RACI
+  slug: g.scopedefinition.organisation
+- id: G.ScopeDefinition.RACI
   expectation: RACI matrix, clarifying roles and responsibilities
   slug: raci-matrix-clarifying-roles-and-responsibilities
-- id: G.Scope.SelfDeveloped
+- id: G.ScopeDefinition.SelfDeveloped
   expectation: services, products
   slug: services-products
-- id: G.Scope.ThirdParties
+- id: G.ScopeDefinition.ThirdParties
   expectation: ''
-  slug: g.scope.thirdparties
-- id: G.Scope.TRA
+  slug: g.scopedefinition.thirdparties
+- id: G.ScopeDefinition.TRA
   expectation: Targeted Risk Analysis
   slug: targeted-risk-analysis
   details: '- Approved by senior leadership - Including: - frequency of reviews for

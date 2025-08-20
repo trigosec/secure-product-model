@@ -1,0 +1,25 @@
+# Global
+
+- Get logo
+
+# /
+
+- wording is pending a review
+- Regulatory coverage should be improved to show how to request features
+
+# /model/
+
+This has to be rewritten from scratch. It should be clear why this model does and how it helps
+
+# /governance/
+
+- review text
+- replace Governance categories with something else
+- governance items are pretty bare at the moment
+
+
+# /license/
+
+`website/content/license.md` contains text that should use variables. See:
+    [Your name]
+    [LICENSE file](https://github.com/your-username/secure-product-framework/blob/main/LICENSE)
