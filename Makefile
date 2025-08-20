@@ -223,9 +223,13 @@ dev-setup:  ## Set up development environment
 		echo -e "$(RED)[ERROR]$(NC) Neither uv nor pip found. Please install Python package manager."; \
 		exit 1; \
 	fi
+	@echo -e "$(BLUE)[INFO]$(NC) Cleaning up build artifacts..."
+	@rm -rf *.egg-info
 	@$(MAKE) check-hugo
 	@$(MAKE) check-imagemagick
 	@echo -e "$(GREEN)[SUCCESS]$(NC) Development environment setup complete"
+
+
 
 ## Check Commands
 
