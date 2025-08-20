@@ -1,7 +1,4 @@
 governance:
-- id: '[[ G.Policy ]]'
-  expectation: Policies
-  slug: policies
 - id: G.Policy.AcceptableUse
   expectation: Acceptable Use Policy
   slug: acceptable-use-policy
@@ -26,9 +23,6 @@ governance:
     - System components - Segmentation controls - Connection to 3rd parties - Security
     strategy, including: - how technology support compliance with PCI DSS - remediations
     to outdate tech - RACI matrix included in policy'
-- id: '[[ G.Review ]]'
-  expectation: Reviews of policies, ...
-  slug: reviews-of-policies-...
 - id: G.Review.Access
   expectation: Access, permissions reviews
   slug: access-permissions-reviews
@@ -65,9 +59,6 @@ governance:
   expectation: Targeted Risk Analysis
   slug: targeted-risk-analysis
   details: '- Approved by senior leadership'
-- id: '[[ G.Scope ]]'
-  expectation: Items that define the scope of the security programme
-  slug: items-that-define-the-scope-of-the-security-programme
 - id: G.Scope.Awareness
   expectation: Awareness training scope
   slug: awareness-training-scope
@@ -110,9 +101,6 @@ governance:
     to fix non-high and non-critical vulnerabilities - Change and tamper detection
     mechanism frequency [<= weekly] - frequency of periodic training for incident
     response'
-- id: '[[ G.Standard ]]'
-  expectation: Policies
-  slug: policies
 - id: G.Standard.IncidentResponsePlan
   expectation: Incident Response Plan
   slug: incident-response-plan
@@ -130,6 +118,6 @@ governance:
 meta:
   title: Secure Product Model Governance
   description: Governance policies and expectations for the product framework
-  count: 34
+  count: 30
   source: Control Framework - Governance.csv
   generated_by: csv2yaml.py

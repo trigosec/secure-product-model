@@ -48,6 +48,7 @@ import csv
 import yaml
 import os
 import sys
+import re
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
@@ -305,6 +306,10 @@ def convert_governance_csv(csv_file_path: Path) -> Dict[str, Any]:
             # Extract and clean data
             gov_id = clean_text(row.get('ID', ''))
             if not gov_id:  # Skip empty rows
+                continue
+
+            # Skip section headers in format [[ .+ ]] (allowing whitespace/newlines)
+            if re.match(r'^\s*\[\[\s+.+\s+\]\]\s*$', gov_id, re.DOTALL):
                 continue
 
             expectation = clean_text(row.get('Expectation', ''))
