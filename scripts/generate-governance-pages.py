@@ -14,10 +14,10 @@ Options:
 
 The script will:
 1. Read data/governance.yml
-2. Create governance category structure (policy, review, scope, standard)
+2. Create governance category structure (policy, review, scopedefinition, standard)
 3. Generate category index pages (/governance/policy/, etc.)
 4. Generate individual governance item pages (/governance/policy/security/, etc.)
-5. Generate main governance index page (/governance/)
+5. Generate main governance index page (/governance/) as markdown
 
 Examples:
     ./scripts/generate-governance-pages.py
@@ -68,7 +68,8 @@ class GovernanceItem(BaseModel):
             'review': 'Reviews',
             'scope': 'Scope',
             'scopedefinition': 'Scope Definition',
-            'standard': 'Standards'
+            'standard': 'Standards',
+            'protocol': 'Protocols'
         }
         return category_names.get(self.category, self.category.title())
 
@@ -112,7 +113,8 @@ def get_category_description(category: str) -> str:
         'review': 'Regular assessment and evaluation processes to ensure ongoing compliance and security effectiveness.',
         'scope': 'Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.',
         'scopedefinition': 'Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.',
-        'standard': 'Detailed technical specifications and procedures that implement governance policies in practice.'
+        'standard': 'Detailed technical specifications and procedures that implement governance policies in practice.',
+        'protocol': 'Step-by-step operational procedures and methodologies for implementing security practices.'
     }
     return descriptions.get(category, f"Governance items in the {category} category.")
 
@@ -125,7 +127,8 @@ def get_category_icon(category: str, icons_dir: Path) -> str:
         'review': 'governance-review.svg',
         'scope': 'governance-scopedefinition.svg',  # Use same as scopedefinition
         'scopedefinition': 'governance-scopedefinition.svg',
-        'standard': 'governance-standard.svg'
+        'standard': 'governance-standard.svg',
+        'protocol': 'governance-protocol.svg'
     }
 
     icon_filename = icon_files.get(category, 'governance-policy.svg')  # Default fallback
@@ -256,7 +259,8 @@ def generate_governance_content(governance_items: list[GovernanceItem], meta: Me
         'review': get_category_icon('review', icons_dir),
         'scope': get_category_icon('scope', icons_dir),
         'scopedefinition': get_category_icon('scopedefinition', icons_dir),
-        'standard': get_category_icon('standard', icons_dir)
+        'standard': get_category_icon('standard', icons_dir),
+        'protocol': get_category_icon('protocol', icons_dir)
     }
 
     # Render template
@@ -279,8 +283,8 @@ def create_main_index(governance_items: list[GovernanceItem], meta: Meta, output
     """Create the main governance index page using templates."""
     content = generate_governance_content(governance_items, meta)
 
-    # Write main index file as HTML
-    index_file = output_dir / "_index.html"
+    # Write main index file as Markdown
+    index_file = output_dir / "_index.md"
     index_file.parent.mkdir(parents=True, exist_ok=True)
 
     with open(index_file, 'w', encoding='utf-8') as f:

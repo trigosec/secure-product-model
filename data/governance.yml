@@ -101,7 +101,7 @@ governance:
     to fix non-high and non-critical vulnerabilities - Change and tamper detection
     mechanism frequency [<= weekly] - frequency of periodic training for incident
     response'
-- id: G.Standard.IncidentResponsePlan
+- id: G.Protocol.IncidentResponsePlan
   expectation: Incident Response Plan
   slug: incident-response-plan
   details: '- actions are taken for disruptions in security controls - Roles and responsibilities
@@ -109,12 +109,12 @@ governance:
     if needed - Business recovery and continuity process, including backups - Legal
     requirements for reporting compromises or breaches - PCI: PAN or SAD found where
     it shouldn''t be'
-- id: G.Standard.PENTestingMethodology
+- id: G.Protocol.PENTestingMethodology
   expectation: PEN testing methodology
   slug: pen-testing-methodology
-- id: G.Standard.SecureDevelopment
+- id: G.Protocol.SecureDevelopment
   expectation: ''
-  slug: g.standard.securedevelopment
+  slug: g.protocol.securedevelopment
 meta:
   title: Secure Product Model Governance
   description: Governance policies and expectations for the product framework

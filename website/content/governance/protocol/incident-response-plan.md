@@ -1,16 +1,16 @@
 ---
 title: "Incident Response Plan"
-description: "Governance item G.Standard.IncidentResponsePlan"
+description: "Governance item G.Protocol.IncidentResponsePlan"
 date: 2024-01-01
 draft: false
-governance_id: "G.Standard.IncidentResponsePlan"
-governance_category: "standard"
+governance_id: "G.Protocol.IncidentResponsePlan"
+governance_category: "protocol"
 ---
 
 # Incident Response Plan
 
-**ID:** `G.Standard.IncidentResponsePlan`
-**Category:** [Standards](../)
+**ID:** `G.Protocol.IncidentResponsePlan`
+**Category:** [Protocols](../)
 
 ## Expectation
 
@@ -24,7 +24,7 @@ Incident Response Plan
 ---
 
 **Navigation:**
-- [← Back to Standards](../)
+- [← Back to Protocols](../)
 - [← Back to All Governance](/governance/)
 
 *Part of the Secure Product Model governance framework*

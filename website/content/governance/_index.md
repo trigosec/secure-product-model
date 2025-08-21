@@ -34,12 +34,14 @@ weight: 30
     --scope-color: #7c3aed;
     --scopedefinition-color: #7c3aed;
     --standard-color: #dc2626;
+    --protocol-color: #dc2626;
 
     --policy-bg: #ecfdf5;
     --review-bg: #f0f9ff;
     --scope-bg: #f5f3ff;
     --scopedefinition-bg: #f5f3ff;
     --standard-bg: #fef2f2;
+    --protocol-bg: #fef2f2;
 }
 
 * {
@@ -228,6 +230,11 @@ body {
 .category-standard {
     background: var(--standard-bg);
     color: var(--standard-color);
+}
+
+.category-protocol {
+    background: var(--protocol-bg);
+    color: var(--protocol-color);
 }
 
 .category-icon svg {
@@ -486,7 +493,7 @@ body {
             <button class="filter-btn" data-category="policy">Policies</button>
             <button class="filter-btn" data-category="review">Reviews</button>
             <button class="filter-btn" data-category="scopedefinition">Scope Definition</button>
-            <button class="filter-btn" data-category="standard">Standards</button>
+            <button class="filter-btn" data-category="protocol">Protocols</button>
         </div>
 
         <div class="governance-grid" id="governanceGrid">
@@ -1206,77 +1213,83 @@ body {
                 </div>
             </div>
             
-            <div class="governance-card" data-category="standard">
+            <div class="governance-card" data-category="protocol">
                 <div class="card-header">
-                    <div class="category-badge category-standard">
+                    <div class="category-badge category-protocol">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+  <path d="M8 6l4 4 4-4"/>
+  <path d="M8 12l4 4 4-4"/>
+  <path d="M8 18l4 4 4-4"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Standards</span>
+                        <span class="category-name">Protocols</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/standard/incident-response-plan/">Incident Response Plan</a>
+                        <a href="/governance/protocol/incident-response-plan/">Incident Response Plan</a>
                     </h3>
-                    <p class="card-id">ID: G.Standard.IncidentResponsePlan</p>
+                    <p class="card-id">ID: G.Protocol.IncidentResponsePlan</p>
                     
                     <p class="card-description">- actions are taken for disruptions in security controls - Roles and responsibilities - Contacts and communication strategies - Notification to paymen...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/standard/incident-response-plan/" class="card-link">View Details →</a>
+                    <a href="/governance/protocol/incident-response-plan/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="standard">
+            <div class="governance-card" data-category="protocol">
                 <div class="card-header">
-                    <div class="category-badge category-standard">
+                    <div class="category-badge category-protocol">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+  <path d="M8 6l4 4 4-4"/>
+  <path d="M8 12l4 4 4-4"/>
+  <path d="M8 18l4 4 4-4"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Standards</span>
+                        <span class="category-name">Protocols</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/standard/pen-testing-methodology/">PEN testing methodology</a>
+                        <a href="/governance/protocol/pen-testing-methodology/">PEN testing methodology</a>
                     </h3>
-                    <p class="card-id">ID: G.Standard.PENTestingMethodology</p>
+                    <p class="card-id">ID: G.Protocol.PENTestingMethodology</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/standard/pen-testing-methodology/" class="card-link">View Details →</a>
+                    <a href="/governance/protocol/pen-testing-methodology/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="standard">
+            <div class="governance-card" data-category="protocol">
                 <div class="card-header">
-                    <div class="category-badge category-standard">
+                    <div class="category-badge category-protocol">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+  <path d="M8 6l4 4 4-4"/>
+  <path d="M8 12l4 4 4-4"/>
+  <path d="M8 18l4 4 4-4"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Standards</span>
+                        <span class="category-name">Protocols</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/standard/g.standard.securedevelopment/">SecureDevelopment</a>
+                        <a href="/governance/protocol/g.protocol.securedevelopment/">SecureDevelopment</a>
                     </h3>
-                    <p class="card-id">ID: G.Standard.SecureDevelopment</p>
+                    <p class="card-id">ID: G.Protocol.SecureDevelopment</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/standard/g.standard.securedevelopment/" class="card-link">View Details →</a>
+                    <a href="/governance/protocol/g.protocol.securedevelopment/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1330,13 +1343,15 @@ body {
                 
                 <div class="stat-card">
                     <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+  <path d="M8 6l4 4 4-4"/>
+  <path d="M8 12l4 4 4-4"/>
+  <path d="M8 18l4 4 4-4"/>
 </svg>
 </div>
                     <div class="stat-content">
                         <h3 class="stat-number">3</h3>
-                        <p class="stat-label">Standards</p>
-                        <a href="/governance/standard/" class="stat-link">View all →</a>
+                        <p class="stat-label">Protocols</p>
+                        <a href="/governance/protocol/" class="stat-link">View all →</a>
                     </div>
                 </div>
                 

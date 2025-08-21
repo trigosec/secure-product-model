@@ -24,12 +24,14 @@
     --scope-color: #7c3aed;
     --scopedefinition-color: #7c3aed;
     --standard-color: #dc2626;
+    --protocol-color: #dc2626;
 
     --policy-bg: #ecfdf5;
     --review-bg: #f0f9ff;
     --scope-bg: #f5f3ff;
     --scopedefinition-bg: #f5f3ff;
     --standard-bg: #fef2f2;
+    --protocol-bg: #fef2f2;
 }
 
 * {
@@ -218,6 +220,11 @@ body {
 .category-standard {
     background: var(--standard-bg);
     color: var(--standard-color);
+}
+
+.category-protocol {
+    background: var(--protocol-bg);
+    color: var(--protocol-color);
 }
 
 .category-icon svg {

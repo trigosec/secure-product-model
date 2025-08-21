@@ -62,13 +62,13 @@ G.ScopeDefinition.TRA,Targeted Risk Analysis,"- Approved by senior leadership
   - SLAs to fix non-high and non-critical vulnerabilities
   - Change and tamper detection mechanism frequency [<= weekly]
   - frequency of periodic training for incident response",
-[[ G.Standard ]],Policies,,Parameters
-G.Standard.IncidentResponsePlan,Incident Response Plan,"- actions are taken for disruptions in security controls
+[[ G.Protocol ]],Policies,,Parameters
+G.Protocol.IncidentResponsePlan,Incident Response Plan,"- actions are taken for disruptions in security controls
 - Roles and responsibilities
 - Contacts and communication strategies
 - Notification to payment brands and acquirers, if needed
 - Business recovery and continuity process, including backups
 - Legal requirements for reporting compromises or breaches  
 - PCI: PAN or SAD found where it shouldn't be",
-G.Standard.PENTestingMethodology,PEN testing methodology,,
-G.Standard.SecureDevelopment,,,
+G.Protocol.PENTestingMethodology,PEN testing methodology,,
+G.Protocol.SecureDevelopment,,,
