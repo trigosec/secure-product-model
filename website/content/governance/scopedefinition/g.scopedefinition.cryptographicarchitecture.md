@@ -12,6 +12,10 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.CryptographicArchitecture`
 **Category:** [Scope Definition](../)
 
+## Description
+
+Document the organization's cryptographic architecture including algorithms, key management systems, certificate authorities, and encryption implementations.
+
 
 ---
 

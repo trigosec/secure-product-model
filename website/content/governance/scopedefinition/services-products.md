@@ -12,7 +12,11 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.SelfDeveloped`
 **Category:** [Scope Definition](../)
 
-## Expectation
+## Description
+
+Document all internally developed applications, services, and products including security requirements and development practices.
+
+## Summary
 
 services, products
 

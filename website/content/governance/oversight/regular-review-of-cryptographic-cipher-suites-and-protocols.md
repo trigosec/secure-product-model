@@ -12,7 +12,11 @@ governance_category: "oversight"
 **ID:** `G.Oversight.Encryption`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Periodic review of cryptographic implementations, cipher suites, and protocols to ensure they meet current security standards and haven't been deprecated.
+
+## Summary
 
 Regular review of cryptographic cipher suites and protocols
 

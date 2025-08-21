@@ -12,7 +12,11 @@ governance_category: "oversight"
 **ID:** `G.Oversight.Policies`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Regular review of all security policies to ensure they remain current, effective, and aligned with business objectives and regulatory requirements.
+
+## Summary
 
 Policy reviews
 

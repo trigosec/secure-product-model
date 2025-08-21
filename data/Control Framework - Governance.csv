@@ -1,14 +1,14 @@
-ID,Expectation,Details,
-[[ G.Policy ]],Policies,,Parameters
-G.Policy.AcceptableUse,Acceptable Use Policy,"technology, hardware, software
+ID,Description,1-liner,Notes,
+[[ G.Policy ]],Foundational governance documents that establish organizational security standards and requirements,Policy,,Parameters
+G.Policy.AcceptableUse,"Define acceptable use of technology resources including computers, networks, mobile devices, and cloud services. Specify prohibited activities, data handling requirements, and consequences for violations.",Acceptable Use Policy,"technology, hardware, software
 ",
-G.Policy.Auth,"Authentication (+ password) policy
+G.Policy.Auth,"Establish authentication and password requirements across all systems. Define multi-factor authentication requirements, password complexity, and account management procedures.","Authentication (+ password) policy
 ",,
-G.Policy.DataRetentionAndDisposal,"Data retention and disposal
+G.Policy.DataRetentionAndDisposal,Define how long different types of data must be retained and secure disposal procedures. Address regulatory requirements and business needs for data lifecycle management.,"Data retention and disposal
 ",,
-G.Policy.EncryptionAndKeyManagement,Encryption and key management policy,,
-G.Policy.MediaDestruction,Media destruction policy,,
-G.Policy.Security,Security Policy,"- CISO or other exec, explicitely accountable for security
+G.Policy.EncryptionAndKeyManagement,"Establish encryption requirements for data at rest and in transit. Define key management procedures, approved algorithms, and implementation standards.",Encryption and key management policy,,
+G.Policy.MediaDestruction,Define secure destruction procedures for physical and digital media containing sensitive information. Specify methods based on data sensitivity and media type.,Media destruction policy,,
+G.Policy.Security,"Comprehensive security policy establishing the organization's security program, roles, responsibilities, and overall security strategy. Serves as the foundation for all other security policies.",Security Policy,"- CISO or other exec, explicitely accountable for security
 - updates within year if risk environment changes
 - Roles and responsibilities (PCI)
 - Locations
@@ -19,20 +19,20 @@ G.Policy.Security,Security Policy,"- CISO or other exec, explicitely accountable
   - how technology support compliance with PCI DSS
   - remediations to outdate tech
 - RACI matrix included in policy",
-[[ G.Oversight ]],"Reviews of policies, ...",,Parameters
-G.Oversight.Access,"Access, permissions reviews",with right approvals,frequency [PCI 6 months for user access]
-G.Oversight.Awareness,Update cycle for awareness program,,frequency [PCI yearly]
-G.Oversight.Encryption,Regular review of cryptographic cipher suites and protocols,,frequency [PCI yearly]
-G.Oversight.Endpoint,"Regular review of endpoint devices, including those not at risk of malware",,frequency [PCI <= yearly]
-G.Oversight.Facility,"Security review of the facilities, processes",,frequency [PCI yearly]
-G.Oversight.IncidentResponsePlan,regularly + based on lesson learned,,frequency [PCI yearly]
-G.Oversight.NetworkSecurityControls,As part of the IaC reviews,,frequency [PCI 6 months]
-G.Oversight.PhysicalMedia,Review inventory of physical media,,frequency [PCI yearly]
-G.Oversight.Policies,Policy reviews,,frequency [PCI yearly]
-G.Oversight.ThirdParties,,,frequency [PCI yearly]
-G.Oversight.TRA,Targeted Risk Analysis,- Approved by senior leadership,frequency [PCI yearly]
-[[ G.ScopeDefinition ]],Items that define the scope of the security programme,,Parameters
-G.ScopeDefinition.Awareness,Awareness training scope,"- Covering:
+[[ G.Oversight ]],Ongoing supervision and evaluation activities to ensure governance effectiveness and compliance,"Reviews of policies, ...",,Parameters
+G.Oversight.Access,Regular reviews of user access rights and permissions to ensure appropriate access levels. Verify that access aligns with job responsibilities and follows least privilege principles.,"Access, permissions reviews",with right approvals,frequency [PCI 6 months for user access]
+G.Oversight.Awareness,Regular evaluation and updates to security awareness training programs to ensure effectiveness and relevance to current threats.,Update cycle for awareness program,,frequency [PCI yearly]
+G.Oversight.Encryption,"Periodic review of cryptographic implementations, cipher suites, and protocols to ensure they meet current security standards and haven't been deprecated.",Regular review of cryptographic cipher suites and protocols,,frequency [PCI yearly]
+G.Oversight.Endpoint,Regular assessment of endpoint security controls including devices not traditionally covered by antimalware solutions such as network devices and IoT systems.,"Regular review of endpoint devices, including those not at risk of malware",,frequency [PCI <= yearly]
+G.Oversight.Facility,Periodic security assessment of physical facilities and processes to ensure adequate physical security controls are maintained.,"Security review of the facilities, processes",,frequency [PCI yearly]
+G.Oversight.IncidentResponsePlan,Regular testing and updating of incident response procedures based on lessons learned from actual incidents and changing threat landscape.,regularly + based on lesson learned,,frequency [PCI yearly]
+G.Oversight.NetworkSecurityControls,"Regular review of network security configurations and controls, typically integrated with Infrastructure as Code (IaC) review processes.",As part of the IaC reviews,,frequency [PCI 6 months]
+G.Oversight.PhysicalMedia,"Periodic inventory and security assessment of physical media containing sensitive information including backup tapes, external drives, and archived materials.",Review inventory of physical media,,frequency [PCI yearly]
+G.Oversight.Policies,"Regular review of all security policies to ensure they remain current, effective, and aligned with business objectives and regulatory requirements.",Policy reviews,,frequency [PCI yearly]
+G.Oversight.ThirdParties,Ongoing assessment of third-party security practices and compliance with contractual security requirements.,,,frequency [PCI yearly]
+G.Oversight.TRA,"Regular targeted risk assessments focusing on specific business processes, technologies, or threat scenarios with senior leadership approval and oversight.",Targeted Risk Analysis,- Approved by senior leadership,frequency [PCI yearly]
+[[ G.ScopeDefinition ]],Documentation that establishes the boundaries and coverage of the security program,Items that define the scope of the security programme,,Parameters
+G.ScopeDefinition.Awareness,"Define the scope and content of security awareness training including topics, audiences, delivery methods, and compliance tracking.",Awareness training scope,"- Covering:
   - Security DOs and DON'Ts
     - Using strong authentication factors
     - Protecting authentication factors
@@ -43,15 +43,15 @@ G.ScopeDefinition.Awareness,Awareness training scope,"- Covering:
   - Social engineering
   - Acceptable use
   - POS device management [if in-scope]",
-G.ScopeDefinition.CryptographicArchitecture,,,
-G.ScopeDefinition.DataFlows,Data flows for the systems in scope,,
-G.ScopeDefinition.Locations,"where data is stored, processed, transmitted",,
-G.ScopeDefinition.Network,Network diagram for the systems in scope,,
-G.ScopeDefinition.Organisation,,,
-G.ScopeDefinition.RACI,"RACI matrix, clarifying roles and responsibilities",,
-G.ScopeDefinition.SelfDeveloped,"services, products",,
-G.ScopeDefinition.ThirdParties,,,
-G.ScopeDefinition.TRA,Targeted Risk Analysis,"- Approved by senior leadership
+G.ScopeDefinition.CryptographicArchitecture,"Document the organization's cryptographic architecture including algorithms, key management systems, certificate authorities, and encryption implementations.",,,
+G.ScopeDefinition.DataFlows,Map and document how sensitive data flows through systems and processes to identify security requirements and control points.,Data flows for the systems in scope,,
+G.ScopeDefinition.Locations,"Define all locations where sensitive data is stored, processed, or transmitted including cloud services, remote facilities, and third-party locations.","where data is stored, processed, transmitted",,
+G.ScopeDefinition.Network,"Comprehensive documentation of network architecture including security zones, trust boundaries, and data flow patterns.",Network diagram for the systems in scope,,
+G.ScopeDefinition.Organisation,"Define organizational structure for security including roles, responsibilities, reporting relationships, and decision-making authority.",,,
+G.ScopeDefinition.RACI,"Create and maintain RACI (Responsible, Accountable, Consulted, Informed) matrices for security processes and decisions to clarify roles and avoid confusion.","RACI matrix, clarifying roles and responsibilities",,
+G.ScopeDefinition.SelfDeveloped,"Document all internally developed applications, services, and products including security requirements and development practices.","services, products",,
+G.ScopeDefinition.ThirdParties,"Comprehensive inventory of all third-party relationships including vendors, partners, and service providers with access to organizational systems or data.",,,
+G.ScopeDefinition.TRA,"Define the scope and methodology for targeted risk assessments including criteria for assessment triggers, approval processes, and reporting requirements.",Targeted Risk Analysis,"- Approved by senior leadership
 - Including:
   - frequency of reviews for endpoints not under anti-malware protection
   - frequency malware scans in endpoints
@@ -62,13 +62,13 @@ G.ScopeDefinition.TRA,Targeted Risk Analysis,"- Approved by senior leadership
   - SLAs to fix non-high and non-critical vulnerabilities
   - Change and tamper detection mechanism frequency [<= weekly]
   - frequency of periodic training for incident response",
-[[ G.Protocol ]],Policies,,Parameters
-G.Protocol.IncidentResponsePlan,Incident Response Plan,"- actions are taken for disruptions in security controls
+[[ G.Protocol ]],Detailed operational procedures and methodologies for implementing security practices,Policies,,Parameters
+G.Protocol.IncidentResponsePlan,"Comprehensive incident response procedures including detection, analysis, containment, eradication, recovery, and lessons learned processes.",Incident Response Plan,"- actions are taken for disruptions in security controls
 - Roles and responsibilities
 - Contacts and communication strategies
 - Notification to payment brands and acquirers, if needed
 - Business recovery and continuity process, including backups
 - Legal requirements for reporting compromises or breaches  
 - PCI: PAN or SAD found where it shouldn't be",
-G.Protocol.PENTestingMethodology,PEN testing methodology,,
-G.Protocol.SecureDevelopment,,,
+G.Protocol.PENTestingMethodology,"Standardized methodology for conducting penetration testing including scope definition, testing procedures, reporting formats, and remediation tracking.",PEN testing methodology,,
+G.Protocol.SecureDevelopment,"Comprehensive secure software development lifecycle (SDLC) procedures including security requirements, testing, and deployment practices.",,,

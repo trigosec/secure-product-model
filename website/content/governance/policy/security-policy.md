@@ -12,11 +12,15 @@ governance_category: "policy"
 **ID:** `G.Policy.Security`
 **Category:** [Policies](../)
 
-## Expectation
+## Description
+
+Comprehensive security policy establishing the organization's security program, roles, responsibilities, and overall security strategy. Serves as the foundation for all other security policies.
+
+## Summary
 
 Security Policy
 
-## Details
+## Implementation Notes
 
 - CISO or other exec, explicitely accountable for security - updates within year if risk environment changes - Roles and responsibilities (PCI) - Locations - System components - Segmentation controls - Connection to 3rd parties - Security strategy, including: - how technology support compliance with PCI DSS - remediations to outdate tech - RACI matrix included in policy
 

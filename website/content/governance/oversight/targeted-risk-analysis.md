@@ -12,11 +12,15 @@ governance_category: "oversight"
 **ID:** `G.Oversight.TRA`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Regular targeted risk assessments focusing on specific business processes, technologies, or threat scenarios with senior leadership approval and oversight.
+
+## Summary
 
 Targeted Risk Analysis
 
-## Details
+## Implementation Notes
 
 - Approved by senior leadership
 

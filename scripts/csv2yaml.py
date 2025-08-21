@@ -312,19 +312,22 @@ def convert_governance_csv(csv_file_path: Path) -> Dict[str, Any]:
             if re.match(r'^\s*\[\[\s+.+\s+\]\]\s*$', gov_id, re.DOTALL):
                 continue
 
-            expectation = clean_text(row.get('Expectation', ''))
-            details = clean_text(row.get('Details', ''))
+            description = clean_text(row.get('Description', ''))
+            one_liner = clean_text(row.get('1-liner', ''))
+            notes = clean_text(row.get('Notes', ''))
 
             # Create governance object
             governance_item: Dict[str, Any] = {
                 'id': gov_id,
-                'expectation': expectation,
-                'slug': create_slug(expectation) if expectation else create_slug(gov_id)
+                'expectation': one_liner,
+                'slug': create_slug(one_liner) if one_liner else create_slug(gov_id)
             }
 
             # Add optional fields if they have content
-            if details:
-                governance_item['details'] = details
+            if description:
+                governance_item['description'] = description
+            if notes:
+                governance_item['details'] = notes
 
             governance.append(governance_item)
 

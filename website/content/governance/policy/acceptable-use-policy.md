@@ -12,11 +12,15 @@ governance_category: "policy"
 **ID:** `G.Policy.AcceptableUse`
 **Category:** [Policies](../)
 
-## Expectation
+## Description
+
+Define acceptable use of technology resources including computers, networks, mobile devices, and cloud services. Specify prohibited activities, data handling requirements, and consequences for violations.
+
+## Summary
 
 Acceptable Use Policy
 
-## Details
+## Implementation Notes
 
 technology, hardware, software
 

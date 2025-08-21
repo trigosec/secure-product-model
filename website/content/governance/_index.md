@@ -255,19 +255,6 @@ body {
     color: var(--primary-color);
 }
 
-.card-id {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    font-family:
-        "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-        "Courier New", monospace;
-    background: var(--bg-muted);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius-sm);
-    display: inline-block;
-    margin-bottom: 0.75rem;
-}
-
 .card-description {
     color: var(--text-secondary);
     font-size: 0.9rem;
@@ -509,9 +496,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/policy/acceptable-use-policy/">Acceptable Use Policy</a>
                     </h3>
-                    <p class="card-id">ID: G.Policy.AcceptableUse</p>
                     
-                    <p class="card-description">technology, hardware, software</p>
+                    <p class="card-description">Define acceptable use of technology resources including computers, networks, mobile devices, and cloud services. Specify prohibited activities, data h...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -539,7 +525,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/policy/authentication-+-password-policy/">Authentication (+ password) policy</a>
                     </h3>
-                    <p class="card-id">ID: G.Policy.Auth</p>
+                    
+                    <p class="card-description">Establish authentication and password requirements across all systems. Define multi-factor authentication requirements, password complexity, and accou...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -567,7 +554,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/policy/data-retention-and-disposal/">Data retention and disposal</a>
                     </h3>
-                    <p class="card-id">ID: G.Policy.DataRetentionAndDisposal</p>
+                    
+                    <p class="card-description">Define how long different types of data must be retained and secure disposal procedures. Address regulatory requirements and business needs for data l...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -595,7 +583,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/policy/encryption-and-key-management-policy/">Encryption and key management policy</a>
                     </h3>
-                    <p class="card-id">ID: G.Policy.EncryptionAndKeyManagement</p>
+                    
+                    <p class="card-description">Establish encryption requirements for data at rest and in transit. Define key management procedures, approved algorithms, and implementation standards...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -623,7 +612,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/policy/media-destruction-policy/">Media destruction policy</a>
                     </h3>
-                    <p class="card-id">ID: G.Policy.MediaDestruction</p>
+                    
+                    <p class="card-description">Define secure destruction procedures for physical and digital media containing sensitive information. Specify methods based on data sensitivity and me...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -651,9 +641,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/policy/security-policy/">Security Policy</a>
                     </h3>
-                    <p class="card-id">ID: G.Policy.Security</p>
                     
-                    <p class="card-description">- CISO or other exec, explicitely accountable for security - updates within year if risk environment changes - Roles and responsibilities (PCI) - Loca...</p>
+                    <p class="card-description">Comprehensive security policy establishing the organization's security program, roles, responsibilities, and overall security strategy. Serves as the ...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -678,9 +667,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/access-permissions-reviews/">Access, permissions reviews</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.Access</p>
                     
-                    <p class="card-description">with right approvals</p>
+                    <p class="card-description">Regular reviews of user access rights and permissions to ensure appropriate access levels. Verify that access aligns with job responsibilities and fol...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -705,7 +693,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/update-cycle-for-awareness-program/">Update cycle for awareness program</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.Awareness</p>
+                    
+                    <p class="card-description">Regular evaluation and updates to security awareness training programs to ensure effectiveness and relevance to current threats.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -730,7 +719,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/regular-review-of-cryptographic-cipher-suites-and-protocols/">Regular review of cryptographic cipher suites and protocols</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.Encryption</p>
+                    
+                    <p class="card-description">Periodic review of cryptographic implementations, cipher suites, and protocols to ensure they meet current security standards and haven't been depreca...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -755,7 +745,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/">Regular review of endpoint devices, including those not at risk of malware</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.Endpoint</p>
+                    
+                    <p class="card-description">Regular assessment of endpoint security controls including devices not traditionally covered by antimalware solutions such as network devices and IoT ...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -780,7 +771,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/security-review-of-the-facilities-processes/">Security review of the facilities, processes</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.Facility</p>
+                    
+                    <p class="card-description">Periodic security assessment of physical facilities and processes to ensure adequate physical security controls are maintained.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -805,7 +797,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/regularly-+-based-on-lesson-learned/">regularly + based on lesson learned</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.IncidentResponsePlan</p>
+                    
+                    <p class="card-description">Regular testing and updating of incident response procedures based on lessons learned from actual incidents and changing threat landscape.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -830,7 +823,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/as-part-of-the-iac-reviews/">As part of the IaC reviews</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.NetworkSecurityControls</p>
+                    
+                    <p class="card-description">Regular review of network security configurations and controls, typically integrated with Infrastructure as Code (IaC) review processes.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -855,7 +849,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/review-inventory-of-physical-media/">Review inventory of physical media</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.PhysicalMedia</p>
+                    
+                    <p class="card-description">Periodic inventory and security assessment of physical media containing sensitive information including backup tapes, external drives, and archived ma...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -880,7 +875,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/policy-reviews/">Policy reviews</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.Policies</p>
+                    
+                    <p class="card-description">Regular review of all security policies to ensure they remain current, effective, and aligned with business objectives and regulatory requirements.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -905,7 +901,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/g.oversight.thirdparties/">ThirdParties</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.ThirdParties</p>
+                    
+                    <p class="card-description">Ongoing assessment of third-party security practices and compliance with contractual security requirements.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -930,9 +927,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/oversight/targeted-risk-analysis/">Targeted Risk Analysis</a>
                     </h3>
-                    <p class="card-id">ID: G.Oversight.TRA</p>
                     
-                    <p class="card-description">- Approved by senior leadership</p>
+                    <p class="card-description">Regular targeted risk assessments focusing on specific business processes, technologies, or threat scenarios with senior leadership approval and overs...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -958,9 +954,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/awareness-training-scope/">Awareness training scope</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.Awareness</p>
                     
-                    <p class="card-description">- Covering: - Security DOs and DON'Ts - Using strong authentication factors - Protecting authentication factors - Not to reuse previously used factors...</p>
+                    <p class="card-description">Define the scope and content of security awareness training including topics, audiences, delivery methods, and compliance tracking.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -986,7 +981,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/g.scopedefinition.cryptographicarchitecture/">CryptographicArchitecture</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.CryptographicArchitecture</p>
+                    
+                    <p class="card-description">Document the organization's cryptographic architecture including algorithms, key management systems, certificate authorities, and encryption implement...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1012,7 +1008,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/data-flows-for-the-systems-in-scope/">Data flows for the systems in scope</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.DataFlows</p>
+                    
+                    <p class="card-description">Map and document how sensitive data flows through systems and processes to identify security requirements and control points.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1038,7 +1035,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/where-data-is-stored-processed-transmitted/">where data is stored, processed, transmitted</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.Locations</p>
+                    
+                    <p class="card-description">Define all locations where sensitive data is stored, processed, or transmitted including cloud services, remote facilities, and third-party locations.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1064,7 +1062,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/network-diagram-for-the-systems-in-scope/">Network diagram for the systems in scope</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.Network</p>
+                    
+                    <p class="card-description">Comprehensive documentation of network architecture including security zones, trust boundaries, and data flow patterns.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1090,7 +1089,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/g.scopedefinition.organisation/">Organisation</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.Organisation</p>
+                    
+                    <p class="card-description">Define organizational structure for security including roles, responsibilities, reporting relationships, and decision-making authority.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1116,7 +1116,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/raci-matrix-clarifying-roles-and-responsibilities/">RACI matrix, clarifying roles and responsibilities</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.RACI</p>
+                    
+                    <p class="card-description">Create and maintain RACI (Responsible, Accountable, Consulted, Informed) matrices for security processes and decisions to clarify roles and avoid conf...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1142,7 +1143,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/services-products/">services, products</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.SelfDeveloped</p>
+                    
+                    <p class="card-description">Document all internally developed applications, services, and products including security requirements and development practices.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1168,7 +1170,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/g.scopedefinition.thirdparties/">ThirdParties</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.ThirdParties</p>
+                    
+                    <p class="card-description">Comprehensive inventory of all third-party relationships including vendors, partners, and service providers with access to organizational systems or d...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1194,9 +1197,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/scopedefinition/targeted-risk-analysis/">Targeted Risk Analysis</a>
                     </h3>
-                    <p class="card-id">ID: G.ScopeDefinition.TRA</p>
                     
-                    <p class="card-description">- Approved by senior leadership - Including: - frequency of reviews for endpoints not under anti-malware protection - frequency malware scans in endpo...</p>
+                    <p class="card-description">Define the scope and methodology for targeted risk assessments including criteria for assessment triggers, approval processes, and reporting requireme...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1222,9 +1224,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/protocol/incident-response-plan/">Incident Response Plan</a>
                     </h3>
-                    <p class="card-id">ID: G.Protocol.IncidentResponsePlan</p>
                     
-                    <p class="card-description">- actions are taken for disruptions in security controls - Roles and responsibilities - Contacts and communication strategies - Notification to paymen...</p>
+                    <p class="card-description">Comprehensive incident response procedures including detection, analysis, containment, eradication, recovery, and lessons learned processes.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1250,7 +1251,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/protocol/pen-testing-methodology/">PEN testing methodology</a>
                     </h3>
-                    <p class="card-id">ID: G.Protocol.PENTestingMethodology</p>
+                    
+                    <p class="card-description">Standardized methodology for conducting penetration testing including scope definition, testing procedures, reporting formats, and remediation trackin...</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1276,7 +1278,8 @@ body {
                     <h3 class="card-title">
                         <a href="/governance/protocol/g.protocol.securedevelopment/">SecureDevelopment</a>
                     </h3>
-                    <p class="card-id">ID: G.Protocol.SecureDevelopment</p>
+                    
+                    <p class="card-description">Comprehensive secure software development lifecycle (SDLC) procedures including security requirements, testing, and deployment practices.</p>
                     
                 </div>
                 <div class="card-footer">
@@ -1375,206 +1378,184 @@ body {
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize governance filtering functionality
-    initGovernanceFiltering();
-    initGovernanceSearch();
-    initGovernanceAnimations();
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize governance filtering functionality
+  initGovernanceFiltering();
+  initGovernanceSearch();
+  initGovernanceAnimations();
 });
 
 function initGovernanceFiltering() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const governanceCards = document.querySelectorAll('.governance-card');
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const governanceCards = document.querySelectorAll(".governance-card");
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.dataset.category;
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const category = this.dataset.category;
 
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
+      // Update active button
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
 
-            // Filter cards
-            governanceCards.forEach(card => {
-                const cardCategory = card.dataset.category;
+      // Filter cards
+      governanceCards.forEach((card) => {
+        const cardCategory = card.dataset.category;
 
-                if (category === 'all' || cardCategory === category) {
-                    card.classList.remove('hidden');
-                    card.style.display = 'block';
-                } else {
-                    card.classList.add('hidden');
-                    card.style.display = 'none';
-                }
-            });
+        if (category === "all" || cardCategory === category) {
+          card.classList.remove("hidden");
+          card.style.display = "block";
+        } else {
+          card.classList.add("hidden");
+          card.style.display = "none";
+        }
+      });
 
-            // Update count display
-            updateVisibleCount();
-        });
+      // Update count display
+      updateVisibleCount();
     });
+  });
 }
 
 function initGovernanceSearch() {
-    // Add search functionality if needed
-    const searchInput = document.getElementById('governanceSearch');
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const cards = document.querySelectorAll('.governance-card');
+  // Add search functionality if needed
+  const searchInput = document.getElementById("governanceSearch");
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const searchTerm = this.value.toLowerCase();
+      const cards = document.querySelectorAll(".governance-card");
 
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title a').textContent.toLowerCase();
-                const id = card.querySelector('.card-id').textContent.toLowerCase();
-                const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
+      cards.forEach((card) => {
+        const title = card
+          .querySelector(".card-title a")
+          .textContent.toLowerCase();
+        const description =
+          card.querySelector(".card-description")?.textContent.toLowerCase() ||
+          "";
 
-                const matches = title.includes(searchTerm) ||
-                               id.includes(searchTerm) ||
-                               description.includes(searchTerm);
+        const matches =
+          title.includes(searchTerm) || description.includes(searchTerm);
 
-                if (matches) {
-                    card.style.display = 'block';
-                    card.classList.remove('hidden');
-                } else {
-                    card.style.display = 'none';
-                    card.classList.add('hidden');
-                }
-            });
+        if (matches) {
+          card.style.display = "block";
+          card.classList.remove("hidden");
+        } else {
+          card.style.display = "none";
+          card.classList.add("hidden");
+        }
+      });
 
-            updateVisibleCount();
-        });
-    }
+      updateVisibleCount();
+    });
+  }
 }
 
 function initGovernanceAnimations() {
-    // Add scroll-triggered animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+  // Add scroll-triggered animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe governance cards
-    document.querySelectorAll('.governance-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
     });
+  }, observerOptions);
 
-    // Observe stat cards
-    document.querySelectorAll('.stat-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
+  // Observe governance cards
+  document.querySelectorAll(".governance-card").forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(20px)";
+    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    observer.observe(card);
+  });
+
+  // Observe stat cards
+  document.querySelectorAll(".stat-card").forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(20px)";
+    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    observer.observe(card);
+  });
 }
 
 function updateVisibleCount() {
-    const visibleCards = document.querySelectorAll('.governance-card:not(.hidden)');
-    const countDisplay = document.getElementById('visibleCount');
+  const visibleCards = document.querySelectorAll(
+    ".governance-card:not(.hidden)",
+  );
+  const countDisplay = document.getElementById("visibleCount");
 
-    if (countDisplay) {
-        countDisplay.textContent = visibleCards.length;
-    }
+  if (countDisplay) {
+    countDisplay.textContent = visibleCards.length;
+  }
 }
 
 // Utility function to get category stats
 function getCategoryStats() {
-    const stats = {};
-    const cards = document.querySelectorAll('.governance-card');
+  const stats = {};
+  const cards = document.querySelectorAll(".governance-card");
 
-    cards.forEach(card => {
-        const category = card.dataset.category;
-        if (!stats[category]) {
-            stats[category] = 0;
-        }
-        stats[category]++;
-    });
+  cards.forEach((card) => {
+    const category = card.dataset.category;
+    if (!stats[category]) {
+      stats[category] = 0;
+    }
+    stats[category]++;
+  });
 
-    return stats;
+  return stats;
 }
 
 // Enhanced card hover effects
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.governance-card');
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".governance-card");
 
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-            this.style.boxShadow = '0 25px 50px -12px rgb(0 0 0 / 0.25)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)';
-        });
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-8px) scale(1.02)";
+      this.style.boxShadow = "0 25px 50px -12px rgb(0 0 0 / 0.25)";
     });
+
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0) scale(1)";
+      this.style.boxShadow =
+        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)";
+    });
+  });
 });
 
 // Keyboard navigation support
-document.addEventListener('keydown', function(e) {
-    if (e.key === '/') {
-        e.preventDefault();
-        const searchInput = document.getElementById('governanceSearch');
-        if (searchInput) {
-            searchInput.focus();
-        }
+document.addEventListener("keydown", function (e) {
+  if (e.key === "/") {
+    e.preventDefault();
+    const searchInput = document.getElementById("governanceSearch");
+    if (searchInput) {
+      searchInput.focus();
     }
+  }
 
-    if (e.key === 'Escape') {
-        const searchInput = document.getElementById('governanceSearch');
-        if (searchInput && document.activeElement === searchInput) {
-            searchInput.blur();
-            searchInput.value = '';
-            searchInput.dispatchEvent(new Event('input'));
-        }
+  if (e.key === "Escape") {
+    const searchInput = document.getElementById("governanceSearch");
+    if (searchInput && document.activeElement === searchInput) {
+      searchInput.blur();
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input"));
     }
+  }
 });
 
 // Category badge click handlers
-document.addEventListener('click', function(e) {
-    if (e.target.closest('.category-badge')) {
-        const category = e.target.closest('.governance-card').dataset.category;
-        const filterBtn = document.querySelector(`[data-category="${category}"]`);
-        if (filterBtn) {
-            filterBtn.click();
-        }
+document.addEventListener("click", function (e) {
+  if (e.target.closest(".category-badge")) {
+    const category = e.target.closest(".governance-card").dataset.category;
+    const filterBtn = document.querySelector(`[data-category="${category}"]`);
+    if (filterBtn) {
+      filterBtn.click();
     }
-});
-
-// Add tooltips for governance IDs
-document.addEventListener('DOMContentLoaded', function() {
-    const idElements = document.querySelectorAll('.card-id');
-
-    idElements.forEach(element => {
-        element.title = 'Click to copy governance ID';
-        element.style.cursor = 'pointer';
-
-        element.addEventListener('click', function() {
-            const text = this.textContent.replace('ID: ', '');
-            navigator.clipboard.writeText(text).then(() => {
-                // Show brief success feedback
-                const original = this.textContent;
-                this.textContent = 'Copied!';
-                this.style.backgroundColor = 'var(--policy-color)';
-                this.style.color = 'white';
-
-                setTimeout(() => {
-                    this.textContent = original;
-                    this.style.backgroundColor = '';
-                    this.style.color = '';
-                }, 1000);
-            });
-        });
-    });
+  }
 });
 
 </script>

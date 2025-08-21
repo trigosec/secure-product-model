@@ -12,7 +12,11 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.Network`
 **Category:** [Scope Definition](../)
 
-## Expectation
+## Description
+
+Comprehensive documentation of network architecture including security zones, trust boundaries, and data flow patterns.
+
+## Summary
 
 Network diagram for the systems in scope
 

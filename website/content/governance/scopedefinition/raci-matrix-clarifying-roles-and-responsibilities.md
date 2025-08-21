@@ -12,7 +12,11 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.RACI`
 **Category:** [Scope Definition](../)
 
-## Expectation
+## Description
+
+Create and maintain RACI (Responsible, Accountable, Consulted, Informed) matrices for security processes and decisions to clarify roles and avoid confusion.
+
+## Summary
 
 RACI matrix, clarifying roles and responsibilities
 

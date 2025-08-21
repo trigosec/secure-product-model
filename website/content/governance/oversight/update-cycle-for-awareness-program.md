@@ -12,7 +12,11 @@ governance_category: "oversight"
 **ID:** `G.Oversight.Awareness`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Regular evaluation and updates to security awareness training programs to ensure effectiveness and relevance to current threats.
+
+## Summary
 
 Update cycle for awareness program
 

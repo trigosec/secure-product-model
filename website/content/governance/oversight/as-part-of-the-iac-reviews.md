@@ -12,7 +12,11 @@ governance_category: "oversight"
 **ID:** `G.Oversight.NetworkSecurityControls`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Regular review of network security configurations and controls, typically integrated with Infrastructure as Code (IaC) review processes.
+
+## Summary
 
 As part of the IaC reviews
 

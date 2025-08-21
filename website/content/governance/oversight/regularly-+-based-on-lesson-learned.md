@@ -12,7 +12,11 @@ governance_category: "oversight"
 **ID:** `G.Oversight.IncidentResponsePlan`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Regular testing and updating of incident response procedures based on lessons learned from actual incidents and changing threat landscape.
+
+## Summary
 
 regularly + based on lesson learned
 

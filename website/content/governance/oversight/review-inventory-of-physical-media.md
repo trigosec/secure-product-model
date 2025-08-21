@@ -12,7 +12,11 @@ governance_category: "oversight"
 **ID:** `G.Oversight.PhysicalMedia`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Periodic inventory and security assessment of physical media containing sensitive information including backup tapes, external drives, and archived materials.
+
+## Summary
 
 Review inventory of physical media
 

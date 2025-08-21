@@ -12,7 +12,11 @@ governance_category: "policy"
 **ID:** `G.Policy.MediaDestruction`
 **Category:** [Policies](../)
 
-## Expectation
+## Description
+
+Define secure destruction procedures for physical and digital media containing sensitive information. Specify methods based on data sensitivity and media type.
+
+## Summary
 
 Media destruction policy
 

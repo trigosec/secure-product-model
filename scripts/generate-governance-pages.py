@@ -42,6 +42,7 @@ class GovernanceItem(BaseModel):
     id: str = Field(..., min_length=1, description="Governance ID (e.g., G.Policy.Security)")
     expectation: str = Field(default="", description="Governance expectation")
     slug: str = Field(default="", description="URL slug for the item")
+    description: str = Field(default="", description="Detailed description of the governance item")
     details: str = Field(default="", description="Optional detailed information")
 
     @property
@@ -360,15 +361,25 @@ governance_category: "{item.category}"
 
 """
 
+    # Add description section if available
+    if hasattr(item, 'description') and item.description:
+        content += f"""## Description
+
+{item.description}
+
+"""
+
+    # Add expectation (1-liner) if available
     if item.expectation:
-        content += f"""## Expectation
+        content += f"""## Summary
 
 {item.expectation}
 
 """
 
+    # Add details/notes if available
     if item.details:
-        content += f"""## Details
+        content += f"""## Implementation Notes
 
 {item.details}
 

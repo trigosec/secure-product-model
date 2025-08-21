@@ -12,6 +12,10 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.Organisation`
 **Category:** [Scope Definition](../)
 
+## Description
+
+Define organizational structure for security including roles, responsibilities, reporting relationships, and decision-making authority.
+
 
 ---
 

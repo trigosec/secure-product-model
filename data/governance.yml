@@ -2,22 +2,39 @@ governance:
 - id: G.Policy.AcceptableUse
   expectation: Acceptable Use Policy
   slug: acceptable-use-policy
+  description: Define acceptable use of technology resources including computers,
+    networks, mobile devices, and cloud services. Specify prohibited activities, data
+    handling requirements, and consequences for violations.
   details: technology, hardware, software
 - id: G.Policy.Auth
   expectation: Authentication (+ password) policy
   slug: authentication-+-password-policy
+  description: Establish authentication and password requirements across all systems.
+    Define multi-factor authentication requirements, password complexity, and account
+    management procedures.
 - id: G.Policy.DataRetentionAndDisposal
   expectation: Data retention and disposal
   slug: data-retention-and-disposal
+  description: Define how long different types of data must be retained and secure
+    disposal procedures. Address regulatory requirements and business needs for data
+    lifecycle management.
 - id: G.Policy.EncryptionAndKeyManagement
   expectation: Encryption and key management policy
   slug: encryption-and-key-management-policy
+  description: Establish encryption requirements for data at rest and in transit.
+    Define key management procedures, approved algorithms, and implementation standards.
 - id: G.Policy.MediaDestruction
   expectation: Media destruction policy
   slug: media-destruction-policy
+  description: Define secure destruction procedures for physical and digital media
+    containing sensitive information. Specify methods based on data sensitivity and
+    media type.
 - id: G.Policy.Security
   expectation: Security Policy
   slug: security-policy
+  description: Comprehensive security policy establishing the organization's security
+    program, roles, responsibilities, and overall security strategy. Serves as the
+    foundation for all other security policies.
   details: '- CISO or other exec, explicitely accountable for security - updates within
     year if risk environment changes - Roles and responsibilities (PCI) - Locations
     - System components - Segmentation controls - Connection to 3rd parties - Security
@@ -26,42 +43,68 @@ governance:
 - id: G.Oversight.Access
   expectation: Access, permissions reviews
   slug: access-permissions-reviews
+  description: Regular reviews of user access rights and permissions to ensure appropriate
+    access levels. Verify that access aligns with job responsibilities and follows
+    least privilege principles.
   details: with right approvals
 - id: G.Oversight.Awareness
   expectation: Update cycle for awareness program
   slug: update-cycle-for-awareness-program
+  description: Regular evaluation and updates to security awareness training programs
+    to ensure effectiveness and relevance to current threats.
 - id: G.Oversight.Encryption
   expectation: Regular review of cryptographic cipher suites and protocols
   slug: regular-review-of-cryptographic-cipher-suites-and-protocols
+  description: Periodic review of cryptographic implementations, cipher suites, and
+    protocols to ensure they meet current security standards and haven't been deprecated.
 - id: G.Oversight.Endpoint
   expectation: Regular review of endpoint devices, including those not at risk of
     malware
   slug: regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware
+  description: Regular assessment of endpoint security controls including devices
+    not traditionally covered by antimalware solutions such as network devices and
+    IoT systems.
 - id: G.Oversight.Facility
   expectation: Security review of the facilities, processes
   slug: security-review-of-the-facilities-processes
+  description: Periodic security assessment of physical facilities and processes to
+    ensure adequate physical security controls are maintained.
 - id: G.Oversight.IncidentResponsePlan
   expectation: regularly + based on lesson learned
   slug: regularly-+-based-on-lesson-learned
+  description: Regular testing and updating of incident response procedures based
+    on lessons learned from actual incidents and changing threat landscape.
 - id: G.Oversight.NetworkSecurityControls
   expectation: As part of the IaC reviews
   slug: as-part-of-the-iac-reviews
+  description: Regular review of network security configurations and controls, typically
+    integrated with Infrastructure as Code (IaC) review processes.
 - id: G.Oversight.PhysicalMedia
   expectation: Review inventory of physical media
   slug: review-inventory-of-physical-media
+  description: Periodic inventory and security assessment of physical media containing
+    sensitive information including backup tapes, external drives, and archived materials.
 - id: G.Oversight.Policies
   expectation: Policy reviews
   slug: policy-reviews
+  description: Regular review of all security policies to ensure they remain current,
+    effective, and aligned with business objectives and regulatory requirements.
 - id: G.Oversight.ThirdParties
   expectation: ''
   slug: g.oversight.thirdparties
+  description: Ongoing assessment of third-party security practices and compliance
+    with contractual security requirements.
 - id: G.Oversight.TRA
   expectation: Targeted Risk Analysis
   slug: targeted-risk-analysis
+  description: Regular targeted risk assessments focusing on specific business processes,
+    technologies, or threat scenarios with senior leadership approval and oversight.
   details: '- Approved by senior leadership'
 - id: G.ScopeDefinition.Awareness
   expectation: Awareness training scope
   slug: awareness-training-scope
+  description: Define the scope and content of security awareness training including
+    topics, audiences, delivery methods, and compliance tracking.
   details: '- Covering: - Security DOs and DON''Ts - Using strong authentication factors
     - Protecting authentication factors - Not to reuse previously used factors - Change
     factors if there is suspicion there maybe be a compromise - Report incident if
@@ -70,30 +113,49 @@ governance:
 - id: G.ScopeDefinition.CryptographicArchitecture
   expectation: ''
   slug: g.scopedefinition.cryptographicarchitecture
+  description: Document the organization's cryptographic architecture including algorithms,
+    key management systems, certificate authorities, and encryption implementations.
 - id: G.ScopeDefinition.DataFlows
   expectation: Data flows for the systems in scope
   slug: data-flows-for-the-systems-in-scope
+  description: Map and document how sensitive data flows through systems and processes
+    to identify security requirements and control points.
 - id: G.ScopeDefinition.Locations
   expectation: where data is stored, processed, transmitted
   slug: where-data-is-stored-processed-transmitted
+  description: Define all locations where sensitive data is stored, processed, or
+    transmitted including cloud services, remote facilities, and third-party locations.
 - id: G.ScopeDefinition.Network
   expectation: Network diagram for the systems in scope
   slug: network-diagram-for-the-systems-in-scope
+  description: Comprehensive documentation of network architecture including security
+    zones, trust boundaries, and data flow patterns.
 - id: G.ScopeDefinition.Organisation
   expectation: ''
   slug: g.scopedefinition.organisation
+  description: Define organizational structure for security including roles, responsibilities,
+    reporting relationships, and decision-making authority.
 - id: G.ScopeDefinition.RACI
   expectation: RACI matrix, clarifying roles and responsibilities
   slug: raci-matrix-clarifying-roles-and-responsibilities
+  description: Create and maintain RACI (Responsible, Accountable, Consulted, Informed)
+    matrices for security processes and decisions to clarify roles and avoid confusion.
 - id: G.ScopeDefinition.SelfDeveloped
   expectation: services, products
   slug: services-products
+  description: Document all internally developed applications, services, and products
+    including security requirements and development practices.
 - id: G.ScopeDefinition.ThirdParties
   expectation: ''
   slug: g.scopedefinition.thirdparties
+  description: Comprehensive inventory of all third-party relationships including
+    vendors, partners, and service providers with access to organizational systems
+    or data.
 - id: G.ScopeDefinition.TRA
   expectation: Targeted Risk Analysis
   slug: targeted-risk-analysis
+  description: Define the scope and methodology for targeted risk assessments including
+    criteria for assessment triggers, approval processes, and reporting requirements.
   details: '- Approved by senior leadership - Including: - frequency of reviews for
     endpoints not under anti-malware protection - frequency malware scans in endpoints
     - access and role reviews for system accounts - password/passphrase change frequency
@@ -104,6 +166,8 @@ governance:
 - id: G.Protocol.IncidentResponsePlan
   expectation: Incident Response Plan
   slug: incident-response-plan
+  description: Comprehensive incident response procedures including detection, analysis,
+    containment, eradication, recovery, and lessons learned processes.
   details: '- actions are taken for disruptions in security controls - Roles and responsibilities
     - Contacts and communication strategies - Notification to payment brands and acquirers,
     if needed - Business recovery and continuity process, including backups - Legal
@@ -112,9 +176,13 @@ governance:
 - id: G.Protocol.PENTestingMethodology
   expectation: PEN testing methodology
   slug: pen-testing-methodology
+  description: Standardized methodology for conducting penetration testing including
+    scope definition, testing procedures, reporting formats, and remediation tracking.
 - id: G.Protocol.SecureDevelopment
   expectation: ''
   slug: g.protocol.securedevelopment
+  description: Comprehensive secure software development lifecycle (SDLC) procedures
+    including security requirements, testing, and deployment practices.
 meta:
   title: Secure Product Model Governance
   description: Governance policies and expectations for the product framework

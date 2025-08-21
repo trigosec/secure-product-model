@@ -12,11 +12,15 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.Awareness`
 **Category:** [Scope Definition](../)
 
-## Expectation
+## Description
+
+Define the scope and content of security awareness training including topics, audiences, delivery methods, and compliance tracking.
+
+## Summary
 
 Awareness training scope
 
-## Details
+## Implementation Notes
 
 - Covering: - Security DOs and DON'Ts - Using strong authentication factors - Protecting authentication factors - Not to reuse previously used factors - Change factors if there is suspicion there maybe be a compromise - Report incident if compromise is suspected - Phishing - Social engineering - Acceptable use - POS device management [if in-scope]
 

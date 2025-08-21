@@ -12,7 +12,11 @@ governance_category: "policy"
 **ID:** `G.Policy.EncryptionAndKeyManagement`
 **Category:** [Policies](../)
 
-## Expectation
+## Description
+
+Establish encryption requirements for data at rest and in transit. Define key management procedures, approved algorithms, and implementation standards.
+
+## Summary
 
 Encryption and key management policy
 

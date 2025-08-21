@@ -56,9 +56,8 @@ weight: 30
                     <h3 class="card-title">
                         <a href="/governance/{{ item.category }}/{{ item.slug }}/">{{ item.expectation or item.name }}</a>
                     </h3>
-                    <p class="card-id">ID: {{ item.id }}</p>
-                    {% if item.details %}
-                    <p class="card-description">{{ item.details[:150] }}{% if item.details|length > 150 %}...{% endif %}</p>
+                    {% if item.description %}
+                    <p class="card-description">{{ item.description[:150] }}{% if item.description|length > 150 %}...{% endif %}</p>
                     {% endif %}
                 </div>
                 <div class="card-footer">

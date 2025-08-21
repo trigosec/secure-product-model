@@ -12,7 +12,11 @@ governance_category: "policy"
 **ID:** `G.Policy.Auth`
 **Category:** [Policies](../)
 
-## Expectation
+## Description
+
+Establish authentication and password requirements across all systems. Define multi-factor authentication requirements, password complexity, and account management procedures.
+
+## Summary
 
 Authentication (+ password) policy
 

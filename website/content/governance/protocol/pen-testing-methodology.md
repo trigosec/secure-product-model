@@ -12,7 +12,11 @@ governance_category: "protocol"
 **ID:** `G.Protocol.PENTestingMethodology`
 **Category:** [Protocols](../)
 
-## Expectation
+## Description
+
+Standardized methodology for conducting penetration testing including scope definition, testing procedures, reporting formats, and remediation tracking.
+
+## Summary
 
 PEN testing methodology
 

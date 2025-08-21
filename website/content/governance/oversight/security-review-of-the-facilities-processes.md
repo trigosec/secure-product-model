@@ -12,7 +12,11 @@ governance_category: "oversight"
 **ID:** `G.Oversight.Facility`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Periodic security assessment of physical facilities and processes to ensure adequate physical security controls are maintained.
+
+## Summary
 
 Security review of the facilities, processes
 

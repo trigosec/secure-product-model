@@ -12,7 +12,11 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.Locations`
 **Category:** [Scope Definition](../)
 
-## Expectation
+## Description
+
+Define all locations where sensitive data is stored, processed, or transmitted including cloud services, remote facilities, and third-party locations.
+
+## Summary
 
 where data is stored, processed, transmitted
 

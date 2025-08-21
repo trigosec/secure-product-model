@@ -12,7 +12,11 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.DataFlows`
 **Category:** [Scope Definition](../)
 
-## Expectation
+## Description
+
+Map and document how sensitive data flows through systems and processes to identify security requirements and control points.
+
+## Summary
 
 Data flows for the systems in scope
 

@@ -12,6 +12,10 @@ governance_category: "oversight"
 **ID:** `G.Oversight.ThirdParties`
 **Category:** [Oversight](../)
 
+## Description
+
+Ongoing assessment of third-party security practices and compliance with contractual security requirements.
+
 
 ---
 

@@ -12,11 +12,15 @@ governance_category: "scopedefinition"
 **ID:** `G.ScopeDefinition.TRA`
 **Category:** [Scope Definition](../)
 
-## Expectation
+## Description
+
+Define the scope and methodology for targeted risk assessments including criteria for assessment triggers, approval processes, and reporting requirements.
+
+## Summary
 
 Targeted Risk Analysis
 
-## Details
+## Implementation Notes
 
 - Approved by senior leadership - Including: - frequency of reviews for endpoints not under anti-malware protection - frequency malware scans in endpoints - access and role reviews for system accounts - password/passphrase change frequency - POS device inspections - frequency log reviews (if not mandated by PCI) - SLAs to fix non-high and non-critical vulnerabilities - Change and tamper detection mechanism frequency [<= weekly] - frequency of periodic training for incident response
 

@@ -12,6 +12,10 @@ governance_category: "protocol"
 **ID:** `G.Protocol.SecureDevelopment`
 **Category:** [Protocols](../)
 
+## Description
+
+Comprehensive secure software development lifecycle (SDLC) procedures including security requirements, testing, and deployment practices.
+
 
 ---
 

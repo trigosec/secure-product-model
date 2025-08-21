@@ -12,11 +12,15 @@ governance_category: "oversight"
 **ID:** `G.Oversight.Access`
 **Category:** [Oversight](../)
 
-## Expectation
+## Description
+
+Regular reviews of user access rights and permissions to ensure appropriate access levels. Verify that access aligns with job responsibilities and follows least privilege principles.
+
+## Summary
 
 Access, permissions reviews
 
-## Details
+## Implementation Notes
 
 with right approvals
 

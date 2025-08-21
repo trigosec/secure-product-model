@@ -12,7 +12,11 @@ governance_category: "policy"
 **ID:** `G.Policy.DataRetentionAndDisposal`
 **Category:** [Policies](../)
 
-## Expectation
+## Description
+
+Define how long different types of data must be retained and secure disposal procedures. Address regulatory requirements and business needs for data lifecycle management.
+
+## Summary
 
 Data retention and disposal
 

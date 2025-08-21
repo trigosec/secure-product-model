@@ -245,19 +245,6 @@ body {
     color: var(--primary-color);
 }
 
-.card-id {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    font-family:
-        "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-        "Courier New", monospace;
-    background: var(--bg-muted);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius-sm);
-    display: inline-block;
-    margin-bottom: 0.75rem;
-}
-
 .card-description {
     color: var(--text-secondary);
     font-size: 0.9rem;
