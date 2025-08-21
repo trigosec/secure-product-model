@@ -23,7 +23,7 @@ HUGO_SERVER_FLAGS := --port $(PORT)
 # Check if ImageMagick is available
 HAS_IMAGEMAGICK := $(shell command -v convert 2> /dev/null)
 
-.PHONY: help build serve clean deploy check-hugo check-imagemagick optimize-images
+.PHONY: help build serve clean deploy check-hugo check-imagemagick check-images
 .PHONY: build-drafts serve-drafts clean-build deploy-auto stats
 .PHONY: data-sync data-convert data-generate-assets data-generate-governance data-pipeline
 
@@ -32,7 +32,7 @@ HAS_IMAGEMAGICK := $(shell command -v convert 2> /dev/null)
 
 ## Build Commands
 
-build: check-hugo optimize-images  ## Build production site
+build: check-hugo check-images  ## Build production site
 	@echo -e "$(BLUE)[INFO]$(NC) Building Hugo site..."
 	@cd $(WEBSITE_DIR) && hugo --minify
 	@$(MAKE) stats
@@ -43,7 +43,7 @@ build: check-hugo optimize-images  ## Build production site
 	@echo "  - Deploy: make deploy"
 	@echo "  - View site: open $(PUBLIC_DIR)/index.html"
 
-build-drafts: check-hugo optimize-images  ## Build site including draft content
+build-drafts: check-hugo check-images  ## Build site including draft content
 	@echo -e "$(BLUE)[INFO]$(NC) Building Hugo site with drafts..."
 	@cd $(WEBSITE_DIR) && hugo --minify --buildDrafts
 	@$(MAKE) stats
@@ -108,46 +108,54 @@ deploy: check-git build  ## Deploy to production (auto-detects GitHub Actions/Ne
 
 ## Image Optimization Commands
 
-optimize-images: check-imagemagick  ## Optimize logo images and create various sizes
+check-images: check-imagemagick  ## Verify logo and favicon files
 ifdef HAS_IMAGEMAGICK
-	@echo -e "$(BLUE)[INFO]$(NC) Optimizing logo images..."
+	@echo -e "$(BLUE)[INFO]$(NC) Checking logo and favicon files..."
 	@cd $(WEBSITE_DIR) && { \
-		if [ ! -f "static/images/logo.png" ] && [ -f "static/images/logo.jpeg" ]; then \
-			echo -e "$(BLUE)[INFO]$(NC) Converting JPEG logo to PNG with transparent background..."; \
-			convert static/images/logo.jpeg -fuzz 10% -transparent white static/images/logo.png; \
+		if [ ! -f "static/images/logo.svg" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Logo SVG file missing: static/images/logo.svg"; \
+			exit 1; \
 		fi; \
-		if [ -f "static/images/logo.png" ]; then \
-			if [ ! -f "static/images/logo-nav-crisp.png" ]; then \
-				convert static/images/logo.png -resize x48 -unsharp 0x1+1+0 -quality 100 static/images/logo-nav-crisp.png; \
-			fi; \
-			if [ ! -f "static/images/logo-nav-2x.png" ]; then \
-				convert static/images/logo.png -resize x96 -quality 100 static/images/logo-nav-2x.png; \
-			fi; \
-			if [ ! -f "static/images/logo-32.png" ]; then \
-				convert static/images/logo.png -resize 32x32^ -gravity center -extent 32x32 static/images/logo-32.png; \
-			fi; \
-			if [ ! -f "static/images/logo-64.png" ]; then \
-				convert static/images/logo.png -resize 64x64^ -gravity center -extent 64x64 static/images/logo-64.png; \
-			fi; \
-			if [ ! -f "static/images/logo-180.png" ]; then \
-				convert static/images/logo.png -resize 180x180^ -gravity center -extent 180x180 static/images/logo-180.png; \
-			fi; \
-			if [ ! -f "static/favicon.ico" ]; then \
-				convert static/images/logo.png \( -clone 0 -resize 16x16 \) \( -clone 0 -resize 32x32 \) \( -clone 0 -resize 48x48 \) -delete 0 static/favicon.ico; \
-			fi; \
-			if [ ! -f "static/images/favicon-16.png" ]; then \
-				convert static/images/logo.png -resize 16x16 static/images/favicon-16.png; \
-			fi; \
-			if [ ! -f "static/images/favicon-32.png" ]; then \
-				convert static/images/logo.png -resize 32x32 static/images/favicon-32.png; \
-			fi; \
-			rm -f static/images/logo-*.jpeg 2>/dev/null || true; \
+		if [ ! -f "static/images/favicon.svg" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Favicon SVG file missing: static/images/favicon.svg"; \
+			exit 1; \
+		fi; \
+		if [ ! -f "static/favicon.ico" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Favicon ICO file missing: static/favicon.ico"; \
+			exit 1; \
+		fi; \
+		if [ ! -f "static/images/favicon-16.png" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Favicon PNG file missing: static/images/favicon-16.png"; \
+			exit 1; \
+		fi; \
+		if [ ! -f "static/images/favicon-32.png" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Favicon PNG file missing: static/images/favicon-32.png"; \
+			exit 1; \
+		fi; \
+		if [ ! -f "static/images/favicon-48.png" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Favicon PNG file missing: static/images/favicon-48.png"; \
+			exit 1; \
+		fi; \
+		if [ ! -f "static/images/apple-touch-icon.png" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Apple touch icon missing: static/images/apple-touch-icon.png"; \
+			exit 1; \
+		fi; \
+		if [ ! -f "static/images/android-chrome-192x192.png" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Android Chrome icon missing: static/images/android-chrome-192x192.png"; \
+			exit 1; \
+		fi; \
+		if [ ! -f "static/images/android-chrome-512x512.png" ]; then \
+			echo -e "$(RED)[ERROR]$(NC) Android Chrome icon missing: static/images/android-chrome-512x512.png"; \
+			exit 1; \
 		fi; \
 		if [ ! -f "static/site.webmanifest" ]; then \
-			echo -e "$(BLUE)[INFO]$(NC) Remember to create site.webmanifest for PWA support"; \
+			echo -e "$(YELLOW)[WARNING]$(NC) Web manifest file missing: static/site.webmanifest"; \
 		fi; \
+		if [ ! -f "static/browserconfig.xml" ]; then \
+			echo -e "$(YELLOW)[WARNING]$(NC) Browser config file missing: static/browserconfig.xml"; \
+		fi; \
+		echo -e "$(GREEN)[SUCCESS]$(NC) All required logo and favicon files are present"; \
 	}
-	@echo -e "$(GREEN)[SUCCESS]$(NC) Logo optimization complete with transparent backgrounds"
 else
 	@echo -e "$(YELLOW)[WARNING]$(NC) ImageMagick not found. Skipping image optimization."
 	@echo -e "$(YELLOW)[WARNING]$(NC) Install with: sudo apt install imagemagick (Ubuntu) or brew install imagemagick (macOS)"
