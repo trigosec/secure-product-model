@@ -6,7 +6,7 @@ This script converts the governance.yml file to Hugo markdown content
 following a hierarchical structure with category pages and individual items.
 
 Usage:
-    ./scripts/governance2md.py [--help] [--doctests]
+    ./scripts/generate-governance-pages.py [--help] [--doctests]
 
 Options:
     --help     Show this help message and exit
@@ -20,10 +20,10 @@ The script will:
 5. Generate main governance index page (/governance/)
 
 Examples:
-    ./scripts/governance2md.py
+    ./scripts/generate-governance-pages.py
         Convert governance.yml to Hugo markdown structure
 
-    ./scripts/governance2md.py --doctests
+    ./scripts/generate-governance-pages.py --doctests
         Run all doctests to verify functionality
 """
 
@@ -182,7 +182,7 @@ def load_governance_data(yaml_file: Path) -> tuple[list[GovernanceItem], Meta]:
             description="Governance policies and expectations for the product framework",
             count=len(governance_items),
             source="governance.yml",
-            generated_by="governance2md.py"
+            generated_by="generate-governance-pages.py"
         )
 
     return governance_items, meta
@@ -411,7 +411,7 @@ def show_help() -> None:
     True
     >>> "Usage:" in output
     True
-    >>> "./scripts/governance2md.py" in output
+    >>> "./scripts/generate-governance-pages.py" in output
     True
     """
     print(__doc__)

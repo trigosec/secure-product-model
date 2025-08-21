@@ -172,7 +172,7 @@ data-generate-assets:  ## Generate Hugo content from YAML data
 
 data-generate-governance:  ## Generate Hugo governance content from governance.yml
 	@echo -e "$(BLUE)[INFO]$(NC) Generating governance content from YAML data..."
-	@$(PYTHON) scripts/governance2md.py
+	@$(PYTHON) scripts/generate-governance-pages.py
 	@echo -e "$(GREEN)[SUCCESS]$(NC) Governance content generated"
 
 data-pipeline: data-sync data-convert data-generate-assets data-generate-governance  ## Run complete data pipeline (sync -> convert -> generate)
