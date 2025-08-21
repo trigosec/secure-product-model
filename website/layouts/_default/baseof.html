@@ -16,14 +16,14 @@
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <meta property="og:image" content="{{ "/images/logo.png" | absURL }}">
+    <meta property="og:image" content="{{ "/images/logo.svg" | absURL }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ .Permalink }}">
     <meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
     <meta property="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <meta property="twitter:image" content="{{ "/images/logo.png" | absURL }}">
+    <meta property="twitter:image" content="{{ "/images/logo.svg" | absURL }}">
 
     <!-- License -->
     <meta name="license" content="CC BY-SA 4.0">
@@ -35,12 +35,13 @@
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
 
     <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ "/images/favicon.svg" | relURL }}?v={{ now.Unix }}">
     <link rel="shortcut icon" href="{{ "/favicon.ico" | relURL }}?v={{ now.Unix }}">
     <link rel="icon" type="image/x-icon" href="{{ "/favicon.ico" | relURL }}?v={{ now.Unix }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ "/images/favicon-16.png" | relURL }}?v={{ now.Unix }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ "/images/favicon-32.png" | relURL }}?v={{ now.Unix }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ "/images/logo-180.png" | relURL }}?v={{ now.Unix }}">
-    <link rel="mask-icon" href="{{ "/images/logo.png" | relURL }}" color="#002ebf">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "/images/logo.svg" | relURL }}?v={{ now.Unix }}">
+    <link rel="mask-icon" href="{{ "/images/logo.svg" | relURL }}" color="#002ebf">
     <link rel="manifest" href="{{ "/site.webmanifest" | relURL }}">
     <meta name="msapplication-TileColor" content="#002ebf">
     <meta name="theme-color" content="#002ebf">
@@ -57,8 +58,7 @@
                 <div class="navbar-brand">
                     <a href="{{ "/" | relURL }}" class="brand-link">
                         {{ if .Site.Params.logo }}
-                        <img src="{{ "/images/logo-navbar.png" | relURL }}"
-                             srcset="{{ "/images/logo-navbar.png" | relURL }} 1x, {{ "/images/logo-nav-2x.png" | relURL }} 2x"
+                        <img src="{{ "/images/logo.svg" | relURL }}"
                              alt="{{ .Site.Title }} Logo" class="brand-logo">
                         {{ else }}
                         <span class="brand-icon">🔒</span>
@@ -98,7 +98,7 @@
                 <div class="footer-section">
                     {{ if .Site.Params.logo }}
                     <div class="footer-logo">
-                        <img src="{{ "/images/logo-footer.png" | relURL }}" alt="{{ .Site.Title }} Logo" class="footer-logo-img">
+                        <img src="{{ "/images/logo.svg" | relURL }}" alt="{{ .Site.Title }} Logo" class="footer-logo-img">
                     </div>
                     {{ end }}
                     <h3>Secure Product Model</h3>
