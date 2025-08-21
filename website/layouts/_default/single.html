@@ -84,7 +84,7 @@
         </footer>
     </article>
 
-    {{ if .TableOfContents }}
+    {{ if and .TableOfContents (ne .Params.toc false) }}
     <aside class="table-of-contents">
         <div class="toc-container">
             <h3 class="toc-title">Table of Contents</h3>

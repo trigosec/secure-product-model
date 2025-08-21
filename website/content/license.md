@@ -4,6 +4,7 @@ description: "Creative Commons Attribution-ShareAlike 4.0 International License"
 date: 2024-01-01
 draft: false
 layout: "single"
+toc: false
 ---
 
 # License
