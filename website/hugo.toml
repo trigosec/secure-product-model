@@ -5,7 +5,7 @@ theme = ''
 
 [params]
 description = 'A practical security model designed specifically for engineering and technology teams'
-author = 'Secure Product Model'
+author = 'Germán Fuentes Capella'
 version = '1.0'
 logo = '/images/logo.png'
 license = 'CC BY-SA 4.0'

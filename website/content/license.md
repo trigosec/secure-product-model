@@ -31,7 +31,7 @@ Under the following terms:
 
 When using or adapting this security model, please provide attribution like this:
 
-> This work is based on the [Secure Product Model](https://secureproductmodel.com) by [Your Name], licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+> {{< attribution >}}
 
 ### Why This License?
 
@@ -45,7 +45,7 @@ We chose CC BY-SA 4.0 because:
 
 ### Full License Text
 
-The complete legal text of the Creative Commons Attribution-ShareAlike 4.0 International License can be found in the [LICENSE file](https://github.com/your-username/secure-product-framework/blob/main/LICENSE) in this repository, or online at [creativecommons.org/licenses/by-sa/4.0/legalcode](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+The complete legal text of the Creative Commons Attribution-ShareAlike 4.0 International License can be found in the {{< license-file >}} in this repository, or online at [creativecommons.org/licenses/by-sa/4.0/legalcode](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
 
 ### Contributing
 
