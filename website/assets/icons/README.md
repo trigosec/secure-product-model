@@ -121,7 +121,7 @@ The system can auto-detect appropriate icon types based on asset names:
 A special fallback icon (`broken.svg`) is used when an asset-specific icon is missing. This icon displays:
 - A circle with an "X" mark inside
 - Universal symbol for "broken" or "missing"
-- Automatically used by the `assets2md.py` script when asset icons are not found
+- Automatically used by the `generate-assets-page.py` script when asset icons are not found
 
 ### How It Works
 The `load_svg_content()` function handles fallback logic in a simple, clear way:
@@ -134,7 +134,7 @@ The `load_svg_content()` function handles fallback logic in a simple, clear way:
 When you see the broken icon:
 1. Check script warnings for missing asset names
 2. Create the missing SVG file with proper naming: `asset-{slug}.svg`
-3. Regenerate with `./scripts/assets2md.py`
+3. Regenerate with `./scripts/generate-assets-page.py`
 
 ## Current Asset Icons
 

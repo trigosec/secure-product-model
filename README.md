@@ -116,7 +116,7 @@ secure-product-framework/
 │   └── hugo.toml     # Hugo configuration
 ├── scripts/          # Python utilities
 │   ├── csv2yaml.py   # Convert CSV to YAML
-│   ├── assets2md.py  # Generate asset pages
+│   ├── generate-assets-page.py  # Generate asset pages
 │   └── framework-sync.py # Download from Google Sheets
 ├── data/             # Source CSV and YAML files
 ├── docs/             # Project documentation

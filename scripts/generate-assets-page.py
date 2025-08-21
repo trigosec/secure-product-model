@@ -6,7 +6,7 @@ This script converts the assets.yml file to a complete HTML file
 with embedded styling and JavaScript.
 
 Usage:
-    ./scripts/assets2md.py [--help] [--doctests]
+    ./scripts/generate-assets-page.py [--help] [--doctests]
 
 Options:
     --help     Show this help message and exit
@@ -19,10 +19,10 @@ The script will:
 4. Include embedded CSS and JavaScript
 
 Examples:
-    ./scripts/assets2md.py
+    ./scripts/generate-assets-page.py
         Convert assets.yml to HTML
 
-    ./scripts/assets2md.py --doctests
+    ./scripts/generate-assets-page.py --doctests
         Run all doctests to verify functionality
 """
 
@@ -459,7 +459,7 @@ def show_help() -> None:
         True
         >>> "Usage:" in output
         True
-        >>> "./scripts/assets2md.py" in output
+        >>> "./scripts/generate-assets-page.py" in output
         True
     """
     print("""
@@ -469,17 +469,17 @@ This script converts the assets.yml file to a Hugo-compatible markdown file
 with proper frontmatter and structured content.
 
 Usage:
-    ./scripts/assets2md.py [--help] [--doctests]
+    ./scripts/generate-assets-page.py [--help] [--doctests]
 
 Options:
     --help     Show this help message and exit
     --doctests Run doctests and exit
 
 Examples:
-    ./scripts/assets2md.py
+    ./scripts/generate-assets-page.py
         Convert assets.yml to HTML
 
-    ./scripts/assets2md.py --doctests
+    ./scripts/generate-assets-page.py --doctests
         Run all doctests to verify functionality
 
 The script will:

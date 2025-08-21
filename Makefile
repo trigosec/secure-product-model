@@ -167,7 +167,7 @@ data-convert:  ## Convert CSV data to YAML format
 
 data-generate-assets:  ## Generate Hugo content from YAML data
 	@echo -e "$(BLUE)[INFO]$(NC) Generating Hugo content from YAML data..."
-	@$(PYTHON) scripts/assets2md.py
+	@$(PYTHON) scripts/generate-assets-page.py
 	@echo -e "$(GREEN)[SUCCESS]$(NC) Hugo content generated"
 
 data-generate-governance:  ## Generate Hugo governance content from governance.yml
@@ -182,15 +182,15 @@ data-pipeline: data-sync data-convert data-generate-assets data-generate-governa
 test-python:  ## Run Python doctests for all scripts
 	@echo -e "$(BLUE)[INFO]$(NC) Running Python doctests..."
 	@$(PYTHON) scripts/csv2yaml.py --doctests
-	@$(PYTHON) scripts/assets2md.py --doctests
+	@$(PYTHON) scripts/generate-assets-page.py --doctests
 	@echo -e "$(GREEN)[SUCCESS]$(NC) All Python tests passed"
 
 test-scripts:  ## Test Python scripts with help output
 	@echo -e "$(BLUE)[INFO]$(NC) Testing Python scripts..."
 	@echo "Testing csv2yaml.py:"
 	@$(PYTHON) scripts/csv2yaml.py --help > /dev/null
-	@echo "Testing assets2md.py:"
-	@$(PYTHON) scripts/assets2md.py --help > /dev/null
+	@echo "Testing generate-assets-page.py:"
+	@$(PYTHON) scripts/generate-assets-page.py --help > /dev/null
 	@echo "Testing framework-sync.py:"
 	@$(PYTHON) scripts/framework-sync.py --help > /dev/null
 	@echo -e "$(GREEN)[SUCCESS]$(NC) All Python scripts are working"

@@ -1,6 +1,6 @@
 # Asset Templates
 
-This directory contains Jinja2 templates used by the `assets2md.py` script to generate the assets page.
+This directory contains Jinja2 templates used by the `generate-assets-page.py` script to generate the assets page.
 
 ## Template Files
 
@@ -53,11 +53,11 @@ The main template (`assets.j2`) uses these variables:
 
 ## Usage
 
-The templates are automatically loaded by `assets2md.py`:
+The templates are automatically loaded by `generate-assets-page.py`:
 
 ```bash
 # Generate assets page using templates
-./scripts/assets2md.py
+./scripts/generate-assets-page.py
 ```
 
 The script will:
@@ -85,13 +85,13 @@ The script will:
 ### Changing Layout
 1. Modify HTML structure in `assets.j2`
 2. Update corresponding CSS in `assets.css`
-3. Test with `./scripts/assets2md.py`
+3. Test with `./scripts/generate-assets-page.py`
 
 ### Adding Features
 1. Add HTML/template logic to `assets.j2`
 2. Add styling to `assets.css`
 3. Add interactivity to `assets.js`
-4. Regenerate with `./scripts/assets2md.py`
+4. Regenerate with `./scripts/generate-assets-page.py`
 
 ## Icon Fallback System
 
