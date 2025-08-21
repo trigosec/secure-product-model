@@ -14,7 +14,7 @@ Options:
 
 The script will:
 1. Read data/governance.yml
-2. Create governance category structure (policy, review, scopedefinition, standard)
+2. Create governance category structure (policy, oversight, scopedefinition, protocol)
 3. Generate category index pages (/governance/policy/, etc.)
 4. Generate individual governance item pages (/governance/policy/security/, etc.)
 5. Generate main governance index page (/governance/) as markdown
@@ -46,7 +46,7 @@ class GovernanceItem(BaseModel):
 
     @property
     def category(self) -> str:
-        """Extract category from ID (Policy, Review, Scope, Standard)."""
+        """Extract category from ID (Policy, Oversight, Scope Definition, Protocol)."""
         parts = self.id.split('.')
         if len(parts) >= 2:
             return parts[1].lower()
@@ -65,11 +65,8 @@ class GovernanceItem(BaseModel):
         """Get display name for category."""
         category_names = {
             'policy': 'Policies',
-            'review': 'Reviews',
             'oversight': 'Oversight',
-            'scope': 'Scope',
             'scopedefinition': 'Scope Definition',
-            'standard': 'Standards',
             'protocol': 'Protocols'
         }
         return category_names.get(self.category, self.category.title())
@@ -111,11 +108,8 @@ def get_category_description(category: str) -> str:
     """Get description for each governance category."""
     descriptions = {
         'policy': 'Foundational governance documents that establish organizational security standards, procedures, and requirements.',
-        'review': 'Regular assessment and evaluation processes to ensure ongoing compliance and security effectiveness.',
         'oversight': 'Ongoing supervision, monitoring, and evaluation activities to ensure governance effectiveness and compliance.',
-        'scope': 'Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.',
         'scopedefinition': 'Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.',
-        'standard': 'Detailed technical specifications and procedures that implement governance policies in practice.',
         'protocol': 'Step-by-step operational procedures and methodologies for implementing security practices.'
     }
     return descriptions.get(category, f"Governance items in the {category} category.")
@@ -126,11 +120,8 @@ def get_category_icon(category: str, icons_dir: Path) -> str:
     # Map categories to their icon files
     icon_files = {
         'policy': 'governance-policy.svg',
-        'review': 'governance-review.svg',
         'oversight': 'governance-oversight.svg',
-        'scope': 'governance-scopedefinition.svg',  # Use same as scopedefinition
         'scopedefinition': 'governance-scopedefinition.svg',
-        'standard': 'governance-standard.svg',
         'protocol': 'governance-protocol.svg'
     }
 
@@ -259,11 +250,8 @@ def generate_governance_content(governance_items: list[GovernanceItem], meta: Me
     # Create category icons
     category_icons = {
         'policy': get_category_icon('policy', icons_dir),
-        'review': get_category_icon('review', icons_dir),
         'oversight': get_category_icon('oversight', icons_dir),
-        'scope': get_category_icon('scope', icons_dir),
         'scopedefinition': get_category_icon('scopedefinition', icons_dir),
-        'standard': get_category_icon('standard', icons_dir),
         'protocol': get_category_icon('protocol', icons_dir)
     }
 

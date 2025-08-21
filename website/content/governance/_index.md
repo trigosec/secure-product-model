@@ -30,19 +30,13 @@ weight: 30
 
     /* Governance-specific colors */
     --policy-color: #059669;
-    --review-color: #0891b2;
     --oversight-color: #0891b2;
-    --scope-color: #7c3aed;
     --scopedefinition-color: #7c3aed;
-    --standard-color: #dc2626;
     --protocol-color: #dc2626;
 
     --policy-bg: #ecfdf5;
-    --review-bg: #f0f9ff;
     --oversight-bg: #f0f9ff;
-    --scope-bg: #f5f3ff;
     --scopedefinition-bg: #f5f3ff;
-    --standard-bg: #fef2f2;
     --protocol-bg: #fef2f2;
 }
 
@@ -214,14 +208,9 @@ body {
     color: var(--policy-color);
 }
 
-.category-review {
-    background: var(--review-bg);
-    color: var(--review-color);
-}
-
-.category-review {
-    background: var(--review-bg);
-    color: var(--review-color);
+.category-policy {
+    background: var(--policy-bg);
+    color: var(--policy-color);
 }
 
 .category-oversight {
@@ -229,19 +218,9 @@ body {
     color: var(--oversight-color);
 }
 
-.category-scope {
-    background: var(--scope-bg);
-    color: var(--scope-color);
-}
-
 .category-scopedefinition {
     background: var(--scopedefinition-bg);
     color: var(--scopedefinition-color);
-}
-
-.category-standard {
-    background: var(--standard-bg);
-    color: var(--standard-color);
 }
 
 .category-protocol {
@@ -488,7 +467,7 @@ body {
             <p class="hero-subtitle">Governance policies and expectations for the product framework</p>
             <p class="hero-description">
                 The foundation of your security program. These 30 governance items
-                establish the policies, reviews, scope definitions, and standards that guide security
+                establish the policies, oversight processes, scope definitions, and protocols that guide security
                 decision-making across your organization and ensure compliance with regulatory requirements.
             </p>
         </div>
