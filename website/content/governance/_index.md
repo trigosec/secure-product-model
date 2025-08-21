@@ -31,6 +31,7 @@ weight: 30
     /* Governance-specific colors */
     --policy-color: #059669;
     --review-color: #0891b2;
+    --oversight-color: #0891b2;
     --scope-color: #7c3aed;
     --scopedefinition-color: #7c3aed;
     --standard-color: #dc2626;
@@ -38,6 +39,7 @@ weight: 30
 
     --policy-bg: #ecfdf5;
     --review-bg: #f0f9ff;
+    --oversight-bg: #f0f9ff;
     --scope-bg: #f5f3ff;
     --scopedefinition-bg: #f5f3ff;
     --standard-bg: #fef2f2;
@@ -215,6 +217,16 @@ body {
 .category-review {
     background: var(--review-bg);
     color: var(--review-color);
+}
+
+.category-review {
+    background: var(--review-bg);
+    color: var(--review-color);
+}
+
+.category-oversight {
+    background: var(--oversight-bg);
+    color: var(--oversight-color);
 }
 
 .category-scope {
@@ -491,7 +503,7 @@ body {
         <div class="governance-filter">
             <button class="filter-btn active" data-category="all">All Governance</button>
             <button class="filter-btn" data-category="policy">Policies</button>
-            <button class="filter-btn" data-category="review">Reviews</button>
+            <button class="filter-btn" data-category="oversight">Oversight</button>
             <button class="filter-btn" data-category="scopedefinition">Scope Definition</button>
             <button class="filter-btn" data-category="protocol">Protocols</button>
         </div>
@@ -670,282 +682,282 @@ body {
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/access-permissions-reviews/">Access, permissions reviews</a>
+                        <a href="/governance/oversight/access-permissions-reviews/">Access, permissions reviews</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.Access</p>
+                    <p class="card-id">ID: G.Oversight.Access</p>
                     
                     <p class="card-description">with right approvals</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/access-permissions-reviews/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/access-permissions-reviews/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/update-cycle-for-awareness-program/">Update cycle for awareness program</a>
+                        <a href="/governance/oversight/update-cycle-for-awareness-program/">Update cycle for awareness program</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.Awareness</p>
+                    <p class="card-id">ID: G.Oversight.Awareness</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/update-cycle-for-awareness-program/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/update-cycle-for-awareness-program/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/regular-review-of-cryptographic-cipher-suites-and-protocols/">Regular review of cryptographic cipher suites and protocols</a>
+                        <a href="/governance/oversight/regular-review-of-cryptographic-cipher-suites-and-protocols/">Regular review of cryptographic cipher suites and protocols</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.Encryption</p>
+                    <p class="card-id">ID: G.Oversight.Encryption</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/regular-review-of-cryptographic-cipher-suites-and-protocols/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/regular-review-of-cryptographic-cipher-suites-and-protocols/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/">Regular review of endpoint devices, including those not at risk of malware</a>
+                        <a href="/governance/oversight/regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/">Regular review of endpoint devices, including those not at risk of malware</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.Endpoint</p>
+                    <p class="card-id">ID: G.Oversight.Endpoint</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/security-review-of-the-facilities-processes/">Security review of the facilities, processes</a>
+                        <a href="/governance/oversight/security-review-of-the-facilities-processes/">Security review of the facilities, processes</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.Facility</p>
+                    <p class="card-id">ID: G.Oversight.Facility</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/security-review-of-the-facilities-processes/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/security-review-of-the-facilities-processes/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/regularly-+-based-on-lesson-learned/">regularly + based on lesson learned</a>
+                        <a href="/governance/oversight/regularly-+-based-on-lesson-learned/">regularly + based on lesson learned</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.IncidentResponsePlan</p>
+                    <p class="card-id">ID: G.Oversight.IncidentResponsePlan</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/regularly-+-based-on-lesson-learned/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/regularly-+-based-on-lesson-learned/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/as-part-of-the-iac-reviews/">As part of the IaC reviews</a>
+                        <a href="/governance/oversight/as-part-of-the-iac-reviews/">As part of the IaC reviews</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.NetworkSecurityControls</p>
+                    <p class="card-id">ID: G.Oversight.NetworkSecurityControls</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/as-part-of-the-iac-reviews/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/as-part-of-the-iac-reviews/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/review-inventory-of-physical-media/">Review inventory of physical media</a>
+                        <a href="/governance/oversight/review-inventory-of-physical-media/">Review inventory of physical media</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.PhysicalMedia</p>
+                    <p class="card-id">ID: G.Oversight.PhysicalMedia</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/review-inventory-of-physical-media/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/review-inventory-of-physical-media/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/policy-reviews/">Policy reviews</a>
+                        <a href="/governance/oversight/policy-reviews/">Policy reviews</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.Policies</p>
+                    <p class="card-id">ID: G.Oversight.Policies</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/policy-reviews/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/policy-reviews/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/g.review.thirdparties/">ThirdParties</a>
+                        <a href="/governance/oversight/g.oversight.thirdparties/">ThirdParties</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.ThirdParties</p>
+                    <p class="card-id">ID: G.Oversight.ThirdParties</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/g.review.thirdparties/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/g.oversight.thirdparties/" class="card-link">View Details →</a>
                 </div>
             </div>
             
-            <div class="governance-card" data-category="review">
+            <div class="governance-card" data-category="oversight">
                 <div class="card-header">
-                    <div class="category-badge category-review">
+                    <div class="category-badge category-oversight">
                         <div class="category-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 
                         </div>
-                        <span class="category-name">Reviews</span>
+                        <span class="category-name">Oversight</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/review/targeted-risk-analysis/">Targeted Risk Analysis</a>
+                        <a href="/governance/oversight/targeted-risk-analysis/">Targeted Risk Analysis</a>
                     </h3>
-                    <p class="card-id">ID: G.Review.TRA</p>
+                    <p class="card-id">ID: G.Oversight.TRA</p>
                     
                     <p class="card-description">- Approved by senior leadership</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/review/targeted-risk-analysis/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/targeted-risk-analysis/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1316,14 +1328,14 @@ body {
                 
                 <div class="stat-card">
                     <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9 11l3 3l8-8"/>
-  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.24 0 2.42.25 3.5.7"/>
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
 </svg>
 </div>
                     <div class="stat-content">
                         <h3 class="stat-number">11</h3>
-                        <p class="stat-label">Reviews</p>
-                        <a href="/governance/review/" class="stat-link">View all →</a>
+                        <p class="stat-label">Oversight</p>
+                        <a href="/governance/oversight/" class="stat-link">View all →</a>
                     </div>
                 </div>
                 

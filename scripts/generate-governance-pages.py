@@ -66,6 +66,7 @@ class GovernanceItem(BaseModel):
         category_names = {
             'policy': 'Policies',
             'review': 'Reviews',
+            'oversight': 'Oversight',
             'scope': 'Scope',
             'scopedefinition': 'Scope Definition',
             'standard': 'Standards',
@@ -111,6 +112,7 @@ def get_category_description(category: str) -> str:
     descriptions = {
         'policy': 'Foundational governance documents that establish organizational security standards, procedures, and requirements.',
         'review': 'Regular assessment and evaluation processes to ensure ongoing compliance and security effectiveness.',
+        'oversight': 'Ongoing supervision, monitoring, and evaluation activities to ensure governance effectiveness and compliance.',
         'scope': 'Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.',
         'scopedefinition': 'Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.',
         'standard': 'Detailed technical specifications and procedures that implement governance policies in practice.',
@@ -125,6 +127,7 @@ def get_category_icon(category: str, icons_dir: Path) -> str:
     icon_files = {
         'policy': 'governance-policy.svg',
         'review': 'governance-review.svg',
+        'oversight': 'governance-oversight.svg',
         'scope': 'governance-scopedefinition.svg',  # Use same as scopedefinition
         'scopedefinition': 'governance-scopedefinition.svg',
         'standard': 'governance-standard.svg',
@@ -257,6 +260,7 @@ def generate_governance_content(governance_items: list[GovernanceItem], meta: Me
     category_icons = {
         'policy': get_category_icon('policy', icons_dir),
         'review': get_category_icon('review', icons_dir),
+        'oversight': get_category_icon('oversight', icons_dir),
         'scope': get_category_icon('scope', icons_dir),
         'scopedefinition': get_category_icon('scopedefinition', icons_dir),
         'standard': get_category_icon('standard', icons_dir),

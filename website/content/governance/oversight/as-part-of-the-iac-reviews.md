@@ -1,16 +1,16 @@
 ---
 title: "As part of the IaC reviews"
-description: "Governance item G.Review.NetworkSecurityControls"
+description: "Governance item G.Oversight.NetworkSecurityControls"
 date: 2024-01-01
 draft: false
-governance_id: "G.Review.NetworkSecurityControls"
-governance_category: "review"
+governance_id: "G.Oversight.NetworkSecurityControls"
+governance_category: "oversight"
 ---
 
 # As part of the IaC reviews
 
-**ID:** `G.Review.NetworkSecurityControls`
-**Category:** [Reviews](../)
+**ID:** `G.Oversight.NetworkSecurityControls`
+**Category:** [Oversight](../)
 
 ## Expectation
 
@@ -20,7 +20,7 @@ As part of the IaC reviews
 ---
 
 **Navigation:**
-- [← Back to Reviews](../)
+- [← Back to Oversight](../)
 - [← Back to All Governance](/governance/)
 
 *Part of the Secure Product Model governance framework*

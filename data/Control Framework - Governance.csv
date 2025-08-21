@@ -19,18 +19,18 @@ G.Policy.Security,Security Policy,"- CISO or other exec, explicitely accountable
   - how technology support compliance with PCI DSS
   - remediations to outdate tech
 - RACI matrix included in policy",
-[[ G.Review ]],"Reviews of policies, ...",,Parameters
-G.Review.Access,"Access, permissions reviews",with right approvals,frequency [PCI 6 months for user access]
-G.Review.Awareness,Update cycle for awareness program,,frequency [PCI yearly]
-G.Review.Encryption,Regular review of cryptographic cipher suites and protocols,,frequency [PCI yearly]
-G.Review.Endpoint,"Regular review of endpoint devices, including those not at risk of malware",,frequency [PCI <= yearly]
-G.Review.Facility,"Security review of the facilities, processes",,frequency [PCI yearly]
-G.Review.IncidentResponsePlan,regularly + based on lesson learned,,frequency [PCI yearly]
-G.Review.NetworkSecurityControls,As part of the IaC reviews,,frequency [PCI 6 months]
-G.Review.PhysicalMedia,Review inventory of physical media,,frequency [PCI yearly]
-G.Review.Policies,Policy reviews,,frequency [PCI yearly]
-G.Review.ThirdParties,,,frequency [PCI yearly]
-G.Review.TRA,Targeted Risk Analysis,- Approved by senior leadership,frequency [PCI yearly]
+[[ G.Oversight ]],"Reviews of policies, ...",,Parameters
+G.Oversight.Access,"Access, permissions reviews",with right approvals,frequency [PCI 6 months for user access]
+G.Oversight.Awareness,Update cycle for awareness program,,frequency [PCI yearly]
+G.Oversight.Encryption,Regular review of cryptographic cipher suites and protocols,,frequency [PCI yearly]
+G.Oversight.Endpoint,"Regular review of endpoint devices, including those not at risk of malware",,frequency [PCI <= yearly]
+G.Oversight.Facility,"Security review of the facilities, processes",,frequency [PCI yearly]
+G.Oversight.IncidentResponsePlan,regularly + based on lesson learned,,frequency [PCI yearly]
+G.Oversight.NetworkSecurityControls,As part of the IaC reviews,,frequency [PCI 6 months]
+G.Oversight.PhysicalMedia,Review inventory of physical media,,frequency [PCI yearly]
+G.Oversight.Policies,Policy reviews,,frequency [PCI yearly]
+G.Oversight.ThirdParties,,,frequency [PCI yearly]
+G.Oversight.TRA,Targeted Risk Analysis,- Approved by senior leadership,frequency [PCI yearly]
 [[ G.ScopeDefinition ]],Items that define the scope of the security programme,,Parameters
 G.ScopeDefinition.Awareness,Awareness training scope,"- Covering:
   - Security DOs and DON'Ts

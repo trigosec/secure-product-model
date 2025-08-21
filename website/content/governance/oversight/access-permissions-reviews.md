@@ -1,16 +1,16 @@
 ---
 title: "Access, permissions reviews"
-description: "Governance item G.Review.Access"
+description: "Governance item G.Oversight.Access"
 date: 2024-01-01
 draft: false
-governance_id: "G.Review.Access"
-governance_category: "review"
+governance_id: "G.Oversight.Access"
+governance_category: "oversight"
 ---
 
 # Access, permissions reviews
 
-**ID:** `G.Review.Access`
-**Category:** [Reviews](../)
+**ID:** `G.Oversight.Access`
+**Category:** [Oversight](../)
 
 ## Expectation
 
@@ -24,7 +24,7 @@ with right approvals
 ---
 
 **Navigation:**
-- [← Back to Reviews](../)
+- [← Back to Oversight](../)
 - [← Back to All Governance](/governance/)
 
 *Part of the Secure Product Model governance framework*

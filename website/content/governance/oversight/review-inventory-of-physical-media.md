@@ -1,16 +1,16 @@
 ---
 title: "Review inventory of physical media"
-description: "Governance item G.Review.PhysicalMedia"
+description: "Governance item G.Oversight.PhysicalMedia"
 date: 2024-01-01
 draft: false
-governance_id: "G.Review.PhysicalMedia"
-governance_category: "review"
+governance_id: "G.Oversight.PhysicalMedia"
+governance_category: "oversight"
 ---
 
 # Review inventory of physical media
 
-**ID:** `G.Review.PhysicalMedia`
-**Category:** [Reviews](../)
+**ID:** `G.Oversight.PhysicalMedia`
+**Category:** [Oversight](../)
 
 ## Expectation
 
@@ -20,7 +20,7 @@ Review inventory of physical media
 ---
 
 **Navigation:**
-- [← Back to Reviews](../)
+- [← Back to Oversight](../)
 - [← Back to All Governance](/governance/)
 
 *Part of the Secure Product Model governance framework*

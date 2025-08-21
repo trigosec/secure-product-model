@@ -1,66 +1,66 @@
 ---
-title: "Reviews"
-description: "Regular assessment and evaluation processes to ensure ongoing compliance and security effectiveness."
+title: "Oversight"
+description: "Ongoing supervision, monitoring, and evaluation activities to ensure governance effectiveness and compliance."
 date: 2024-01-01
 draft: false
 weight: 10
 ---
 
-# Reviews
+# Oversight
 
-Regular assessment and evaluation processes to ensure ongoing compliance and security effectiveness.
+Ongoing supervision, monitoring, and evaluation activities to ensure governance effectiveness and compliance.
 
 ## Items in this Category
 
 ### [Access, permissions reviews](access-permissions-reviews/)
 
-**ID:** `G.Review.Access`
+**ID:** `G.Oversight.Access`
 
 with right approvals
 
 ### [Update cycle for awareness program](update-cycle-for-awareness-program/)
 
-**ID:** `G.Review.Awareness`
+**ID:** `G.Oversight.Awareness`
 
 ### [Regular review of cryptographic cipher suites and protocols](regular-review-of-cryptographic-cipher-suites-and-protocols/)
 
-**ID:** `G.Review.Encryption`
+**ID:** `G.Oversight.Encryption`
 
 ### [Regular review of endpoint devices, including those not at risk of malware](regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/)
 
-**ID:** `G.Review.Endpoint`
+**ID:** `G.Oversight.Endpoint`
 
 ### [Security review of the facilities, processes](security-review-of-the-facilities-processes/)
 
-**ID:** `G.Review.Facility`
+**ID:** `G.Oversight.Facility`
 
 ### [regularly + based on lesson learned](regularly-+-based-on-lesson-learned/)
 
-**ID:** `G.Review.IncidentResponsePlan`
+**ID:** `G.Oversight.IncidentResponsePlan`
 
 ### [As part of the IaC reviews](as-part-of-the-iac-reviews/)
 
-**ID:** `G.Review.NetworkSecurityControls`
+**ID:** `G.Oversight.NetworkSecurityControls`
 
 ### [Review inventory of physical media](review-inventory-of-physical-media/)
 
-**ID:** `G.Review.PhysicalMedia`
+**ID:** `G.Oversight.PhysicalMedia`
 
 ### [Policy reviews](policy-reviews/)
 
-**ID:** `G.Review.Policies`
+**ID:** `G.Oversight.Policies`
 
 ### [Targeted Risk Analysis](targeted-risk-analysis/)
 
-**ID:** `G.Review.TRA`
+**ID:** `G.Oversight.TRA`
 
 - Approved by senior leadership
 
-### [*ThirdParties*](g.review.thirdparties/)
+### [*ThirdParties*](g.oversight.thirdparties/)
 
-**ID:** `G.Review.ThirdParties`
+**ID:** `G.Oversight.ThirdParties`
 
 
 ---
 
-[← Back to All Governance](/governance/) | **11 items** in Reviews
+[← Back to All Governance](/governance/) | **11 items** in Oversight

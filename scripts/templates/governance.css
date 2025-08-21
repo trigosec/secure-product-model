@@ -21,6 +21,7 @@
     /* Governance-specific colors */
     --policy-color: #059669;
     --review-color: #0891b2;
+    --oversight-color: #0891b2;
     --scope-color: #7c3aed;
     --scopedefinition-color: #7c3aed;
     --standard-color: #dc2626;
@@ -28,6 +29,7 @@
 
     --policy-bg: #ecfdf5;
     --review-bg: #f0f9ff;
+    --oversight-bg: #f0f9ff;
     --scope-bg: #f5f3ff;
     --scopedefinition-bg: #f5f3ff;
     --standard-bg: #fef2f2;
@@ -205,6 +207,16 @@ body {
 .category-review {
     background: var(--review-bg);
     color: var(--review-color);
+}
+
+.category-review {
+    background: var(--review-bg);
+    color: var(--review-color);
+}
+
+.category-oversight {
+    background: var(--oversight-bg);
+    color: var(--oversight-color);
 }
 
 .category-scope {

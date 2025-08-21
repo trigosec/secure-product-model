@@ -23,39 +23,39 @@ governance:
     - System components - Segmentation controls - Connection to 3rd parties - Security
     strategy, including: - how technology support compliance with PCI DSS - remediations
     to outdate tech - RACI matrix included in policy'
-- id: G.Review.Access
+- id: G.Oversight.Access
   expectation: Access, permissions reviews
   slug: access-permissions-reviews
   details: with right approvals
-- id: G.Review.Awareness
+- id: G.Oversight.Awareness
   expectation: Update cycle for awareness program
   slug: update-cycle-for-awareness-program
-- id: G.Review.Encryption
+- id: G.Oversight.Encryption
   expectation: Regular review of cryptographic cipher suites and protocols
   slug: regular-review-of-cryptographic-cipher-suites-and-protocols
-- id: G.Review.Endpoint
+- id: G.Oversight.Endpoint
   expectation: Regular review of endpoint devices, including those not at risk of
     malware
   slug: regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware
-- id: G.Review.Facility
+- id: G.Oversight.Facility
   expectation: Security review of the facilities, processes
   slug: security-review-of-the-facilities-processes
-- id: G.Review.IncidentResponsePlan
+- id: G.Oversight.IncidentResponsePlan
   expectation: regularly + based on lesson learned
   slug: regularly-+-based-on-lesson-learned
-- id: G.Review.NetworkSecurityControls
+- id: G.Oversight.NetworkSecurityControls
   expectation: As part of the IaC reviews
   slug: as-part-of-the-iac-reviews
-- id: G.Review.PhysicalMedia
+- id: G.Oversight.PhysicalMedia
   expectation: Review inventory of physical media
   slug: review-inventory-of-physical-media
-- id: G.Review.Policies
+- id: G.Oversight.Policies
   expectation: Policy reviews
   slug: policy-reviews
-- id: G.Review.ThirdParties
+- id: G.Oversight.ThirdParties
   expectation: ''
-  slug: g.review.thirdparties
-- id: G.Review.TRA
+  slug: g.oversight.thirdparties
+- id: G.Oversight.TRA
   expectation: Targeted Risk Analysis
   slug: targeted-risk-analysis
   details: '- Approved by senior leadership'

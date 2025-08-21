@@ -1,16 +1,16 @@
 ---
 title: "Policy reviews"
-description: "Governance item G.Review.Policies"
+description: "Governance item G.Oversight.Policies"
 date: 2024-01-01
 draft: false
-governance_id: "G.Review.Policies"
-governance_category: "review"
+governance_id: "G.Oversight.Policies"
+governance_category: "oversight"
 ---
 
 # Policy reviews
 
-**ID:** `G.Review.Policies`
-**Category:** [Reviews](../)
+**ID:** `G.Oversight.Policies`
+**Category:** [Oversight](../)
 
 ## Expectation
 
@@ -20,7 +20,7 @@ Policy reviews
 ---
 
 **Navigation:**
-- [← Back to Reviews](../)
+- [← Back to Oversight](../)
 - [← Back to All Governance](/governance/)
 
 *Part of the Secure Product Model governance framework*
