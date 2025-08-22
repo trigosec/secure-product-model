@@ -1382,7 +1382,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize governance filtering functionality
   initGovernanceFiltering();
   initGovernanceSearch();
-  initGovernanceAnimations();
 });
 
 function initGovernanceFiltering() {
@@ -1449,39 +1448,6 @@ function initGovernanceSearch() {
   }
 }
 
-function initGovernanceAnimations() {
-  // Add scroll-triggered animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      }
-    });
-  }, observerOptions);
-
-  // Observe governance cards
-  document.querySelectorAll(".governance-card").forEach((card) => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
-    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-    observer.observe(card);
-  });
-
-  // Observe stat cards
-  document.querySelectorAll(".stat-card").forEach((card) => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
-    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-    observer.observe(card);
-  });
-}
-
 function updateVisibleCount() {
   const visibleCards = document.querySelectorAll(
     ".governance-card:not(.hidden)",
@@ -1508,24 +1474,6 @@ function getCategoryStats() {
 
   return stats;
 }
-
-// Enhanced card hover effects
-document.addEventListener("DOMContentLoaded", function () {
-  const cards = document.querySelectorAll(".governance-card");
-
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", function () {
-      this.style.transform = "translateY(-8px) scale(1.02)";
-      this.style.boxShadow = "0 25px 50px -12px rgb(0 0 0 / 0.25)";
-    });
-
-    card.addEventListener("mouseleave", function () {
-      this.style.transform = "translateY(0) scale(1)";
-      this.style.boxShadow =
-        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)";
-    });
-  });
-});
 
 // Keyboard navigation support
 document.addEventListener("keydown", function (e) {
