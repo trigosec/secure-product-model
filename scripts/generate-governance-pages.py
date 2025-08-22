@@ -202,6 +202,70 @@ def group_by_category(governance_items: list[GovernanceItem]) -> Dict[str, List[
     return categories
 
 
+def generate_governance_category_content(category: str, items: list[GovernanceItem], total_governance_count: int) -> str:
+    """Generate governance category content using Jinja2 templates."""
+    # Set up Jinja2 environment
+    script_dir = Path(__file__).parent
+    template_dir = script_dir / "templates"
+    project_root = script_dir.parent
+    icons_dir = project_root / "website" / "assets" / "icons"
+
+    if not template_dir.exists():
+        raise FileNotFoundError(f"Templates directory not found: {template_dir}")
+
+    env = Environment(loader=FileSystemLoader(template_dir))
+    template = env.get_template('governance-category.j2')
+
+    # Load CSS content
+    css_file = template_dir / "governance-category.css"
+    css_content = ""
+    if css_file.exists():
+        with open(css_file, 'r', encoding='utf-8') as f:
+            css_content = f.read()
+
+    # Load JS content
+    js_file = template_dir / "governance-category.js"
+    js_content = ""
+    if js_file.exists():
+        with open(js_file, 'r', encoding='utf-8') as f:
+            js_content = f.read()
+
+    # Load icons
+    def load_icon(name: str) -> str:
+        icon_file = icons_dir / f"{name}.svg"
+        if icon_file.exists():
+            with open(icon_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+                # Adjust the SVG for hero section (larger size)
+                content = content.replace('viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="80" height="80"')
+                return content
+        return f'<svg><text>📄</text></svg>'  # Fallback
+
+    # Get category icon and governance icon
+    category_icon = load_icon(f"governance-{category}")
+    governance_icon = load_icon("governance-oversight")  # Main governance icon
+
+    # Get category display name and description
+    category_display = items[0].category_display if items else category.title()
+    category_description = get_category_description(category)
+
+    # Generate content
+    content = template.render(
+        category=category,
+        category_display=category_display,
+        category_description=category_description,
+        items=items,
+        item_count=len(items),
+        total_governance_count=total_governance_count,
+        css_content=css_content,
+        js_content=js_content,
+        category_icon=category_icon,
+        governance_icon=governance_icon
+    )
+
+    return content
+
+
 def generate_governance_item_content(item: GovernanceItem) -> str:
     """Generate individual governance item content using Jinja2 templates."""
     # Set up Jinja2 environment
@@ -340,48 +404,16 @@ def create_main_index(governance_items: list[GovernanceItem], meta: Meta, output
     print(f"✅ Created main governance index: {index_file}")
 
 
-def create_category_index(category: str, items: list[GovernanceItem], output_dir: Path) -> None:
-    """Create category index page (e.g., /governance/policy/)."""
+def create_category_index(category: str, items: list[GovernanceItem], output_dir: Path, total_governance_count: int) -> None:
+    """Create category index page using templates (e.g., /governance/policy/)."""
     if not items:
         return
 
-    category_display = items[0].category_display
     category_dir = output_dir / category
     category_dir.mkdir(parents=True, exist_ok=True)
 
-    content = f"""---
-title: "{category_display}"
-description: "{get_category_description(category)}"
-date: 2024-01-01
-draft: false
-weight: 10
----
-
-# {category_display}
-
-{get_category_description(category)}
-
-## Items in this Category
-
-"""
-
-    for item in items:
-        title_text = item.title if item.title else f"*{item.name}*"
-        content += f"""### [{title_text}]({item.slug}/)
-
-**ID:** `{item.id}`
-
-"""
-        if item.notes:
-            # Truncate notes for overview
-            notes_preview = item.notes[:200] + "..." if len(item.notes) > 200 else item.notes
-            content += f"{notes_preview}\n\n"
-
-    content += f"""
----
-
-[← Back to All Governance](/governance/) | **{len(items)} items** in {category_display}
-"""
+    # Generate content using template
+    content = generate_governance_category_content(category, items, total_governance_count)
 
     # Write category index file
     index_file = category_dir / "_index.md"
@@ -478,7 +510,7 @@ def main() -> None:
         total_items_created = 0
         for category_name, items in categories.items():
             # Create category index
-            create_category_index(category_name, items, output_dir)
+            create_category_index(category_name, items, output_dir, len(governance_items))
 
             # Create individual item pages
             for item in items:
