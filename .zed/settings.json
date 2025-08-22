@@ -4,9 +4,8 @@
       "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
       "formatter": {
-        "external": {
-          "command": "./.venv/bin/python",
-          "arguments": ["-m", "black", "-"]
+        "language_server": {
+          "name": "ruff"
         }
       }
     }
@@ -31,9 +30,6 @@
         }
       }
     }
-  },
-  "python": {
-    "interpreter": "./.venv/bin/python"
   },
   "terminal": {
     "env": {

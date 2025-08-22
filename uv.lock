@@ -566,9 +566,9 @@ wheels = [
 ]
 
 [[package]]
-name = "secure-product-framework-scripts"
+name = "secure-product-model-scripts"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "jinja2" },
     { name = "pydantic" },
