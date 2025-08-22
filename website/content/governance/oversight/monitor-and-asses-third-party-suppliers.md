@@ -1,5 +1,5 @@
 ---
-title: "ThirdParties"
+title: "Monitor and asses Third-Party Suppliers"
 description: "Governance item G.Oversight.ThirdParties"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.ThirdParties"
 governance_category: "oversight"
 ---
 
-# ThirdParties
+# Monitor and asses Third-Party Suppliers
 
 **ID:** `G.Oversight.ThirdParties`
 **Category:** [Oversight](../)
@@ -15,6 +15,10 @@ governance_category: "oversight"
 ## Description
 
 Ongoing assessment of third-party security practices and compliance with contractual security requirements.
+
+## Summary
+
+Monitor and asses Third-Party Suppliers
 
 
 ---

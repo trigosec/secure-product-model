@@ -1,5 +1,5 @@
 ---
-title: "Targeted Risk Analysis"
+title: "Perform Targeted Risk Analysis"
 description: "Governance item G.Oversight.TRA"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.TRA"
 governance_category: "oversight"
 ---
 
-# Targeted Risk Analysis
+# Perform Targeted Risk Analysis
 
 **ID:** `G.Oversight.TRA`
 **Category:** [Oversight](../)
@@ -18,7 +18,7 @@ Regular targeted risk assessments focusing on specific business processes, techn
 
 ## Summary
 
-Targeted Risk Analysis
+Perform Targeted Risk Analysis
 
 ## Implementation Notes
 

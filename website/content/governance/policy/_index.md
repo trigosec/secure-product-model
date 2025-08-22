@@ -18,19 +18,19 @@ Foundational governance documents that establish organizational security standar
 
 technology, hardware, software
 
-### [Authentication (+ password) policy](authentication-+-password-policy/)
+### [Authentication and Password Policy](authentication-and-password-policy/)
 
 **ID:** `G.Policy.Auth`
 
-### [Data retention and disposal](data-retention-and-disposal/)
+### [Data Retention and Disposal Policy](data-retention-and-disposal-policy/)
 
 **ID:** `G.Policy.DataRetentionAndDisposal`
 
-### [Encryption and key management policy](encryption-and-key-management-policy/)
+### [Encryption and Key Management Policy](encryption-and-key-management-policy/)
 
 **ID:** `G.Policy.EncryptionAndKeyManagement`
 
-### [Media destruction policy](media-destruction-policy/)
+### [Media Destruction Policy](media-destruction-policy/)
 
 **ID:** `G.Policy.MediaDestruction`
 

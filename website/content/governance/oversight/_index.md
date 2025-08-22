@@ -12,33 +12,33 @@ Ongoing supervision, monitoring, and evaluation activities to ensure governance 
 
 ## Items in this Category
 
-### [Access, permissions reviews](access-permissions-reviews/)
+### [Access and Permission Review](access-and-permission-review/)
 
 **ID:** `G.Oversight.Access`
 
 with right approvals
 
-### [Update cycle for awareness program](update-cycle-for-awareness-program/)
+### [Maintain an Up-to-date Security Awareness Program](maintain-an-up-to-date-security-awareness-program/)
 
 **ID:** `G.Oversight.Awareness`
 
-### [Regular review of cryptographic cipher suites and protocols](regular-review-of-cryptographic-cipher-suites-and-protocols/)
+### [Maintain Up-to-date Cryptographic Cipher Suites and Protocols](maintain-up-to-date-cryptographic-cipher-suites-and-protocols/)
 
 **ID:** `G.Oversight.Encryption`
 
-### [Regular review of endpoint devices, including those not at risk of malware](regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/)
+### [Review Inventory of endpoint devices](review-inventory-of-endpoint-devices/)
 
 **ID:** `G.Oversight.Endpoint`
 
-### [Security review of the facilities, processes](security-review-of-the-facilities-processes/)
+### [Review Facilities](review-facilities/)
 
 **ID:** `G.Oversight.Facility`
 
-### [regularly + based on lesson learned](regularly-+-based-on-lesson-learned/)
+### [Review Incident Response Plan](review-incident-response-plan/)
 
 **ID:** `G.Oversight.IncidentResponsePlan`
 
-### [As part of the IaC reviews](as-part-of-the-iac-reviews/)
+### [Review Network Security Controls](review-network-security-controls/)
 
 **ID:** `G.Oversight.NetworkSecurityControls`
 
@@ -46,17 +46,17 @@ with right approvals
 
 **ID:** `G.Oversight.PhysicalMedia`
 
-### [Policy reviews](policy-reviews/)
+### [Maintain Up-to-date Policies](maintain-up-to-date-policies/)
 
 **ID:** `G.Oversight.Policies`
 
-### [Targeted Risk Analysis](targeted-risk-analysis/)
+### [Perform Targeted Risk Analysis](perform-targeted-risk-analysis/)
 
 **ID:** `G.Oversight.TRA`
 
 - Approved by senior leadership
 
-### [*ThirdParties*](g.oversight.thirdparties/)
+### [Monitor and asses Third-Party Suppliers](monitor-and-asses-third-party-suppliers/)
 
 **ID:** `G.Oversight.ThirdParties`
 

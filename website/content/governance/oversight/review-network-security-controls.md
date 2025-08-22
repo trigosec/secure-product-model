@@ -1,5 +1,5 @@
 ---
-title: "As part of the IaC reviews"
+title: "Review Network Security Controls"
 description: "Governance item G.Oversight.NetworkSecurityControls"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.NetworkSecurityControls"
 governance_category: "oversight"
 ---
 
-# As part of the IaC reviews
+# Review Network Security Controls
 
 **ID:** `G.Oversight.NetworkSecurityControls`
 **Category:** [Oversight](../)
@@ -18,7 +18,7 @@ Regular review of network security configurations and controls, typically integr
 
 ## Summary
 
-As part of the IaC reviews
+Review Network Security Controls
 
 
 ---

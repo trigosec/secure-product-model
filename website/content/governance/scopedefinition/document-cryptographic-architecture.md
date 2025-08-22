@@ -1,5 +1,5 @@
 ---
-title: "CryptographicArchitecture"
+title: "Document Cryptographic Architecture"
 description: "Governance item G.ScopeDefinition.CryptographicArchitecture"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.CryptographicArchitecture"
 governance_category: "scopedefinition"
 ---
 
-# CryptographicArchitecture
+# Document Cryptographic Architecture
 
 **ID:** `G.ScopeDefinition.CryptographicArchitecture`
 **Category:** [Scope Definition](../)
@@ -15,6 +15,10 @@ governance_category: "scopedefinition"
 ## Description
 
 Document the organization's cryptographic architecture including algorithms, key management systems, certificate authorities, and encryption implementations.
+
+## Summary
+
+Document Cryptographic Architecture
 
 
 ---

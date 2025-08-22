@@ -313,21 +313,21 @@ def convert_governance_csv(csv_file_path: Path) -> Dict[str, Any]:
                 continue
 
             description = clean_text(row.get('Description', ''))
-            one_liner = clean_text(row.get('1-liner', ''))
+            title = clean_text(row.get('Title', ''))
             notes = clean_text(row.get('Notes', ''))
 
             # Create governance object
             governance_item: Dict[str, Any] = {
                 'id': gov_id,
-                'expectation': one_liner,
-                'slug': create_slug(one_liner) if one_liner else create_slug(gov_id)
+                'title': title,
+                'slug': create_slug(title) if title else create_slug(gov_id)
             }
 
             # Add optional fields if they have content
             if description:
                 governance_item['description'] = description
             if notes:
-                governance_item['details'] = notes
+                governance_item['notes'] = notes
 
             governance.append(governance_item)
 

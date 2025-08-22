@@ -1,5 +1,5 @@
 ---
-title: "SecureDevelopment"
+title: "Secure Development"
 description: "Governance item G.Protocol.SecureDevelopment"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Protocol.SecureDevelopment"
 governance_category: "protocol"
 ---
 
-# SecureDevelopment
+# Secure Development
 
 **ID:** `G.Protocol.SecureDevelopment`
 **Category:** [Protocols](../)
@@ -15,6 +15,10 @@ governance_category: "protocol"
 ## Description
 
 Comprehensive secure software development lifecycle (SDLC) procedures including security requirements, testing, and deployment practices.
+
+## Summary
+
+Secure Development
 
 
 ---

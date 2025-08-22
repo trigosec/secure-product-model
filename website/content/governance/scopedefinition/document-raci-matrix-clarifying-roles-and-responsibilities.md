@@ -1,5 +1,5 @@
 ---
-title: "RACI matrix, clarifying roles and responsibilities"
+title: "Document RACI matrix, clarifying roles and responsibilities"
 description: "Governance item G.ScopeDefinition.RACI"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.RACI"
 governance_category: "scopedefinition"
 ---
 
-# RACI matrix, clarifying roles and responsibilities
+# Document RACI matrix, clarifying roles and responsibilities
 
 **ID:** `G.ScopeDefinition.RACI`
 **Category:** [Scope Definition](../)
@@ -18,7 +18,7 @@ Create and maintain RACI (Responsible, Accountable, Consulted, Informed) matrice
 
 ## Summary
 
-RACI matrix, clarifying roles and responsibilities
+Document RACI matrix, clarifying roles and responsibilities
 
 
 ---

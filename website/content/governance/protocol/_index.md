@@ -18,11 +18,11 @@ Step-by-step operational procedures and methodologies for implementing security 
 
 - actions are taken for disruptions in security controls - Roles and responsibilities - Contacts and communication strategies - Notification to payment brands and acquirers, if needed - Business recov...
 
-### [PEN testing methodology](pen-testing-methodology/)
+### [PEN Testing Methodology](pen-testing-methodology/)
 
 **ID:** `G.Protocol.PENTestingMethodology`
 
-### [*SecureDevelopment*](g.protocol.securedevelopment/)
+### [Secure Development](secure-development/)
 
 **ID:** `G.Protocol.SecureDevelopment`
 

@@ -1,5 +1,5 @@
 ---
-title: "Data retention and disposal"
+title: "Data Retention and Disposal Policy"
 description: "Governance item G.Policy.DataRetentionAndDisposal"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Policy.DataRetentionAndDisposal"
 governance_category: "policy"
 ---
 
-# Data retention and disposal
+# Data Retention and Disposal Policy
 
 **ID:** `G.Policy.DataRetentionAndDisposal`
 **Category:** [Policies](../)
@@ -18,7 +18,7 @@ Define how long different types of data must be retained and secure disposal pro
 
 ## Summary
 
-Data retention and disposal
+Data Retention and Disposal Policy
 
 
 ---

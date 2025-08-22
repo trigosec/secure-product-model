@@ -1,5 +1,5 @@
 ---
-title: "where data is stored, processed, transmitted"
+title: "Document where the Data is Stored, Processed and Transmitted"
 description: "Governance item G.ScopeDefinition.Locations"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.Locations"
 governance_category: "scopedefinition"
 ---
 
-# where data is stored, processed, transmitted
+# Document where the Data is Stored, Processed and Transmitted
 
 **ID:** `G.ScopeDefinition.Locations`
 **Category:** [Scope Definition](../)
@@ -18,7 +18,7 @@ Define all locations where sensitive data is stored, processed, or transmitted i
 
 ## Summary
 
-where data is stored, processed, transmitted
+Document where the Data is Stored, Processed and Transmitted
 
 
 ---

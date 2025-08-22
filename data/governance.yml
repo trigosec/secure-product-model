@@ -1,162 +1,161 @@
 governance:
 - id: G.Policy.AcceptableUse
-  expectation: Acceptable Use Policy
+  title: Acceptable Use Policy
   slug: acceptable-use-policy
   description: Define acceptable use of technology resources including computers,
     networks, mobile devices, and cloud services. Specify prohibited activities, data
     handling requirements, and consequences for violations.
-  details: technology, hardware, software
+  notes: technology, hardware, software
 - id: G.Policy.Auth
-  expectation: Authentication (+ password) policy
-  slug: authentication-+-password-policy
+  title: Authentication and Password Policy
+  slug: authentication-and-password-policy
   description: Establish authentication and password requirements across all systems.
     Define multi-factor authentication requirements, password complexity, and account
     management procedures.
 - id: G.Policy.DataRetentionAndDisposal
-  expectation: Data retention and disposal
-  slug: data-retention-and-disposal
+  title: Data Retention and Disposal Policy
+  slug: data-retention-and-disposal-policy
   description: Define how long different types of data must be retained and secure
     disposal procedures. Address regulatory requirements and business needs for data
     lifecycle management.
 - id: G.Policy.EncryptionAndKeyManagement
-  expectation: Encryption and key management policy
+  title: Encryption and Key Management Policy
   slug: encryption-and-key-management-policy
   description: Establish encryption requirements for data at rest and in transit.
     Define key management procedures, approved algorithms, and implementation standards.
 - id: G.Policy.MediaDestruction
-  expectation: Media destruction policy
+  title: Media Destruction Policy
   slug: media-destruction-policy
   description: Define secure destruction procedures for physical and digital media
     containing sensitive information. Specify methods based on data sensitivity and
     media type.
 - id: G.Policy.Security
-  expectation: Security Policy
+  title: Security Policy
   slug: security-policy
   description: Comprehensive security policy establishing the organization's security
     program, roles, responsibilities, and overall security strategy. Serves as the
     foundation for all other security policies.
-  details: '- CISO or other exec, explicitely accountable for security - updates within
+  notes: '- CISO or other exec, explicitely accountable for security - updates within
     year if risk environment changes - Roles and responsibilities (PCI) - Locations
     - System components - Segmentation controls - Connection to 3rd parties - Security
     strategy, including: - how technology support compliance with PCI DSS - remediations
     to outdate tech - RACI matrix included in policy'
 - id: G.Oversight.Access
-  expectation: Access, permissions reviews
-  slug: access-permissions-reviews
+  title: Access and Permission Review
+  slug: access-and-permission-review
   description: Regular reviews of user access rights and permissions to ensure appropriate
     access levels. Verify that access aligns with job responsibilities and follows
     least privilege principles.
-  details: with right approvals
+  notes: with right approvals
 - id: G.Oversight.Awareness
-  expectation: Update cycle for awareness program
-  slug: update-cycle-for-awareness-program
+  title: Maintain an Up-to-date Security Awareness Program
+  slug: maintain-an-up-to-date-security-awareness-program
   description: Regular evaluation and updates to security awareness training programs
     to ensure effectiveness and relevance to current threats.
 - id: G.Oversight.Encryption
-  expectation: Regular review of cryptographic cipher suites and protocols
-  slug: regular-review-of-cryptographic-cipher-suites-and-protocols
+  title: Maintain Up-to-date Cryptographic Cipher Suites and Protocols
+  slug: maintain-up-to-date-cryptographic-cipher-suites-and-protocols
   description: Periodic review of cryptographic implementations, cipher suites, and
     protocols to ensure they meet current security standards and haven't been deprecated.
 - id: G.Oversight.Endpoint
-  expectation: Regular review of endpoint devices, including those not at risk of
-    malware
-  slug: regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware
+  title: Review Inventory of endpoint devices
+  slug: review-inventory-of-endpoint-devices
   description: Regular assessment of endpoint security controls including devices
     not traditionally covered by antimalware solutions such as network devices and
     IoT systems.
 - id: G.Oversight.Facility
-  expectation: Security review of the facilities, processes
-  slug: security-review-of-the-facilities-processes
+  title: Review Facilities
+  slug: review-facilities
   description: Periodic security assessment of physical facilities and processes to
     ensure adequate physical security controls are maintained.
 - id: G.Oversight.IncidentResponsePlan
-  expectation: regularly + based on lesson learned
-  slug: regularly-+-based-on-lesson-learned
+  title: Review Incident Response Plan
+  slug: review-incident-response-plan
   description: Regular testing and updating of incident response procedures based
     on lessons learned from actual incidents and changing threat landscape.
 - id: G.Oversight.NetworkSecurityControls
-  expectation: As part of the IaC reviews
-  slug: as-part-of-the-iac-reviews
+  title: Review Network Security Controls
+  slug: review-network-security-controls
   description: Regular review of network security configurations and controls, typically
     integrated with Infrastructure as Code (IaC) review processes.
 - id: G.Oversight.PhysicalMedia
-  expectation: Review inventory of physical media
+  title: Review inventory of physical media
   slug: review-inventory-of-physical-media
   description: Periodic inventory and security assessment of physical media containing
     sensitive information including backup tapes, external drives, and archived materials.
 - id: G.Oversight.Policies
-  expectation: Policy reviews
-  slug: policy-reviews
+  title: Maintain Up-to-date Policies
+  slug: maintain-up-to-date-policies
   description: Regular review of all security policies to ensure they remain current,
     effective, and aligned with business objectives and regulatory requirements.
 - id: G.Oversight.ThirdParties
-  expectation: ''
-  slug: g.oversight.thirdparties
+  title: Monitor and asses Third-Party Suppliers
+  slug: monitor-and-asses-third-party-suppliers
   description: Ongoing assessment of third-party security practices and compliance
     with contractual security requirements.
 - id: G.Oversight.TRA
-  expectation: Targeted Risk Analysis
-  slug: targeted-risk-analysis
+  title: Perform Targeted Risk Analysis
+  slug: perform-targeted-risk-analysis
   description: Regular targeted risk assessments focusing on specific business processes,
     technologies, or threat scenarios with senior leadership approval and oversight.
-  details: '- Approved by senior leadership'
+  notes: '- Approved by senior leadership'
 - id: G.ScopeDefinition.Awareness
-  expectation: Awareness training scope
-  slug: awareness-training-scope
+  title: Document Approach to Awareness Training
+  slug: document-approach-to-awareness-training
   description: Define the scope and content of security awareness training including
     topics, audiences, delivery methods, and compliance tracking.
-  details: '- Covering: - Security DOs and DON''Ts - Using strong authentication factors
+  notes: '- Covering: - Security DOs and DON''Ts - Using strong authentication factors
     - Protecting authentication factors - Not to reuse previously used factors - Change
     factors if there is suspicion there maybe be a compromise - Report incident if
     compromise is suspected - Phishing - Social engineering - Acceptable use - POS
     device management [if in-scope]'
 - id: G.ScopeDefinition.CryptographicArchitecture
-  expectation: ''
-  slug: g.scopedefinition.cryptographicarchitecture
+  title: Document Cryptographic Architecture
+  slug: document-cryptographic-architecture
   description: Document the organization's cryptographic architecture including algorithms,
     key management systems, certificate authorities, and encryption implementations.
 - id: G.ScopeDefinition.DataFlows
-  expectation: Data flows for the systems in scope
-  slug: data-flows-for-the-systems-in-scope
+  title: Document Data Flows for the Systems in Scope
+  slug: document-data-flows-for-the-systems-in-scope
   description: Map and document how sensitive data flows through systems and processes
     to identify security requirements and control points.
 - id: G.ScopeDefinition.Locations
-  expectation: where data is stored, processed, transmitted
-  slug: where-data-is-stored-processed-transmitted
+  title: Document where the Data is Stored, Processed and Transmitted
+  slug: document-where-the-data-is-stored-processed-and-transmitted
   description: Define all locations where sensitive data is stored, processed, or
     transmitted including cloud services, remote facilities, and third-party locations.
 - id: G.ScopeDefinition.Network
-  expectation: Network diagram for the systems in scope
-  slug: network-diagram-for-the-systems-in-scope
+  title: Document Network diagram for the Systems in Scope
+  slug: document-network-diagram-for-the-systems-in-scope
   description: Comprehensive documentation of network architecture including security
     zones, trust boundaries, and data flow patterns.
 - id: G.ScopeDefinition.Organisation
-  expectation: ''
-  slug: g.scopedefinition.organisation
+  title: Document Organizational Structure
+  slug: document-organizational-structure
   description: Define organizational structure for security including roles, responsibilities,
     reporting relationships, and decision-making authority.
 - id: G.ScopeDefinition.RACI
-  expectation: RACI matrix, clarifying roles and responsibilities
-  slug: raci-matrix-clarifying-roles-and-responsibilities
+  title: Document RACI matrix, clarifying roles and responsibilities
+  slug: document-raci-matrix-clarifying-roles-and-responsibilities
   description: Create and maintain RACI (Responsible, Accountable, Consulted, Informed)
     matrices for security processes and decisions to clarify roles and avoid confusion.
 - id: G.ScopeDefinition.SelfDeveloped
-  expectation: services, products
-  slug: services-products
+  title: Document Own Services and Products
+  slug: document-own-services-and-products
   description: Document all internally developed applications, services, and products
     including security requirements and development practices.
 - id: G.ScopeDefinition.ThirdParties
-  expectation: ''
-  slug: g.scopedefinition.thirdparties
+  title: Document Third-Party suppliers
+  slug: document-third-party-suppliers
   description: Comprehensive inventory of all third-party relationships including
     vendors, partners, and service providers with access to organizational systems
     or data.
 - id: G.ScopeDefinition.TRA
-  expectation: Targeted Risk Analysis
-  slug: targeted-risk-analysis
+  title: Document Approach to Targeted Risk Analysis
+  slug: document-approach-to-targeted-risk-analysis
   description: Define the scope and methodology for targeted risk assessments including
     criteria for assessment triggers, approval processes, and reporting requirements.
-  details: '- Approved by senior leadership - Including: - frequency of reviews for
+  notes: '- Approved by senior leadership - Including: - frequency of reviews for
     endpoints not under anti-malware protection - frequency malware scans in endpoints
     - access and role reviews for system accounts - password/passphrase change frequency
     - POS device inspections - frequency log reviews (if not mandated by PCI) - SLAs
@@ -164,23 +163,23 @@ governance:
     mechanism frequency [<= weekly] - frequency of periodic training for incident
     response'
 - id: G.Protocol.IncidentResponsePlan
-  expectation: Incident Response Plan
+  title: Incident Response Plan
   slug: incident-response-plan
   description: Comprehensive incident response procedures including detection, analysis,
     containment, eradication, recovery, and lessons learned processes.
-  details: '- actions are taken for disruptions in security controls - Roles and responsibilities
+  notes: '- actions are taken for disruptions in security controls - Roles and responsibilities
     - Contacts and communication strategies - Notification to payment brands and acquirers,
     if needed - Business recovery and continuity process, including backups - Legal
     requirements for reporting compromises or breaches - PCI: PAN or SAD found where
     it shouldn''t be'
 - id: G.Protocol.PENTestingMethodology
-  expectation: PEN testing methodology
+  title: PEN Testing Methodology
   slug: pen-testing-methodology
   description: Standardized methodology for conducting penetration testing including
     scope definition, testing procedures, reporting formats, and remediation tracking.
 - id: G.Protocol.SecureDevelopment
-  expectation: ''
-  slug: g.protocol.securedevelopment
+  title: Secure Development
+  slug: secure-development
   description: Comprehensive secure software development lifecycle (SDLC) procedures
     including security requirements, testing, and deployment practices.
 meta:

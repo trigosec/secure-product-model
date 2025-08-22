@@ -12,47 +12,47 @@ Definitions and boundaries that establish what systems, processes, and areas are
 
 ## Items in this Category
 
-### [Awareness training scope](awareness-training-scope/)
+### [Document Approach to Awareness Training](document-approach-to-awareness-training/)
 
 **ID:** `G.ScopeDefinition.Awareness`
 
 - Covering: - Security DOs and DON'Ts - Using strong authentication factors - Protecting authentication factors - Not to reuse previously used factors - Change factors if there is suspicion there mayb...
 
-### [*CryptographicArchitecture*](g.scopedefinition.cryptographicarchitecture/)
+### [Document Cryptographic Architecture](document-cryptographic-architecture/)
 
 **ID:** `G.ScopeDefinition.CryptographicArchitecture`
 
-### [Data flows for the systems in scope](data-flows-for-the-systems-in-scope/)
+### [Document Data Flows for the Systems in Scope](document-data-flows-for-the-systems-in-scope/)
 
 **ID:** `G.ScopeDefinition.DataFlows`
 
-### [where data is stored, processed, transmitted](where-data-is-stored-processed-transmitted/)
+### [Document where the Data is Stored, Processed and Transmitted](document-where-the-data-is-stored-processed-and-transmitted/)
 
 **ID:** `G.ScopeDefinition.Locations`
 
-### [Network diagram for the systems in scope](network-diagram-for-the-systems-in-scope/)
+### [Document Network diagram for the Systems in Scope](document-network-diagram-for-the-systems-in-scope/)
 
 **ID:** `G.ScopeDefinition.Network`
 
-### [*Organisation*](g.scopedefinition.organisation/)
+### [Document Organizational Structure](document-organizational-structure/)
 
 **ID:** `G.ScopeDefinition.Organisation`
 
-### [RACI matrix, clarifying roles and responsibilities](raci-matrix-clarifying-roles-and-responsibilities/)
+### [Document RACI matrix, clarifying roles and responsibilities](document-raci-matrix-clarifying-roles-and-responsibilities/)
 
 **ID:** `G.ScopeDefinition.RACI`
 
-### [services, products](services-products/)
+### [Document Own Services and Products](document-own-services-and-products/)
 
 **ID:** `G.ScopeDefinition.SelfDeveloped`
 
-### [Targeted Risk Analysis](targeted-risk-analysis/)
+### [Document Approach to Targeted Risk Analysis](document-approach-to-targeted-risk-analysis/)
 
 **ID:** `G.ScopeDefinition.TRA`
 
 - Approved by senior leadership - Including: - frequency of reviews for endpoints not under anti-malware protection - frequency malware scans in endpoints - access and role reviews for system accounts...
 
-### [*ThirdParties*](g.scopedefinition.thirdparties/)
+### [Document Third-Party suppliers](document-third-party-suppliers/)
 
 **ID:** `G.ScopeDefinition.ThirdParties`
 

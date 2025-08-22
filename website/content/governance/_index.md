@@ -523,14 +523,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/policy/authentication-+-password-policy/">Authentication (+ password) policy</a>
+                        <a href="/governance/policy/authentication-and-password-policy/">Authentication and Password Policy</a>
                     </h3>
                     
                     <p class="card-description">Establish authentication and password requirements across all systems. Define multi-factor authentication requirements, password complexity, and accou...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/policy/authentication-+-password-policy/" class="card-link">View Details →</a>
+                    <a href="/governance/policy/authentication-and-password-policy/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -552,14 +552,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/policy/data-retention-and-disposal/">Data retention and disposal</a>
+                        <a href="/governance/policy/data-retention-and-disposal-policy/">Data Retention and Disposal Policy</a>
                     </h3>
                     
                     <p class="card-description">Define how long different types of data must be retained and secure disposal procedures. Address regulatory requirements and business needs for data l...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/policy/data-retention-and-disposal/" class="card-link">View Details →</a>
+                    <a href="/governance/policy/data-retention-and-disposal-policy/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -581,7 +581,7 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/policy/encryption-and-key-management-policy/">Encryption and key management policy</a>
+                        <a href="/governance/policy/encryption-and-key-management-policy/">Encryption and Key Management Policy</a>
                     </h3>
                     
                     <p class="card-description">Establish encryption requirements for data at rest and in transit. Define key management procedures, approved algorithms, and implementation standards...</p>
@@ -610,7 +610,7 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/policy/media-destruction-policy/">Media destruction policy</a>
+                        <a href="/governance/policy/media-destruction-policy/">Media Destruction Policy</a>
                     </h3>
                     
                     <p class="card-description">Define secure destruction procedures for physical and digital media containing sensitive information. Specify methods based on data sensitivity and me...</p>
@@ -665,14 +665,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/access-permissions-reviews/">Access, permissions reviews</a>
+                        <a href="/governance/oversight/access-and-permission-review/">Access and Permission Review</a>
                     </h3>
                     
                     <p class="card-description">Regular reviews of user access rights and permissions to ensure appropriate access levels. Verify that access aligns with job responsibilities and fol...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/access-permissions-reviews/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/access-and-permission-review/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -691,14 +691,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/update-cycle-for-awareness-program/">Update cycle for awareness program</a>
+                        <a href="/governance/oversight/maintain-an-up-to-date-security-awareness-program/">Maintain an Up-to-date Security Awareness Program</a>
                     </h3>
                     
                     <p class="card-description">Regular evaluation and updates to security awareness training programs to ensure effectiveness and relevance to current threats.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/update-cycle-for-awareness-program/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/maintain-an-up-to-date-security-awareness-program/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -717,14 +717,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/regular-review-of-cryptographic-cipher-suites-and-protocols/">Regular review of cryptographic cipher suites and protocols</a>
+                        <a href="/governance/oversight/maintain-up-to-date-cryptographic-cipher-suites-and-protocols/">Maintain Up-to-date Cryptographic Cipher Suites and Protocols</a>
                     </h3>
                     
                     <p class="card-description">Periodic review of cryptographic implementations, cipher suites, and protocols to ensure they meet current security standards and haven't been depreca...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/regular-review-of-cryptographic-cipher-suites-and-protocols/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/maintain-up-to-date-cryptographic-cipher-suites-and-protocols/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -743,14 +743,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/">Regular review of endpoint devices, including those not at risk of malware</a>
+                        <a href="/governance/oversight/review-inventory-of-endpoint-devices/">Review Inventory of endpoint devices</a>
                     </h3>
                     
                     <p class="card-description">Regular assessment of endpoint security controls including devices not traditionally covered by antimalware solutions such as network devices and IoT ...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/regular-review-of-endpoint-devices-including-those-not-at-risk-of-malware/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/review-inventory-of-endpoint-devices/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -769,14 +769,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/security-review-of-the-facilities-processes/">Security review of the facilities, processes</a>
+                        <a href="/governance/oversight/review-facilities/">Review Facilities</a>
                     </h3>
                     
                     <p class="card-description">Periodic security assessment of physical facilities and processes to ensure adequate physical security controls are maintained.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/security-review-of-the-facilities-processes/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/review-facilities/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -795,14 +795,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/regularly-+-based-on-lesson-learned/">regularly + based on lesson learned</a>
+                        <a href="/governance/oversight/review-incident-response-plan/">Review Incident Response Plan</a>
                     </h3>
                     
                     <p class="card-description">Regular testing and updating of incident response procedures based on lessons learned from actual incidents and changing threat landscape.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/regularly-+-based-on-lesson-learned/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/review-incident-response-plan/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -821,14 +821,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/as-part-of-the-iac-reviews/">As part of the IaC reviews</a>
+                        <a href="/governance/oversight/review-network-security-controls/">Review Network Security Controls</a>
                     </h3>
                     
                     <p class="card-description">Regular review of network security configurations and controls, typically integrated with Infrastructure as Code (IaC) review processes.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/as-part-of-the-iac-reviews/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/review-network-security-controls/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -873,14 +873,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/policy-reviews/">Policy reviews</a>
+                        <a href="/governance/oversight/maintain-up-to-date-policies/">Maintain Up-to-date Policies</a>
                     </h3>
                     
                     <p class="card-description">Regular review of all security policies to ensure they remain current, effective, and aligned with business objectives and regulatory requirements.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/policy-reviews/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/maintain-up-to-date-policies/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -899,14 +899,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/g.oversight.thirdparties/">ThirdParties</a>
+                        <a href="/governance/oversight/monitor-and-asses-third-party-suppliers/">Monitor and asses Third-Party Suppliers</a>
                     </h3>
                     
                     <p class="card-description">Ongoing assessment of third-party security practices and compliance with contractual security requirements.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/g.oversight.thirdparties/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/monitor-and-asses-third-party-suppliers/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -925,14 +925,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/oversight/targeted-risk-analysis/">Targeted Risk Analysis</a>
+                        <a href="/governance/oversight/perform-targeted-risk-analysis/">Perform Targeted Risk Analysis</a>
                     </h3>
                     
                     <p class="card-description">Regular targeted risk assessments focusing on specific business processes, technologies, or threat scenarios with senior leadership approval and overs...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/oversight/targeted-risk-analysis/" class="card-link">View Details →</a>
+                    <a href="/governance/oversight/perform-targeted-risk-analysis/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -952,14 +952,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/awareness-training-scope/">Awareness training scope</a>
+                        <a href="/governance/scopedefinition/document-approach-to-awareness-training/">Document Approach to Awareness Training</a>
                     </h3>
                     
                     <p class="card-description">Define the scope and content of security awareness training including topics, audiences, delivery methods, and compliance tracking.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/awareness-training-scope/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-approach-to-awareness-training/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -979,14 +979,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/g.scopedefinition.cryptographicarchitecture/">CryptographicArchitecture</a>
+                        <a href="/governance/scopedefinition/document-cryptographic-architecture/">Document Cryptographic Architecture</a>
                     </h3>
                     
                     <p class="card-description">Document the organization's cryptographic architecture including algorithms, key management systems, certificate authorities, and encryption implement...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/g.scopedefinition.cryptographicarchitecture/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-cryptographic-architecture/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1006,14 +1006,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/data-flows-for-the-systems-in-scope/">Data flows for the systems in scope</a>
+                        <a href="/governance/scopedefinition/document-data-flows-for-the-systems-in-scope/">Document Data Flows for the Systems in Scope</a>
                     </h3>
                     
                     <p class="card-description">Map and document how sensitive data flows through systems and processes to identify security requirements and control points.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/data-flows-for-the-systems-in-scope/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-data-flows-for-the-systems-in-scope/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1033,14 +1033,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/where-data-is-stored-processed-transmitted/">where data is stored, processed, transmitted</a>
+                        <a href="/governance/scopedefinition/document-where-the-data-is-stored-processed-and-transmitted/">Document where the Data is Stored, Processed and Transmitted</a>
                     </h3>
                     
                     <p class="card-description">Define all locations where sensitive data is stored, processed, or transmitted including cloud services, remote facilities, and third-party locations.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/where-data-is-stored-processed-transmitted/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-where-the-data-is-stored-processed-and-transmitted/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1060,14 +1060,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/network-diagram-for-the-systems-in-scope/">Network diagram for the systems in scope</a>
+                        <a href="/governance/scopedefinition/document-network-diagram-for-the-systems-in-scope/">Document Network diagram for the Systems in Scope</a>
                     </h3>
                     
                     <p class="card-description">Comprehensive documentation of network architecture including security zones, trust boundaries, and data flow patterns.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/network-diagram-for-the-systems-in-scope/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-network-diagram-for-the-systems-in-scope/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1087,14 +1087,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/g.scopedefinition.organisation/">Organisation</a>
+                        <a href="/governance/scopedefinition/document-organizational-structure/">Document Organizational Structure</a>
                     </h3>
                     
                     <p class="card-description">Define organizational structure for security including roles, responsibilities, reporting relationships, and decision-making authority.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/g.scopedefinition.organisation/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-organizational-structure/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1114,14 +1114,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/raci-matrix-clarifying-roles-and-responsibilities/">RACI matrix, clarifying roles and responsibilities</a>
+                        <a href="/governance/scopedefinition/document-raci-matrix-clarifying-roles-and-responsibilities/">Document RACI matrix, clarifying roles and responsibilities</a>
                     </h3>
                     
                     <p class="card-description">Create and maintain RACI (Responsible, Accountable, Consulted, Informed) matrices for security processes and decisions to clarify roles and avoid conf...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/raci-matrix-clarifying-roles-and-responsibilities/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-raci-matrix-clarifying-roles-and-responsibilities/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1141,14 +1141,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/services-products/">services, products</a>
+                        <a href="/governance/scopedefinition/document-own-services-and-products/">Document Own Services and Products</a>
                     </h3>
                     
                     <p class="card-description">Document all internally developed applications, services, and products including security requirements and development practices.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/services-products/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-own-services-and-products/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1168,14 +1168,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/g.scopedefinition.thirdparties/">ThirdParties</a>
+                        <a href="/governance/scopedefinition/document-third-party-suppliers/">Document Third-Party suppliers</a>
                     </h3>
                     
                     <p class="card-description">Comprehensive inventory of all third-party relationships including vendors, partners, and service providers with access to organizational systems or d...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/g.scopedefinition.thirdparties/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-third-party-suppliers/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1195,14 +1195,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/scopedefinition/targeted-risk-analysis/">Targeted Risk Analysis</a>
+                        <a href="/governance/scopedefinition/document-approach-to-targeted-risk-analysis/">Document Approach to Targeted Risk Analysis</a>
                     </h3>
                     
                     <p class="card-description">Define the scope and methodology for targeted risk assessments including criteria for assessment triggers, approval processes, and reporting requireme...</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/scopedefinition/targeted-risk-analysis/" class="card-link">View Details →</a>
+                    <a href="/governance/scopedefinition/document-approach-to-targeted-risk-analysis/" class="card-link">View Details →</a>
                 </div>
             </div>
             
@@ -1249,7 +1249,7 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/protocol/pen-testing-methodology/">PEN testing methodology</a>
+                        <a href="/governance/protocol/pen-testing-methodology/">PEN Testing Methodology</a>
                     </h3>
                     
                     <p class="card-description">Standardized methodology for conducting penetration testing including scope definition, testing procedures, reporting formats, and remediation trackin...</p>
@@ -1276,14 +1276,14 @@ body {
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/governance/protocol/g.protocol.securedevelopment/">SecureDevelopment</a>
+                        <a href="/governance/protocol/secure-development/">Secure Development</a>
                     </h3>
                     
                     <p class="card-description">Comprehensive secure software development lifecycle (SDLC) procedures including security requirements, testing, and deployment practices.</p>
                     
                 </div>
                 <div class="card-footer">
-                    <a href="/governance/protocol/g.protocol.securedevelopment/" class="card-link">View Details →</a>
+                    <a href="/governance/protocol/secure-development/" class="card-link">View Details →</a>
                 </div>
             </div>
             

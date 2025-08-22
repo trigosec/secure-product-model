@@ -1,5 +1,5 @@
 ---
-title: "Awareness training scope"
+title: "Document Approach to Awareness Training"
 description: "Governance item G.ScopeDefinition.Awareness"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.Awareness"
 governance_category: "scopedefinition"
 ---
 
-# Awareness training scope
+# Document Approach to Awareness Training
 
 **ID:** `G.ScopeDefinition.Awareness`
 **Category:** [Scope Definition](../)
@@ -18,7 +18,7 @@ Define the scope and content of security awareness training including topics, au
 
 ## Summary
 
-Awareness training scope
+Document Approach to Awareness Training
 
 ## Implementation Notes
 

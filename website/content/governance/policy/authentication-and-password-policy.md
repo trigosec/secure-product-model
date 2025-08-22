@@ -1,5 +1,5 @@
 ---
-title: "Authentication (+ password) policy"
+title: "Authentication and Password Policy"
 description: "Governance item G.Policy.Auth"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Policy.Auth"
 governance_category: "policy"
 ---
 
-# Authentication (+ password) policy
+# Authentication and Password Policy
 
 **ID:** `G.Policy.Auth`
 **Category:** [Policies](../)
@@ -18,7 +18,7 @@ Establish authentication and password requirements across all systems. Define mu
 
 ## Summary
 
-Authentication (+ password) policy
+Authentication and Password Policy
 
 
 ---

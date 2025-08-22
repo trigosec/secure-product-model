@@ -1,5 +1,5 @@
 ---
-title: "Regular review of cryptographic cipher suites and protocols"
+title: "Maintain Up-to-date Cryptographic Cipher Suites and Protocols"
 description: "Governance item G.Oversight.Encryption"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.Encryption"
 governance_category: "oversight"
 ---
 
-# Regular review of cryptographic cipher suites and protocols
+# Maintain Up-to-date Cryptographic Cipher Suites and Protocols
 
 **ID:** `G.Oversight.Encryption`
 **Category:** [Oversight](../)
@@ -18,7 +18,7 @@ Periodic review of cryptographic implementations, cipher suites, and protocols t
 
 ## Summary
 
-Regular review of cryptographic cipher suites and protocols
+Maintain Up-to-date Cryptographic Cipher Suites and Protocols
 
 
 ---

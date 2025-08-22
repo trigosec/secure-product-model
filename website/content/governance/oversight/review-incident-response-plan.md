@@ -1,5 +1,5 @@
 ---
-title: "regularly + based on lesson learned"
+title: "Review Incident Response Plan"
 description: "Governance item G.Oversight.IncidentResponsePlan"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.IncidentResponsePlan"
 governance_category: "oversight"
 ---
 
-# regularly + based on lesson learned
+# Review Incident Response Plan
 
 **ID:** `G.Oversight.IncidentResponsePlan`
 **Category:** [Oversight](../)
@@ -18,7 +18,7 @@ Regular testing and updating of incident response procedures based on lessons le
 
 ## Summary
 
-regularly + based on lesson learned
+Review Incident Response Plan
 
 
 ---

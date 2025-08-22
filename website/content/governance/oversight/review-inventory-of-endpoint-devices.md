@@ -1,5 +1,5 @@
 ---
-title: "Regular review of endpoint devices, including those not at risk of malware"
+title: "Review Inventory of endpoint devices"
 description: "Governance item G.Oversight.Endpoint"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.Endpoint"
 governance_category: "oversight"
 ---
 
-# Regular review of endpoint devices, including those not at risk of malware
+# Review Inventory of endpoint devices
 
 **ID:** `G.Oversight.Endpoint`
 **Category:** [Oversight](../)
@@ -18,7 +18,7 @@ Regular assessment of endpoint security controls including devices not tradition
 
 ## Summary
 
-Regular review of endpoint devices, including those not at risk of malware
+Review Inventory of endpoint devices
 
 
 ---

@@ -40,10 +40,10 @@ from pydantic import BaseModel, Field, field_validator, model_validator, Validat
 class GovernanceItem(BaseModel):
     """Represents a single governance item from the YAML file."""
     id: str = Field(..., min_length=1, description="Governance ID (e.g., G.Policy.Security)")
-    expectation: str = Field(default="", description="Governance expectation")
+    title: str = Field(default="", description="Governance title")
     slug: str = Field(default="", description="URL slug for the item")
     description: str = Field(default="", description="Detailed description of the governance item")
-    details: str = Field(default="", description="Optional detailed information")
+    notes: str = Field(default="", description="Optional implementation notes")
 
     @property
     def category(self) -> str:
@@ -312,16 +312,16 @@ weight: 10
 """
 
     for item in items:
-        expectation_text = item.expectation if item.expectation else f"*{item.name}*"
-        content += f"""### [{expectation_text}]({item.slug}/)
+        title_text = item.title if item.title else f"*{item.name}*"
+        content += f"""### [{title_text}]({item.slug}/)
 
 **ID:** `{item.id}`
 
 """
-        if item.details:
-            # Truncate details for overview
-            details_preview = item.details[:200] + "..." if len(item.details) > 200 else item.details
-            content += f"{details_preview}\n\n"
+        if item.notes:
+            # Truncate notes for overview
+            notes_preview = item.notes[:200] + "..." if len(item.notes) > 200 else item.notes
+            content += f"{notes_preview}\n\n"
 
     content += f"""
 ---
@@ -343,10 +343,10 @@ def create_item_page(item: GovernanceItem, output_dir: Path) -> None:
     category_dir = output_dir / item.category
     category_dir.mkdir(parents=True, exist_ok=True)
 
-    expectation_title = item.expectation if item.expectation else item.name
+    title_text = item.title if item.title else item.name
 
     content = f"""---
-title: "{expectation_title}"
+title: "{title_text}"
 description: "Governance item {item.id}"
 date: 2024-01-01
 draft: false
@@ -354,7 +354,7 @@ governance_id: "{item.id}"
 governance_category: "{item.category}"
 ---
 
-# {expectation_title}
+# {title_text}
 
 **ID:** `{item.id}`
 **Category:** [{item.category_display}](../)
@@ -369,19 +369,19 @@ governance_category: "{item.category}"
 
 """
 
-    # Add expectation (1-liner) if available
-    if item.expectation:
+    # Add title if available
+    if item.title:
         content += f"""## Summary
 
-{item.expectation}
+{item.title}
 
 """
 
-    # Add details/notes if available
-    if item.details:
+    # Add notes if available
+    if item.notes:
         content += f"""## Implementation Notes
 
-{item.details}
+{item.notes}
 
 """
 

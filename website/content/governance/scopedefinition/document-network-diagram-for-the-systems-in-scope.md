@@ -1,5 +1,5 @@
 ---
-title: "Network diagram for the systems in scope"
+title: "Document Network diagram for the Systems in Scope"
 description: "Governance item G.ScopeDefinition.Network"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.Network"
 governance_category: "scopedefinition"
 ---
 
-# Network diagram for the systems in scope
+# Document Network diagram for the Systems in Scope
 
 **ID:** `G.ScopeDefinition.Network`
 **Category:** [Scope Definition](../)
@@ -18,7 +18,7 @@ Comprehensive documentation of network architecture including security zones, tr
 
 ## Summary
 
-Network diagram for the systems in scope
+Document Network diagram for the Systems in Scope
 
 
 ---

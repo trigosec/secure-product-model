@@ -1,5 +1,5 @@
 ---
-title: "Data flows for the systems in scope"
+title: "Document Data Flows for the Systems in Scope"
 description: "Governance item G.ScopeDefinition.DataFlows"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.DataFlows"
 governance_category: "scopedefinition"
 ---
 
-# Data flows for the systems in scope
+# Document Data Flows for the Systems in Scope
 
 **ID:** `G.ScopeDefinition.DataFlows`
 **Category:** [Scope Definition](../)
@@ -18,7 +18,7 @@ Map and document how sensitive data flows through systems and processes to ident
 
 ## Summary
 
-Data flows for the systems in scope
+Document Data Flows for the Systems in Scope
 
 
 ---

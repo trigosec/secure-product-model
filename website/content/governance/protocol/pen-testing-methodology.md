@@ -1,5 +1,5 @@
 ---
-title: "PEN testing methodology"
+title: "PEN Testing Methodology"
 description: "Governance item G.Protocol.PENTestingMethodology"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Protocol.PENTestingMethodology"
 governance_category: "protocol"
 ---
 
-# PEN testing methodology
+# PEN Testing Methodology
 
 **ID:** `G.Protocol.PENTestingMethodology`
 **Category:** [Protocols](../)
@@ -18,7 +18,7 @@ Standardized methodology for conducting penetration testing including scope defi
 
 ## Summary
 
-PEN testing methodology
+PEN Testing Methodology
 
 
 ---

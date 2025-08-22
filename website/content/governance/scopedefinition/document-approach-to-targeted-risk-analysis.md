@@ -1,5 +1,5 @@
 ---
-title: "Targeted Risk Analysis"
+title: "Document Approach to Targeted Risk Analysis"
 description: "Governance item G.ScopeDefinition.TRA"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.TRA"
 governance_category: "scopedefinition"
 ---
 
-# Targeted Risk Analysis
+# Document Approach to Targeted Risk Analysis
 
 **ID:** `G.ScopeDefinition.TRA`
 **Category:** [Scope Definition](../)
@@ -18,7 +18,7 @@ Define the scope and methodology for targeted risk assessments including criteri
 
 ## Summary
 
-Targeted Risk Analysis
+Document Approach to Targeted Risk Analysis
 
 ## Implementation Notes
 

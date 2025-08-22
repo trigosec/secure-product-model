@@ -1,5 +1,5 @@
 ---
-title: "Access, permissions reviews"
+title: "Access and Permission Review"
 description: "Governance item G.Oversight.Access"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.Access"
 governance_category: "oversight"
 ---
 
-# Access, permissions reviews
+# Access and Permission Review
 
 **ID:** `G.Oversight.Access`
 **Category:** [Oversight](../)
@@ -18,7 +18,7 @@ Regular reviews of user access rights and permissions to ensure appropriate acce
 
 ## Summary
 
-Access, permissions reviews
+Access and Permission Review
 
 ## Implementation Notes
 

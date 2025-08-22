@@ -1,5 +1,5 @@
 ---
-title: "services, products"
+title: "Document Own Services and Products"
 description: "Governance item G.ScopeDefinition.SelfDeveloped"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.ScopeDefinition.SelfDeveloped"
 governance_category: "scopedefinition"
 ---
 
-# services, products
+# Document Own Services and Products
 
 **ID:** `G.ScopeDefinition.SelfDeveloped`
 **Category:** [Scope Definition](../)
@@ -18,7 +18,7 @@ Document all internally developed applications, services, and products including
 
 ## Summary
 
-services, products
+Document Own Services and Products
 
 
 ---

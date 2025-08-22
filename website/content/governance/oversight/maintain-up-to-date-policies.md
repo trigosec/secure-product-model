@@ -1,5 +1,5 @@
 ---
-title: "Policy reviews"
+title: "Maintain Up-to-date Policies"
 description: "Governance item G.Oversight.Policies"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Oversight.Policies"
 governance_category: "oversight"
 ---
 
-# Policy reviews
+# Maintain Up-to-date Policies
 
 **ID:** `G.Oversight.Policies`
 **Category:** [Oversight](../)
@@ -18,7 +18,7 @@ Regular review of all security policies to ensure they remain current, effective
 
 ## Summary
 
-Policy reviews
+Maintain Up-to-date Policies
 
 
 ---

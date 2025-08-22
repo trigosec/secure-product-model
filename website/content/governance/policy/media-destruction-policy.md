@@ -1,5 +1,5 @@
 ---
-title: "Media destruction policy"
+title: "Media Destruction Policy"
 description: "Governance item G.Policy.MediaDestruction"
 date: 2024-01-01
 draft: false
@@ -7,7 +7,7 @@ governance_id: "G.Policy.MediaDestruction"
 governance_category: "policy"
 ---
 
-# Media destruction policy
+# Media Destruction Policy
 
 **ID:** `G.Policy.MediaDestruction`
 **Category:** [Policies](../)
@@ -18,7 +18,7 @@ Define secure destruction procedures for physical and digital media containing s
 
 ## Summary
 
-Media destruction policy
+Media Destruction Policy
 
 
 ---
