@@ -178,6 +178,8 @@ body {
     transition: all 0.3s ease;
     box-shadow: var(--shadow-md);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .governance-card:hover {
@@ -236,6 +238,7 @@ body {
 
 .card-body {
     padding: 1.5rem;
+    flex: 1;
 }
 
 .card-title {
