@@ -202,6 +202,60 @@ def group_by_category(governance_items: list[GovernanceItem]) -> Dict[str, List[
     return categories
 
 
+def generate_governance_item_content(item: GovernanceItem) -> str:
+    """Generate individual governance item content using Jinja2 templates."""
+    # Set up Jinja2 environment
+    script_dir = Path(__file__).parent
+    template_dir = script_dir / "templates"
+    project_root = script_dir.parent
+    icons_dir = project_root / "website" / "assets" / "icons"
+
+    if not template_dir.exists():
+        raise FileNotFoundError(f"Templates directory not found: {template_dir}")
+
+    env = Environment(loader=FileSystemLoader(template_dir))
+    template = env.get_template('governance-item.j2')
+
+    # Load CSS content
+    css_file = template_dir / "governance-item.css"
+    css_content = ""
+    if css_file.exists():
+        with open(css_file, 'r', encoding='utf-8') as f:
+            css_content = f.read()
+
+    # Load JS content
+    js_file = template_dir / "governance-item.js"
+    js_content = ""
+    if js_file.exists():
+        with open(js_file, 'r', encoding='utf-8') as f:
+            js_content = f.read()
+
+    # Load icons
+    def load_icon(name: str) -> str:
+        icon_file = icons_dir / f"{name}.svg"
+        if icon_file.exists():
+            with open(icon_file, 'r', encoding='utf-8') as f:
+                return f.read()
+        return f'<svg><text>📄</text></svg>'  # Fallback
+
+    # Get category icon
+    category_icon = load_icon(f"governance-{item.category}")
+    governance_icon = load_icon("governance-oversight")  # Main governance icon
+    assets_icon = load_icon("assets")
+
+    # Generate content
+    content = template.render(
+        item=item,
+        css_content=css_content,
+        js_content=js_content,
+        category_icon=category_icon,
+        governance_icon=governance_icon,
+        assets_icon=assets_icon
+    )
+
+    return content
+
+
 def generate_governance_content(governance_items: list[GovernanceItem], meta: Meta) -> str:
     """Generate governance content using Jinja2 templates."""
     # Set up Jinja2 environment
@@ -339,61 +393,12 @@ weight: 10
 
 
 def create_item_page(item: GovernanceItem, output_dir: Path) -> None:
-    """Create individual governance item page."""
+    """Create individual governance item page using templates."""
     category_dir = output_dir / item.category
     category_dir.mkdir(parents=True, exist_ok=True)
 
-    title_text = item.title if item.title else item.name
-
-    content = f"""---
-title: "{title_text}"
-description: "Governance item {item.id}"
-date: 2024-01-01
-draft: false
-governance_id: "{item.id}"
-governance_category: "{item.category}"
----
-
-# {title_text}
-
-**ID:** `{item.id}`
-**Category:** [{item.category_display}](../)
-
-"""
-
-    # Add description section if available
-    if hasattr(item, 'description') and item.description:
-        content += f"""## Description
-
-{item.description}
-
-"""
-
-    # Add title if available
-    if item.title:
-        content += f"""## Summary
-
-{item.title}
-
-"""
-
-    # Add notes if available
-    if item.notes:
-        content += f"""## Implementation Notes
-
-{item.notes}
-
-"""
-
-    content += f"""
----
-
-**Navigation:**
-- [← Back to {item.category_display}](../)
-- [← Back to All Governance](/governance/)
-
-*Part of the Secure Product Model governance framework*
-"""
+    # Generate content using template
+    content = generate_governance_item_content(item)
 
     # Write item file
     item_file = category_dir / f"{item.slug}.md"

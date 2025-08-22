@@ -1,0 +1,171 @@
+---
+title: "{{ item.title or item.name }}"
+description: "{{ item.description[:150] }}{% if item.description and item.description|length > 150 %}...{% endif %}"
+date: 2024-01-01
+draft: false
+governance_id: "{{ item.id }}"
+governance_category: "{{ item.category }}"
+---
+
+{% raw %}{{< rawhtml >}}{% endraw %}
+<style>
+{{ css_content }}
+</style>
+
+<div class="governance-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">
+                {{ category_icon }}
+            </div>
+            <h1 class="hero-title">{{ item.title or item.name }}</h1>
+            <nav class="breadcrumb">
+                <a href="/governance/" class="breadcrumb-link">Governance</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="/governance/{{ item.category }}/" class="breadcrumb-link">{{ item.category_display }}</a>
+            </nav>
+            {% if item.description %}
+            <p class="hero-description">{{ item.description }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="governance-item-content">
+    <div class="container">
+        <div class="content-grid">
+            <main class="main-content">
+                {% if item.description %}
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">📋</span>
+                        Description
+                    </h2>
+                    <div class="section-content">
+                        <p>{{ item.description }}</p>
+                    </div>
+                </section>
+                {% endif %}
+
+                {% if item.title and item.title != (item.name or '') %}
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">📝</span>
+                        Summary
+                    </h2>
+                    <div class="section-content">
+                        <p>{{ item.title }}</p>
+                    </div>
+                </section>
+                {% endif %}
+
+                {% if item.notes %}
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">💡</span>
+                        Implementation Notes
+                    </h2>
+                    <div class="section-content">
+                        <div class="notes-content">
+                            {% set notes_items = item.notes.split(',') %}
+                            {% if notes_items|length > 1 %}
+                            <ul class="notes-list">
+                                {% for note in notes_items %}
+                                <li>{{ note.strip() }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <p>{{ item.notes }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
+
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🔗</span>
+                        Related Items
+                    </h2>
+                    <div class="section-content">
+                        <div class="related-items">
+                            <div class="related-item">
+                                <a href="/governance/{{ item.category }}/" class="related-link">
+                                    <span class="related-icon">{{ category_icon }}</span>
+                                    <div class="related-text">
+                                        <span class="related-title">Browse {{ item.category_display }}</span>
+                                        <span class="related-subtitle">View all items in this category</span>
+                                    </div>
+                                    <span class="related-arrow">→</span>
+                                </a>
+                            </div>
+                            <div class="related-item">
+                                <a href="/governance/" class="related-link">
+                                    <span class="related-icon">{{ governance_icon }}</span>
+                                    <div class="related-text">
+                                        <span class="related-title">All Governance</span>
+                                        <span class="related-subtitle">Browse the complete governance framework</span>
+                                    </div>
+                                    <span class="related-arrow">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Quick Info</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">ID</span>
+                            <span class="info-value">{{ item.id }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Category</span>
+                            <span class="info-value">{{ item.category_display }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Type</span>
+                            <span class="info-value">Governance Item</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Navigation</h3>
+                    <div class="nav-links">
+                        <a href="/governance/{{ item.category }}/" class="nav-link">
+                            <span class="nav-icon">{{ category_icon }}</span>
+                            <span class="nav-text">{{ item.category_display }}</span>
+                        </a>
+                        <a href="/governance/" class="nav-link">
+                            <span class="nav-icon">{{ governance_icon }}</span>
+                            <span class="nav-text">All Governance</span>
+                        </a>
+                        <a href="/assets/" class="nav-link">
+                            <span class="nav-icon">{{ assets_icon }}</span>
+                            <span class="nav-text">Assets</span>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<div class="governance-item-footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                Part of the <strong>Secure Product Model</strong> governance framework
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+{{ js_content }}
+</script>
+{% raw %}{{< /rawhtml >}}{% endraw %}
