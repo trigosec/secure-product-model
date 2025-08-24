@@ -1,7 +1,7 @@
 baseURL = 'https://secure-product-model.org/'
 languageCode = 'en-us'
 title = 'Secure Product Model'
-theme = ''
+
 
 [params]
 description = 'A practical security model designed specifically for engineering and technology teams'
