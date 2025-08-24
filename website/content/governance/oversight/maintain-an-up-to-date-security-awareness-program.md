@@ -356,6 +356,40 @@ body {
     font-weight: 500;
 }
 
+/* Compliance Frameworks */
+.compliance-frameworks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.compliance-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.compliance-badge:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.framework-name {
+    white-space: nowrap;
+}
+
+.no-frameworks {
+    padding: 0.75rem 0;
+}
+
 /* Footer */
 .governance-item-footer {
     background: var(--bg-tertiary);
@@ -508,55 +542,15 @@ body {
                 </section>
                 
 
-                
                 <section class="content-section">
                     <h2 class="section-title">
-                        <span class="section-icon">📝</span>
-                        Summary
+                        <span class="section-icon">🚧</span>
+                        Under Construction
                     </h2>
                     <div class="section-content">
-                        <p>Maintain an Up-to-date Security Awareness Program</p>
-                    </div>
-                </section>
-                
-
-                
-
-                <section class="content-section">
-                    <h2 class="section-title">
-                        <span class="section-icon">🔗</span>
-                        Related Items
-                    </h2>
-                    <div class="section-content">
-                        <div class="related-items">
-                            <div class="related-item">
-                                <a href="/governance/oversight/" class="related-link">
-                                    <span class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-  <circle cx="12" cy="12" r="3"/>
-</svg>
-</span>
-                                    <div class="related-text">
-                                        <span class="related-title">Browse Oversight</span>
-                                        <span class="related-subtitle">View all items in this category</span>
-                                    </div>
-                                    <span class="related-arrow">→</span>
-                                </a>
-                            </div>
-                            <div class="related-item">
-                                <a href="/governance/" class="related-link">
-                                    <span class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-  <circle cx="12" cy="12" r="3"/>
-</svg>
-</span>
-                                    <div class="related-text">
-                                        <span class="related-title">All Governance</span>
-                                        <span class="related-subtitle">Browse the complete governance framework</span>
-                                    </div>
-                                    <span class="related-arrow">→</span>
-                                </a>
-                            </div>
+                        <div class="construction-notice" style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1rem; border-radius: 0.5rem; color: #856404;">
+                            <p><strong>This page is currently under construction.</strong></p>
+                            <p>We are actively working on expanding the content for this governance item. Updates will be published regularly as we continue to develop and refine the governance framework.</p>
                         </div>
                     </div>
                 </section>
@@ -564,54 +558,16 @@ body {
 
             <aside class="sidebar">
                 <div class="sidebar-card">
-                    <h3 class="sidebar-title">Quick Info</h3>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span class="info-label">ID</span>
-                            <span class="info-value">G.Oversight.Awareness</span>
+                    <h3 class="sidebar-title">Compliance Frameworks</h3>
+                    
+                    <div class="compliance-frameworks">
+                        
+                        <div class="compliance-badge">
+                            <span class="framework-name">PCI-DSS</span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Category</span>
-                            <span class="info-value">Oversight</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Type</span>
-                            <span class="info-value">Governance Item</span>
-                        </div>
+                        
                     </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <h3 class="sidebar-title">Navigation</h3>
-                    <div class="nav-links">
-                        <a href="/governance/oversight/" class="nav-link">
-                            <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-  <circle cx="12" cy="12" r="3"/>
-</svg>
-</span>
-                            <span class="nav-text">Oversight</span>
-                        </a>
-                        <a href="/governance/" class="nav-link">
-                            <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-  <circle cx="12" cy="12" r="3"/>
-</svg>
-</span>
-                            <span class="nav-text">All Governance</span>
-                        </a>
-                        <a href="/assets/" class="nav-link">
-                            <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="12" cy="5" r="2"/>
-  <circle cx="12" cy="19" r="2"/>
-  <circle cx="5" cy="12" r="2"/>
-  <circle cx="19" cy="12" r="2"/>
-  <path d="m12 7-5 5m5-5 5 5m-5 5-5-5m5 5 5-5"/>
-</svg>
-</span>
-                            <span class="nav-text">Assets</span>
-                        </a>
-                    </div>
+                    
                 </div>
             </aside>
         </div>

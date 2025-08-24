@@ -345,6 +345,40 @@ body {
     font-weight: 500;
 }
 
+/* Compliance Frameworks */
+.compliance-frameworks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.compliance-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.compliance-badge:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.framework-name {
+    white-space: nowrap;
+}
+
+.no-frameworks {
+    padding: 0.75rem 0;
+}
+
 /* Footer */
 .governance-item-footer {
     background: var(--bg-tertiary);

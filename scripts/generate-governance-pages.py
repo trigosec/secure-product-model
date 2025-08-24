@@ -39,16 +39,25 @@ from pydantic import BaseModel, Field, field_validator, model_validator, Validat
 
 class GovernanceItem(BaseModel):
     """Represents a single governance item from the YAML file."""
-    id: str = Field(..., min_length=1, description="Governance ID (e.g., G.Policy.Security)")
+
+    id: str = Field(
+        ..., min_length=1, description="Governance ID (e.g., G.Policy.Security)"
+    )
     title: str = Field(default="", description="Governance title")
     slug: str = Field(default="", description="URL slug for the item")
-    description: str = Field(default="", description="Detailed description of the governance item")
+    description: str = Field(
+        default="", description="Detailed description of the governance item"
+    )
     notes: str = Field(default="", description="Optional implementation notes")
+    compliance_frameworks: List[str] = Field(
+        default_factory=list,
+        description="List of compliance frameworks this item supports",
+    )
 
     @property
     def category(self) -> str:
         """Extract category from ID (Policy, Oversight, Scope Definition, Protocol)."""
-        parts = self.id.split('.')
+        parts = self.id.split(".")
         if len(parts) >= 2:
             return parts[1].lower()
         return "unknown"
@@ -56,7 +65,7 @@ class GovernanceItem(BaseModel):
     @property
     def name(self) -> str:
         """Extract name from ID (last part after final dot)."""
-        parts = self.id.split('.')
+        parts = self.id.split(".")
         if len(parts) >= 3:
             return parts[2]
         return self.id
@@ -65,16 +74,17 @@ class GovernanceItem(BaseModel):
     def category_display(self) -> str:
         """Get display name for category."""
         category_names = {
-            'policy': 'Policies',
-            'oversight': 'Oversight',
-            'scopedefinition': 'Scope Definition',
-            'protocol': 'Protocols'
+            "policy": "Policies",
+            "oversight": "Oversight",
+            "scopedefinition": "Scope Definition",
+            "protocol": "Protocols",
         }
         return category_names.get(self.category, self.category.title())
 
 
 class Meta(BaseModel):
     """Represents the metadata from the YAML file."""
+
     title: str
     description: str
     count: int
@@ -99,19 +109,19 @@ def slugify(text: str) -> str:
     # Convert to lowercase and replace spaces with hyphens
     slug = text.lower()
     # Replace non-alphanumeric characters with hyphens
-    slug = re.sub(r'[^a-z0-9]+', '-', slug)
+    slug = re.sub(r"[^a-z0-9]+", "-", slug)
     # Remove leading/trailing hyphens
-    slug = slug.strip('-')
+    slug = slug.strip("-")
     return slug
 
 
 def get_category_description(category: str) -> str:
     """Get description for each governance category."""
     descriptions = {
-        'policy': 'Foundational governance documents that establish organizational security standards, procedures, and requirements.',
-        'oversight': 'Ongoing supervision, monitoring, and evaluation activities to ensure governance effectiveness and compliance.',
-        'scopedefinition': 'Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.',
-        'protocol': 'Step-by-step operational procedures and methodologies for implementing security practices.'
+        "policy": "Foundational governance documents that establish organizational security standards, procedures, and requirements.",
+        "oversight": "Ongoing supervision, monitoring, and evaluation activities to ensure governance effectiveness and compliance.",
+        "scopedefinition": "Definitions and boundaries that establish what systems, processes, and areas are covered by the security program.",
+        "protocol": "Step-by-step operational procedures and methodologies for implementing security practices.",
     }
     return descriptions.get(category, f"Governance items in the {category} category.")
 
@@ -120,27 +130,29 @@ def get_category_icon(category: str, icons_dir: Path) -> str:
     """Get SVG icon for each governance category from icon files."""
     # Map categories to their icon files
     icon_files = {
-        'policy': 'governance-policy.svg',
-        'oversight': 'governance-oversight.svg',
-        'scopedefinition': 'governance-scopedefinition.svg',
-        'protocol': 'governance-protocol.svg'
+        "policy": "governance-policy.svg",
+        "oversight": "governance-oversight.svg",
+        "scopedefinition": "governance-scopedefinition.svg",
+        "protocol": "governance-protocol.svg",
     }
 
-    icon_filename = icon_files.get(category, 'governance-policy.svg')  # Default fallback
+    icon_filename = icon_files.get(
+        category, "governance-policy.svg"
+    )  # Default fallback
     icon_path = icons_dir / icon_filename
 
     if icon_path.exists():
-        with open(icon_path, 'r', encoding='utf-8') as f:
+        with open(icon_path, "r", encoding="utf-8") as f:
             return f.read()
     else:
         # Fallback SVG if file not found
-        return '''<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        return """<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
 <polyline points="14,2 14,8 20,8"/>
 <line x1="16" y1="13" x2="8" y2="13"/>
 <line x1="16" y1="17" x2="8" y2="17"/>
 <polyline points="10,9 9,9 8,9"/>
-</svg>'''
+</svg>"""
 
 
 def load_governance_data(yaml_file: Path) -> tuple[list[GovernanceItem], Meta]:
@@ -149,7 +161,7 @@ def load_governance_data(yaml_file: Path) -> tuple[list[GovernanceItem], Meta]:
         raise FileNotFoundError(f"Governance YAML file not found: {yaml_file}")
 
     try:
-        with open(yaml_file, 'r', encoding='utf-8') as f:
+        with open(yaml_file, "r", encoding="utf-8") as f:
             data = yaml.safe_load(f)
     except yaml.YAMLError as e:
         raise ValueError(f"Invalid YAML format in {yaml_file}: {e}")
@@ -159,7 +171,7 @@ def load_governance_data(yaml_file: Path) -> tuple[list[GovernanceItem], Meta]:
 
     # Validate and load governance items
     governance_items = []
-    raw_items = data.get('governance', [])
+    raw_items = data.get("governance", [])
 
     for item_data in raw_items:
         try:
@@ -170,7 +182,7 @@ def load_governance_data(yaml_file: Path) -> tuple[list[GovernanceItem], Meta]:
             continue
 
     # Validate and load metadata
-    meta_data = data.get('meta', {})
+    meta_data = data.get("meta", {})
     try:
         meta = Meta(**meta_data)
     except ValidationError as e:
@@ -180,13 +192,15 @@ def load_governance_data(yaml_file: Path) -> tuple[list[GovernanceItem], Meta]:
             description="Governance policies and expectations for the product framework",
             count=len(governance_items),
             source="governance.yml",
-            generated_by="generate-governance-pages.py"
+            generated_by="generate-governance-pages.py",
         )
 
     return governance_items, meta
 
 
-def group_by_category(governance_items: list[GovernanceItem]) -> Dict[str, List[GovernanceItem]]:
+def group_by_category(
+    governance_items: list[GovernanceItem],
+) -> Dict[str, List[GovernanceItem]]:
     """Group governance items by category."""
     categories = {}
     for item in governance_items:
@@ -202,7 +216,9 @@ def group_by_category(governance_items: list[GovernanceItem]) -> Dict[str, List[
     return categories
 
 
-def generate_governance_category_content(category: str, items: list[GovernanceItem], total_governance_count: int) -> str:
+def generate_governance_category_content(
+    category: str, items: list[GovernanceItem], total_governance_count: int
+) -> str:
     """Generate governance category content using Jinja2 templates."""
     # Set up Jinja2 environment
     script_dir = Path(__file__).parent
@@ -214,32 +230,34 @@ def generate_governance_category_content(category: str, items: list[GovernanceIt
         raise FileNotFoundError(f"Templates directory not found: {template_dir}")
 
     env = Environment(loader=FileSystemLoader(template_dir))
-    template = env.get_template('governance-category.j2')
+    template = env.get_template("governance-category.j2")
 
     # Load CSS content
     css_file = template_dir / "governance-category.css"
     css_content = ""
     if css_file.exists():
-        with open(css_file, 'r', encoding='utf-8') as f:
+        with open(css_file, "r", encoding="utf-8") as f:
             css_content = f.read()
 
     # Load JS content
     js_file = template_dir / "governance-category.js"
     js_content = ""
     if js_file.exists():
-        with open(js_file, 'r', encoding='utf-8') as f:
+        with open(js_file, "r", encoding="utf-8") as f:
             js_content = f.read()
 
     # Load icons
     def load_icon(name: str) -> str:
         icon_file = icons_dir / f"{name}.svg"
         if icon_file.exists():
-            with open(icon_file, 'r', encoding='utf-8') as f:
+            with open(icon_file, "r", encoding="utf-8") as f:
                 content = f.read()
                 # Adjust the SVG for hero section (larger size)
-                content = content.replace('viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="80" height="80"')
+                content = content.replace(
+                    'viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="80" height="80"'
+                )
                 return content
-        return f'<svg><text>📄</text></svg>'  # Fallback
+        return f"<svg><text>📄</text></svg>"  # Fallback
 
     # Get category icon and governance icon
     category_icon = load_icon(f"governance-{category}")
@@ -260,7 +278,7 @@ def generate_governance_category_content(category: str, items: list[GovernanceIt
         css_content=css_content,
         js_content=js_content,
         category_icon=category_icon,
-        governance_icon=governance_icon
+        governance_icon=governance_icon,
     )
 
     return content
@@ -278,29 +296,29 @@ def generate_governance_item_content(item: GovernanceItem) -> str:
         raise FileNotFoundError(f"Templates directory not found: {template_dir}")
 
     env = Environment(loader=FileSystemLoader(template_dir))
-    template = env.get_template('governance-item.j2')
+    template = env.get_template("governance-item.j2")
 
     # Load CSS content
     css_file = template_dir / "governance-item.css"
     css_content = ""
     if css_file.exists():
-        with open(css_file, 'r', encoding='utf-8') as f:
+        with open(css_file, "r", encoding="utf-8") as f:
             css_content = f.read()
 
     # Load JS content
     js_file = template_dir / "governance-item.js"
     js_content = ""
     if js_file.exists():
-        with open(js_file, 'r', encoding='utf-8') as f:
+        with open(js_file, "r", encoding="utf-8") as f:
             js_content = f.read()
 
     # Load icons
     def load_icon(name: str) -> str:
         icon_file = icons_dir / f"{name}.svg"
         if icon_file.exists():
-            with open(icon_file, 'r', encoding='utf-8') as f:
+            with open(icon_file, "r", encoding="utf-8") as f:
                 return f.read()
-        return f'<svg><text>📄</text></svg>'  # Fallback
+        return f"<svg><text>📄</text></svg>"  # Fallback
 
     # Get category icon
     category_icon = load_icon(f"governance-{item.category}")
@@ -314,13 +332,15 @@ def generate_governance_item_content(item: GovernanceItem) -> str:
         js_content=js_content,
         category_icon=category_icon,
         governance_icon=governance_icon,
-        assets_icon=assets_icon
+        assets_icon=assets_icon,
     )
 
     return content
 
 
-def generate_governance_content(governance_items: list[GovernanceItem], meta: Meta) -> str:
+def generate_governance_content(
+    governance_items: list[GovernanceItem], meta: Meta
+) -> str:
     """Generate governance content using Jinja2 templates."""
     # Set up Jinja2 environment
     script_dir = Path(__file__).parent
@@ -332,12 +352,12 @@ def generate_governance_content(governance_items: list[GovernanceItem], meta: Me
         raise FileNotFoundError(f"Templates directory not found: {template_dir}")
 
     env = Environment(loader=FileSystemLoader(template_dir))
-    template = env.get_template('governance.j2')
+    template = env.get_template("governance.j2")
 
     # Load CSS content
     css_file = template_dir / "governance.css"
     if css_file.exists():
-        with open(css_file, 'r', encoding='utf-8') as f:
+        with open(css_file, "r", encoding="utf-8") as f:
             css_content = f.read()
     else:
         css_content = "/* CSS file not found */"
@@ -345,7 +365,7 @@ def generate_governance_content(governance_items: list[GovernanceItem], meta: Me
     # Load JS content
     js_file = template_dir / "governance.js"
     if js_file.exists():
-        with open(js_file, 'r', encoding='utf-8') as f:
+        with open(js_file, "r", encoding="utf-8") as f:
             js_content = f.read()
     else:
         js_content = "/* JS file not found */"
@@ -356,22 +376,24 @@ def generate_governance_content(governance_items: list[GovernanceItem], meta: Me
     # Load governance icon from icons directory
     star_icon_file = icons_dir / "star.svg"
     if star_icon_file.exists():
-        with open(star_icon_file, 'r', encoding='utf-8') as f:
+        with open(star_icon_file, "r", encoding="utf-8") as f:
             governance_icon = f.read()
             # Adjust the SVG for hero section (larger size)
-            governance_icon = governance_icon.replace('viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="80" height="80"')
+            governance_icon = governance_icon.replace(
+                'viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="80" height="80"'
+            )
     else:
         # Fallback to hardcoded star icon if file not found
-        governance_icon = '''<svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        governance_icon = """<svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-</svg>'''
+</svg>"""
 
     # Create category icons
     category_icons = {
-        'policy': get_category_icon('policy', icons_dir),
-        'oversight': get_category_icon('oversight', icons_dir),
-        'scopedefinition': get_category_icon('scopedefinition', icons_dir),
-        'protocol': get_category_icon('protocol', icons_dir)
+        "policy": get_category_icon("policy", icons_dir),
+        "oversight": get_category_icon("oversight", icons_dir),
+        "scopedefinition": get_category_icon("scopedefinition", icons_dir),
+        "protocol": get_category_icon("protocol", icons_dir),
     }
 
     # Render template
@@ -384,13 +406,15 @@ def generate_governance_content(governance_items: list[GovernanceItem], meta: Me
         js_content=js_content,
         governance_icon=governance_icon,
         category_icons=category_icons,
-        meta=meta
+        meta=meta,
     )
 
     return content
 
 
-def create_main_index(governance_items: list[GovernanceItem], meta: Meta, output_dir: Path) -> None:
+def create_main_index(
+    governance_items: list[GovernanceItem], meta: Meta, output_dir: Path
+) -> None:
     """Create the main governance index page using templates."""
     content = generate_governance_content(governance_items, meta)
 
@@ -398,13 +422,18 @@ def create_main_index(governance_items: list[GovernanceItem], meta: Meta, output
     index_file = output_dir / "_index.md"
     index_file.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(index_file, 'w', encoding='utf-8') as f:
+    with open(index_file, "w", encoding="utf-8") as f:
         f.write(content)
 
     print(f"✅ Created main governance index: {index_file}")
 
 
-def create_category_index(category: str, items: list[GovernanceItem], output_dir: Path, total_governance_count: int) -> None:
+def create_category_index(
+    category: str,
+    items: list[GovernanceItem],
+    output_dir: Path,
+    total_governance_count: int,
+) -> None:
     """Create category index page using templates (e.g., /governance/policy/)."""
     if not items:
         return
@@ -413,12 +442,14 @@ def create_category_index(category: str, items: list[GovernanceItem], output_dir
     category_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate content using template
-    content = generate_governance_category_content(category, items, total_governance_count)
+    content = generate_governance_category_content(
+        category, items, total_governance_count
+    )
 
     # Write category index file
     index_file = category_dir / "_index.md"
 
-    with open(index_file, 'w', encoding='utf-8') as f:
+    with open(index_file, "w", encoding="utf-8") as f:
         f.write(content)
 
     print(f"✅ Created {category} category index: {index_file}")
@@ -435,7 +466,7 @@ def create_item_page(item: GovernanceItem, output_dir: Path) -> None:
     # Write item file
     item_file = category_dir / f"{item.slug}.md"
 
-    with open(item_file, 'w', encoding='utf-8') as f:
+    with open(item_file, "w", encoding="utf-8") as f:
         f.write(content)
 
     print(f"✅ Created {item.category}/{item.slug}: {item_file}")
@@ -464,13 +495,14 @@ def show_help() -> None:
 def main() -> None:
     """Main function to orchestrate the conversion."""
     # Check for help
-    if '--help' in sys.argv or '-h' in sys.argv:
+    if "--help" in sys.argv or "-h" in sys.argv:
         show_help()
         return
 
     # Check for doctests
-    if '--doctests' in sys.argv:
+    if "--doctests" in sys.argv:
         import doctest
+
         print("Running doctests...")
         result = doctest.testmod(verbose=True)
         if result.failed == 0:
@@ -496,12 +528,15 @@ def main() -> None:
         # Clean output directory
         if output_dir.exists():
             import shutil
+
             shutil.rmtree(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Group by category
         categories = group_by_category(governance_items)
-        print(f"📂 Found {len(categories)} categories: {', '.join(sorted(categories.keys()))}")
+        print(
+            f"📂 Found {len(categories)} categories: {', '.join(sorted(categories.keys()))}"
+        )
 
         # Create main governance index
         create_main_index(governance_items, meta, output_dir)
@@ -510,7 +545,9 @@ def main() -> None:
         total_items_created = 0
         for category_name, items in categories.items():
             # Create category index
-            create_category_index(category_name, items, output_dir, len(governance_items))
+            create_category_index(
+                category_name, items, output_dir, len(governance_items)
+            )
 
             # Create individual item pages
             for item in items:
@@ -522,7 +559,7 @@ def main() -> None:
 
 📊 Generated content:
    📁 Main index: /governance/
-   📁 {len(categories)} category pages: {', '.join([f'/governance/{cat}/' for cat in sorted(categories.keys())])}
+   📁 {len(categories)} category pages: {", ".join([f"/governance/{cat}/" for cat in sorted(categories.keys())])}
    📄 {total_items_created} individual item pages
 
 🎯 Total files created: {1 + len(categories) + total_items_created}

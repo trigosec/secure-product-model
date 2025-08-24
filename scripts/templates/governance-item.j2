@@ -47,68 +47,15 @@ governance_category: "{{ item.category }}"
                 </section>
                 {% endif %}
 
-                {% if item.title and item.title != (item.name or '') %}
                 <section class="content-section">
                     <h2 class="section-title">
-                        <span class="section-icon">📝</span>
-                        Summary
+                        <span class="section-icon">🚧</span>
+                        Under Construction
                     </h2>
                     <div class="section-content">
-                        <p>{{ item.title }}</p>
-                    </div>
-                </section>
-                {% endif %}
-
-                {% if item.notes %}
-                <section class="content-section">
-                    <h2 class="section-title">
-                        <span class="section-icon">💡</span>
-                        Implementation Notes
-                    </h2>
-                    <div class="section-content">
-                        <div class="notes-content">
-                            {% set notes_items = item.notes.split(',') %}
-                            {% if notes_items|length > 1 %}
-                            <ul class="notes-list">
-                                {% for note in notes_items %}
-                                <li>{{ note.strip() }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% else %}
-                            <p>{{ item.notes }}</p>
-                            {% endif %}
-                        </div>
-                    </div>
-                </section>
-                {% endif %}
-
-                <section class="content-section">
-                    <h2 class="section-title">
-                        <span class="section-icon">🔗</span>
-                        Related Items
-                    </h2>
-                    <div class="section-content">
-                        <div class="related-items">
-                            <div class="related-item">
-                                <a href="/governance/{{ item.category }}/" class="related-link">
-                                    <span class="related-icon">{{ category_icon }}</span>
-                                    <div class="related-text">
-                                        <span class="related-title">Browse {{ item.category_display }}</span>
-                                        <span class="related-subtitle">View all items in this category</span>
-                                    </div>
-                                    <span class="related-arrow">→</span>
-                                </a>
-                            </div>
-                            <div class="related-item">
-                                <a href="/governance/" class="related-link">
-                                    <span class="related-icon">{{ governance_icon }}</span>
-                                    <div class="related-text">
-                                        <span class="related-title">All Governance</span>
-                                        <span class="related-subtitle">Browse the complete governance framework</span>
-                                    </div>
-                                    <span class="related-arrow">→</span>
-                                </a>
-                            </div>
+                        <div class="construction-notice" style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1rem; border-radius: 0.5rem; color: #856404;">
+                            <p><strong>This page is currently under construction.</strong></p>
+                            <p>We are actively working on expanding the content for this governance item. Updates will be published regularly as we continue to develop and refine the governance framework.</p>
                         </div>
                     </div>
                 </section>
@@ -116,39 +63,20 @@ governance_category: "{{ item.category }}"
 
             <aside class="sidebar">
                 <div class="sidebar-card">
-                    <h3 class="sidebar-title">Quick Info</h3>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span class="info-label">ID</span>
-                            <span class="info-value">{{ item.id }}</span>
+                    <h3 class="sidebar-title">Compliance Frameworks</h3>
+                    {% if item.compliance_frameworks and item.compliance_frameworks|length > 0 %}
+                    <div class="compliance-frameworks">
+                        {% for framework in item.compliance_frameworks %}
+                        <div class="compliance-badge">
+                            <span class="framework-name">{{ framework }}</span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Category</span>
-                            <span class="info-value">{{ item.category_display }}</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Type</span>
-                            <span class="info-value">Governance Item</span>
-                        </div>
+                        {% endfor %}
                     </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <h3 class="sidebar-title">Navigation</h3>
-                    <div class="nav-links">
-                        <a href="/governance/{{ item.category }}/" class="nav-link">
-                            <span class="nav-icon">{{ category_icon }}</span>
-                            <span class="nav-text">{{ item.category_display }}</span>
-                        </a>
-                        <a href="/governance/" class="nav-link">
-                            <span class="nav-icon">{{ governance_icon }}</span>
-                            <span class="nav-text">All Governance</span>
-                        </a>
-                        <a href="/assets/" class="nav-link">
-                            <span class="nav-icon">{{ assets_icon }}</span>
-                            <span class="nav-text">Assets</span>
-                        </a>
+                    {% else %}
+                    <div class="no-frameworks">
+                        <p style="color: #666; font-style: italic;">No specific compliance frameworks identified</p>
                     </div>
+                    {% endif %}
                 </div>
             </aside>
         </div>

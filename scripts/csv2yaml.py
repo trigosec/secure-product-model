@@ -70,6 +70,7 @@ class SheetConverter:
         >>> converter.title
         'Assets'
     """
+
     sheet_name: str
     csv_filename: str
     yaml_filename: str
@@ -78,24 +79,24 @@ class SheetConverter:
 
 # Configuration for all supported sheet conversions
 SHEET_CONVERTERS: Dict[str, SheetConverter] = {
-    'assets': SheetConverter(
-        sheet_name='assets',
-        csv_filename='Control Framework - Assets.csv',
-        yaml_filename='assets.yml',
-        title='Secure Product Model Assets'
+    "assets": SheetConverter(
+        sheet_name="assets",
+        csv_filename="Control Framework - Assets.csv",
+        yaml_filename="assets.yml",
+        title="Secure Product Model Assets",
     ),
-    'controls': SheetConverter(
-        sheet_name='controls',
-        csv_filename='Control Framework - Controls.csv',
-        yaml_filename='controls.yml',
-        title='Secure Product Model Controls'
+    "controls": SheetConverter(
+        sheet_name="controls",
+        csv_filename="Control Framework - Controls.csv",
+        yaml_filename="controls.yml",
+        title="Secure Product Model Controls",
     ),
-    'governance': SheetConverter(
-        sheet_name='governance',
-        csv_filename='Control Framework - Governance.csv',
-        yaml_filename='governance.yml',
-        title='Secure Product Model Governance'
-    )
+    "governance": SheetConverter(
+        sheet_name="governance",
+        csv_filename="Control Framework - Governance.csv",
+        yaml_filename="governance.yml",
+        title="Secure Product Model Governance",
+    ),
 }
 
 
@@ -121,8 +122,9 @@ def clean_text(text: Optional[str]) -> str:
         return ""
     # Replace newlines and carriage returns with spaces, then normalize whitespace
     import re
-    cleaned = text.strip().replace('\n', ' ').replace('\r', ' ')
-    return re.sub(r'\s+', ' ', cleaned)
+
+    cleaned = text.strip().replace("\n", " ").replace("\r", " ")
+    return re.sub(r"\s+", " ", cleaned)
 
 
 def create_slug(name: str) -> str:
@@ -145,7 +147,14 @@ def create_slug(name: str) -> str:
         >>> create_slug("RBAC")
         'rbac'
     """
-    return name.lower().replace(' ', '-').replace(',', '').replace('(', '').replace(')', '').replace('/', '-')
+    return (
+        name.lower()
+        .replace(" ", "-")
+        .replace(",", "")
+        .replace("(", "")
+        .replace(")", "")
+        .replace("/", "-")
+    )
 
 
 def parse_notes(notes_text: Optional[str]) -> List[str]:
@@ -172,14 +181,14 @@ def parse_notes(notes_text: Optional[str]) -> List[str]:
         return []
 
     # Split by bullet points or newlines
-    lines = notes_text.replace('- ', '\n- ').split('\n')
+    lines = notes_text.replace("- ", "\n- ").split("\n")
     notes: List[str] = []
 
     for line in lines:
         line = line.strip()
-        if line and line != '-':
+        if line and line != "-":
             # Remove leading dash if present
-            if line.startswith('- '):
+            if line.startswith("- "):
                 line = line[2:]
             notes.append(line.strip())
 
@@ -190,55 +199,52 @@ def convert_assets_csv(csv_file_path: Path) -> Dict[str, Any]:
     """Convert Assets CSV to YAML structure."""
     assets: List[Dict[str, Any]] = []
 
-    with open(csv_file_path, 'r', encoding='utf-8') as csvfile:
+    with open(csv_file_path, "r", encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
 
         for row in reader:
             # Extract and clean data
-            name = clean_text(row.get('Asset', ''))
+            name = clean_text(row.get("Asset", ""))
             if not name:  # Skip empty rows
                 continue
 
-            description = clean_text(row.get('Description', ''))
-            notes_raw = clean_text(row.get('Notes', ''))
-            category = clean_text(row.get('Category', ''))
-            tags_raw = clean_text(row.get('Tags', ''))
+            description = clean_text(row.get("Description", ""))
+            notes_raw = clean_text(row.get("Notes", ""))
+            category = clean_text(row.get("Category", ""))
+            tags_raw = clean_text(row.get("Tags", ""))
 
             # Create asset object
-            asset: Dict[str, Any] = {
-                'name': name,
-                'description': description
-            }
+            asset: Dict[str, Any] = {"name": name, "description": description}
 
             # Add category if present
             if category:
-                asset['category'] = category
+                asset["category"] = category
 
             # Parse tags into list if present
             if tags_raw:
-                tags = [tag.strip() for tag in tags_raw.split(',') if tag.strip()]
+                tags = [tag.strip() for tag in tags_raw.split(",") if tag.strip()]
                 if tags:
-                    asset['tags'] = tags
+                    asset["tags"] = tags
 
             # Parse notes into list if present
             notes = parse_notes(notes_raw)
             if notes:
-                asset['notes'] = notes
+                asset["notes"] = notes
 
             # Generate slug for URL-friendly reference
-            asset['slug'] = create_slug(name)
+            asset["slug"] = create_slug(name)
 
             assets.append(asset)
 
     return {
-        'assets': assets,
-        'meta': {
-            'title': 'Secure Product Model Assets',
-            'description': 'Foundational elements subject to control and oversight',
-            'count': len(assets),
-            'source': 'Control Framework - Assets.csv',
-            'generated_by': 'csv2yaml.py'
-        }
+        "assets": assets,
+        "meta": {
+            "title": "Secure Product Model Assets",
+            "description": "Foundational elements subject to control and oversight",
+            "count": len(assets),
+            "source": "Control Framework - Assets.csv",
+            "generated_by": "csv2yaml.py",
+        },
     }
 
 
@@ -246,52 +252,52 @@ def convert_controls_csv(csv_file_path: Path) -> Dict[str, Any]:
     """Convert Controls CSV to YAML structure."""
     controls: List[Dict[str, Any]] = []
 
-    with open(csv_file_path, 'r', encoding='utf-8') as csvfile:
+    with open(csv_file_path, "r", encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
 
         for row in reader:
             # Extract and clean data
-            control_id = clean_text(row.get('ID', ''))
+            control_id = clean_text(row.get("ID", ""))
             if not control_id:  # Skip empty rows
                 continue
 
-            name = clean_text(row.get('Name', ''))
-            details = clean_text(row.get('Details', ''))
-            parameters = clean_text(row.get('Parameters', ''))
-            inventory = clean_text(row.get('Inventory', ''))
-            control_type = clean_text(row.get('Control type', ''))
-            tested_on_asset = clean_text(row.get('Tested on asset inventory', ''))
+            name = clean_text(row.get("Name", ""))
+            details = clean_text(row.get("Details", ""))
+            parameters = clean_text(row.get("Parameters", ""))
+            inventory = clean_text(row.get("Inventory", ""))
+            control_type = clean_text(row.get("Control type", ""))
+            tested_on_asset = clean_text(row.get("Tested on asset inventory", ""))
 
             # Create control object
             control: Dict[str, Any] = {
-                'id': control_id,
-                'name': name,
-                'slug': create_slug(name) if name else create_slug(control_id)
+                "id": control_id,
+                "name": name,
+                "slug": create_slug(name) if name else create_slug(control_id),
             }
 
             # Add optional fields if they have content
             if details:
-                control['details'] = details
+                control["details"] = details
             if parameters:
-                control['parameters'] = parameters
+                control["parameters"] = parameters
             if inventory:
-                control['inventory'] = inventory
+                control["inventory"] = inventory
             if control_type:
-                control['control_type'] = control_type
+                control["control_type"] = control_type
             if tested_on_asset:
-                control['tested_on_asset_inventory'] = tested_on_asset
+                control["tested_on_asset_inventory"] = tested_on_asset
 
             controls.append(control)
 
     return {
-        'controls': controls,
-        'meta': {
-            'title': 'Secure Product Model Controls',
-            'description': 'Security controls and measures for the product framework',
-            'count': len(controls),
-            'source': 'Control Framework - Controls.csv',
-            'generated_by': 'csv2yaml.py'
-        }
+        "controls": controls,
+        "meta": {
+            "title": "Secure Product Model Controls",
+            "description": "Security controls and measures for the product framework",
+            "count": len(controls),
+            "source": "Control Framework - Controls.csv",
+            "generated_by": "csv2yaml.py",
+        },
     }
 
 
@@ -299,59 +305,70 @@ def convert_governance_csv(csv_file_path: Path) -> Dict[str, Any]:
     """Convert Governance CSV to YAML structure."""
     governance: List[Dict[str, Any]] = []
 
-    with open(csv_file_path, 'r', encoding='utf-8') as csvfile:
+    with open(csv_file_path, "r", encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
 
         for row in reader:
             # Extract and clean data
-            gov_id = clean_text(row.get('ID', ''))
+            gov_id = clean_text(row.get("ID", ""))
             if not gov_id:  # Skip empty rows
                 continue
 
             # Skip section headers in format [[ .+ ]] (allowing whitespace/newlines)
-            if re.match(r'^\s*\[\[\s+.+\s+\]\]\s*$', gov_id, re.DOTALL):
+            if re.match(r"^\s*\[\[\s+.+\s+\]\]\s*$", gov_id, re.DOTALL):
                 continue
 
-            description = clean_text(row.get('Description', ''))
-            title = clean_text(row.get('Title', ''))
-            notes = clean_text(row.get('Notes', ''))
+            description = clean_text(row.get("Description", ""))
+            title = clean_text(row.get("Title", ""))
+            notes = clean_text(row.get("Notes", ""))
+            compliance_frameworks = clean_text(row.get("Compliance Frameworks", ""))
 
             # Create governance object
             governance_item: Dict[str, Any] = {
-                'id': gov_id,
-                'title': title,
-                'slug': create_slug(title) if title else create_slug(gov_id)
+                "id": gov_id,
+                "title": title,
+                "slug": create_slug(title) if title else create_slug(gov_id),
             }
 
             # Add optional fields if they have content
             if description:
-                governance_item['description'] = description
+                governance_item["description"] = description
             if notes:
-                governance_item['notes'] = notes
+                governance_item["notes"] = notes
+            if compliance_frameworks:
+                # Split by comma and clean up each framework
+                frameworks = [
+                    framework.strip()
+                    for framework in compliance_frameworks.split(",")
+                    if framework.strip()
+                ]
+                governance_item["compliance_frameworks"] = frameworks
 
             governance.append(governance_item)
 
     return {
-        'governance': governance,
-        'meta': {
-            'title': 'Secure Product Model Governance',
-            'description': 'Governance policies and expectations for the product framework',
-            'count': len(governance),
-            'source': 'Control Framework - Governance.csv',
-            'generated_by': 'csv2yaml.py'
-        }
+        "governance": governance,
+        "meta": {
+            "title": "Secure Product Model Governance",
+            "description": "Governance policies and expectations for the product framework",
+            "count": len(governance),
+            "source": "Control Framework - Governance.csv",
+            "generated_by": "csv2yaml.py",
+        },
     }
 
 
-def convert_csv_to_yaml(csv_file_path: Path, yaml_file_path: Path, sheet_name: str) -> bool:
+def convert_csv_to_yaml(
+    csv_file_path: Path, yaml_file_path: Path, sheet_name: str
+) -> bool:
     """Convert CSV file to YAML format based on sheet type."""
     try:
         # Choose the appropriate converter based on sheet name
-        if sheet_name == 'assets':
+        if sheet_name == "assets":
             yaml_data = convert_assets_csv(csv_file_path)
-        elif sheet_name == 'controls':
+        elif sheet_name == "controls":
             yaml_data = convert_controls_csv(csv_file_path)
-        elif sheet_name == 'governance':
+        elif sheet_name == "governance":
             yaml_data = convert_governance_csv(csv_file_path)
         else:
             print(f"❌ Error: Unknown sheet type '{sheet_name}'")
@@ -368,12 +385,15 @@ def convert_csv_to_yaml(csv_file_path: Path, yaml_file_path: Path, sheet_name: s
     try:
         os.makedirs(os.path.dirname(yaml_file_path), exist_ok=True)
 
-        with open(yaml_file_path, 'w', encoding='utf-8') as yamlfile:
-            yaml.dump(yaml_data, yamlfile,
-                     default_flow_style=False,
-                     allow_unicode=True,
-                     sort_keys=False,
-                     indent=2)
+        with open(yaml_file_path, "w", encoding="utf-8") as yamlfile:
+            yaml.dump(
+                yaml_data,
+                yamlfile,
+                default_flow_style=False,
+                allow_unicode=True,
+                sort_keys=False,
+                indent=2,
+            )
 
         return True
 
@@ -455,12 +475,12 @@ def parse_arguments() -> List[str]:
         with doctests in the normal way. Testing is done through integration tests.
     """
     # Check for help first
-    if '--help' in sys.argv or '-h' in sys.argv:
+    if "--help" in sys.argv or "-h" in sys.argv:
         show_help()
         sys.exit(0)
 
     # Remove flags from argv to get positional arguments
-    args = [arg for arg in sys.argv[1:] if not arg.startswith('--')]
+    args = [arg for arg in sys.argv[1:] if not arg.startswith("--")]
 
     sheets_to_convert: List[str] = []
 
@@ -499,8 +519,8 @@ def main() -> None:
         converter = SHEET_CONVERTERS[sheet_name]
 
         # Define file paths
-        csv_file = project_root / 'data' / converter.csv_filename
-        yaml_file = project_root / 'data' / converter.yaml_filename
+        csv_file = project_root / "data" / converter.csv_filename
+        yaml_file = project_root / "data" / converter.yaml_filename
 
         print(f"\n📊 Converting {sheet_name}...")
         print(f"📂 Source: {csv_file}")
@@ -520,10 +540,12 @@ def main() -> None:
 
             # Display some stats
             try:
-                with open(yaml_file, 'r') as f:
+                with open(yaml_file, "r") as f:
                     data = yaml.safe_load(f)
                     assert isinstance(data, dict)
-                    items_key = list(data.keys())[0]  # First key (assets, controls, governance)
+                    items_key = list(data.keys())[
+                        0
+                    ]  # First key (assets, controls, governance)
                     item_count = len(data.get(items_key, []))
                     print(f"📈 Converted {item_count} {items_key}")
                     converted_count += item_count
@@ -546,11 +568,11 @@ def main() -> None:
         sys.exit(1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
 
     # Run doctests if --doctests flag is provided
-    if '--doctests' in sys.argv:
+    if "--doctests" in sys.argv:
         print("Running doctests...")
         doctest.testmod(verbose=True)
         sys.exit(0)

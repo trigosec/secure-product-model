@@ -6,6 +6,8 @@ governance:
     networks, mobile devices, and cloud services. Specify prohibited activities, data
     handling requirements, and consequences for violations.
   notes: technology, hardware, software
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Policy.Auth
   title: Authentication and Password Policy
   slug: authentication-and-password-policy
@@ -23,6 +25,8 @@ governance:
   slug: encryption-and-key-management-policy
   description: Establish encryption requirements for data at rest and in transit.
     Define key management procedures, approved algorithms, and implementation standards.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Policy.MediaDestruction
   title: Media Destruction Policy
   slug: media-destruction-policy
@@ -40,6 +44,8 @@ governance:
     - System components - Segmentation controls - Connection to 3rd parties - Security
     strategy, including: - how technology support compliance with PCI DSS - remediations
     to outdate tech - RACI matrix included in policy'
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.Access
   title: Access and Permission Review
   slug: access-and-permission-review
@@ -47,32 +53,44 @@ governance:
     access levels. Verify that access aligns with job responsibilities and follows
     least privilege principles.
   notes: with right approvals
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.Awareness
   title: Maintain an Up-to-date Security Awareness Program
   slug: maintain-an-up-to-date-security-awareness-program
   description: Regular evaluation and updates to security awareness training programs
     to ensure effectiveness and relevance to current threats.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.Encryption
   title: Maintain Up-to-date Cryptographic Cipher Suites and Protocols
   slug: maintain-up-to-date-cryptographic-cipher-suites-and-protocols
   description: Periodic review of cryptographic implementations, cipher suites, and
     protocols to ensure they meet current security standards and haven't been deprecated.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.Endpoint
   title: Review Inventory of endpoint devices
   slug: review-inventory-of-endpoint-devices
   description: Regular assessment of endpoint security controls including devices
     not traditionally covered by antimalware solutions such as network devices and
     IoT systems.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.Facility
   title: Review Facilities
   slug: review-facilities
   description: Periodic security assessment of physical facilities and processes to
     ensure adequate physical security controls are maintained.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.IncidentResponsePlan
   title: Review Incident Response Plan
   slug: review-incident-response-plan
   description: Regular testing and updating of incident response procedures based
     on lessons learned from actual incidents and changing threat landscape.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.NetworkSecurityControls
   title: Review Network Security Controls
   slug: review-network-security-controls
@@ -83,11 +101,15 @@ governance:
   slug: review-inventory-of-physical-media
   description: Periodic inventory and security assessment of physical media containing
     sensitive information including backup tapes, external drives, and archived materials.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.Policies
   title: Maintain Up-to-date Policies
   slug: maintain-up-to-date-policies
   description: Regular review of all security policies to ensure they remain current,
     effective, and aligned with business objectives and regulatory requirements.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Oversight.ThirdParties
   title: Monitor and asses Third-Party Suppliers
   slug: monitor-and-asses-third-party-suppliers
@@ -109,16 +131,22 @@ governance:
     factors if there is suspicion there maybe be a compromise - Report incident if
     compromise is suspected - Phishing - Social engineering - Acceptable use - POS
     device management [if in-scope]'
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.ScopeDefinition.CryptographicArchitecture
   title: Document Cryptographic Architecture
   slug: document-cryptographic-architecture
   description: Document the organization's cryptographic architecture including algorithms,
     key management systems, certificate authorities, and encryption implementations.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.ScopeDefinition.DataFlows
   title: Document Data Flows for the Systems in Scope
   slug: document-data-flows-for-the-systems-in-scope
   description: Map and document how sensitive data flows through systems and processes
     to identify security requirements and control points.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.ScopeDefinition.Locations
   title: Document where the Data is Stored, Processed and Transmitted
   slug: document-where-the-data-is-stored-processed-and-transmitted
@@ -129,6 +157,8 @@ governance:
   slug: document-network-diagram-for-the-systems-in-scope
   description: Comprehensive documentation of network architecture including security
     zones, trust boundaries, and data flow patterns.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.ScopeDefinition.Organisation
   title: Document Organizational Structure
   slug: document-organizational-structure
@@ -139,6 +169,8 @@ governance:
   slug: document-raci-matrix-clarifying-roles-and-responsibilities
   description: Create and maintain RACI (Responsible, Accountable, Consulted, Informed)
     matrices for security processes and decisions to clarify roles and avoid confusion.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.ScopeDefinition.SelfDeveloped
   title: Document Own Services and Products
   slug: document-own-services-and-products
@@ -172,11 +204,15 @@ governance:
     if needed - Business recovery and continuity process, including backups - Legal
     requirements for reporting compromises or breaches - PCI: PAN or SAD found where
     it shouldn''t be'
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Protocol.PENTestingMethodology
   title: PEN Testing Methodology
   slug: pen-testing-methodology
   description: Standardized methodology for conducting penetration testing including
     scope definition, testing procedures, reporting formats, and remediation tracking.
+  compliance_frameworks:
+  - PCI-DSS
 - id: G.Protocol.SecureDevelopment
   title: Secure Development
   slug: secure-development
