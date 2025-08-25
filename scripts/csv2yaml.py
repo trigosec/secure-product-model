@@ -261,23 +261,28 @@ def convert_controls_csv(csv_file_path: Path) -> Dict[str, Any]:
             if not control_id:  # Skip empty rows
                 continue
 
-            name = clean_text(row.get("Name", ""))
-            details = clean_text(row.get("Details", ""))
+            # Skip section headers in format [[ .+ ]] (allowing whitespace/newlines)
+            if re.match(r"^\s*\[\[\s+.+\s+\]\]\s*$", control_id, re.DOTALL):
+                continue
+
+            title = clean_text(row.get("Title", ""))
+            description = clean_text(row.get("Description", ""))
             parameters = clean_text(row.get("Parameters", ""))
             inventory = clean_text(row.get("Inventory", ""))
             control_type = clean_text(row.get("Control type", ""))
             tested_on_asset = clean_text(row.get("Tested on asset inventory", ""))
+            compliance_frameworks = clean_text(row.get("Compliance Frameworks", ""))
 
             # Create control object
             control: Dict[str, Any] = {
                 "id": control_id,
-                "name": name,
-                "slug": create_slug(name) if name else create_slug(control_id),
+                "name": title,
+                "slug": create_slug(title) if title else create_slug(control_id),
             }
 
             # Add optional fields if they have content
-            if details:
-                control["details"] = details
+            if description:
+                control["details"] = description
             if parameters:
                 control["parameters"] = parameters
             if inventory:
@@ -286,6 +291,14 @@ def convert_controls_csv(csv_file_path: Path) -> Dict[str, Any]:
                 control["control_type"] = control_type
             if tested_on_asset:
                 control["tested_on_asset_inventory"] = tested_on_asset
+            if compliance_frameworks:
+                # Split by comma and clean up each framework
+                frameworks = [
+                    framework.strip()
+                    for framework in compliance_frameworks.split(",")
+                    if framework.strip()
+                ]
+                control["compliance_frameworks"] = frameworks
 
             controls.append(control)
 

@@ -1,24 +1,24 @@
-ID,Name,Details,Parameters,Inventory,Control type,Tested on asset inventory
-[[ C.Account ]],"Accounts [user, service]",,,,,
-C.Account.InactiveDisableDelete,Inactive accounts disabled/removed,,period [PCI 90 days],,Preventive,"Users, Customer"
+ID,Title,Description,Compliance Frameworks,Parameters,Inventory,Control type,Tested on asset inventory
+[[ C.Account ]],"Accounts [user, service]",,,,,,
+C.Account.InactiveDisableDelete,Inactive accounts disabled/removed,,PCI-DSS,period [PCI 90 days],,Preventive,"Users, Customer"
 C.Account.Individual,"Group or Shared accounts are either deleted or disabled
 System/service accounts can't be used by users","Only use personal accounts
-Normally relevant for third parties as IdP is used for anything else",,,Preventive,"Self-developed services, Third-Parties"
+Normally relevant for third parties as IdP is used for anything else",PCI-DSS,,,Preventive,"Self-developed services, Third-Parties"
 C.Account.ElevatedAccess,Elevated access,"Ideally: elevated access is temporal
 Independently, monitoring for:
  - access 
  - Actions performed
-All captured in logs, triggering security events",,"Elevated Access
+All captured in logs, triggering security events",,,"Elevated Access
   - who accessed
   - reason
   - when and for how long
   - actions performed
   - showing alerts, security tickets & actions taken by security",Detective,"Network, Cloud environment, Compute, Databases, Endpoint devices, File storage, Object storage, Secrets and certificates, Self-developed services, Software repositories, Logs, Users"
-C.Account.LeastPriviledge,Least priviledge access,based on role and job needs,,"- Check: default is to deny all
+C.Account.LeastPriviledge,Least priviledge access,based on role and job needs,PCI-DSS,,"- Check: default is to deny all
 - confirm yearly RBAC review, with manager approvals
 - Access to view full PAN
 - Access to CHD",Preventive,RBAC
-C.Account.Lockout,Account lockout,"Account lockout if threshold failed login attempts is reached. Lock the account for period of time, or until the identity is confirmed","- max failed attemps [PCI <= 10]
+C.Account.Lockout,Account lockout,"Account lockout if threshold failed login attempts is reached. Lock the account for period of time, or until the identity is confirmed",PCI-DSS,"- max failed attemps [PCI <= 10]
 - min duration [PCI >= 30min]","Users:
   Field: account status
 Lockout History:
@@ -26,97 +26,97 @@ Lockout History:
   Trend analysis
   Causes",Corrective,"Users, Customer"
 C.Account.NoDefaults,"Default accounts are deleted or disabled
-No default permissions (deny all)",typically for third party software,,,Preventive,"Self-developed services, Third-Parties"
-C.Account.Revoke,Revoke accounts on termination,Access for terminated users immediately revoked,,,Preventive,Users
-C.Account.SeparationOfDuties,Separation of duties,,,,Preventive,"Changes, RBAC"
-C.Account.SessionTimeout,Session timeout,,timeout [PCI <= 15min],,Preventive,"Endpoint devices, Self-developed services"
-[[ C.Auth ]],Multi-Factor Authentication,,,,,
-C.Auth.Enforced,authentication can't be bypassed and with at least 2 factors being enforced for users,,,,Preventive,"Self-developed services, Third-Parties"
-C.Auth.NoReplay,protection against replay attacks,Okta link,,,Preventive,"Self-developed services, Third-Parties"
-C.Auth.IdentifyOnChange,User identity is verified before modifying authentication factors,,,,Preventive,"Users, Customer"
-C.Auth.KeyChange,Change of encryption keys,,,,Preventive,Secrets and certificates
-C.Auth.PasswordComplexity,"Password complexity: >= 12 characters, numbers symbols",,,,Preventive,"Users, Customer"
-C.Auth.PasswordInit,"First account password is generated automatically, and changed on first login ",,,,Preventive,"Users, Customer, Process"
-C.Auth.PasswordChange,Password is regularly changed and using old ones is avoided,,"- Period [PCI 90 days]
+No default permissions (deny all)",typically for third party software,PCI-DSS,,,Preventive,"Self-developed services, Third-Parties"
+C.Account.Revoke,Revoke accounts on termination,Access for terminated users immediately revoked,PCI-DSS,,,Preventive,Users
+C.Account.SeparationOfDuties,Separation of duties,,,,,Preventive,"Changes, RBAC"
+C.Account.SessionTimeout,Session timeout,,PCI-DSS,timeout [PCI <= 15min],,Preventive,"Endpoint devices, Self-developed services"
+[[ C.Auth ]],Multi-Factor Authentication,,,,,,
+C.Auth.Enforced,authentication can't be bypassed and with at least 2 factors being enforced for users,,PCI-DSS,,,Preventive,"Self-developed services, Third-Parties"
+C.Auth.NoReplay,protection against replay attacks,Okta link,,,,Preventive,"Self-developed services, Third-Parties"
+C.Auth.IdentifyOnChange,User identity is verified before modifying authentication factors,,PCI-DSS,,,Preventive,"Users, Customer"
+C.Auth.KeyChange,Change of encryption keys,,,,,Preventive,Secrets and certificates
+C.Auth.PasswordComplexity,"Password complexity: >= 12 characters, numbers symbols",,PCI-DSS,,,Preventive,"Users, Customer"
+C.Auth.PasswordInit,"First account password is generated automatically, and changed on first login ",,PCI-DSS,,,Preventive,"Users, Customer, Process"
+C.Auth.PasswordChange,Password is regularly changed and using old ones is avoided,,PCI-DSS,"- Period [PCI 90 days]
 - Uniqueness constraints [PCI 4]","User:
   Field: password age",Preventive,"Users, Customer"
-C.Auth.NoShare,"Passwords, security tokens, smart cards, certificates, ... are not shared among users",,,,Preventive,"Users, Customer"
-[[ C.Availability ]],Availability,,,,,
+C.Auth.NoShare,"Passwords, security tokens, smart cards, certificates, ... are not shared among users",,,,,Preventive,"Users, Customer"
+[[ C.Availability ]],Availability,,,,,,
 C.Availability.MultiAZ,Multi-AZ,"Resilience control through the use of multiple availability zones
 - Must-have: Active-Active
-- Traffic analysis at the ingress points should show traffic on all availability zones",,,Preventive,"Databases, Network, File storage, Self-developed services"
+- Traffic analysis at the ingress points should show traffic on all availability zones",,,,Preventive,"Databases, Network, File storage, Self-developed services"
 C.Availability.MultiRegion,Multi-region,"Resilience control through the use of a multi-region setup
 - IF Active-Active: Traffic analysis at the ingress points should show traffic on both regions
-- ELSE: Traffic failover is automated and tested on a schedule (quarterly, every 6 months, yearly)",,,Preventive,"Databases, Network, File storage, Self-developed services"
-[[ C.Awareness ]],Awareness,,,,,
-C.Awareness.EmployeeTraining,Upon hire and refresher,,frequency [PCI yearly],,Preventive,Users
-C.Awareness.CustomerGuidance,,,,,Preventive,Customer
-[[ C.Backup ]],Backups,,,,,
-C.Backup.Encryption,Backup encryption,,,,Preventive,Backups
-C.Backup.Frequency,Backup frequency,"Depending on data classification or resource type, environment",,,Preventive,Backups
-C.Backup.Integrity,Backup integrity checks,To confirm the data stored is correct,,,Preventive,Backups
-C.Backup.ReadOnly,Backup readonly,To avoid changes after making the backups,,,Preventive,Backups
-C.Backup.Storage,Backup storage,"Distributed in several AZs, Regions, Clouds",,,Preventive,Backups
-C.Backup.Testing,Backup testing,at least yearly,,,Preventive,Backups
-C.Backup.Classification,Data classification for backups,Backup data classification based on data stored,,,Preventive,Backups
-[[ C.Code ]],Code,,,,,
-C.Code.IaC,Infrastructure as Code,Infrastructure change management part of standard software change management,,,Detective,"Changes, Software repositories"
-C.Code.NoHardcodedSecrets,"No hardcoded secrets in code, CI/CD pipelines","Monitor source code, specially deployment scripts to avoid the usage of hardcoded credentials",,"Third-party reports:
+- ELSE: Traffic failover is automated and tested on a schedule (quarterly, every 6 months, yearly)",,,,Preventive,"Databases, Network, File storage, Self-developed services"
+[[ C.Awareness ]],Awareness,,,,,,
+C.Awareness.EmployeeTraining,Upon hire and refresher,,PCI-DSS,frequency [PCI yearly],,Preventive,Users
+C.Awareness.CustomerGuidance,,,PCI-DSS,,,Preventive,Customer
+[[ C.Backup ]],Backups,,,,,,
+C.Backup.Encryption,Backup encryption,,,,,Preventive,Backups
+C.Backup.Frequency,Backup frequency,"Depending on data classification or resource type, environment",,,,Preventive,Backups
+C.Backup.Integrity,Backup integrity checks,To confirm the data stored is correct,,,,Preventive,Backups
+C.Backup.ReadOnly,Backup readonly,To avoid changes after making the backups,,,,Preventive,Backups
+C.Backup.Storage,Backup storage,"Distributed in several AZs, Regions, Clouds",,,,Preventive,Backups
+C.Backup.Testing,Backup testing,at least yearly,,,,Preventive,Backups
+C.Backup.Classification,Data classification for backups,Backup data classification based on data stored,PCI-DSS,,,Preventive,Backups
+[[ C.Code ]],Code,,,,,,
+C.Code.IaC,Infrastructure as Code,Infrastructure change management part of standard software change management,PCI-DSS,,,Detective,"Changes, Software repositories"
+C.Code.NoHardcodedSecrets,"No hardcoded secrets in code, CI/CD pipelines","Monitor source code, specially deployment scripts to avoid the usage of hardcoded credentials",PCI-DSS,,"Third-party reports:
   Metrics for secrets in code",Preventive,"Software repositories, Outsourced controls"
-C.Code.SBOM,Software Bill of Materials,,,,Detective,"Self-developed services, Software repositories, Outsourced controls"
-C.Code.Reviews,"Code reviews, aka 4-eyes principle",Validating every change is reviewed by another developer,,,Preventive,"Software repositories, Changes"
-[[ C.Data ]],Data,,,,,
+C.Code.SBOM,Software Bill of Materials,,,,,Detective,"Self-developed services, Software repositories, Outsourced controls"
+C.Code.Reviews,"Code reviews, aka 4-eyes principle",Validating every change is reviewed by another developer,PCI-DSS,,,Preventive,"Software repositories, Changes"
+[[ C.Data ]],Data,,,,,,
 C.Data.Disposal,Monitored disposal,"- Monitor disposal activities (ie: does it happen at the appropriate frequency?)
-- Maintain logs",,,Preventive,"Object storage, Databases, File storage, Backups"
-C.Data.Isolation,ie: per customer,,,,Preventive,"Object storage, Databases, File storage, Backups, Customer"
-C.Data.Minimisation,"Store only the required data, no more",,,,Preventive,"Object storage, Databases, File storage, Backups"
-C.Data.NoProdInTest,No prod data in test,Alternative: Anonymised prod data in test,,,Preventive,Policies
-C.Data.NoTestInProd,No test data in prod,,,,Preventive,Policies
-C.Data.Retention,Monitored rentention,,,"- Monitor retention through the inventories, ie: oldest backup, oldest database record, ...",Preventive,"Object storage, Databases, File storage, Backups"
-[[ C.Encryption ]],Encryption,,,,,
+- Maintain logs",,,,Preventive,"Object storage, Databases, File storage, Backups"
+C.Data.Isolation,ie: per customer,,PCI-DSS,,,Preventive,"Object storage, Databases, File storage, Backups, Customer"
+C.Data.Minimisation,"Store only the required data, no more",,,,,Preventive,"Object storage, Databases, File storage, Backups"
+C.Data.NoProdInTest,No prod data in test,Alternative: Anonymised prod data in test,PCI-DSS,,,Preventive,Policies
+C.Data.NoTestInProd,No test data in prod,,PCI-DSS,,,Preventive,Policies
+C.Data.Retention,Monitored rentention,,,,"- Monitor retention through the inventories, ie: oldest backup, oldest database record, ...",Preventive,"Object storage, Databases, File storage, Backups"
+[[ C.Encryption ]],Encryption,,,,,,
 C.Encryption.Certificates,Certificate management,"- Document approach to accessing credentials
-- Enable auto-updates, at least on a yearly basis",,"Certs
+- Enable auto-updates, at least on a yearly basis",,,"Certs
   Field: issuing CA
   Field: expiration
 ",Preventive,Secrets and certificates
-C.Encryption.DataInTransit,Transfer of data,,,,Preventive,"Network, Self-developed services, Third-Parties"
-C.Encryption.DataStorage,Data Storage,Monitor if encryption rules are applied,,,Preventive,"Databases, File storage, Object storage"
+C.Encryption.DataInTransit,Transfer of data,,,,,Preventive,"Network, Self-developed services, Third-Parties"
+C.Encryption.DataStorage,Data Storage,Monitor if encryption rules are applied,,,,Preventive,"Databases, File storage, Object storage"
 C.Encryption.SecretStorage,Secret storage,"- No keys or credentials file lying in any environment (prod, non-prod)
 - Document approach to accessing credentials
 - Enable auto-updates, at least on a yearly basis
-- If keys/credentials can't be updated automatically, identify them in the inventory",,,Preventive,Secrets and certificates
-C.Encryption.StrongCryptography,,,,,Preventive,"Secrets and certificates, Users, Customer, File storage, Network, PCI Sensitive"
-[[ C.Endpoint ]],Endpoint,,,,,
-C.Endpoint.AntiMalware,Anti-malware,Including removable media,frequency scans [PCI based on targeted risk analysis],,Preventive,"Endpoint devices, Outsourced controls"
-C.Endpoint.AntiPhishing,Anti-phishing,,,,Preventive,Outsourced controls
-C.Endpoint.Antivirus,Antivirus,,,,Preventive,"Endpoint devices, Outsourced controls"
-C.Endpoint.Disposal,Adequate disposal,,,,Preventive,"Endpoint devices, Outsourced controls"
-C.Endpoint.EnforcedSecurity,Security measures can't be disabled by end users,,,,,
+- If keys/credentials can't be updated automatically, identify them in the inventory",,,,Preventive,Secrets and certificates
+C.Encryption.StrongCryptography,,,PCI-DSS,,,Preventive,"Secrets and certificates, Users, Customer, File storage, Network, PCI Sensitive"
+[[ C.Endpoint ]],Endpoint,,,,,,
+C.Endpoint.AntiMalware,Anti-malware,Including removable media,PCI-DSS,frequency scans [PCI based on targeted risk analysis],,Preventive,"Endpoint devices, Outsourced controls"
+C.Endpoint.AntiPhishing,Anti-phishing,,PCI-DSS,,,Preventive,Outsourced controls
+C.Endpoint.Antivirus,Antivirus,,,,,Preventive,"Endpoint devices, Outsourced controls"
+C.Endpoint.Disposal,Adequate disposal,,,,,Preventive,"Endpoint devices, Outsourced controls"
+C.Endpoint.EnforcedSecurity,Security measures can't be disabled by end users,,PCI-DSS,,,,
 C.Endpoint.SecurityThreshold,Block devices with low score,"Access blocked as long as the device is considered insecure
-Alert in case a connected device has a low score",,,Corrective,Endpoint devices
-C.Endpoint.NoDataExports,Forbid exports to physical media,,,,Preventive,"Process, Policies"
-[[ C.Facility ]],Facilities,,,,,
-C.Facility.AccessForUsers,Access is controlled and authorised,,,,Preventive,"Facilities, Users"
-C.Facility.AccessToResources,"Connecting to the network, console access, ...",,,,Preventive,"Facilities, Network, Compute"
-C.Facility.Surveillance,"through video cameras, ...",,,,Preventive,"Facilities, Users"
-C.Facility.Transfer,"Transfer data, equipement from facilities",including authorised approvals,,,Preventive,"Facilities, Physical media"
-[[ C.Host ]],Host,,,,,
+Alert in case a connected device has a low score",,,,Corrective,Endpoint devices
+C.Endpoint.NoDataExports,Forbid exports to physical media,,,,,Preventive,"Process, Policies"
+[[ C.Facility ]],Facilities,,,,,,
+C.Facility.AccessForUsers,Access is controlled and authorised,,PCI-DSS,,,Preventive,"Facilities, Users"
+C.Facility.AccessToResources,"Connecting to the network, console access, ...",,PCI-DSS,,,Preventive,"Facilities, Network, Compute"
+C.Facility.Surveillance,"through video cameras, ...",,,,,Preventive,"Facilities, Users"
+C.Facility.Transfer,"Transfer data, equipement from facilities",including authorised approvals,PCI-DSS,,,Preventive,"Facilities, Physical media"
+[[ C.Host ]],Host,,,,,,
 C.Host.Disposal,Monitored disposal,"- Monitor disposal activities (ie: does it happen at the appropriate frequency?)
-- Maintain logs",,,Preventive,Compute
-C.Host.FileTampering,Detect non-approved file changes,"Only for stateful setups, including time configuration",,,Detective,Compute
+- Maintain logs",,,,Preventive,Compute
+C.Host.FileTampering,Detect non-approved file changes,"Only for stateful setups, including time configuration",PCI-DSS,,,Detective,Compute
 C.Host.TimeSync,Time-Synchronization for System clocks,"- Based on UTC
 - External trusted source
-- Internal single source",,,Preventive,Compute
-[[ C.Ident ]],Identity,,,,,
-C.Ident.OnboardingChecks,Onboarding checks,"Previous employment history, public information/social media, criminal records, credit history, reference checks",,,Preventive,Users
-C.Ident.RecurringChecks,Recurring employee checks,Criminal records,frequency [PCI bi-yearly],,Preventive,Users
-C.Ident.Unique,"User accounts uniquely identified based on UUID, email, ...",,,,Preventive,"Users, Customer"
-[[ C.Incident ]],Incident management,,,,,
-C.Incident.Response,24x7,,,,Detective,"Cloud environment, Compute, Customer, Databases, Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment pages, PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services, Software repositories, Third-Parties, Users"
-C.Incident.Testing,Incident response testing,,frequency [PCI yearly],,Preventive,"Users, Policies, Process"
-C.Incident.Training,,,frequency [PCI based on TRA],,,
-[[ C.Logs ]],Logs,,,,,
-C.Logs.Alert,Log alerting,,,"alerts, incidents, actions",Detective,Logs
+- Internal single source",PCI-DSS,,,Preventive,Compute
+[[ C.Ident ]],Identity,,,,,,
+C.Ident.OnboardingChecks,Onboarding checks,"Previous employment history, public information/social media, criminal records, credit history, reference checks",,,,Preventive,Users
+C.Ident.RecurringChecks,Recurring employee checks,Criminal records,,frequency [PCI bi-yearly],,Preventive,Users
+C.Ident.Unique,"User accounts uniquely identified based on UUID, email, ...",,PCI-DSS,,,Preventive,"Users, Customer"
+[[ C.Incident ]],Incident management,,,,,,
+C.Incident.Response,24x7,,PCI-DSS,,,Detective,"Cloud environment, Compute, Customer, Databases, Endpoint devices, Facilities, File storage, Logs, Network, Object storage, Payment pages, PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services, Software repositories, Third-Parties, Users"
+C.Incident.Testing,Incident response testing,,,frequency [PCI yearly],,Preventive,"Users, Policies, Process"
+C.Incident.Training,,,PCI-DSS,frequency [PCI based on TRA],,,
+[[ C.Logs ]],Logs,,,,,,
+C.Logs.Alert,Log alerting,,PCI-DSS,,"alerts, incidents, actions",Detective,Logs
 C.Logs.Availability,Log availability,"For each system, validate that logs are being monitored. Including:
 - Access to cardholder data
 - Access to the audit logs (read-only)
@@ -125,81 +125,81 @@ C.Logs.Availability,Log availability,"For each system, validate that logs are be
 - Actions that change user credentials
 - Changes to audit log acquisition (starting, stopping/pausing)
 - Changes to OS configuration
-- Network logs",,,Detective,"Network, Backups, Cloud environment, Compute, Databases, Endpoint devices, File storage, Object storage, Secrets and certificates, Self-developed services, Software repositories, Logs, Users"
-C.Logs.Integrity,Against modifications,,,,Preventive,Logs
+- Network logs",PCI-DSS,,,Detective,"Network, Backups, Cloud environment, Compute, Databases, Endpoint devices, File storage, Object storage, Secrets and certificates, Self-developed services, Software repositories, Logs, Users"
+C.Logs.Integrity,Against modifications,,,,,Preventive,Logs
 C.Logs.Monitor,Log Monitoring,"Recording for each event:
 - User identification.
 - Type of event.
 - Date and time.
 - Success and failure indication.
 - Origination of event.
-- Identity or name of affected data, system component, resource, or service",,"- Identify sources of logs and evaluate they are being gathered
+- Identity or name of affected data, system component, resource, or service",PCI-DSS,,"- Identify sources of logs and evaluate they are being gathered
 - Including audit logs",Detective,"Network, Cloud environment, Compute, Databases, Endpoint devices, File storage, Object storage, Secrets and certificates, Self-developed services, Software repositories, Logs, Users"
-C.Logs.ReadOnly,Read only permissions for the log files,,,,Preventive,Logs
-C.Logs.Retention,How long the logs are easily accessible (excluding backups),,period [PCI >= 12 months],,Preventive,Logs
-[[ C.Mail ]],E-Mail,,,,,
-C.Mail.DKIM,E-Mail DKIM,,,,Preventive,Network
-C.Mail.DMARC,E-Mail DMARC,,,,Preventive,Network
-C.Mail.SPF,E-Mail SPF,,,,Preventive,Network
-[[ C.Network ]],Network,,,,,
-C.Network.AntiSpoofing,,,,,Preventive,Network
-C.Network.DenyByDefault,Network: Deny by default,"Based on network inventory, identify the egress points and confirm that the default rule in the firewalls is to deny all traffic",,,Preventive,Network
-C.Network.ExternalPENTesting,PEN Testing,- External reports covering CDE perimeter,frequency [PCI <= 3 months],,Detective,"Self-developed services, Cloud environment, Network, Outsourced controls"
-C.Network.InternalPENTesting,PEN Testing,- External reports covering internal and to verify segmentation,frequency [PCI <= 3 months],,Detective,"Self-developed services, Cloud environment, Network, Outsourced controls"
+C.Logs.ReadOnly,Read only permissions for the log files,,,,,Preventive,Logs
+C.Logs.Retention,How long the logs are easily accessible (excluding backups),,PCI-DSS,period [PCI >= 12 months],,Preventive,Logs
+[[ C.Mail ]],E-Mail,,,,,,
+C.Mail.DKIM,E-Mail DKIM,,,,,Preventive,Network
+C.Mail.DMARC,E-Mail DMARC,,,,,Preventive,Network
+C.Mail.SPF,E-Mail SPF,,,,,Preventive,Network
+[[ C.Network ]],Network,,,,,,
+C.Network.AntiSpoofing,,,PCI-DSS,,,Preventive,Network
+C.Network.DenyByDefault,Network: Deny by default,"Based on network inventory, identify the egress points and confirm that the default rule in the firewalls is to deny all traffic",PCI-DSS,,,Preventive,Network
+C.Network.ExternalPENTesting,PEN Testing,- External reports covering CDE perimeter,PCI-DSS,frequency [PCI <= 3 months],,Detective,"Self-developed services, Cloud environment, Network, Outsourced controls"
+C.Network.InternalPENTesting,PEN Testing,- External reports covering internal and to verify segmentation,PCI-DSS,frequency [PCI <= 3 months],,Detective,"Self-developed services, Cloud environment, Network, Outsourced controls"
 C.Network.IntrusionDetectionPrevention,IDS/IPS,"Ideally:
 - Network, including IDS/IPS outsourced to cloud provider
 Alternative:
 - check logs are monitored for the relevant networks
-- tickets are actioned",,,Preventive,"Outsourced controls, Logs, Network"
-C.Network.ProtectPrivateAddresses,Only disclose public IPs in Public DNS records,DNS setup pointing to public services only,,,Preventive,Network
+- tickets are actioned",PCI-DSS,,,Preventive,"Outsourced controls, Logs, Network"
+C.Network.ProtectPrivateAddresses,Only disclose public IPs in Public DNS records,DNS setup pointing to public services only,PCI-DSS,,,Preventive,Network
 C.Network.SecureServices,Allow only secure services,"- Allow 443 only
-- Exceptions require confirmation it is a secure service",,,Preventive,Network
+- Exceptions require confirmation it is a secure service",PCI-DSS,,,Preventive,Network
 C.Network.SegmentationPCI,"Non-PCI resources shouldn't access directly PCI resources, but use the internet","Segmentation testing: PCI vs non-PCI
 Network scans on a schedule, testiing for access from non-pci resources to pci resources
-Alternatively: use the Cloud Network Inventory to analyse network routes",,,Preventive,Network
+Alternatively: use the Cloud Network Inventory to analyse network routes",PCI-DSS,,,Preventive,Network
 C.Network.SegmentationPrivate,Private resources aren't exposed publicly,"Segmentation testing: public vs private
 Network scans on a schedule, testiing for private resources publicly exposed
-Alternatively: use the service inventory, to identify private resources publicly exposed",,,Preventive,"Network, Self-developed services"
-C.Network.SegmentationSecurityLevel,Services with different security levels/controls are separate,,,,Preventive,Network
-C.Network.StatefulFirewall,,,,,Preventive,Network
-C.Network.UntrustedOffice,Untrusted office network,"No special connections or ports, no configuration on the network hardward apart from the minimal required to give internet access",,"- Inventory of physical network equipment
+Alternatively: use the service inventory, to identify private resources publicly exposed",,,,Preventive,"Network, Self-developed services"
+C.Network.SegmentationSecurityLevel,Services with different security levels/controls are separate,,,,,Preventive,Network
+C.Network.StatefulFirewall,,,,,,Preventive,Network
+C.Network.UntrustedOffice,Untrusted office network,"No special connections or ports, no configuration on the network hardward apart from the minimal required to give internet access",,,"- Inventory of physical network equipment
 - TEST: No office routes in the cloud setup",Preventive,Network
-C.Network.VPN,VPN access for non-public services,Don't expose to the internet services that are supposed to be internal only,,"TEST: use the service inventory, to identify private resources publicly exposed",Detective,"Network, Self-developed services"
-C.Network.WAF,Web Application Firewall,,,,Preventive,Network
-C.Network.WirelessMonitoring,Regular monitoring of the wireless access points,Presence of APs,frequency [PCI quarterly],,Preventive,Network
-[[ C.PCI ]],PCI,,,,,
-C.PCI.6Eyes,PCI: 6 eyes principle,"Changes are either approved by management or approved by another developer, distinct from implementer and reviewer",,"Change:
+C.Network.VPN,VPN access for non-public services,Don't expose to the internet services that are supposed to be internal only,,,"TEST: use the service inventory, to identify private resources publicly exposed",Detective,"Network, Self-developed services"
+C.Network.WAF,Web Application Firewall,,PCI-DSS,,,Preventive,Network
+C.Network.WirelessMonitoring,Regular monitoring of the wireless access points,Presence of APs,,frequency [PCI quarterly],,Preventive,Network
+[[ C.PCI ]],PCI,,,,,,
+C.PCI.6Eyes,PCI: 6 eyes principle,"Changes are either approved by management or approved by another developer, distinct from implementer and reviewer",PCI-DSS,,"Change:
   Field: Approvals",Preventive,Changes
 C.PCI.ChangeAndTamperMonitoring,PCI: Payment page: change-and-tamper monitoring,"- check logs are monitored for the payment pages
-- tickets are actioned",,,Detective,"Logs, Payment pages"
-C.PCI.CopyAndPasteRestrictions,,,,,Preventive,PCI Sensitive
+- tickets are actioned",PCI-DSS,,,Detective,"Logs, Payment pages"
+C.PCI.CopyAndPasteRestrictions,,,PCI-DSS,,,Preventive,PCI Sensitive
 C.PCI.DataEncryption,PCI: SAD and PAN encryption,"- Store it using strong cryptography and keyed cryptographic hashes
 - Different encryption keys for SAD and PAN
 - Check schema, to validate encryption
 - sample records to verify implementation
 - stored separately from key-encryption keys
 - Transmited with strong cryptography
-- Certificates are validated before encrypting/decrypting",,,Preventive,"PCI Sensitive, Databases, File storage, Object storage"
+- Certificates are validated before encrypting/decrypting",PCI-DSS,,,Preventive,"PCI Sensitive, Databases, File storage, Object storage"
 C.PCI.KeyEncryption,PCI: Encryption of keys used to encrypt data,"- At least as strong encryption as the data encryption keys
-- Stored separately from data-encryption keys, in Hardware Security Module (HSM) or PIN Transaction Security (PTS) device",,,Preventive,PCI Sensitive
+- Stored separately from data-encryption keys, in Hardware Security Module (HSM) or PIN Transaction Security (PTS) device",,,,Preventive,PCI Sensitive
 C.PCI.Masking,PCI: PAN Masked when displayed,"default: last 4 digits, max: BIN + last 4 digits
-Check web portal, logs",,,Preventive,"PCI Sensitive, Logs"
-C.PCI.Minimisation,"Keys, SAD & PAN stored in minimal number of places",,,,Preventive,"PCI Sensitive, Secrets and certificates"
-C.PCI.POSInspection,POS inspection,"Regularly inspecting them, looking for signals of tampering. Frequency based on TRA",,,Detective,POS Devices
-C.PCI.RestrictedAccess,Minimal access required for users to do their jobs,,,,Preventive,PCI Sensitive
-C.PCI.TemporalStorageDeletion,PCI: SAD deletion after authorisation,,,"Temporal SAD store:
+Check web portal, logs",PCI-DSS,,,Preventive,"PCI Sensitive, Logs"
+C.PCI.Minimisation,"Keys, SAD & PAN stored in minimal number of places",,PCI-DSS,,,Preventive,"PCI Sensitive, Secrets and certificates"
+C.PCI.POSInspection,POS inspection,"Regularly inspecting them, looking for signals of tampering. Frequency based on TRA",PCI-DSS,,,Detective,POS Devices
+C.PCI.RestrictedAccess,Minimal access required for users to do their jobs,,PCI-DSS,,,Preventive,PCI Sensitive
+C.PCI.TemporalStorageDeletion,PCI: SAD deletion after authorisation,,PCI-DSS,,"Temporal SAD store:
   Field: age of SAD data",Preventive,PCI Sensitive
-[[ C.SecureCoding ]],Secure Coding Training,,,,,
-C.SecureCoding.ChangeAcceptanceCriteria,The acceptance criteria is well defined,,,,Detective,"Software repositories, Changes"
-C.SecureCoding.ChangeApprovals,Approvals are registered,,,,Preventive,"Software repositories, Changes"
-C.SecureCoding.ChangeDescription,Changes have an appropriate description,,,,Detective,"Software repositories, Changes"
-C.SecureCoding.ChangeTesting,,,,,Preventive,"Software repositories, Changes"
-C.SecureCoding.Training,upon hire and regularly,,frequency [PCI yearly],,Preventive,Users
-C.SecureCoding.RiskAssessment,,,,,Preventive,Self-developed services
-C.SecureCoding.Rollback,Rollback of changes,,,,Corrective,Self-developed services
-C.SecureCoding.VulnerabilityFixes,Vulnerability fixing per policy,metrics for SLA breach,,,Preventive,"Self-developed services, Software repositories, Outsourced controls"
-C.SecureCoding.VulnerabilityIdentification,"Scanning plus categorisation, including authenticated scans",,,,Detective,"Self-developed services, Software repositories, Outsourced controls"
-[[ C.ThirdParty ]],Third Party,,,,,
-C.ThirdParty.DDPriorToEngagement,Due diligence prior to engagement,Prior to start a business relationship,,,Preventive,Third-Parties
+[[ C.SecureCoding ]],Secure Coding Training,,,,,,
+C.SecureCoding.ChangeAcceptanceCriteria,The acceptance criteria is well defined,,,,,Detective,"Software repositories, Changes"
+C.SecureCoding.ChangeApprovals,Approvals are registered,,,,,Preventive,"Software repositories, Changes"
+C.SecureCoding.ChangeDescription,Changes have an appropriate description,,,,,Detective,"Software repositories, Changes"
+C.SecureCoding.ChangeTesting,,,,,,Preventive,"Software repositories, Changes"
+C.SecureCoding.Training,upon hire and regularly,,PCI-DSS,frequency [PCI yearly],,Preventive,Users
+C.SecureCoding.RiskAssessment,,,,,,Preventive,Self-developed services
+C.SecureCoding.Rollback,Rollback of changes,,,,,Corrective,Self-developed services
+C.SecureCoding.VulnerabilityFixes,Vulnerability fixing per policy,metrics for SLA breach,PCI-DSS,,,Preventive,"Self-developed services, Software repositories, Outsourced controls"
+C.SecureCoding.VulnerabilityIdentification,"Scanning plus categorisation, including authenticated scans",,PCI-DSS,,,Detective,"Self-developed services, Software repositories, Outsourced controls"
+[[ C.ThirdParty ]],Third Party,,,,,,
+C.ThirdParty.DDPriorToEngagement,Due diligence prior to engagement,Prior to start a business relationship,PCI-DSS,,,Preventive,Third-Parties
 C.ThirdParty.Monitoring,Third Party Monitoring,"On a regular basis (yearly, bi-yearly, ...)
-Including: contract + updates",,,Preventive,Third-Parties
+Including: contract + updates",PCI-DSS,,,Preventive,Third-Parties

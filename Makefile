@@ -25,7 +25,7 @@ HAS_IMAGEMAGICK := $(shell command -v convert 2> /dev/null)
 
 .PHONY: help build serve clean deploy check-hugo check-imagemagick check-images
 .PHONY: build-drafts serve-drafts clean-build deploy-auto stats
-.PHONY: data-sync data-convert data-generate-assets data-generate-governance data-pipeline
+.PHONY: data-sync data-convert data-generate-assets data-generate-governance data-generate-controls data-pipeline
 
 # Default target
 .DEFAULT_GOAL := build
@@ -183,7 +183,12 @@ data-generate-governance:  ## Generate Hugo governance content from governance.y
 	@$(PYTHON) scripts/generate-governance-pages.py
 	@echo -e "$(GREEN)[SUCCESS]$(NC) Governance content generated"
 
-data-pipeline: data-sync data-convert data-generate-assets data-generate-governance  ## Run complete data pipeline (sync -> convert -> generate)
+data-generate-controls:  ## Generate Hugo control content from controls.yml
+	@echo -e "$(BLUE)[INFO]$(NC) Generating control content from YAML data..."
+	@$(PYTHON) scripts/generate-control-pages.py
+	@echo -e "$(GREEN)[SUCCESS]$(NC) Control content generated"
+
+data-pipeline: data-sync data-convert data-generate-assets data-generate-governance data-generate-controls  ## Run complete data pipeline (sync -> convert -> generate)
 
 ## Python Testing Commands
 

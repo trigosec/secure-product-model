@@ -1,13 +1,12 @@
 controls:
-- id: '[[ C.Account ]]'
-  name: Accounts [user, service]
-  slug: accounts-[user-service]
 - id: C.Account.InactiveDisableDelete
   name: Inactive accounts disabled/removed
   slug: inactive-accounts-disabled-removed
   parameters: period [PCI 90 days]
   control_type: Preventive
   tested_on_asset_inventory: Users, Customer
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Account.Individual
   name: Group or Shared accounts are either deleted or disabled System/service accounts
     can't be used by users
@@ -16,6 +15,8 @@ controls:
     used for anything else
   control_type: Preventive
   tested_on_asset_inventory: Self-developed services, Third-Parties
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Account.ElevatedAccess
   name: Elevated access
   slug: elevated-access
@@ -35,6 +36,8 @@ controls:
     approvals - Access to view full PAN - Access to CHD'
   control_type: Preventive
   tested_on_asset_inventory: RBAC
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Account.Lockout
   name: Account lockout
   slug: account-lockout
@@ -45,18 +48,24 @@ controls:
     Causes'
   control_type: Corrective
   tested_on_asset_inventory: Users, Customer
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Account.NoDefaults
   name: Default accounts are deleted or disabled No default permissions (deny all)
   slug: default-accounts-are-deleted-or-disabled-no-default-permissions-deny-all
   details: typically for third party software
   control_type: Preventive
   tested_on_asset_inventory: Self-developed services, Third-Parties
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Account.Revoke
   name: Revoke accounts on termination
   slug: revoke-accounts-on-termination
   details: Access for terminated users immediately revoked
   control_type: Preventive
   tested_on_asset_inventory: Users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Account.SeparationOfDuties
   name: Separation of duties
   slug: separation-of-duties
@@ -68,15 +77,16 @@ controls:
   parameters: timeout [PCI <= 15min]
   control_type: Preventive
   tested_on_asset_inventory: Endpoint devices, Self-developed services
-- id: '[[ C.Auth ]]'
-  name: Multi-Factor Authentication
-  slug: multi-factor-authentication
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Auth.Enforced
   name: authentication can't be bypassed and with at least 2 factors being enforced
     for users
   slug: authentication-can't-be-bypassed-and-with-at-least-2-factors-being-enforced-for-users
   control_type: Preventive
   tested_on_asset_inventory: Self-developed services, Third-Parties
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Auth.NoReplay
   name: protection against replay attacks
   slug: protection-against-replay-attacks
@@ -88,6 +98,8 @@ controls:
   slug: user-identity-is-verified-before-modifying-authentication-factors
   control_type: Preventive
   tested_on_asset_inventory: Users, Customer
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Auth.KeyChange
   name: Change of encryption keys
   slug: change-of-encryption-keys
@@ -98,11 +110,15 @@ controls:
   slug: password-complexity:->=-12-characters-numbers-symbols
   control_type: Preventive
   tested_on_asset_inventory: Users, Customer
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Auth.PasswordInit
   name: First account password is generated automatically, and changed on first login
   slug: first-account-password-is-generated-automatically-and-changed-on-first-login
   control_type: Preventive
   tested_on_asset_inventory: Users, Customer, Process
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Auth.PasswordChange
   name: Password is regularly changed and using old ones is avoided
   slug: password-is-regularly-changed-and-using-old-ones-is-avoided
@@ -110,15 +126,14 @@ controls:
   inventory: 'User: Field: password age'
   control_type: Preventive
   tested_on_asset_inventory: Users, Customer
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Auth.NoShare
   name: Passwords, security tokens, smart cards, certificates, ... are not shared
     among users
   slug: passwords-security-tokens-smart-cards-certificates-...-are-not-shared-among-users
   control_type: Preventive
   tested_on_asset_inventory: Users, Customer
-- id: '[[ C.Availability ]]'
-  name: Availability
-  slug: availability
 - id: C.Availability.MultiAZ
   name: Multi-AZ
   slug: multi-az
@@ -136,23 +151,21 @@ controls:
     yearly)'
   control_type: Preventive
   tested_on_asset_inventory: Databases, Network, File storage, Self-developed services
-- id: '[[ C.Awareness ]]'
-  name: Awareness
-  slug: awareness
 - id: C.Awareness.EmployeeTraining
   name: Upon hire and refresher
   slug: upon-hire-and-refresher
   parameters: frequency [PCI yearly]
   control_type: Preventive
   tested_on_asset_inventory: Users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Awareness.CustomerGuidance
   name: ''
   slug: c.awareness.customerguidance
   control_type: Preventive
   tested_on_asset_inventory: Customer
-- id: '[[ C.Backup ]]'
-  name: Backups
-  slug: backups
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Backup.Encryption
   name: Backup encryption
   slug: backup-encryption
@@ -194,15 +207,16 @@ controls:
   details: Backup data classification based on data stored
   control_type: Preventive
   tested_on_asset_inventory: Backups
-- id: '[[ C.Code ]]'
-  name: Code
-  slug: code
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Code.IaC
   name: Infrastructure as Code
   slug: infrastructure-as-code
   details: Infrastructure change management part of standard software change management
   control_type: Detective
   tested_on_asset_inventory: Changes, Software repositories
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Code.NoHardcodedSecrets
   name: No hardcoded secrets in code, CI/CD pipelines
   slug: no-hardcoded-secrets-in-code-ci-cd-pipelines
@@ -211,6 +225,8 @@ controls:
   inventory: 'Third-party reports: Metrics for secrets in code'
   control_type: Preventive
   tested_on_asset_inventory: Software repositories, Outsourced controls
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Code.SBOM
   name: Software Bill of Materials
   slug: software-bill-of-materials
@@ -223,9 +239,8 @@ controls:
   details: Validating every change is reviewed by another developer
   control_type: Preventive
   tested_on_asset_inventory: Software repositories, Changes
-- id: '[[ C.Data ]]'
-  name: Data
-  slug: data
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Data.Disposal
   name: Monitored disposal
   slug: monitored-disposal
@@ -238,6 +253,8 @@ controls:
   slug: ie:-per-customer
   control_type: Preventive
   tested_on_asset_inventory: Object storage, Databases, File storage, Backups, Customer
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Data.Minimisation
   name: Store only the required data, no more
   slug: store-only-the-required-data-no-more
@@ -249,11 +266,15 @@ controls:
   details: 'Alternative: Anonymised prod data in test'
   control_type: Preventive
   tested_on_asset_inventory: Policies
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Data.NoTestInProd
   name: No test data in prod
   slug: no-test-data-in-prod
   control_type: Preventive
   tested_on_asset_inventory: Policies
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Data.Retention
   name: Monitored rentention
   slug: monitored-rentention
@@ -261,9 +282,6 @@ controls:
     database record, ...'
   control_type: Preventive
   tested_on_asset_inventory: Object storage, Databases, File storage, Backups
-- id: '[[ C.Encryption ]]'
-  name: Encryption
-  slug: encryption
 - id: C.Encryption.Certificates
   name: Certificate management
   slug: certificate-management
@@ -298,9 +316,8 @@ controls:
   control_type: Preventive
   tested_on_asset_inventory: Secrets and certificates, Users, Customer, File storage,
     Network, PCI Sensitive
-- id: '[[ C.Endpoint ]]'
-  name: Endpoint
-  slug: endpoint
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Endpoint.AntiMalware
   name: Anti-malware
   slug: anti-malware
@@ -308,11 +325,15 @@ controls:
   parameters: frequency scans [PCI based on targeted risk analysis]
   control_type: Preventive
   tested_on_asset_inventory: Endpoint devices, Outsourced controls
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Endpoint.AntiPhishing
   name: Anti-phishing
   slug: anti-phishing
   control_type: Preventive
   tested_on_asset_inventory: Outsourced controls
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Endpoint.Antivirus
   name: Antivirus
   slug: antivirus
@@ -326,6 +347,8 @@ controls:
 - id: C.Endpoint.EnforcedSecurity
   name: Security measures can't be disabled by end users
   slug: security-measures-can't-be-disabled-by-end-users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Endpoint.SecurityThreshold
   name: Block devices with low score
   slug: block-devices-with-low-score
@@ -338,19 +361,20 @@ controls:
   slug: forbid-exports-to-physical-media
   control_type: Preventive
   tested_on_asset_inventory: Process, Policies
-- id: '[[ C.Facility ]]'
-  name: Facilities
-  slug: facilities
 - id: C.Facility.AccessForUsers
   name: Access is controlled and authorised
   slug: access-is-controlled-and-authorised
   control_type: Preventive
   tested_on_asset_inventory: Facilities, Users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Facility.AccessToResources
   name: Connecting to the network, console access, ...
   slug: connecting-to-the-network-console-access-...
   control_type: Preventive
   tested_on_asset_inventory: Facilities, Network, Compute
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Facility.Surveillance
   name: through video cameras, ...
   slug: through-video-cameras-...
@@ -362,9 +386,8 @@ controls:
   details: including authorised approvals
   control_type: Preventive
   tested_on_asset_inventory: Facilities, Physical media
-- id: '[[ C.Host ]]'
-  name: Host
-  slug: host
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Host.Disposal
   name: Monitored disposal
   slug: monitored-disposal
@@ -378,15 +401,16 @@ controls:
   details: Only for stateful setups, including time configuration
   control_type: Detective
   tested_on_asset_inventory: Compute
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Host.TimeSync
   name: Time-Synchronization for System clocks
   slug: time-synchronization-for-system-clocks
   details: '- Based on UTC - External trusted source - Internal single source'
   control_type: Preventive
   tested_on_asset_inventory: Compute
-- id: '[[ C.Ident ]]'
-  name: Identity
-  slug: identity
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Ident.OnboardingChecks
   name: Onboarding checks
   slug: onboarding-checks
@@ -406,9 +430,8 @@ controls:
   slug: user-accounts-uniquely-identified-based-on-uuid-email-...
   control_type: Preventive
   tested_on_asset_inventory: Users, Customer
-- id: '[[ C.Incident ]]'
-  name: Incident management
-  slug: incident-management
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Incident.Response
   name: 24x7
   slug: 24x7
@@ -417,6 +440,8 @@ controls:
     devices, Facilities, File storage, Logs, Network, Object storage, Payment pages,
     PCI Sensitive, POS Devices, Secrets and certificates, Self-developed services,
     Software repositories, Third-Parties, Users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Incident.Testing
   name: Incident response testing
   slug: incident-response-testing
@@ -427,15 +452,16 @@ controls:
   name: ''
   slug: c.incident.training
   parameters: frequency [PCI based on TRA]
-- id: '[[ C.Logs ]]'
-  name: Logs
-  slug: logs
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Logs.Alert
   name: Log alerting
   slug: log-alerting
   inventory: alerts, incidents, actions
   control_type: Detective
   tested_on_asset_inventory: Logs
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Logs.Availability
   name: Log availability
   slug: log-availability
@@ -448,6 +474,8 @@ controls:
   tested_on_asset_inventory: Network, Backups, Cloud environment, Compute, Databases,
     Endpoint devices, File storage, Object storage, Secrets and certificates, Self-developed
     services, Software repositories, Logs, Users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Logs.Integrity
   name: Against modifications
   slug: against-modifications
@@ -465,6 +493,8 @@ controls:
   tested_on_asset_inventory: Network, Cloud environment, Compute, Databases, Endpoint
     devices, File storage, Object storage, Secrets and certificates, Self-developed
     services, Software repositories, Logs, Users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Logs.ReadOnly
   name: Read only permissions for the log files
   slug: read-only-permissions-for-the-log-files
@@ -476,9 +506,8 @@ controls:
   parameters: period [PCI >= 12 months]
   control_type: Preventive
   tested_on_asset_inventory: Logs
-- id: '[[ C.Mail ]]'
-  name: E-Mail
-  slug: e-mail
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Mail.DKIM
   name: E-Mail DKIM
   slug: e-mail-dkim
@@ -494,14 +523,13 @@ controls:
   slug: e-mail-spf
   control_type: Preventive
   tested_on_asset_inventory: Network
-- id: '[[ C.Network ]]'
-  name: Network
-  slug: network
 - id: C.Network.AntiSpoofing
   name: ''
   slug: c.network.antispoofing
   control_type: Preventive
   tested_on_asset_inventory: Network
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.DenyByDefault
   name: 'Network: Deny by default'
   slug: network:-deny-by-default
@@ -509,6 +537,8 @@ controls:
     the default rule in the firewalls is to deny all traffic
   control_type: Preventive
   tested_on_asset_inventory: Network
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.ExternalPENTesting
   name: PEN Testing
   slug: pen-testing
@@ -517,6 +547,8 @@ controls:
   control_type: Detective
   tested_on_asset_inventory: Self-developed services, Cloud environment, Network,
     Outsourced controls
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.InternalPENTesting
   name: PEN Testing
   slug: pen-testing
@@ -525,6 +557,8 @@ controls:
   control_type: Detective
   tested_on_asset_inventory: Self-developed services, Cloud environment, Network,
     Outsourced controls
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.IntrusionDetectionPrevention
   name: IDS/IPS
   slug: ids-ips
@@ -532,18 +566,24 @@ controls:
     - check logs are monitored for the relevant networks - tickets are actioned'
   control_type: Preventive
   tested_on_asset_inventory: Outsourced controls, Logs, Network
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.ProtectPrivateAddresses
   name: Only disclose public IPs in Public DNS records
   slug: only-disclose-public-ips-in-public-dns-records
   details: DNS setup pointing to public services only
   control_type: Preventive
   tested_on_asset_inventory: Network
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.SecureServices
   name: Allow only secure services
   slug: allow-only-secure-services
   details: '- Allow 443 only - Exceptions require confirmation it is a secure service'
   control_type: Preventive
   tested_on_asset_inventory: Network
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.SegmentationPCI
   name: Non-PCI resources shouldn't access directly PCI resources, but use the internet
   slug: non-pci-resources-shouldn't-access-directly-pci-resources-but-use-the-internet
@@ -552,6 +592,8 @@ controls:
     Network Inventory to analyse network routes'
   control_type: Preventive
   tested_on_asset_inventory: Network
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.SegmentationPrivate
   name: Private resources aren't exposed publicly
   slug: private-resources-aren't-exposed-publicly
@@ -593,6 +635,8 @@ controls:
   slug: web-application-firewall
   control_type: Preventive
   tested_on_asset_inventory: Network
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.Network.WirelessMonitoring
   name: Regular monitoring of the wireless access points
   slug: regular-monitoring-of-the-wireless-access-points
@@ -600,9 +644,6 @@ controls:
   parameters: frequency [PCI quarterly]
   control_type: Preventive
   tested_on_asset_inventory: Network
-- id: '[[ C.PCI ]]'
-  name: PCI
-  slug: pci
 - id: C.PCI.6Eyes
   name: 'PCI: 6 eyes principle'
   slug: pci:-6-eyes-principle
@@ -611,17 +652,23 @@ controls:
   inventory: 'Change: Field: Approvals'
   control_type: Preventive
   tested_on_asset_inventory: Changes
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.ChangeAndTamperMonitoring
   name: 'PCI: Payment page: change-and-tamper monitoring'
   slug: pci:-payment-page:-change-and-tamper-monitoring
   details: '- check logs are monitored for the payment pages - tickets are actioned'
   control_type: Detective
   tested_on_asset_inventory: Logs, Payment pages
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.CopyAndPasteRestrictions
   name: ''
   slug: c.pci.copyandpasterestrictions
   control_type: Preventive
   tested_on_asset_inventory: PCI Sensitive
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.DataEncryption
   name: 'PCI: SAD and PAN encryption'
   slug: pci:-sad-and-pan-encryption
@@ -632,6 +679,8 @@ controls:
     encrypting/decrypting'
   control_type: Preventive
   tested_on_asset_inventory: PCI Sensitive, Databases, File storage, Object storage
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.KeyEncryption
   name: 'PCI: Encryption of keys used to encrypt data'
   slug: pci:-encryption-of-keys-used-to-encrypt-data
@@ -646,11 +695,15 @@ controls:
   details: 'default: last 4 digits, max: BIN + last 4 digits Check web portal, logs'
   control_type: Preventive
   tested_on_asset_inventory: PCI Sensitive, Logs
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.Minimisation
   name: Keys, SAD & PAN stored in minimal number of places
   slug: keys-sad-&-pan-stored-in-minimal-number-of-places
   control_type: Preventive
   tested_on_asset_inventory: PCI Sensitive, Secrets and certificates
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.POSInspection
   name: POS inspection
   slug: pos-inspection
@@ -658,20 +711,23 @@ controls:
     based on TRA
   control_type: Detective
   tested_on_asset_inventory: POS Devices
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.RestrictedAccess
   name: Minimal access required for users to do their jobs
   slug: minimal-access-required-for-users-to-do-their-jobs
   control_type: Preventive
   tested_on_asset_inventory: PCI Sensitive
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.PCI.TemporalStorageDeletion
   name: 'PCI: SAD deletion after authorisation'
   slug: pci:-sad-deletion-after-authorisation
   inventory: 'Temporal SAD store: Field: age of SAD data'
   control_type: Preventive
   tested_on_asset_inventory: PCI Sensitive
-- id: '[[ C.SecureCoding ]]'
-  name: Secure Coding Training
-  slug: secure-coding-training
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.SecureCoding.ChangeAcceptanceCriteria
   name: The acceptance criteria is well defined
   slug: the-acceptance-criteria-is-well-defined
@@ -698,6 +754,8 @@ controls:
   parameters: frequency [PCI yearly]
   control_type: Preventive
   tested_on_asset_inventory: Users
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.SecureCoding.RiskAssessment
   name: ''
   slug: c.securecoding.riskassessment
@@ -715,30 +773,35 @@ controls:
   control_type: Preventive
   tested_on_asset_inventory: Self-developed services, Software repositories, Outsourced
     controls
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.SecureCoding.VulnerabilityIdentification
   name: Scanning plus categorisation, including authenticated scans
   slug: scanning-plus-categorisation-including-authenticated-scans
   control_type: Detective
   tested_on_asset_inventory: Self-developed services, Software repositories, Outsourced
     controls
-- id: '[[ C.ThirdParty ]]'
-  name: Third Party
-  slug: third-party
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.ThirdParty.DDPriorToEngagement
   name: Due diligence prior to engagement
   slug: due-diligence-prior-to-engagement
   details: Prior to start a business relationship
   control_type: Preventive
   tested_on_asset_inventory: Third-Parties
+  compliance_frameworks:
+  - PCI-DSS
 - id: C.ThirdParty.Monitoring
   name: Third Party Monitoring
   slug: third-party-monitoring
   details: 'On a regular basis (yearly, bi-yearly, ...) Including: contract + updates'
   control_type: Preventive
   tested_on_asset_inventory: Third-Parties
+  compliance_frameworks:
+  - PCI-DSS
 meta:
   title: Secure Product Model Controls
   description: Security controls and measures for the product framework
-  count: 127
+  count: 108
   source: Control Framework - Controls.csv
   generated_by: csv2yaml.py

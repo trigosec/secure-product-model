@@ -1,0 +1,109 @@
+---
+title: "{{ category_display }}"
+description: "{{ category_description }}"
+date: 2024-01-01
+draft: false
+weight: 10
+---
+
+{% raw %}{{< rawhtml >}}{% endraw %}
+<style>
+{{ css_content }}
+</style>
+
+<div class="governance-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">
+                {{ category_icon }}
+            </div>
+            <h1 class="hero-title">{{ category_display }}</h1>
+            <p class="hero-subtitle">{{ category_description }}</p>
+            <p class="hero-description">
+                Explore {{ item_count }} governance items in this category. Each item provides specific guidance
+                for implementing {{ category_display.lower() }} within your security program.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="governance-grid-section">
+    <div class="container">
+        <h2 class="section-title">{{ category_display }} Items</h2>
+        <p class="section-subtitle">{{ item_count }} governance items to strengthen your security framework</p>
+
+        <div class="governance-grid" id="governanceGrid">
+            {% for item in items %}
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-{{ category }}">
+                        <div class="category-icon">
+                            {{ category_icon }}
+                        </div>
+                        <span class="category-name">{{ category_display }}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/{{ category }}/{{ item.slug }}/">{{ item.title or item.name }}</a>
+                    </h3>
+                    {% if item.description %}
+                    <p class="card-description">{{ item.description[:150] }}{% if item.description|length > 150 %}...{% endif %}</p>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/{{ category }}/{{ item.slug }}/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="governance-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">{{ category_icon }}</div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">{{ item_count }}</h3>
+                        <p class="stat-label">{{ category_display }} Items</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">{{ governance_icon }}</div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">{{ total_governance_count }}</h3>
+                        <p class="stat-label">Total Governance</p>
+                        <a href="/governance/" class="stat-link">View all →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="governance-footer-section">
+    <div class="container">
+        <div class="footer-content">
+            <h2>Ready to implement {{ category_display.lower() }}?</h2>
+            <p>These {{ item_count }} {{ category_display.lower() }} items provide comprehensive guidance for building a robust security program that meets compliance requirements and protects your organization.</p>
+            <div class="footer-stats">
+                <div class="footer-stat">
+                    <strong>{{ item_count }}</strong>
+                    <span>{{ category_display }} Items</span>
+                </div>
+                <div class="footer-stat">
+                    <strong>{{ total_governance_count }}</strong>
+                    <span>Total Governance</span>
+                </div>
+                <div class="footer-stat">
+                    <strong>100%</strong>
+                    <span>Framework Coverage</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{{ js_content }}
+</script>
+{% raw %}{{< /rawhtml >}}{% endraw %}

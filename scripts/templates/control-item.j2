@@ -1,0 +1,111 @@
+---
+title: "{{ item.name or item.title }}"
+description: "{{ item.details[:150] }}{% if item.details and item.details|length > 150 %}...{% endif %}"
+date: 2024-01-01
+draft: false
+control_id: "{{ item.id }}"
+control_category: "{{ item.category }}"
+---
+
+{% raw %}{{< rawhtml >}}{% endraw %}
+<style>
+{{ css_content }}
+</style>
+
+<div class="control-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">
+                {{ category_icon }}
+            </div>
+            <h1 class="hero-title">{{ item.name or item.title }}</h1>
+            <nav class="breadcrumb">
+                <a href="/controls/" class="breadcrumb-link">Controls</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="/controls/{{ item.category }}/" class="breadcrumb-link">{{ item.category_display }}</a>
+            </nav>
+            {% if item.details %}
+            <p class="hero-description">{{ item.details }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="control-item-content">
+    <div class="container">
+        <div class="content-grid">
+            <main class="main-content">
+                {% if item.details %}
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">📋</span>
+                        Details
+                    </h2>
+                    <div class="section-content">
+                        <p>{{ item.details }}</p>
+                    </div>
+                </section>
+                {% endif %}
+
+                {% if item.parameters %}
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">⚙️</span>
+                        Parameters
+                    </h2>
+                    <div class="section-content">
+                        <p>{{ item.parameters }}</p>
+                    </div>
+                </section>
+                {% endif %}
+
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🚧</span>
+                        Under Construction
+                    </h2>
+                    <div class="section-content">
+                        <div class="construction-notice" style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1rem; border-radius: 0.5rem; color: #856404;">
+                            <p><strong>This page is currently under construction.</strong></p>
+                            <p>We are actively working on expanding the content for this governance item. Updates will be published regularly as we continue to develop and refine the governance framework.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Compliance Frameworks</h3>
+                    {% if item.compliance_frameworks and item.compliance_frameworks|length > 0 %}
+                    <div class="compliance-frameworks">
+                        {% for framework in item.compliance_frameworks %}
+                        <div class="compliance-badge">
+                            <span class="framework-name">{{ framework }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="no-frameworks">
+                        <p style="color: #666; font-style: italic;">No specific compliance frameworks identified</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<div class="control-item-footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                Part of the <strong>Secure Product Model</strong> control framework
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+{{ js_content }}
+</script>
+{% raw %}{{< /rawhtml >}}{% endraw %}

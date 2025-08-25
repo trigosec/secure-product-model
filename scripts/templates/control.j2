@@ -1,0 +1,112 @@
+---
+title: "Controls"
+description: "Security controls and measures for the product framework"
+date: 2024-01-01
+draft: false
+weight: 30
+---
+
+{% raw %}{{< rawhtml >}}{% endraw %}
+<style>
+{{ css_content }}
+</style>
+
+<div class="control-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">
+                {{ controls_icon }}
+            </div>
+            <h1 class="hero-title">Secure Product Model Controls</h1>
+            <p class="hero-subtitle">Security controls and measures for the product framework</p>
+            <p class="hero-description">
+                The operational layer of your security program. These {{ control_count }} security controls
+                provide the specific safeguards, processes, and mechanisms that protect your assets
+                and ensure compliance with security policies and regulatory requirements.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="control-grid-section">
+    <div class="container">
+        <h2 class="section-title">Control Categories</h2>
+        <p class="section-subtitle">Browse all {{ control_count }} security controls organized into {{ category_count }} key categories</p>
+
+        <div class="control-filter">
+            <button class="filter-btn active" data-category="all">All Controls</button>
+            {% for category_name in categories.keys() | sort %}
+            <button class="filter-btn" data-category="{{ category_name }}">{{ categories[category_name][0].category_display if categories[category_name] else category_name.title() }}</button>
+            {% endfor %}
+        </div>
+
+        <div class="control-grid" id="controlGrid">
+            {% for item in control_items %}
+            <div class="control-card" data-category="{{ item.category }}">
+                <div class="card-header">
+                    <div class="category-badge category-{{ item.category }}">
+                        <div class="category-icon">
+                            {{ category_icons[item.category] }}
+                        </div>
+                        <span class="category-name">{{ item.category_display }}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/controls/{{ item.category }}/{{ item.slug }}/">{{ item.name or item.title }}</a>
+                    </h3>
+                    {% if item.details %}
+                    <p class="card-description">{{ item.details[:150] }}{% if item.details|length > 150 %}...{% endif %}</p>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <a href="/controls/{{ item.category }}/{{ item.slug }}/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="control-stats">
+            <div class="stats-grid">
+                {% for category, items in categories.items() %}
+                <div class="stat-card">
+                    <div class="stat-icon">{{ category_icons[category] }}</div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">{{ items|length }}</h3>
+                        <p class="stat-label">{{ items[0].category_display if items else category.title() }}</p>
+                        <a href="/controls/{{ category }}/" class="stat-link">View all →</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="control-footer-section">
+    <div class="container">
+        <div class="footer-content">
+            <h2>Ready to implement security controls?</h2>
+            <p>These security controls provide the specific safeguards and mechanisms to protect your assets and ensure compliance with security policies.</p>
+            <div class="footer-stats">
+                <div class="footer-stat">
+                    <strong>{{ control_count }}</strong>
+                    <span>Security Controls</span>
+</div>
+                <div class="footer-stat">
+                    <strong>{{ category_count }}</strong>
+                    <span>Categories</span>
+                </div>
+                <div class="footer-stat">
+                    <strong>100%</strong>
+                    <span>Framework Coverage</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{{ js_content }}
+</script>
+{% raw %}{{< /rawhtml >}}{% endraw %}

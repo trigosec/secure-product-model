@@ -1,271 +1,766 @@
 ---
-title: "Account Management Controls"
+title: "Account Management"
+description: "Controls related to user account management, access provisioning, and account lifecycle processes."
 date: 2024-01-01
 draft: false
-description: "User lifecycle and privilege management controls that ensure proper account governance in the Secure Product Model"
 weight: 10
 ---
 
-# Account Management Controls (C.Account)
-
-Account management controls govern the entire lifecycle of user accounts, from creation to termination, ensuring proper access management and security throughout the user journey.
-
-## Overview
-
-These controls focus on:
-- **User Lifecycle Management**: Proper onboarding and offboarding processes
-- **Privilege Management**: Least privilege and separation of duties
-- **Account Security**: Protection against unauthorized access
-- **Monitoring and Auditing**: Tracking account activities and changes
-
-## Control Categories
-
-### C.Account.InactiveDisableDelete
-**Inactive accounts disabled/removed**
-
-Inactive user accounts must be disabled or removed within specified timeframes to prevent unauthorized access through dormant accounts.
-
-**Parameters:**
-- Period: PCI DSS requires ≤90 days for inactive accounts
-
-**Implementation:**
-- Automated monitoring of last login dates
-- Regular review cycles for account activity
-- Systematic disable/delete processes
-
-**Applies to:** Users, Customer accounts
-
-**Control Type:** Preventive
-
----
-
-### C.Account.Individual
-**Individual account enforcement**
-
-Group or shared accounts must be deleted or disabled. System/service accounts cannot be used by individual users to ensure accountability and traceability.
-
-**Details:**
-- Only personal accounts should be used for human access
-- Service accounts restricted to automated processes
-- Particularly relevant for third-party integrations where IdP is used
-
-**Implementation:**
-- Account type classification and monitoring
-- Regular audits of shared account usage
-- Identity provider integration for user authentication
-
-**Applies to:** Self-developed services, Third-parties
-
-**Control Type:** Preventive
-
----
-
-### C.Account.ElevatedAccess
-**Elevated access management**
-
-Privileged access must be carefully controlled, monitored, and ideally made temporal to minimize security risks.
-
-**Requirements:**
-- **Temporal Access**: Elevated privileges should be time-limited when possible
-- **Comprehensive Monitoring**: All elevated access activities must be logged
-- **Documentation**: Complete records of who, what, when, why, and how
-
-**Monitoring Requirements:**
-- Who accessed elevated privileges
-- Business reason for access requirement
-- Duration and timing of access
-- Actions performed with elevated privileges
-- Security alerts and incident responses
-
-**Implementation:**
-- Just-in-time (JIT) access systems
-- Privileged access management (PAM) solutions
-- Comprehensive audit logging
-- Real-time security event monitoring
-
-**Applies to:** Network, Cloud environment, Compute, Databases, Endpoint devices, File storage, Object storage, Secrets and certificates, Self-developed services, Software repositories, Logs, Users
-
-**Control Type:** Detective
-
----
-
-### C.Account.LeastPriviledge
-**Least privilege access**
-
-Users must be granted only the minimum access necessary to perform their job functions, based on their role and business needs.
-
-**Implementation Requirements:**
-- Default deny-all configuration
-- Role-based access control (RBAC) implementation
-- Annual RBAC reviews with manager approvals
-- Access to view full Primary Account Numbers (PAN)
-- Access to Cardholder Data (CHD) environments
-
-**Process:**
-1. Define roles based on job functions
-2. Map minimum required permissions to each role
-3. Implement default-deny access policies
-4. Regular review and validation cycles
-5. Manager approval for access changes
-
-**Applies to:** RBAC systems
-
-**Control Type:** Preventive
-
----
-
-### C.Account.Lockout
-**Account lockout mechanisms**
-
-Accounts must be automatically locked after a specified number of failed login attempts to prevent brute force attacks.
-
-**Parameters:**
-- Maximum failed attempts: PCI DSS requires ≤10 attempts
-- Minimum lockout duration: PCI DSS requires ≥30 minutes
-- Account unlock procedures
-
-**Monitoring:**
-- User account status tracking
-- Lockout history and trend analysis
-- Root cause analysis for lockouts
-- IT ticket integration for unlock requests
-
-**Implementation:**
-- Automated lockout mechanisms
-- Centralized authentication systems
-- User notification processes
-- Administrative override procedures
-
-**Applies to:** Users, Customer accounts
-
-**Control Type:** Corrective
-
----
-
-### C.Account.NoDefaults
-**Default account security**
-
-Default accounts must be deleted or disabled, and no default permissions should be granted (deny-all approach).
-
-**Requirements:**
-- Remove or disable all vendor default accounts
-- Change default passwords immediately
-- Implement explicit permission grants only
-- Regular audits of default configurations
-
-**Implementation:**
-- System hardening procedures
-- Configuration management
-- Security baseline enforcement
-- Third-party software security reviews
-
-**Applies to:** Self-developed services, Third-parties
-
-**Control Type:** Preventive
-
----
-
-### C.Account.Revoke
-**Account revocation on termination**
-
-Access for terminated users must be immediately revoked across all systems and applications.
-
-**Process Requirements:**
-- Immediate access revocation upon termination notice
-- Comprehensive system coverage
-- Automated revocation where possible
-- Manual verification for critical systems
-
-**Implementation:**
-- HR system integration with access management
-- Automated provisioning/deprovisioning
-- Termination checklists and workflows
-- Access certification and validation
-
-**Applies to:** User accounts
-
-**Control Type:** Preventive
-
----
-
-### C.Account.SeparationOfDuties
-**Separation of duties**
-
-Critical functions must be distributed across multiple individuals to prevent conflicts of interest and reduce fraud risk.
-
-**Principles:**
-- No single person controls entire critical processes
-- Approval and execution roles separated
-- Financial and operational controls segregated
-- Technical and business role separation
-
-**Implementation:**
-- Role design and segregation analysis
-- Workflow approval mechanisms
-- System access controls
-- Regular SoD conflict reviews
-
-**Applies to:** Changes, RBAC systems
-
-**Control Type:** Preventive
-
----
-
-### C.Account.SessionTimeout
-**Session timeout controls**
-
-User sessions must automatically timeout after a period of inactivity to prevent unauthorized access to unattended systems.
-
-**Parameters:**
-- Timeout duration: PCI DSS requires ≤15 minutes for sensitive systems
-- Warning notifications before timeout
-- Secure session termination
-
-**Implementation:**
-- Application-level timeout controls
-- Network session management
-- User activity monitoring
-- Graceful session termination
-
-**Applies to:** Endpoint devices, Self-developed services
-
-**Control Type:** Preventive
-
-## Implementation Guidance
-
-### Getting Started
-
-1. **Inventory Current Accounts**: Document all user, service, and system accounts
-2. **Assess Current Controls**: Evaluate existing account management processes
-3. **Prioritize by Risk**: Focus on privileged accounts and sensitive systems first
-4. **Implement Systematically**: Deploy controls in phases based on criticality
-
-### Best Practices
-
-- **Automate Where Possible**: Reduce manual processes and human error
-- **Regular Reviews**: Conduct periodic access reviews and certifications
-- **Monitor Continuously**: Implement real-time monitoring and alerting
-- **Document Everything**: Maintain comprehensive audit trails
-- **Train Users**: Provide security awareness training on account security
-
-### Integration Points
-
-- **Identity Provider (IdP)**: Centralized authentication and authorization
-- **HR Systems**: Joiner-mover-leaver process automation
-- **SIEM/SOC**: Security event monitoring and incident response
-- **Compliance Systems**: Audit trail collection and reporting
-
-## Compliance Mapping
-
-### PCI DSS v4.0.1
-- Requirement 8: Identify users and authenticate access to system components
-- Requirement 7: Restrict access to cardholder data by business need to know
-
-### Planned Mappings
-- **ISO 27001**: A.9 Access control
-- **SOC 2**: CC6 Logical and physical access controls
-- **NIST CSF**: PR.AC Identity Management, Authentication and Access Control
-
----
-
-*Effective account management forms the foundation of access security in the Secure Product Model. Start with user lifecycle automation and build comprehensive monitoring from there.*
+{{< rawhtml >}}
+<style>
+:root {
+    --primary-color: #002ebf;
+    --primary-dark: #001a80;
+    --secondary-color: #dfaa00;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-light: #ffffff;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-muted: #f1f5f9;
+    --border-color: #e2e8f0;
+    --shadow-md:
+        0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-xl:
+        0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+
+    /* Governance-specific colors */
+    --policy-color: #059669;
+    --oversight-color: #0891b2;
+    --scopedefinition-color: #7c3aed;
+    --protocol-color: #dc2626;
+
+    --policy-bg: #ecfdf5;
+    --oversight-bg: #f0f9ff;
+    --scopedefinition-bg: #f5f3ff;
+    --protocol-bg: #fef2f2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Hero Section */
+.governance-hero {
+    background: linear-gradient(
+        135deg,
+        var(--bg-secondary) 0%,
+        var(--bg-muted) 100%
+    );
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-icon {
+    margin-bottom: 2rem;
+}
+
+.hero-icon svg {
+    stroke: var(--primary-color);
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Main Grid Section */
+.governance-grid-section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Filter Buttons */
+.governance-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-btn:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Governance Grid */
+.governance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.governance-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.governance-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.card-header {
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.category-policy {
+    background: var(--policy-bg);
+    color: var(--policy-color);
+}
+
+.category-policy {
+    background: var(--policy-bg);
+    color: var(--policy-color);
+}
+
+.category-oversight {
+    background: var(--oversight-bg);
+    color: var(--oversight-color);
+}
+
+.category-scopedefinition {
+    background: var(--scopedefinition-bg);
+    color: var(--scopedefinition-color);
+}
+
+.category-protocol {
+    background: var(--protocol-bg);
+    color: var(--protocol-color);
+}
+
+.category-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.card-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.card-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+    color: var(--primary-color);
+}
+
+.card-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.card-footer {
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+.card-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.card-link:hover {
+    color: var(--primary-dark);
+}
+
+/* Stats Section */
+.governance-stats {
+    margin-bottom: 4rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.stat-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+}
+
+.stat-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.stat-link:hover {
+    color: var(--primary-dark);
+}
+
+/* Footer Section */
+.governance-footer-section {
+    background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--primary-dark) 100%
+    );
+    color: var(--text-light);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.footer-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-content p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+
+.footer-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.footer-stat {
+    text-align: center;
+}
+
+.footer-stat strong {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.footer-stat span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .governance-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .governance-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-stats {
+        gap: 2rem;
+        flex-direction: column;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation for filtering */
+.governance-card.hidden {
+    display: none;
+}
+
+.governance-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+<div class="governance-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+            </div>
+            <h1 class="hero-title">Account Management</h1>
+            <p class="hero-subtitle">Controls related to user account management, access provisioning, and account lifecycle processes.</p>
+            <p class="hero-description">
+                Explore 9 governance items in this category. Each item provides specific guidance
+                for implementing account management within your security program.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="governance-grid-section">
+    <div class="container">
+        <h2 class="section-title">Account Management Items</h2>
+        <p class="section-subtitle">9 governance items to strengthen your security framework</p>
+
+        <div class="governance-grid" id="governanceGrid">
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/account-lockout/">Account lockout</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/account-lockout/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/default-accounts-are-deleted-or-disabled-no-default-permissions-deny-all/">Default accounts are deleted or disabled No default permissions (deny all)</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/default-accounts-are-deleted-or-disabled-no-default-permissions-deny-all/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/elevated-access/">Elevated access</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/elevated-access/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/group-or-shared-accounts-are-either-deleted-or-disabled-system-service-accounts-can't-be-used-by-users/">Group or Shared accounts are either deleted or disabled System/service accounts can't be used by users</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/group-or-shared-accounts-are-either-deleted-or-disabled-system-service-accounts-can't-be-used-by-users/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/inactive-accounts-disabled-removed/">Inactive accounts disabled/removed</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/inactive-accounts-disabled-removed/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/least-priviledge-access/">Least priviledge access</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/least-priviledge-access/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/revoke-accounts-on-termination/">Revoke accounts on termination</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/revoke-accounts-on-termination/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/separation-of-duties/">Separation of duties</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/separation-of-duties/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+            <div class="governance-card">
+                <div class="card-header">
+                    <div class="category-badge category-account">
+                        <div class="category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+
+                        </div>
+                        <span class="category-name">Account Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="/governance/account/session-timeout/">Session timeout</a>
+                    </h3>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/governance/account/session-timeout/" class="card-link">View Details →</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="governance-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+  <circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M15 19v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+</svg>
+</div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">9</h3>
+                        <p class="stat-label">Account Management Items</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"></div>
+                    <div class="stat-content">
+                        <h3 class="stat-number"></h3>
+                        <p class="stat-label">Total Governance</p>
+                        <a href="/governance/" class="stat-link">View all →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="governance-footer-section">
+    <div class="container">
+        <div class="footer-content">
+            <h2>Ready to implement account management?</h2>
+            <p>These 9 account management items provide comprehensive guidance for building a robust security program that meets compliance requirements and protects your organization.</p>
+            <div class="footer-stats">
+                <div class="footer-stat">
+                    <strong>9</strong>
+                    <span>Account Management Items</span>
+                </div>
+                <div class="footer-stat">
+                    <strong></strong>
+                    <span>Total Governance</span>
+                </div>
+                <div class="footer-stat">
+                    <strong>100%</strong>
+                    <span>Framework Coverage</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+{{< /rawhtml >}}
